@@ -1,0 +1,39 @@
+{
+  "name": "@mr-huang/vuepress-theme-weasel",
+  "version": "0.0.1",
+  "description": "A vuepress theme and tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo:dev": "pnpm recursive run dev --filter @mr-huang/weasel-theme-demo",
+    "demo:build": "pnpm recursive run build --filter @mr-huang/weasel-theme-demo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CavinHuang/vuepress-theme-weasel.git"
+  },
+  "keywords": [
+    "weasel",
+    "theme",
+    "vuepress"
+  ],
+  "author": "cavinHuang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CavinHuang/vuepress-theme-weasel/issues"
+  },
+  "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
+  "dependencies": {
+    "rollup": "^2.66.1",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "rollup-plugin-vue": "^6.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\vuepress-theme-hope"
+		}
+	],
+  "settings": {}
+}
