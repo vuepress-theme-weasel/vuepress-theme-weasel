@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": ["**/*.ts", "**/*.vue", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.vue"],
   "exclude": ["scripts/"]
 }
