@@ -1,5 +1,5 @@
 {
-  "name": "vuepress-theme-hope",
+  "name": "@mr-huang/vuepress-theme-weasel",
   "version": "2.0.0-alpha.7",
   "description": "A light vuepress theme with tons of features",
   "keywords": [
@@ -37,35 +37,10 @@
     "dev:ts": "tsc -b tsconfig.build.json --watch"
   },
   "dependencies": {
-    "@mr-hope/vuepress-plugin-components": "2.0.0-alpha.7",
-    "@mr-hope/vuepress-shared": "2.0.0-alpha.7",
-    "@types/lodash.throttle": "^4.1.6",
-    "@vuepress/client": "2.0.0-beta.35",
-    "@vuepress/core": "2.0.0-beta.35",
-    "@vuepress/plugin-active-header-links": "2.0.0-beta.35",
-    "@vuepress/plugin-container": "2.0.0-beta.35",
-    "@vuepress/plugin-external-link-icon": "2.0.0-beta.35",
-    "@vuepress/plugin-git": "2.0.0-beta.35",
-    "@vuepress/plugin-nprogress": "2.0.0-beta.35",
-    "@vuepress/plugin-palette": "2.0.0-beta.35",
-    "@vuepress/plugin-prismjs": "2.0.0-beta.35",
-    "@vuepress/plugin-theme-data": "2.0.0-beta.35",
-    "@vuepress/shared": "2.0.0-beta.35",
-    "@vuepress/utils": "2.0.0-beta.35",
-    "lodash.throttle": "^4.1.1",
-    "vue": "^3.2.29",
-    "vue-router": "^4.0.12",
-    "vuepress-plugin-comment2": "2.0.0-alpha.7",
-    "vuepress-plugin-copy-code2": "2.0.0-alpha.7",
-    "vuepress-plugin-feed2": "2.0.0-alpha.7",
-    "vuepress-plugin-md-enhance": "2.0.0-alpha.7",
-    "vuepress-plugin-photo-swipe": "2.0.0-alpha.7",
-    "vuepress-plugin-pwa2": "2.0.0-alpha.7",
-    "vuepress-plugin-sass-palette": "2.0.0-alpha.7",
-    "vuepress-plugin-seo2": "2.0.0-alpha.7",
-    "vuepress-plugin-sitemap2": "2.0.0-alpha.7"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
   }
 }
