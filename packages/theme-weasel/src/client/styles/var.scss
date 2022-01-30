@@ -1,0 +1,21 @@
+:root {
+  --main-color: RGBA(33,33,33);
+  --main-font-family: SimSun;
+  --main-font-color: var(--main-color);
+
+  // header background color
+  --h-bg-color: #212429;
+  // header height
+  --h-height: 52px;
+
+  // header banner margin left & right
+  --h-banner-margin-lr: 50px;
+  // header banner title color
+  --h-banner-title-color: #fff;
+  // header banner swiper pagination dot background color
+  --h-banner-pagination-color: RGBA(1,21,37, 0);
+  // header banner swiper active pagination dot background color
+  --h-banner-pagination-color-active: RGBA(1,21,37, 0.4);
+  // header banner height
+  --h-banner-height: 458px;
+}

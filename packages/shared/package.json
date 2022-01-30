@@ -1,0 +1,19 @@
+{
+  "name": "@mr-huang/vuepress-shared",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/node/index.js",
+  "types": "lib/node/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "clean": "rimraf ./lib ./*.tsbuildinfo",
+    "dev": "rollup -c -w",
+    "dev:ts": "tsc -b tsconfig.build.json --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vuepress/core": "^2.0.0-beta.35"
+  }
+}

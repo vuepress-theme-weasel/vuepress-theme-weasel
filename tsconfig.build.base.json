@@ -53,6 +53,6 @@
     "target": "es2020",
     // mininal node 16 support
     // "target": "es2021",
-    "types": ["jest", "node", "vite/client"]
+    "types": ["node", "vite/client"]
   }
 }

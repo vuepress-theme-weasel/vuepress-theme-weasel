@@ -19,6 +19,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   description: '愿世界和平！',
   public: path.resolve(__dirname, '../public'),
   debug: true,
+  theme: '@mr-huang/vuepress-theme-weasel',
   themeConfig: {
     // 编辑连接
     editLink: true,
