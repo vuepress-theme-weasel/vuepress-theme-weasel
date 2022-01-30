@@ -8,7 +8,14 @@ export default defineComponent({
       class: 'header-container'
     }, [
       h('div', {
-        class: 'header-menu-icon'
+        class: 'header-nav'
+      }, [
+        h('div', {
+          class: 'header-menu-icon'
+        })
+      ]),
+      h('div', {
+        class: 'header-background'
       })
     ])
   }
