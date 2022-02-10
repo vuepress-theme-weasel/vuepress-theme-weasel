@@ -11,6 +11,10 @@
     "dev": "rollup -c -w",
     "dev:ts": "tsc -b tsconfig.build.json --watch"
   },
+  "files": [
+    "lib",
+    "styles"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

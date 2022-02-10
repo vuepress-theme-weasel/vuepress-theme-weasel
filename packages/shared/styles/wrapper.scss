@@ -1,0 +1,15 @@
+@use "./config";
+
+@mixin wrapper($pad: config.$pad, $mobileS: config.$mobileS) {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+
+  @media (max-width: $pad) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: $mobileS) {
+    padding: 1rem 1.5rem;
+  }
+}

@@ -1,4 +1,6 @@
 import { defineComponent, h } from 'vue'
+import Banner from './banner'
+
 export default defineComponent({
   props: {
 
@@ -14,9 +16,10 @@ export default defineComponent({
           class: 'header-menu-icon'
         })
       ]),
-      h('div', {
-        class: 'header-background'
-      })
+      /**
+       * render banner
+       */
+      h(Banner)
     ])
   }
 })
