@@ -19,5 +19,10 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/core": "^2.0.0-beta.35"
+  },
+  "dependencies": {
+    "@vuepress/client": "^2.0.0-beta.35",
+    "@vuepress/plugin-theme-data": "2.0.0-beta.35",
+    "dayjs": "^1.10.7"
   }
 }

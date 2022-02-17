@@ -3,8 +3,9 @@ import { rollupTypescript, rollupVue } from "../../scripts/rollup";
 export default [
   ...rollupTypescript("node/index", {
     external: [
+      "@mr-huang/vuepress-shared",
       "@vuepress/utils"
-    ],
+    ]
   }),
 
   // ...rollupVue("client/components/navbar/Navbar.ts", {
@@ -79,7 +80,7 @@ export default [
     external: [
       "@mr-huang/vuepress-shared",
       "@vuepress/client",
-      // "@vuepress/plugin-theme-data/lib/client",
+      "@vuepress/plugin-theme-data/lib/client",
       "@vuepress/shared",
       "vue",
       "vue-router",

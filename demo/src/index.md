@@ -1,8 +1,9 @@
 ---
 home: true
+project: true
 icon: home
-title: 项目主页
-heroImage: ./logo.jpg
+title: 项目主页1
+heroImage: /public/logo.jpg
 heroText: 项目名称
 tagline: 你可以在这里放置或是整个项目的描述。
 actionText: 开始阅读 →

@@ -33,6 +33,18 @@ export default defineComponent({
       return h('div', {
         class: 'nav-bar__item'
       }, [
+        h('span', {
+          class: 'nav-bar__border'
+        }),
+        h('span', {
+          class: 'nav-bar__border'
+        }),
+        h('span', {
+          class: 'nav-bar__border'
+        }),
+        h('span', {
+          class: 'nav-bar__border'
+        }),
         h('h3', {
           class: 'nav-bar__text'
         }, item.text)

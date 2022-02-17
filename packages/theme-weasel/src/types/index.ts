@@ -1,1 +1,5 @@
 export * from './page'
+export * from './navbar'
+export * from './theme'
+export * from './options'
+export * from './locales'

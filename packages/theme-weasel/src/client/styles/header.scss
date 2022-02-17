@@ -7,6 +7,13 @@
   position: relative;
   .header-nav {
     height: var(--h-nav-height);
+    .header-menu-logo {
+      height: 100%;
+      line-height: var(--h-nav-height);
+      color: var(--h-logo-color);
+      font-size: var(--h-login-size);
+      margin-left: var(--h-banner-margin-lr);
+    }
   }
   .banner-container {
     position: absolute;
@@ -18,41 +25,6 @@
     overflow: hidden;
     img {
       width: 100%;
-    }
-  }
-}
-
-.nav-bar-container {
-  margin: var(--n-margin-top) var(--n-margin-lr) var(--n-margin-bottom) var(--n-margin-lr);
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .nav-logo {
-    width: 160px;
-  }
-  .nav-bar-wrap {
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 0 var(--n-item-margin-lr);
-  }
-  .nav-logo {
-    font-size: 22px;
-    line-height: var(--n-item-height);
-  }
-  .nav-bar__item {
-    background: var(--n-item-bg-color);
-    width: var(--n-item-width);
-    height: var(--n-item-height);
-    line-height: var(--n-item-height);
-    margin: 0 var(--n-item-margin-lr);
-    padding: 4px 24px;
-    font-size: 16px;
-    .nav-bar__text {
-      line-height: var(--n-item-height);
-      margin: 0;
     }
   }
 }

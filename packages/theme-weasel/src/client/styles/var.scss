@@ -10,6 +10,8 @@
   --h-height: 272px;
   // header nav height
   --h-nav-height: 52px;
+  --h-logo-color: rgba(255, 255, 255, 0.5);
+  --h-login-size: 18px;
 
   // header banner margin left & right
   --h-banner-margin-lr: 3%;
@@ -31,4 +33,13 @@
   --n-item-width: 180px;
   --n-item-height: 36px;
   --n-item-margin-lr: 16px;
+
+  // footer
+  --f-bg-color: RGB(51, 51, 51);
+  --f-content-height: 70px;
+  --f-copyright-height: 80px;
+  --f-margin-top: 40px;
+  --f-padding-lr: var(--h-banner-margin-lr);
+  --f-padding-tt: 50px;
+  --f-color: rgba(255, 255, 255, 0.9);
 }

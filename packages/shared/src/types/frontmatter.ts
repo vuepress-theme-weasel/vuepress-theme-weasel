@@ -1,10 +1,25 @@
+/*
+ * frontmatter
+ * @Author: cavinHuang
+ * @Date: 2022-01-30 14:17:53
+ * @LastEditTime: 2022-02-15 17:48:33
+ * @LastEditors: cavinHuang
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vuepress-theme-Weasel\packages\shared\src\types\frontmatter.ts
+ */
 import type { PageFrontmatter } from "@vuepress/core";
+import { Author } from "./author";
+
+export interface HomeFeature {
+  title: string
+  details?: string
+}
 
 export interface BasePageFrontMatter extends PageFrontmatter {
   /** Page icon */
   icon?: string;
   /** Page Author(s) */
-  // author?: Author | false;
+  author?: Author | false;
   /** Whether the content is original */
   original?: boolean;
   /**
@@ -50,6 +65,11 @@ export interface BasePageFrontMatter extends PageFrontmatter {
   home?: boolean;
 
   /**
+   * 是否是项目主页
+   */
+  project?: boolean;
+
+  /**
    * @deprecated use `date` instead
    */
   time?: Date | string;
@@ -62,4 +82,8 @@ export interface BasePageFrontMatter extends PageFrontmatter {
    * @deprecated use `tag` instead
    */
   tags?: string[];
+  /**
+   * 特性
+   */
+  features?: HomeFeature[]
 }

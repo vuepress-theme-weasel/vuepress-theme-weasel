@@ -1,7 +1,7 @@
 import { defineComponent, h } from 'vue'
 import Header from './header'
 import NavBar from './navBar'
-import { usePageFrontmatter, Content } from '@vuepress/client'
+import { usePageFrontmatter } from '@vuepress/client'
 import { WeaselThemePageFrontmatter } from '../../types'
 import MarkdownContent from './markdownContent'
 
