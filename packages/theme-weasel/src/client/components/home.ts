@@ -47,7 +47,7 @@ export default defineComponent({
         /**
          * render content
          */
-        h(MarkdownContent)
+        h(MarkdownContent, { class: 'home-container' })
       ])
     ])
   }

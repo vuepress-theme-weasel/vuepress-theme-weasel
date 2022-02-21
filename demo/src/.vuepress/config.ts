@@ -15,8 +15,12 @@ const isProd = process.env.NODE_ENV === "production"
 export default defineUserConfig<DefaultThemeOptions>({
   base,
   lang: 'zh-CN',
-  title: 'CavinHuangNote笔记',
-  description: '愿世界和平！',
+  locales: {
+    '/': {
+      title: 'CavinHuangNote笔记',
+      description: '愿世界和平！',
+    }
+  },
   public: path.resolve(__dirname, '../public'),
   debug: true,
   theme: '@mr-huang/vuepress-theme-weasel',

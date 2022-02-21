@@ -12,22 +12,22 @@
 @use './empty' as palette;
 
 $defaultVariables: meta.module-variables("defaultPalette");
-$userVariables: meta.module-variables("palette");
+  $userVariables: meta.module-variables("palette");
 
-$variables: map.deep-merge($defaultVariables, $userVariables);
+  $variables: map.deep-merge($defaultVariables, $userVariables);
 
-@each $name, $value in $variables {
-  $key: helper.camel-to-kebab($name);
+  @each $name, $value in $variables {
+    $key: helper.camel-to-kebab($name);
 
-  // simple length
-  @if meta.type-of($value) == number or meta.type-of($value) == string {
-    :root {
-      #{$key}: #{$value};
+    // simple length
+    @if meta.type-of($value) == number or meta.type-of($value) == string {
+      :root {
+        #{$key}: #{$value};
+      }
+    } @else if helper.color-islegal($value) {
+      @include helper.inject-color($key, $value, $darkSelector: "html.dark");
     }
-  } @else if helper.color-islegal($value) {
-    @include helper.inject-color($key, $value, $darkSelector: "html.dark");
   }
-}
 
 .project-home {
   display: block;

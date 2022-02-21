@@ -6,6 +6,14 @@
   padding-bottom: 1.5rem;
 }
 
+.theme-home-container {
+  background: var(--home-bg-color);
+}
+
+.content-container .home-container.theme-default-content {
+  max-width: none;
+}
+
 .weasel-features {
   display: flex;
   flex-wrap: wrap;

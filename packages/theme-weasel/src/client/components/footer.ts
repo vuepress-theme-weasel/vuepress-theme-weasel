@@ -1,4 +1,4 @@
-import { Content, usePageFrontmatter } from '@vuepress/client'
+import { usePageFrontmatter } from '@vuepress/client'
 import { defineComponent, h } from 'vue'
 import { WeaselThemePageFrontmatter } from '../../types'
 export default defineComponent({
@@ -7,13 +7,12 @@ export default defineComponent({
   },
   setup() {
     const frontmatter = usePageFrontmatter<WeaselThemePageFrontmatter>()
+
+    console.log('frontmatter', frontmatter.value)
+
     const footerCopyright = () => frontmatter.value.footer ? h('div', {
         class: 'footer'
-      }, frontmatter.value.footer) :
-      h(Content, {
-        'slot-key': 'footer',
-        class: 'footer'
-      })
+      }, frontmatter.value.footer) : null
     const footerContact = () => {
       return h('div', {
         class: 'contact-item'

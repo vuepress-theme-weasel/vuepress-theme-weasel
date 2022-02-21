@@ -1,5 +1,5 @@
 {
-  "name": "@mr-huang/vuepress-theme-weasel",
+  "name": "vuepress-weasel-all",
   "version": "0.0.1",
   "description": "A vuepress theme and tools",
   "main": "index.js",
@@ -25,9 +25,6 @@
   "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.1.3",
-    "@vuepress/core": "^2.0.0-beta.35",
-    "@vuepress/plugin-theme-data": "^2.0.0-alpha.25",
-    "@vuepress/utils": "^2.0.0-beta.35",
     "rollup": "^2.66.1",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.5.5",
@@ -35,10 +32,8 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-typescript": "^8.3.0",
-    "@vuepress/client": "^2.0.0-beta.35",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-styles": "^4.0.0",
