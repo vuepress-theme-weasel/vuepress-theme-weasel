@@ -1,5 +1,6 @@
 ---
 home: true
+blog: true
 project: false
 icon: home
 title: 项目主页1

@@ -1,4 +1,4 @@
-@use './config.scss';
+@use 'config';
 @use "fonts/crimson.css";
 
 html,
@@ -35,17 +35,6 @@ a {
 p a code {
   font-weight: 400;
   color: var(--accent-color);
-}
-
-kbd {
-  padding: 0 0.15em;
-  border: solid 0.15rem var(--grey14);
-  border-bottom: solid 0.25rem var(--grey14);
-  border-radius: 0.15rem;
-
-  background: var(--bg-color-light);
-
-  font-family: var(--font-family-code);
 }
 
 code {

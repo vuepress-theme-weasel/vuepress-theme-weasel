@@ -1,5 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
+  "references": [
+    // -- APPEND NEW PACKAGE --
+    { "path": "./packages/theme-weasel/tsconfig.build.json" }
+  ],
   "include": ["**/*.ts", "**/*.vue"],
-  "exclude": ["scripts/"]
+  "exclude": ["scripts/"],
+  "files": []
 }

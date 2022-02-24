@@ -1,58 +1,46 @@
 {
   "name": "@mr-huang/vuepress-theme-weasel",
   "version": "0.0.1",
-  "description": "A light vuepress theme with tons of features",
-  "keywords": [
-    "vuepress-theme",
-    "vuepress",
-    "theme",
-    "vuepress-blog",
-    "vuepress-theme-blog"
-  ],
-  "homepage": "https://",
-  "bugs": {
-    "url": "https://github.com/CavinHuang/vuepress-theme-weasel/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CavinHuang/vuepress-theme-weasel.git",
-    "directory": "packages/theme"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Mr.Huang",
-    "email": "huangchunmao1993@gmail.com",
-    "url": "https://zukmb.cn"
-  },
+  "description": "weasel theme",
   "main": "lib/node/index.js",
-  "types": "lib/node/index.d.ts",
-  "files": [
-    "lib"
-  ],
+  "typings": "lib/typings/index.d.ts",
+  "author": "mr-huang",
   "scripts": {
     "build": "rollup -c",
-    "clean": "rimraf ./lib ./*.tsbuildinfo",
-    "dev": "rollup -c -w",
-    "dev:copy": "cpx src/client/**/*.{vue,css,scss} lib/client -w",
-    "dev:ts": "tsc -b tsconfig.build.json --watch"
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "dist",
+    "typings",
+    "README"
+  ],
+  "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cavinHuang/vuepress-theme-weasel"
+  },
+  "bugs": {
+    "url": "https://github.com/cavinHuang/vuepress-theme-weasel/issues"
+  },
+  "keywords": [
+    "vue3",
+    "weasel",
+    "vuepress plugin",
+    "rollup",
+    "vuepress"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
-    "@types/lodash.throttle": "^4.1.6",
     "@vuepress/client": "^2.0.0-beta.35",
     "@vuepress/core": "^2.0.0-beta.35",
     "@vuepress/plugin-theme-data": "^2.0.0-beta.35",
     "@vuepress/utils": "^2.0.0-beta.35",
-    "lodash.throttle": "^4.1.1",
-    "vue": "^3.2.29",
-    "vue-router": "^4.0.12"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
-    "@vuepress/plugin-active-header-links": "2.0.0-beta.35",
-    "@vuepress/plugin-container": "2.0.0-beta.35",
-    "@vuepress/plugin-git": "2.0.0-beta.35"
+    "vue": "^3.2.29"
   }
 }

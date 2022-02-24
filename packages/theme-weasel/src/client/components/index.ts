@@ -1,2 +1,2 @@
-export * from './home'
-export * from './header'
+export * from './common'
+export * from './pages'

@@ -33,6 +33,5 @@ export default defineUserConfig<DefaultThemeOptions>({
     sidebar
   },
   plugins: [
-    ['@mr-huang/right-anchor']
   ]
 })

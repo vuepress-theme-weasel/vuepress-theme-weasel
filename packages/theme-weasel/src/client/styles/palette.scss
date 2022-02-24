@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "sass:list";
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:meta';
+
+@use 'helper';
+
+@use 'vars' as defaultPalette;
+@use './empty' as palette;
+@use './vars/palette.scss' as defaultNewPalette;
+
+// font vars
+$fontFamily: 'Georgia Pro, Crimson, Georgia, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", STHeiti, "Microsoft YaHei", SimSun, sans-serif' !default;
+$fontFamilyCode: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace' !default;
+
+$defaultVariables: meta.module-variables("defaultPalette");
+$userVariables: meta.module-variables("palette");
+
+$variables: map.deep-merge($defaultVariables, $userVariables);
+
+:root {
+  @each $name, $value in $variables {
+    $key: helper.camel-to-kebab($name);
+    // simple length
+    @if meta.type-of($value) == number or meta.type-of($value) == string {
+        #{$key}: #{$value};
+    } @else if helper.color-islegal($value) {
+      @include helper.inject-color($key, $value, $darkSelector: "html.dark");
+    }
+  }
+}
+
+$defaultNewVariables: meta.module-variables("defaultNewPalette");
+
+$newVariables: map.deep-merge($defaultNewVariables, $userVariables);
+
+@each $name, $value in $newVariables {
+  $key: helper.camel-to-kebab($name);
+
+  // simple length
+  @if meta.type-of($value) == number or meta.type-of($value) == string {
+    :root {
+      #{$key}: #{$value};
+    }
+  } @else if helper.color-islegal($value) {
+    @include helper.inject-color($key, $value, $darkSelector: "html.dark");
+  }
+}
+
+

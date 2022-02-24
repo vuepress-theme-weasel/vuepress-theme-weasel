@@ -1,8 +1,5 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "commonjs"
-  },
-  "include": ["scripts/**/*.ts"],
-  "exclude": []
+  "include": ["**/.vuepress/**/*", "packages/**/*", "*.config.ts"],
+  "exclude": ["node_modules", ".temp", "lib", "dist", "build"]
 }
