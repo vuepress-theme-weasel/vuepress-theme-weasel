@@ -60,10 +60,7 @@ export const buildTs = (
         },
       ],
       plugins: [
-        typescript({
-          tsconfig: path.resolve(pkgPath, `./tsconfig.json`),
-          sourceMap: !isProduction
-        }),
+        typescript(),
         // 编译样式文件 https://www.npmjs.com/package/rollup-plugin-styles
         ...(useStyle ? [styles()] : []),
         ...(resolve ? [nodeResolve({ preferBuiltins: true }), commonjs()] : []),

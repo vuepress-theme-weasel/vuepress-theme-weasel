@@ -1,9 +1,3 @@
-
-const transform = (...args) => {
-  const pkgName = args[1].name
-  return pkgName.replace(/vuepress-/ig, '')
-}
-
 module.exports = plop => {
   plop.setHelper('weasel', function (text) {
       return text.replace(text[0], text[0].toUpperCase())
@@ -14,7 +8,11 @@ module.exports = plop => {
       {
         type: 'input',
         name: 'name',
-        message: '请输入插件名(此名字会自动加上命名空间，作为npm包名)？'
+        message: '请输入插件名(此名字会自动加上命名空间，作为npm包名)？',
+        transformer: (name) => {
+          console.log(name)
+          return name.replace(/vuepress-/ig, '')
+        }
       }
     ],
     actions: [
@@ -26,68 +24,62 @@ module.exports = plop => {
       {
         type: 'add',
         path: 'packages/{{name}}/src/node/index.ts',
-        templateFile: 'templates/src/node/index.hbs',
-        transform
+        templateFile: 'templates/src/node/index.hbs'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/.gitignore',
-        templateFile: 'templates/.gitignore',
-        transform
+        templateFile: 'templates/.gitignore'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/src/client/index.ts',
-        templateFile: 'templates/src/client/index.hbs',
-        transform
+        templateFile: 'templates/src/client/index.hbs'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/package.json',
         templateFile: 'templates/package.hbs',
-        transform
+        transform: (content, args) => {
+          const name = args.name
+          const reg = new RegExp(`@mr-huang\/${name}`, 'ig')
+          return content.replace(reg, `@mr-huang\/vuepress-${name}`)
+        }
       },
       {
         type: 'add',
         path: 'packages/{{name}}/README.md',
-        templateFile: 'templates/README.hbs',
-        transform
+        templateFile: 'templates/README.hbs'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/src/typings/index.ts',
-        templateFile: 'templates/src/typings/index.hbs',
-        transform
+        templateFile: 'templates/src/typings/index.hbs'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/src/shared/index.ts',
-        templateFile: 'templates/src/shared/index.hbs',
-        transform
+        templateFile: 'templates/src/shared/index.hbs'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/tsconfig.build.json',
-        templateFile: 'templates/tsconfig.build.json',
-        transform
+        templateFile: 'templates/tsconfig.build.json'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/tsconfig.cjs.json',
-        templateFile: 'templates/tsconfig.cjs.json',
-        transform
+        templateFile: 'templates/tsconfig.cjs.json'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/tsconfig.esm.json',
-        templateFile: 'templates/tsconfig.esm.json',
-        transform
+        templateFile: 'templates/tsconfig.esm.json'
       },
       {
         type: 'add',
         path: 'packages/{{name}}/rollup.config.js',
-        templateFile: 'templates/rollup.config.hbs',
-        transform
+        templateFile: 'templates/rollup.config.hbs'
       },
       // {
       //   type: 'append',
@@ -99,8 +91,7 @@ module.exports = plop => {
         type: 'append',
         path: 'tsconfig.json',
         pattern: /(\/\/ -- APPEND NEW PACKAGE --)/gi,
-        template: "   { \"path\": \"./packages/{{name}}/tsconfig.build.json\" },",
-        transform
+        template: "   { \"path\": \"./packages/{{name}}/tsconfig.build.json\" },"
       }
     ]
   })

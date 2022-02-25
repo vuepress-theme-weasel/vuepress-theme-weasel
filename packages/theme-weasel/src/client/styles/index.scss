@@ -1,4 +1,8 @@
 // 初始化
+@use './vars';
+@use './code/index.scss';
 @use './normalize.scss';
 
-@use './palette.scss';
+@use "@weasel/palette";
+
+@use "@weasel/style";

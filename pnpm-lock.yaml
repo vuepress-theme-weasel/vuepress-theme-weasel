@@ -114,14 +114,44 @@ importers:
       '@vuepress/bundler-webpack': 2.0.0-beta.35
       vue: 3.2.29
 
+  packages/sass-palette:
+    specifiers:
+      '@mr-huang/vuepress-shared': workspace:^0.0.1
+      '@vuepress/core': 2.0.0-beta.35
+      '@vuepress/utils': 2.0.0-beta.35
+      sass: ^1.49.0
+      sass-loader: ^12.4.0
+    dependencies:
+      '@vuepress/utils': 2.0.0-beta.35
+      sass: 1.49.8
+      sass-loader: 12.6.0_sass@1.49.8
+    devDependencies:
+      '@mr-huang/vuepress-shared': link:../shared
+      '@vuepress/core': 2.0.0-beta.35
+
+  packages/shared:
+    specifiers:
+      '@vuepress/bundler-vite': ^2.0.0-beta.35
+      '@vuepress/core': ^2.0.0-beta.35
+      chalk: ^5.0.0
+      org: ^0.2.0
+    dependencies:
+      chalk: 5.0.0
+      org: 0.2.0
+    devDependencies:
+      '@vuepress/bundler-vite': 2.0.0-beta.35_sass@1.49.8
+      '@vuepress/core': 2.0.0-beta.35
+
   packages/theme-weasel:
     specifiers:
+      '@mr-huang/vuepress-plugin-sass-palette': workspace:^0.0.1
       '@vuepress/client': ^2.0.0-beta.35
       '@vuepress/core': ^2.0.0-beta.35
       '@vuepress/plugin-theme-data': ^2.0.0-beta.35
       '@vuepress/utils': ^2.0.0-beta.35
       vue: ^3.2.29
     dependencies:
+      '@mr-huang/vuepress-plugin-sass-palette': link:../sass-palette
       '@vuepress/client': 2.0.0-beta.35
       '@vuepress/core': 2.0.0-beta.35
       '@vuepress/plugin-theme-data': 2.0.0-beta.35
@@ -3358,6 +3388,11 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  /chalk/5.0.0:
+    resolution: {integrity: sha512-/duVOqst+luxCQRKEo4bNxinsOQtMP80ZYm7mMqzuh5PociNL0PvmHFvREJ9ueYL2TxlHjBcmLCdmocx9Vg+IQ==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+    dev: false
 
   /change-case/3.1.0:
     resolution: {integrity: sha512-2AZp7uJZbYEzRPsFoa+ijKdvp9zsrnnt6+yFokfwEpeJm0xuJDVoxiRCAaTzyJND8GJkofo2IcKWaUZ/OECVzw==}
@@ -7507,6 +7542,10 @@ packages:
       log-symbols: 4.1.0
       strip-ansi: 6.0.1
       wcwidth: 1.0.1
+
+  /org/0.2.0:
+    resolution: {integrity: sha1-12N4OH3FBvuOPM/3OgrQTjr8Y5E=}
+    dev: false
 
   /os-tmpdir/1.0.2:
     resolution: {integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=}

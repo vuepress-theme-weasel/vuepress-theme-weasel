@@ -33,28 +33,7 @@
     @return true;
   }
 
-  // it's a shortcut config
-  @if (meta.type-of($value) == list and list.length($value) == 2) {
-    $isLegal: true;
-
-    @each $color in $value {
-      @if meta.type-of($color) != color {
-        $isLegal: false;
-      }
-    }
-
-    @if $isLegal {
-      @return true;
-    }
-
-    @debug "Unexpected value: getting #{$value}";
-
-    @return false;
-  }
-
   // it's a valid map color config
-  // @debug "查看当前的value: #{$value}";
-  // @debug "查看当前的value1234: #{$meta.type-of($value)}";
   @if (meta.type-of($value) == map) {
     @if (meta.type-of(map.get($value, "light")) == color) and
       (meta.type-of(map.get($value, "dark")) == color)
@@ -79,7 +58,7 @@
     }
   }
 
-  @debug "Unexpected value: getting #{$value}";
+  @warn "Unexpected value: getting #{$value}";
 
   @return false;
 }
@@ -89,10 +68,6 @@
     @return $color;
   }
 
-  @if meta.type-of($color) == list {
-    @return list.nth($color, if($isDark, 2, 1));
-  }
-
   $lightColor: map.get($color, "light");
   $darkColor: map.get($color, "dark");
 
@@ -100,29 +75,15 @@
     @return if($isDark, $darkColor, $lightColor);
   }
 
-  $base: map.get($color, "base");
-
-  @if $base {
-    @return get-color($base, $isDark);
-  }
-
-  @debug "Unexpected color: getting #{$color}";
+  @warn "Unexpected color: getting #{$color}";
 
   @return transparent;
 }
 
-@mixin inject-color($key, $config, $darkSelector) {
+@mixin inject-color($key, $config, $darkSelector: "") {
   @if meta.type-of($config) == color {
     :root {
       #{$key}: #{$config};
-    }
-  } @else if meta.type-of($config) == list {
-    :root {
-      #{$key}: list.nth($config, 1);
-    }
-
-    #{$darkSelector} {
-      #{$key}: list.nth($config, 2);
     }
   } @else {
     $lightColor: map.get($config, "light");
@@ -133,30 +94,9 @@
         #{$key}: #{$lightColor};
       }
 
-      @if $lightColor != $darkColor {
+      @if $lightColor != $darkColor and $darkSelector {
         #{$darkSelector} {
           #{$key}: #{$darkColor};
-        }
-      }
-    } @else {
-      $base: map.get($config, "base");
-      $scale: map.get($config, "scale");
-      $baseLight: get-color($base);
-      $baseDark: get-color($base, $isDark: true);
-
-      @include inject-color($key, $base, $darkSelector);
-
-      @each $subkey, $amount in $scale {
-        $keyName: #{$key}-#{$subkey};
-
-        :root {
-          #{$keyName}: #{color.scale($baseLight, $lightness: $amount)};
-        }
-
-        @if $baseLight != $baseDark {
-          #{$darkSelector} {
-            #{$keyName}: #{color.scale($baseDark, $lightness: $amount)};
-          }
         }
       }
     }
