@@ -23,7 +23,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   },
   public: path.resolve(__dirname, '../public'),
   debug: true,
-  theme: '@mr-huang/vuepress-theme-weasel',
+  theme: 'weasel',
   themeConfig: {
     // 编辑连接
     editLink: true,

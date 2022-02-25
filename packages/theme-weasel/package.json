@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "weasel theme",
   "main": "lib/node/index.js",
-  "typings": "lib/typings/index.d.ts",
+  "typings": "lib/node/index.d.ts",
   "author": "mr-huang",
   "scripts": {
     "build": "pnpm build:ts && pnpm build:copy",

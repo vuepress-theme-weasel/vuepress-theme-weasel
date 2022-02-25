@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "dev": "vuepress-vite dev src",
+    "build": "vuepress-vite build src"
   },
   "repository": {
     "type": "git",
@@ -27,11 +27,10 @@
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
     "@vuepress/client": "^2.0.0-beta.35",
     "@vuepress/utils": "^2.0.0-beta.35",
-    "vuepress": "^2.0.0-beta.35"
+    "vuepress": "^1.9.7"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-beta.35",
-    "@vuepress/bundler-webpack": "^2.0.0-beta.35",
-    "vue": "^3.2.29"
+    "@vuepress/bundler-webpack": "^2.0.0-beta.35"
   }
 }

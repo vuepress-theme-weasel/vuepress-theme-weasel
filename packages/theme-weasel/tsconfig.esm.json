@@ -11,5 +11,5 @@
     },
     "types": ["@vuepress/client/types"]
   },
-  "include": ["./src/client", "./src/shared", "./src/*.d.ts"]
+  "include": ["./src/client", "./src/shared","./src/typings", "./src/*.d.ts"]
 }
