@@ -1,0 +1,72 @@
+@use "@sass-palette/weasel-config" as config;
+@use "@mr-huang/vuepress-plugin-sass-palette/styles/wrapper";
+
+.blog-body-container {
+  min-height: 100vh;
+  background: var(--b-home-bg-color);
+}
+.theme-container {
+  &.no-navbar {
+    .page {
+      padding-top: 0;
+    }
+
+    .sidebar {
+      top: 0;
+
+      @media (max-width: config.$mobile) {
+        top: 0;
+      }
+    }
+  }
+
+  &.no-sidebar {
+    @media (min-width: (config.$mobile + 1px)) {
+      .page {
+        padding-left: 0;
+      }
+
+      .sidebar {
+        display: none;
+      }
+    }
+  }
+}
+
+.theme-weasel-content {
+  background-color: rgba(255, 255, 255, 1);
+  &.custom {
+    padding: 0;
+    margin: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &:not(.custom) {
+    padding: 2rem 2.5rem;
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track-piece {
+  background: rgba(0,0,0,.1);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #AAA;
+}

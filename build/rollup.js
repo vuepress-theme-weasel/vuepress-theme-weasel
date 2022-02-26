@@ -25,6 +25,8 @@ export const buildTs = (
   {
     // 剥离第三方依赖
     external = [],
+    // 是否构建到bundle
+    isBundle = false,
     // 第三方.d.ts依赖剥离
     dtsExternal = [],
     // 是否编译样式
@@ -42,9 +44,9 @@ export const buildTs = (
   } = {}
 ) => {
   const pkgPath = process.cwd()
-  const pkg = require(path.resolve(pkgPath, 'package.json'))
   const inputFile = path.resolve(pkgPath, `src/${filePath}.ts`)
   const outFormat = filePath.startsWith("node/") ? "cjs" : "esm"
+  const outDir = isBundle ? './bundle/' : './lib/'
   console.log(inputFile + '当前输出=>', outFormat)
   return [
     {
@@ -52,7 +54,7 @@ export const buildTs = (
       output: [
         {
           // file: path.resolve(pkgPath, pkg.main),
-          file: `./lib/${filePath}.js`,
+          file: `${outDir}${filePath}.js`,
           format: outFormat,
           sourcemap: !isProduction,
           exports: "named",
@@ -78,8 +80,8 @@ export const buildTs = (
               rollupCopy({
                 targets: copy.map((item) =>
                   typeof item === "string"
-                    ? { src: `./src/${item}`, dest: `./lib/${item}` }
-                    : { src: `./src/${item[0]}`, dest: `./lib/${item[1]}` }
+                    ? { src: `./src/${item}`, dest: `${outDir}${item}` }
+                    : { src: `./src/${item[0]}`, dest: `${outDir}${item[1]}` }
                 ),
               }),
             ]
@@ -99,7 +101,7 @@ export const buildTs = (
     },
     {
       input: `./src/${filePath}.ts`,
-      output: [{ file: `./lib/${filePath}.d.ts`, format: "esm" }],
+      output: [{ file: `${outDir}${filePath}.d.ts`, format: "esm" }],
       plugins: [dts()],
       external: dtsExternal,
     },
@@ -117,6 +119,8 @@ export const buildVue = (
   {
     // 是否开启生成d.ts
     dts: enableDts = true,
+    // 是否构建到bundle
+    isBundle = false,
     // 剥离第三方依赖
     external = [],
     // 第三方.d.ts依赖剥离
@@ -136,13 +140,14 @@ export const buildVue = (
   const temp = filePath.split(".")
   const ext = temp.pop()
   const filename = temp.join(".")
+  const outDir = isBundle ? './bundle/' : './lib/'
 
   return [
     {
       input: `./src/${filePath}`,
       output: [
         {
-          file: `./lib/${filename}.js`,
+          file: `${outDir}${filename}.js`,
           format: filePath.includes("/node/") ? "cjs" : "esm",
           sourcemap: !isProduction,
           exports: "named",
@@ -176,8 +181,8 @@ export const buildVue = (
               rollupCopy({
                 targets: copy.map((item) =>
                   typeof item === "string"
-                    ? { src: `./src/${item}`, dest: `./lib/${item}` }
-                    : { src: `./src/${item[0]}`, dest: `./lib/${item[1]}` }
+                    ? { src: `./src/${item}`, dest: `${outDir}${item}` }
+                    : { src: `./src/${item[0]}`, dest: `${outDir}${item[1]}` }
                 ),
               }),
             ]
@@ -199,7 +204,7 @@ export const buildVue = (
       ? [
           {
             input: `./src/${filePath}`,
-            output: [{ file: `./lib/${filename}.d.ts`, format: "esm" }],
+            output: [{ file: `${outDir}${filename}.d.ts`, format: "esm" }],
             plugins: [dts()],
             external: dtsExternal,
             onwarn: function (warning) {
@@ -222,6 +227,8 @@ export const buildVue = (
     options: {
      // 剥离第三方依赖
       external: [],
+      // 是否构建到bundle
+      isBundle = false,
       // 第三方.d.ts依赖剥离
       dtsExternal: [],
       // 是否编译样式

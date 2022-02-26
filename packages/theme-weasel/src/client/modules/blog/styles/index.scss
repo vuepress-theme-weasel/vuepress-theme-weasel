@@ -1,0 +1,16 @@
+// 初始化
+@use './vars';
+
+@use './common.scss';
+
+@use './header.scss';
+
+@use './navbar.scss';
+
+@use './footer.scss';
+
+@use './home.scss';
+
+@use "@sass-palette/weasel-palette";
+
+@use "@sass-palette/weasel-style";

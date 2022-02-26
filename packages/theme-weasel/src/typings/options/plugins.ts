@@ -38,4 +38,9 @@ export interface WeaselThemePluginsOptions {
    * Enable @vuepress/plugin-prismjs or not
    */
   prismjs?: boolean;
+
+  /**
+   * Enable blog layout for vuepress
+   */
+  blog?: boolean
 }

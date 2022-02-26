@@ -1,7 +1,6 @@
 ---
 home: true
-blog: true
-project: false
+layout: Blog
 icon: home
 title: 项目主页1
 heroImage: /logo.png

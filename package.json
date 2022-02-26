@@ -5,6 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "dev:libs": "concurrently --kill-others \"pnpm run dev -C packages/shared\" \"pnpm run dev -C packages/sass-palette\" \"pnpm run dev -C packages/theme-weasel\"",
+    "dev:demo": "pnpm run dev -r --filter @mr-huang/weasel-theme-demo",
     "pkg-run": "node ./scripts/pnpm-run.js",
     "plop": "plop",
     "build": "yarn clean && rollup -c",

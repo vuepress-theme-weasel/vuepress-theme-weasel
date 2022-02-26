@@ -82,6 +82,9 @@
 
 @mixin inject-color($key, $config, $darkSelector: "") {
   @if meta.type-of($config) == color {
+    // @debug "=================================";
+    // @debug $key;
+    // @debug $config;
     :root {
       #{$key}: #{$config};
     }

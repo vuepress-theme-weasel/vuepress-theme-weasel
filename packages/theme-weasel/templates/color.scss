@@ -1,0 +1,88 @@
+@use "sass:list";
+@use "sass:map";
+
+$textColor: (
+  light: #2c3e50,
+  dark: #9e9e9e,
+) !default;
+
+$bgColor: (
+  light: #fff,
+  dark: #1e1e1e,
+) !default;
+
+$bgColorLight: (
+  light: #f8f8f8,
+  dark: #272727,
+) !default;
+
+$bgColorBlur: (
+  light: rgba(255, 255, 255, 0.9),
+  dark: rgba(30, 30, 30, 0.9),
+) !default;
+
+$borderColor: (
+  light: #eaecef,
+  dark: #302d28,
+) !default;
+
+// shadow
+$boxShadow: (
+  light: #f0f1f2,
+  dark: #0f0e0d,
+) !default;
+
+$cardShadow: (
+  light: rgba(0, 0, 0, 0.15),
+  dark: rgba(0, 0, 0, 0.3),
+) !default;
+
+$themeColor: #3eaf7c !default;
+
+// code
+$codeBgColor: (
+  light: #ecf4fa,
+  dark: #282c34,
+) !default;
+
+$codeLineColor: (
+  light: #3a5169,
+  dark: #8e8e8e,
+) !default;
+
+// contants
+
+$black: (
+  light: #000,
+  dark: #fff,
+) !default;
+
+$darkGrey: (
+  light: #666,
+  dark: #999,
+) !default;
+
+$lightGrey: (
+  light: #999,
+  dark: #666,
+) !default;
+
+$white: (
+  light: #fff,
+  dark: #000,
+) !default;
+
+$grey3: (
+  light: #333,
+  dark: #bbb,
+) !default;
+
+$grey12: (
+  light: #bbb,
+  dark: #333,
+) !default;
+
+$grey14: (
+  light: #eee,
+  dark: #111,
+) !default;

@@ -91,7 +91,6 @@ ${
     ? `@debug "${id} palette variables:";\n@debug $variables;\n@debug "${id} config variables:";\n@debug meta.module-variables("${id}-config");`
     : ""
 }
-
 @each $name, $value in $variables {
   $key: helper.camel-to-kebab($name);
 

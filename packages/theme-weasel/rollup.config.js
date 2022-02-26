@@ -8,6 +8,7 @@ export default buildConfig([
       external: [
         '@vuepress/utils',
         '@vuepress/plugin-theme-data',
+        '@mr-huang/vuepress-shared',
         "@mr-huang/vuepress-plugin-sass-palette"
       ]
     }
