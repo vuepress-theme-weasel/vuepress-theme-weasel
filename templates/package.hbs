@@ -12,7 +12,9 @@
   "author": "mr-huang",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
+    "dev:copy": "cpx src/client/**/*.{vue,scss} lib/client -w",
+    "dev:ts": "tsc -b tsconfig.build.json --watch"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel",
   "repository": {
