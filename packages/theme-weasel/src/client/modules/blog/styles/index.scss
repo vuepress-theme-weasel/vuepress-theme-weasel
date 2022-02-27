@@ -14,3 +14,13 @@
 @use "@sass-palette/weasel-palette";
 
 @use "@sass-palette/weasel-style";
+
+@use './layout.scss';
+
+@use './blogger-info.scss';
+
+@use './info-list.scss';
+
+@use './info-panel.scss';
+
+@use './social-media.scss';

@@ -44,6 +44,8 @@
     "@vuepress/core": "^2.0.0-beta.35"
   },
   "dependencies": {
+    "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "balloon-css": "^1.2.0",
     "chalk": "4.1.2",
     "ora": "5.4.1",
     "org": "^0.2.0",

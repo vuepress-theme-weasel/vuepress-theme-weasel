@@ -3,8 +3,13 @@
     <BlogHeader />
     <div class="content-container">
       <Navbar />
-      <Features />
-      <MarkdownContent />
+      <div class="blog-page-wrapper">
+        <main class="blog-home">
+          <Features />
+          <MarkdownContent />
+        </main>
+        <BlogPanel />
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +20,7 @@ import { Navbar } from '../../navbar'
 import { Features } from '../../features'
 import { usePageFrontmatter } from '@theme-weasel/composables'
 import { MarkdownContent } from '@theme-weasel/components'
+import { BlogPanel } from '../../blogInfo'
 
 const frontmatter = usePageFrontmatter()
 const features  = frontmatter.value.features || []

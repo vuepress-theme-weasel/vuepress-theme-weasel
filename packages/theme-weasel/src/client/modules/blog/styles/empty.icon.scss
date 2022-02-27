@@ -1,0 +1,11 @@
+.empty-icon {
+  #{weasel-config.$darkSelector} & {
+    g.people {
+      opacity: 0.8;
+    }
+
+    g:not(.people) {
+      filter: invert(80%);
+    }
+  }
+}

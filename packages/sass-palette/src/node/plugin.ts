@@ -9,7 +9,7 @@ const emptyFile = path.resolve(__dirname, "../../styles/empty.scss");
 
 export const sassPalettePlugin: Plugin<SassPaletteOptions> = (
   {
-    id = "hope",
+    id = "weasel",
     config = `.vuepress/styles/${id}-config.scss`,
     defaultConfig = path.resolve(__dirname, "../../styles/default/config.scss"),
     palette = `.vuepress/styles/${id}-palette.scss`,

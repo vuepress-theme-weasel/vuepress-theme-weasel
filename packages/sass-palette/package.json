@@ -42,7 +42,9 @@
     "dev:ts": "tsc -b tsconfig.build.json --watch"
   },
   "dependencies": {
+    "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
     "@vuepress/utils": "2.0.0-beta.35",
+    "balloon-css": "^1.2.0",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0"
   },
