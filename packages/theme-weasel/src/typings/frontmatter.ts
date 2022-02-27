@@ -56,16 +56,6 @@ export interface BasePageFrontMatter extends PageFrontmatter {
   home?: boolean;
 
   /**
-   * 是否是项目主页
-   */
-  project?: boolean;
-
-  /**
-   * 是否是博客的主页
-   */
-  blog?: boolean;
-
-  /**
    * @deprecated use `date` instead
    */
   time?: Date | string;
@@ -74,10 +64,12 @@ export interface BasePageFrontMatter extends PageFrontmatter {
    * @deprecated use `category` instead
    */
   categories?: string[];
+
   /**
    * @deprecated use `tag` instead
    */
   tags?: string[];
+
   /**
    * 特性
    */

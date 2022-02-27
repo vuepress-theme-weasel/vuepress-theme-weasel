@@ -1,4 +1,4 @@
-import { BasePageFrontMatter } from "@mr-hope/vuepress-shared";
+import { BasePageFrontMatter } from "@mr-huang/vuepress-theme-weasel/lib/typings/frontmatter"
 
 export interface BlogCategoryFrontmatterOptions {
   type: "category";
