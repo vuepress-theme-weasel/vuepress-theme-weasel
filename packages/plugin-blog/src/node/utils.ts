@@ -1,9 +1,8 @@
-import { Logger } from "@mr-hope/vuepress-shared";
+import { Logger } from '@mr-huang/vuepress-shared'
+import type { App } from '@vuepress/core'
+import type { BlogOptions, PageMap } from '../shared'
 
-import type { App } from "@vuepress/core";
-import type { BlogOptions, PageMap } from "../shared";
-
-export const logger = new Logger("vuepress-plugin-blog2");
+export const logger = new Logger('vuepress-plugin-blog2')
 
 export const getPageMap = (
   options: Partial<BlogOptions>,
@@ -12,16 +11,15 @@ export const getPageMap = (
   const {
     filter = (page): boolean =>
       Boolean(page.filePathRelative) && !page.frontmatter.home,
-  } = options;
-  const pageMap: PageMap = {};
+  } = options
+  const pageMap: PageMap = {}
 
   app.pages.filter(filter).forEach((page) => {
-    if (!pageMap[page.pathLocale]) pageMap[page.pathLocale] = [];
-    pageMap[page.pathLocale].push(page);
-  });
+    if (!pageMap[page.pathLocale]) pageMap[page.pathLocale] = []
+    pageMap[page.pathLocale].push(page)
+  })
 
-  return pageMap;
-};
+  return pageMap
+}
 
-export const removeLeadingSlash = (path: string): string =>
-  path.replace(/^\//, "");
+export const removeLeadingSlash = (path: string): string => path.replace(/^\//, '')

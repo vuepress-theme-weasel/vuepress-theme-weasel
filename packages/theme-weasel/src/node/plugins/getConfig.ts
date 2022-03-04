@@ -1,10 +1,13 @@
 import { App } from '@vuepress/core';
+import { blog } from "@mr-huang/vuepress-plugin-blog";
+
 import {
   resolveActiveHeaderLinksPluginOptions
   // resolveContainerPluginOptionsForCodeGroup,
   // resolveContainerPluginOptionsForCodeGroupItem,
   // resolveGitPluginOptions,
 } from './defaultPluginConfig'
+import { resolveBlogOptions } from './blog'
 
 import type { PluginConfig, PluginOptions } from '@vuepress/core'
 import type { WeaselThemeOptions, WeaselThemePluginsOptions } from '../../typings'
@@ -21,7 +24,8 @@ export const getPluginConfig = (
     // ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
     // ['@vuepress/nprogress', plugins.nprogress !== false],
     // ['@vuepress/prismjs', plugins.prismjs !== false],
-    ['@vuepress/theme-data', { themeData }]
+    ['@vuepress/theme-data', { themeData }],
+    blog(resolveBlogOptions(plugins.blog))
   ]
 
   // debug log

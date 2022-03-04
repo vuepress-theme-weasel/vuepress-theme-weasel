@@ -42,8 +42,11 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
     "@mr-huang/vuepress-plugin-sass-palette": "workspace:^0.0.1",
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1",
     "@vuepress/client": "^2.0.0-beta.35",
     "@vuepress/core": "^2.0.0-beta.35",
     "@vuepress/plugin-active-header-links": "^2.0.0-beta.35",

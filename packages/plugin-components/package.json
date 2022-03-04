@@ -35,9 +35,13 @@
     "access": "public"
   },
   "license": "MIT",
-  "peerDependencies": {
-  },
   "engines": {
     "node": ">=12"
+  },
+  "dependencies": {
+    "@mr-huang/vuepress-plugin-sass-palette": "workspace:^0.0.1",
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
+    "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1"
   }
 }

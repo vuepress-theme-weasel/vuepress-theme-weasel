@@ -45,10 +45,14 @@
   },
   "dependencies": {
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1",
+    "@vuepress/shared": "^2.0.0-beta.35",
     "balloon-css": "^1.2.0",
     "chalk": "4.1.2",
+    "dayjs": "^1.10.7",
     "ora": "5.4.1",
     "org": "^0.2.0",
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.12"
   }
 }

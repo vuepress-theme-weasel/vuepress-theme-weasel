@@ -119,7 +119,9 @@
     "vue": "^3.2.29"
   },
   "dependencies": {
+    "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1",
     "@vuepress/client": "^2.0.0-beta.35",
     "balloon-css": "^1.2.0",
     "rimraf": "^3.0.2"

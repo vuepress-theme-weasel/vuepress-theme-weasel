@@ -14,7 +14,10 @@
     "build": "rollup -c",
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx src/client/**/*.{vue,scss} lib/client -w",
-    "dev:ts": "tsc -b tsconfig.build.json --watch"
+    "dev:ts": "tsc -b tsconfig.build.json --watch",
+    "demo:vite-build": "vuepress-vite build __tests__/demo",
+    "demo:vite-clean-serve": "vuepress-vite dev __tests__/demo --clean-cache",
+    "demo:vite-serve": "vuepress-vite dev __tests__/demo"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel",
   "repository": {
@@ -35,9 +38,12 @@
     "access": "public"
   },
   "license": "MIT",
-  "peerDependencies": {
-  },
   "engines": {
     "node": ">=12"
+  },
+  "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
+    "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1"
   }
 }
