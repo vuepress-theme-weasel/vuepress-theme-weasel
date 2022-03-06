@@ -9,3 +9,5 @@ export * from '../shared'
 export * from '../typings'
 
 export * from './locales'
+
+export * from './utils'

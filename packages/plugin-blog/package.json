@@ -12,7 +12,8 @@
   "author": "mr-huang",
   "scripts": {
     "build": "rollup -c",
-    "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
+    "clean": "rimraf ./lib ./*.tsbuildinfo",
+    "dev": "concurrently \"pnpm dev:clean\" \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx src/client/**/*.{vue,scss} lib/client -w",
     "dev:ts": "tsc -b tsconfig.build.json --watch",
     "demo:vite-build": "vuepress-vite build __tests__/demo",

@@ -1,8 +1,8 @@
-import { createPage } from "@vuepress/core";
-import { logger, removeLeadingSlash } from "./utils";
+import { createPage } from '@vuepress/core'
+import { logger, removeLeadingSlash } from './utils'
 
-import type { App, Page } from "@vuepress/core";
-import type { BlogOptions, CategoryMap, PageMap } from "../shared";
+import type { App, Page } from '@vuepress/core'
+import type { BlogOptions, CategoryMap, PageMap } from '../typings'
 
 const HMR_CODE = `
 if (import.meta.webpackHot) {
@@ -17,7 +17,7 @@ if (import.meta.hot) {
     __VUE_HMR_RUNTIME__.updateBlogCategory(categoryMap)
   })
 }
-`;
+`
 
 export const prepareCategory = (
   app: App,
@@ -27,8 +27,8 @@ export const prepareCategory = (
   const {
     category = [],
     slugify = (name: string): string =>
-      name.replace(/[ _]/g, "-").toLowerCase(),
-  } = options;
+      name.replace(/[ _]/g, '-').toLowerCase(),
+  } = options
 
   return Promise.all(
     category.map(
@@ -37,38 +37,38 @@ export const prepareCategory = (
           key,
           getter,
           sorter = (): number => -1,
-          path = "",
-          layout = "Layout",
-          itemPath = "",
-          itemLayout = "Layout",
+          path = '',
+          layout = 'Layout',
+          itemPath = '',
+          itemLayout = 'Layout',
         },
         index
       ) => {
-        if (typeof key !== "string" || !key) {
-          logger.error(`Invalid 'key' option ${key} in 'category[${index}]'`);
+        if (typeof key !== 'string' || !key) {
+          logger.error(`Invalid 'key' option ${key} in 'category[${index}]'`)
 
-          return null;
+          return null
         }
 
-        if (typeof getter !== "function") {
+        if (typeof getter !== 'function') {
           logger.error(
             `Invalid 'getter' option in 'category[${index}]', it should be a function!`
-          );
+          )
 
-          return null;
+          return null
         }
 
-        if (app.env.isDebug) logger.info(`Generating ${key} category.\n`);
+        if (app.env.isDebug) logger.info(`Generating ${key} category.\n`)
 
-        const categoryMap: CategoryMap = {};
-        const pagePaths: string[] = [];
+        const categoryMap: CategoryMap = {}
+        const pagePaths: string[] = []
         const getItemPath =
-          typeof itemPath === "function"
+          typeof itemPath === 'function'
             ? itemPath
             : (name: string): string =>
                 itemPath
                   .replace(/:key/g, slugify(key))
-                  .replace(/:name/g, slugify(name));
+                  .replace(/:name/g, slugify(name))
 
         for (const routeLocale in pageMap) {
           if (path) {
@@ -78,88 +78,88 @@ export const prepareCategory = (
               )}`,
               frontmatter: {
                 blog: {
-                  type: "category",
+                  type: 'category',
                   key,
                 },
                 layout,
               },
-            });
+            })
 
-            app.pages.push(mainPage);
-            pagePaths.push(mainPage.path);
+            app.pages.push(mainPage)
+            pagePaths.push(mainPage.path)
 
             categoryMap[routeLocale] = {
               path: mainPage.path,
               map: {},
-            };
+            }
           } else {
             categoryMap[routeLocale] = {
-              path: "",
+              path: '',
               map: {},
-            };
+            }
           }
 
-          const { map } = categoryMap[routeLocale];
-          const pageMapStore: Record<string, Page[]> = {};
+          const { map } = categoryMap[routeLocale]
+          const pageMapStore: Record<string, Page[]> = {}
 
           for (const page of pageMap[routeLocale]) {
-            const categories = getter(page);
+            const categories = getter(page)
 
             for (const category of categories) {
               if (!map[category]) {
-                const itemPath = getItemPath(category);
+                const itemPath = getItemPath(category)
 
                 if (itemPath) {
                   const page = await createPage(app, {
                     path: `${routeLocale}${removeLeadingSlash(itemPath)}`,
                     frontmatter: {
                       blog: {
-                        type: "category",
+                        type: 'category',
                         name: category,
                         key,
                       },
                       layout: itemLayout,
                     },
-                  });
+                  })
 
-                  app.pages.push(page);
-                  pagePaths.push(page.path);
+                  app.pages.push(page)
+                  pagePaths.push(page.path)
 
                   map[category] = {
                     path: page.path,
                     keys: [],
-                  };
+                  }
                 } else {
                   map[category] = {
-                    path: "",
+                    path: '',
                     keys: [],
-                  };
+                  }
                 }
 
-                pageMapStore[category] = [];
+                pageMapStore[category] = []
               }
 
-              pageMapStore[category].push(page);
+              pageMapStore[category].push(page)
             }
           }
 
           for (const category in pageMapStore)
             map[category].keys = pageMapStore[category]
               .sort(sorter)
-              .map(({ key }) => key);
+              .map(({ key }) => key)
 
           if (app.env.isDebug) {
-            let infoMessage = `Route ${routeLocale} in ${key} cateogry:\n`;
+            let infoMessage = `Route ${routeLocale} in ${key} cateogry:\n`
 
             for (const category in map) {
-              const { path, keys } = map[category];
+              const { path, keys } = map[category]
 
-              infoMessage += `name: ${category}; ${
-                path ? `path: ${path}; ` : ""
-              }items: ${keys.length}`;
+              infoMessage += `name: ${category} ${
+                path ? `path: ${path} ` : ''
+              }items: ${keys.length}`
             }
 
-            logger.info(infoMessage);
+            logger.info(infoMessage)
           }
         }
 
@@ -167,35 +167,35 @@ export const prepareCategory = (
           key,
           map: categoryMap,
           pagePaths,
-        };
+        }
       }
     )
   ).then(async (result) => {
-    const finalMap: Record<string, CategoryMap> = {};
-    const paths: string[] = [];
+    const finalMap: Record<string, CategoryMap> = {}
+    const paths: string[] = []
 
     result
       .filter(
         (
           item
         ): item is {
-          key: string;
-          map: CategoryMap;
-          pagePaths: string[];
+          key: string
+          map: CategoryMap
+          pagePaths: string[]
         } => item !== null
       )
       .forEach(({ key, map, pagePaths }) => {
-        finalMap[key] = map;
-        paths.push(...pagePaths);
-      });
+        finalMap[key] = map
+        paths.push(...pagePaths)
+      })
 
     await app.writeTemp(
       `blog/category.js`,
       `export const categoryMap = ${JSON.stringify(finalMap)}\n${HMR_CODE}`
-    );
+    )
 
-    if (app.env.isDebug) logger.info("All types generated.");
+    if (app.env.isDebug) logger.info('All types generated.')
 
-    return paths;
-  });
-};
+    return paths
+  })
+}

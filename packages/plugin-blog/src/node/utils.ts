@@ -1,8 +1,8 @@
 import { Logger } from '@mr-huang/vuepress-shared'
 import type { App } from '@vuepress/core'
-import type { BlogOptions, PageMap } from '../shared'
+import type { BlogOptions, PageMap } from '../typings'
 
-export const logger = new Logger('vuepress-plugin-blog2')
+export const logger = new Logger('@mr-huang/vuepress-plugin-blog')
 
 export const getPageMap = (
   options: Partial<BlogOptions>,

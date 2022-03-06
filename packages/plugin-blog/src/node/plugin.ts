@@ -13,7 +13,7 @@ import { prepareType } from './type'
 import { getPageMap, logger } from './utils'
 
 import type { Plugin, PluginConfig } from '@vuepress/core'
-import type { BlogOptions } from '../shared'
+import type { BlogOptions } from '../typings'
 
 export const blogPlugin: Plugin<BlogOptions> = (options, app) => {
   if (app.env.isDev)

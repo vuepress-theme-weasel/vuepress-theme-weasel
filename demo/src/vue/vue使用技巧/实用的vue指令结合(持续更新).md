@@ -4,6 +4,7 @@
 你可以将一些 css 样式抽象到指令中，也可以将一些 js 操作放到指令中去执行。就使用上来说，指令不用像组件一样需要引入和注册，注册后使用非常简洁方便。
 对于在项目中常用到的指令，在此做了一个合集介绍，附源码可以直接在项目中使用。
 
+<!-- more -->
 ## 元素点击范围扩展指令 `v-expandClick`
 
 使用该指令可以隐式的扩展元素的点击范围，由于借用伪元素实现，故不会影响元素在页面上的排列布局。
@@ -38,7 +39,7 @@ export function expandClick(el, binding) {
 | ---  | --- | ---   | --- | --- |
 | top, right, bottom, left | 上右下左扩展宽度（逗号分割），单位px | 10,10,10,10 | String | 否
 
-然后你可以在模板中任何元素上使用新的 `v-expandClick`: 
+然后你可以在模板中任何元素上使用新的 `v-expandClick`:
 
 ### 示例
 
@@ -52,7 +53,7 @@ export function expandClick(el, binding) {
   - 单击复制 v-copy
   - 双击复制 v-copy.dblclick
   - 点击icon复制 v-copy.icon
-  
+
 三种模式，不传参数时，默认使用单击复制。
 
 ### 源码
@@ -408,8 +409,8 @@ export default {
       backgroundColor = ERROR
     }
 
-    const targetTemplate = isDot 
-        ? `<div style="position:absolute;top:-5px;right:-5px;height:10px;width:10px;border-radius:50%;background:${backgroundColor}"></div>` 
+    const targetTemplate = isDot
+        ? `<div style="position:absolute;top:-5px;right:-5px;height:10px;width:10px;border-radius:50%;background:${backgroundColor}"></div>`
         : `<div style="background:${backgroundColor};position:absolute;top:-${HEIGHT / 2}px;right:-${HEIGHT / 2}px;height:${HEIGHT}px;min-width:${HEIGHT}px;border-radius:${HEIGHT / 2}px;text-align:center;line-height:${HEIGHT}px;color:#fff;padding:0 5px;">${value}</div>`
 
     el.style.position = el.style.position || 'relative'

@@ -105,6 +105,7 @@ importers:
 
   demo:
     specifiers:
+      '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@mr-huang/vuepress-theme-weasel': workspace:^0.0.1
       '@mr-huang/weasel-theme-demo': workspace:^0.0.1
       '@vuepress/bundler-vite': ^2.0.0-beta.35
@@ -116,6 +117,7 @@ importers:
       vuepress: ^2.0.0-beta.35
       vuepress-vite: ^2.0.0-beta.35
     dependencies:
+      '@mr-huang/vuepress-shared': link:../packages/shared
       '@mr-huang/vuepress-theme-weasel': link:../packages/theme-weasel
       '@mr-huang/weasel-theme-demo': 'link:'
       '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.35
@@ -203,6 +205,7 @@ importers:
   packages/theme-weasel:
     specifiers:
       '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
+      '@mr-huang/vuepress-plugin-components': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-sass-palette': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@mr-huang/vuepress-theme-weasel': workspace:^0.0.1
@@ -219,6 +222,7 @@ importers:
       vue: ^3.2.29
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:../plugin-blog
+      '@mr-huang/vuepress-plugin-components': link:../plugin-components
       '@mr-huang/vuepress-plugin-sass-palette': link:../sass-palette
       '@mr-huang/vuepress-shared': link:../shared
       '@mr-huang/vuepress-theme-weasel': 'link:'

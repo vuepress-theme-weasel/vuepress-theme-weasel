@@ -1,74 +1,74 @@
-// import type { Author } from "@mr-hope/vuepress-shared";
-// import { ReadingTime } from "vuepress-plugin-reading-time2";
+import type { Author } from '@mr-huang/vuepress-shared'
+// import { ReadingTime } from 'vuepress-plugin-reading-time2'
 
 export interface ArticleInfo extends Record<string, unknown> {
   /**
    * Type
    */
-  type: "article" | "page" | "slide";
+  type: 'article' | 'page' | 'slide'
 
   /**
    * Whether is encrypted
    */
-  isEncrypted?: boolean;
+  isEncrypted?: boolean
 
   /**
    * Whether is original
    */
-  isOriginal?: boolean;
+  isOriginal?: boolean
 
   /**
    * Article title
    */
-  title: string;
+  title: string
 
   /**
    * Page icon
    */
-  icon?: string;
+  icon?: string
 
   /**
    * Article author
    */
-  // author?: Author | false;
+  author?: Author | false
 
   /**
    * writing date info
    */
-  date?: Date;
+  date?: Date
 
   /**
    * article category
    */
-  category?: string[];
+  category?: string[]
 
   /**
    * Article tag
    */
-  tag?: string[];
+  tag?: string[]
 
   /**
    * Reading time info
    */
-  // readingTime?: ReadingTime;
+  // readingTime?: ReadingTime
 
   /**
    * article excerpt
    */
-  excerpt: string;
+  excerpt: string
 
   /**
    * Sticky info
    */
-  sticky?: number | boolean;
+  sticky?: number | boolean
 
   /**
    * Start info
    */
-  star?: number | boolean;
+  star?: number | boolean
 
   /**
    * Cover image
    */
-  cover?: string;
+  cover?: string
 }

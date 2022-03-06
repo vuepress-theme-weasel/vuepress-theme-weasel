@@ -1,6 +1,6 @@
-import { blogPlugin } from "./plugin";
+import { blogPlugin } from './plugin'
 
-export * from "./plugin";
-export * from "../shared";
+export * from './plugin'
+export * from '../typings'
 
-export default blogPlugin;
+export default blogPlugin

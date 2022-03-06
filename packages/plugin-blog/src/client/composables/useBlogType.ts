@@ -10,7 +10,7 @@ import type {
   BlogTypeData,
   BlogTypeFrontmatterOptions,
   TypeMap,
-} from '../../shared'
+} from '../../typings'
 
 // eslint-disable-next-line
 declare const __VUE_HMR_RUNTIME__: Record<string, any>
@@ -35,6 +35,7 @@ export const useBlogType = <
 
     const routes = router.getRoutes()
     const configMap = blogTypeMap.value[mapKey][routeLocale.value]
+    debugger
     const result: BlogTypeData<T> = {
       path: configMap.path,
       items: [],

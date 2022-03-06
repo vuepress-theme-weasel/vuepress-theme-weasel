@@ -1,5 +1,37 @@
+export interface WeaselThemeMetaLocateData {
+  /**
+   * Page nav - previous link
+   */
+  prev: string;
 
-export interface WeaselThemeLocaleOptions {
+  /**
+   * Page nav - next link
+   */
+  next: string;
+
+  /**
+   * Page meta - last updated config
+   *
+   * The text to replace the default "Last Updated"
+   */
+  lastUpdated: string;
+
+  /**
+   * Page meta - contributors config
+   *
+   * The text to replace the default "Contributors"
+   */
+  contributors: string;
+
+  /**
+   * Page meta - contributors config
+   *
+   * The text to replace the default "Edit this page"
+   */
+  editLink: string;
+}
+
+export interface WeaselThemeMetaLocaleOptions {
   /**
    * Whether to show "Last Updated" or not
    *

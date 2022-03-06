@@ -3,12 +3,12 @@ export * from './utils'
 
 
 import {
-  // capitalize,
+  capitalize,
   compareDate,
-  // getAuthor,
-  // getCategory,
+  getAuthor,
+  getCategory,
   getDate,
-  // getTag,
+  getTag,
   // isAbsoluteUrl,
   // isUrl,
   // strictCapitalize,
@@ -18,12 +18,12 @@ import {
 export * from './composables'
 export * from './utils'
 export {
-  // capitalize,
+  capitalize,
   compareDate,
-  // getAuthor,
-  // getCategory,
+  getAuthor,
+  getCategory,
   getDate,
-  // getTag,
+  getTag,
   // isAbsoluteUrl,
   // isUrl,
   // strictCapitalize,
