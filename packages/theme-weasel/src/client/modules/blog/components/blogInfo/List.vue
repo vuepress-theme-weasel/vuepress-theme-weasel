@@ -24,20 +24,6 @@
       </div>
     </DropTransition>
 
-    <DropTransition v-if="active === 'category'">
-      <div class="category-wrapper">
-        <div class="title">
-          <component :is="CategoryIcon"></component>
-          <span class="num">20</span>
-          分类
-        </div>
-        <hr />
-        <DropTransition :delay="0.04">
-          分类列表
-        </DropTransition>
-      </div>
-    </DropTransition>
-
     <DropTransition v-if="active === 'tag'">
       <div class="tag-wrapper">
         <div class="title">
@@ -68,11 +54,10 @@ import {
 } from "../icons"
 
 const buttons: {
-  key: "article" | "category" | "tag" | "timeline",
+  key: "article" | "tag" | "timeline",
   icon: FunctionalComponent
 }[] = [
   {key: 'article', icon: ArticleIcon},
-  {key: 'category', icon: CategoryIcon},
   {key: 'tag', icon: TagIcon},
   {key: 'timeline', icon: TimelineIcon},
 ]

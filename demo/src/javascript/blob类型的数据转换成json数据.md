@@ -1,6 +1,17 @@
-# Blob类型数据转换Json数据类型
+---
+title: Blob类型数据转换Json数据类型
+category:
+  - JavaScript
+  - Blob
+tag:
+  - JavaScript
+  - Blob
+  - 数据处理
+---
 
 > 'FileReader'对象允许Web应用程序异步读取存储在用户计算机上的文件的内容，使用'File'或'Blob'对象指定要读取的文件或数据。
+
+<!-- more -->
 
 ## 代码示例
 

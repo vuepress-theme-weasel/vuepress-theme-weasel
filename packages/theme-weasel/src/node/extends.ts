@@ -10,6 +10,7 @@ import type {
   WeaselThemeProjectHomePageFrontmatter,
   WeaselThemeNormalPageFrontmatter,
 } from '../typings'
+import { App } from '@vuepress/core'
 
 export const checkFrontmatter = (
   page: Page<WeaselThemePageData>,
@@ -73,13 +74,27 @@ export const checkFrontmatter = (
   }
 }
 
+/**
+ * 匹配出所有的Image Url
+ */
+const matchImageSource = (content: string) => {
+  var patt = /<img[^>]+src=['"]([^'"]+)['"]+/g;
+  var result = [],
+    temp;
+  while ((temp = patt.exec(content)) != null) {
+    result.push(temp[1])
+  }
+  return result
+}
+
 export const extendsPage = (
+  app: App,
   themeConfig: WeaselThemeConfig,
   plugins: WeaselThemePluginsOptions,
   page: Page<WeaselThemePageData>,
   isDev = false
 ): void => {
-  console.log('================', themeConfig)
+  if (app.env.isDebug) console.log('Theme themeConfig config:', themeConfig.author)
   // const { config = {} } = themeConfig.encrypt
   const frontmatter = page.frontmatter as
     | WeaselThemeProjectHomePageFrontmatter
@@ -132,6 +147,7 @@ export const extendsPage = (
     if ('author' in frontmatter) page.routeMeta.author = frontmatter.author
 
     // resolve date
+    console.log('frontmatter date =>', 'date' in frontmatter)
     if ('date' in frontmatter) page.routeMeta.date = frontmatter.date
     else if (createdTime) page.routeMeta.date = new Date(createdTime)
 
@@ -149,7 +165,9 @@ export const extendsPage = (
     if ('star' in frontmatter) page.routeMeta.star = frontmatter.star
 
     // resolve image
-    if ('cover' in frontmatter) page.routeMeta.image = frontmatter.cover
+    if ('cover' in frontmatter) page.routeMeta.cover = frontmatter.cover
+    const images = matchImageSource(page.contentRendered)
+    if (images.length) page.routeMeta.cover = images[0]
 
     // resolve isOriginal
     if ('isOriginal' in frontmatter)

@@ -10,7 +10,8 @@
   .blog-body-container & {
     position: sticky;
     box-sizing: border-box;
-    top: calc(var(--navbar-height) + 1rem);
+    // top: calc(var(--navbar-height) + 1rem);
+    top: 1rem;
     flex: 0 0 300px;
     height: auto;
     margin-bottom: 12px;

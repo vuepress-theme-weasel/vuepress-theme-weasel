@@ -39,6 +39,4 @@ const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped src="../styles/tag.scss"></style>

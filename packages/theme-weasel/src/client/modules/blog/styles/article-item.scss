@@ -124,6 +124,42 @@
     }
   }
 
+  .article-read-more {
+    display: block;
+    margin: 24px auto 16px auto;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    &::before {
+      content: '';
+      width: 2px;
+      height: 90%;
+      background: rgba($color: #000000, $alpha: 0.4);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 2px;
+    }
+    &::after {
+      content: '';
+      width: 2px;
+      height: 90%;
+      background: rgba($color: #000000, $alpha: 0.4);
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      border-radius: 2px;
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      transform: translateX(6px);
+    }
+  }
+
   .article-info {
     color: var(--dark-grey);
     font-size: 14px;

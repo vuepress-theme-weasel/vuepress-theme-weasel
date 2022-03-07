@@ -87,7 +87,7 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg, transparent, RGB(0,0,0));
+        background: linear-gradient(90deg, transparent, var(--theme-color));
         animation: animate1 1s linear infinite;
       }
       span:nth-child(2) {
@@ -96,7 +96,7 @@
         right: 0;
         width: 2px;
         height: 100%;
-        background: linear-gradient(180deg, transparent, RGB(0,0,0));
+        background: linear-gradient(180deg, transparent, var(--theme-color));
         animation: animate2 1s linear infinite;
         animation-delay: 0.25s;
       }
@@ -105,7 +105,7 @@
         bottom: 0;
         right: 0;
         width: 100%;
-        background: linear-gradient(270deg, transparent, RGB(0,0,0));
+        background: linear-gradient(270deg, transparent, var(--theme-color));
         animation: animate3 1s linear infinite;
         animation-delay: 0.5s;
       }
@@ -115,7 +115,7 @@
         left: 0;
         width: 2px;
         height: 100%;
-        background: linear-gradient(360deg, transparent, RGB(0,0,0));
+        background: linear-gradient(360deg, transparent, var(--theme-color));
         animation: animate4 1s linear infinite;
         animation-delay: 0.75s;
       }

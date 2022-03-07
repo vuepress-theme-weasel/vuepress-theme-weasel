@@ -28,7 +28,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   theme: '@mr-huang/vuepress-theme-weasel',
   themeConfig: {
     author: {
-      name: "Mr.Hope",
+      name: "Mr.Huang",
       url: "https://mrhope.site",
     },
     // 开启blog

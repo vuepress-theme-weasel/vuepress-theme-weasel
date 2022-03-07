@@ -5,9 +5,11 @@ import ArticleInfo from '@ArticleInfo'
 // import FullScreen from '@FullScreen';
 // import Pagination from '@Pagination';
 // import TOC from '@TOC';
+console.log('===++++++++++++++++================+', ArticleInfo)
 
 export default defineClientAppEnhance(({ app }) => {
-  if (ArticleInfo.name) app.component('ArticleInfo', ArticleInfo);
+  console.log('===++++++++++++++++================+', ArticleInfo.name)
+  app.component('ArticleInfo', ArticleInfo);
   // eslint-disable-next-line vue/multi-word-component-names
   // if (Badge.name) app.component('Badge', Badge);
   // if (BreadCrumb.name) app.component('BreadCrumb', BreadCrumb);

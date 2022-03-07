@@ -8,10 +8,6 @@ import { extendsPage } from './extends'
 import { handleThemeData } from './handleThemeData'
 
 export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
-  console.log('主题参数plugins:', plugins)
-  console.log('主题参数localOptions:', themeOptions)
-  console.log('主题参数app:', app)
-
   // 是否开启blog
   const enableBlog = Boolean(plugins.blog);
   // 使用前置插件
@@ -21,6 +17,7 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     name: 'vuepress-theme-weasel',
     alias: getAlias(app),
     extendsPage: (page) => extendsPage(
+      app,
       themeOptions as WeaselThemeConfig,
       plugins,
       page as Page<WeaselThemePageData>,

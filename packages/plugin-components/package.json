@@ -42,6 +42,8 @@
     "@mr-huang/vuepress-plugin-sass-palette": "workspace:^0.0.1",
     "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
-    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1"
+    "@mr-huang/weasel-theme-demo": "workspace:^0.0.1",
+    "lodash.debounce": "^4.0.8",
+    "screenfull": "^6.0.1"
   }
 }

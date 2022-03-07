@@ -35,7 +35,6 @@ export const useBlogType = <
 
     const routes = router.getRoutes()
     const configMap = blogTypeMap.value[mapKey][routeLocale.value]
-    debugger
     const result: BlogTypeData<T> = {
       path: configMap.path,
       items: [],

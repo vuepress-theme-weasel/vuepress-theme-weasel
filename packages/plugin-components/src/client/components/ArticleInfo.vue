@@ -1,19 +1,41 @@
 <template>
   <div class="article-info" v-if="config">
     <template v-for="(item, index) in config" :key="'component' + index">
-      <component :is="`${item}Info`" v-bind="$props" />
+      <component :is="resolveComponent(`${item}Info`)
+" v-bind="componentProp(item)" />
     </template>
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue'
+import AuthorInfo from './AuthorInfo.vue'
+import CategoryInfo from './CategoryInfo.vue'
+import DateInfo from './DateInfo.vue'
+import TagInfo from './TagInfo.vue'
+import OriginalInfo from './OriginalMark.vue'
+import ReadingTimeInfo from './ReadingTimeInfo.vue'
+export default defineComponent({
+  components: {
+    AuthorInfo,
+    CategoryInfo,
+    DateInfo,
+    TagInfo,
+    OriginalInfo,
+    ReadingTimeInfo
+  }
+})
+</script>
+
 <script lang="ts" setup>
-import { PropType } from 'vue'
+import { PropType, resolveComponent } from 'vue'
 import { ArticleInfo } from '../../typings'
 import type {
   AuthorInfo as AuthorInfoType,
   DateInfo as DateInfoType,
 } from '@mr-huang/vuepress-shared'
-defineProps({
+
+const props = defineProps({
   config: {
     type: [Array, Boolean] as PropType<ArticleInfo[] | false>,
     default: (): ArticleInfo[] => [
@@ -67,7 +89,15 @@ defineProps({
   //   default: () => null,
   // }
 })
+
+const componentProp = (item: ArticleInfo): any => {
+  const { author, hint, category, tag, isOriginal, date } = props
+  if (item === 'Author') return { author, hint }
+  if (item === 'Category') return { category, hint }
+  if (item === 'Tag') return { tag, hint }
+  if (item === 'Original') return { isOriginal }
+  if (item === 'Date') return { date, hint }
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped src="../styles/article-info.scss"></style>

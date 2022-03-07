@@ -1,0 +1,66 @@
+@use "sass:color";
+@use "sass:list";
+
+.tags-wrapper {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  .tag {
+    position: relative;
+
+    min-width: 1.5em;
+    margin: 0 0.2em;
+    padding: 0 0.2em;
+    border-width: 0.5px;
+    border-style: solid;
+    border-radius: 0.75em;
+
+    background: #f8f8f8;
+
+    font-size: 0.75em;
+    text-align: center;
+
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+
+    transition: all var(--color-transition, 0.3s);
+
+    #{weasel-config.$darkSelector} & {
+      background: #222;
+    }
+
+    &.clickable:hover {
+      cursor: pointer;
+      background: var(--c-bg, #fff);
+      box-shadow: 0 1px 6px 0 var(--card-shadow);
+    }
+  }
+
+  @each $color in weasel-config.$colors {
+    $index: list.index(weasel-config.$colors, $color) - 1;
+
+    .tag#{$index} {
+      & {
+        color: color.scale($color, $lightness: 10%);
+        border-color: color.scale($color, $lightness: 10%);
+
+        &.clickable:hover {
+          color: $color;
+          border-color: $color;
+        }
+      }
+
+      #{weasel-config.$darkSelector} & {
+        color: color.scale($color, $lightness: -10%);
+        border-color: color.scale($color, $lightness: - 10%);
+
+        &.clickable:hover {
+          color: $color;
+          border-color: $color;
+        }
+      }
+    }
+  }
+}

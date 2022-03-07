@@ -36,7 +36,7 @@ export const componentsPlugin: Plugin<ComponentOptions> = (options, app) => {
 
     alias: {
       '@ArticleInfo': options.articleInfo
-        ? path.resolve(__dirname, '../client/components/ArticleInfo.js')
+        ? path.resolve(__dirname, '../client/components/ArticleInfo.vue')
         : noopModule,
       '@BreadCrumb': options.breadcrumb
         ? path.resolve(__dirname, '../client/components/BreadCrumb.js')
@@ -76,12 +76,12 @@ export const componentsPlugin: Plugin<ComponentOptions> = (options, app) => {
 
     clientAppEnhanceFiles: path.resolve(__dirname, '../client/appEnhance.js'),
 
-    clientAppRootComponentFiles: options.backToTop
-      ? path.resolve(__dirname, '../client/root-components/BackToTop.js')
-      : undefined,
+    // clientAppRootComponentFiles: options.backToTop
+    //   ? path.resolve(__dirname, '../client/root-components/BackToTop.js')
+    //   : undefined,
   }
 }
 
 export const components = (
   options: ComponentOptions | false
-): PluginConfig<ComponentOptions> => ['@mr-huang/components', options]
+): PluginConfig<ComponentOptions> => ['@mr-huang/vuepress-plugin-components', options]

@@ -124,7 +124,7 @@ export const resolveGitPluginOptions = (
   }
 
   return {
-    createdTime: false,
+    createdTime: true,
     updatedTime: enableUpdatedTime,
     contributors: enableContributors,
   }

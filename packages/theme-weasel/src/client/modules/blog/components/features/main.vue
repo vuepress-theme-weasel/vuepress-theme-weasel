@@ -1,5 +1,5 @@
 <template>
-  <div class="weasel-features">
+  <div class="weasel-features" v-if="features.length">
     <Item v-for="(item, index) in features" :title="item.title" :details="item.details" :key="'feature' + index" />
   </div>
 </template>

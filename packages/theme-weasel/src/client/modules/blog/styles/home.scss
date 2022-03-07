@@ -103,7 +103,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 0 auto;
+    margin: 0 auto 1.25rem auto;
 
     @media (min-width: config.$mobile) {
       padding: 0 1rem;
@@ -121,6 +121,7 @@
       max-width: 780px;
       overflow: hidden;
       flex: 1;
+      padding-bottom: 1.25rem;
 
       @media (min-width: config.$mobile) {
         margin: 0 15px;

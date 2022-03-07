@@ -1,7 +1,7 @@
 <template>
   <span class="date-info" :aria-label="pageInfoLocale.date" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
     <CalendarIcon />
-    <span>{{ date?.display }}</span>
+    <span>{{ date && date.display }}</span>
     <meta property="datePublished" :content="date?.value?.toISOString() || ''"/>
   </span>
 </template>
@@ -27,8 +27,6 @@ defineProps({
 })
 
 const pageInfoLocale = useLocaleConfig(articleInfoLocales)
-
-
 </script>
 
 <style lang="scss" scoped>

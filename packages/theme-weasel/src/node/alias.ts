@@ -14,7 +14,6 @@ const getDirAlias = (dir: string): [string, string][] =>
       if (file.endsWith('.js')) {
         const _tmp = file.replace(/(?:\/index)?\.js$/, '').replace(/index$/, '')
         alias = _tmp !== '' ? '/' + _tmp : _tmp
-        console.log(file, '===========================', _tmp, alias)
       }
       return [
         `@theme-weasel/${dir}${alias}`,

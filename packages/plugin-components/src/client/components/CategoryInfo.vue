@@ -1,9 +1,9 @@
 <template>
-  <span class="category-info" :aria-label="pageInfoLocale.category" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
+  <span v-if="category.length" class="category-info" :aria-label="pageInfoLocale.category" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
     <CategoryIcon />
     <ul class="categories-wrapper">
       <li v-for="(item) in category" :key="item.name" :class="{ category: true, clickable: item.path}">
-      <span :role="item.path ? 'navigation' : ''">{item.name}</span></li>
+      <span :role="item.path ? 'navigation' : ''">{{item.name}}</span></li>
       <meta property="articleSection" :content="category.map((item: any) => item.name).join(' ,')" />
     </ul>
   </span>
@@ -37,6 +37,4 @@ const router = useRouter()
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped src="../styles/category.scss"></style>
