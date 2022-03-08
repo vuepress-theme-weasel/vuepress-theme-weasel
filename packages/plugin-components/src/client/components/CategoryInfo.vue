@@ -2,7 +2,14 @@
   <span v-if="category.length" class="category-info" :aria-label="pageInfoLocale.category" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
     <CategoryIcon />
     <ul class="categories-wrapper">
-      <li v-for="(item) in category" :key="item.name" :class="{ category: true, clickable: item.path}">
+      <li v-for="(item, index) in category" :key="item.name" :class="
+      ['category',
+        {
+          [`category${colorMap[index % 9]}`]: color,
+          clickable: item.path,
+        }
+      ]
+      ">
       <span :role="item.path ? 'navigation' : ''">{{item.name}}</span></li>
       <meta property="articleSection" :content="category.map((item: any) => item.name).join(' ,')" />
     </ul>
@@ -10,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import type { ArticleCategory } from '../../typings'
 import { articleInfoLocales } from '../define'
 import { CategoryIcon } from './Icons'
@@ -25,6 +32,10 @@ defineProps({
   hint: {
     type: Boolean,
     default: true
+  },
+  color: {
+    type: Boolean,
+    default: true,
   }
 })
 
@@ -32,9 +43,12 @@ const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 const route = useRoute()
 const router = useRouter()
 
- const navigate = (path = ""): void => {
+const navigate = (path = ""): void => {
   if (path && route.path !== path) void router.push(path)
 }
+
+const colorMap = ref(Array(9).fill(null).map((_, index) => index))
+
 </script>
 
 <style lang="scss" scoped src="../styles/category.scss"></style>

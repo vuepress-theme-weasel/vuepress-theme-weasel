@@ -1,7 +1,8 @@
 import { defineClientAppSetup } from '@vuepress/client'
 
-import { setupBlog } from './composables'
+import { setupBlog, setupStars } from './composables'
 
 export default defineClientAppSetup(() => {
   setupBlog()
+  setupStars()
 })

@@ -49,9 +49,13 @@
 
         &.active {
           background: var(--theme-color-light);
+          .icon {
+            color: rgba(255, 255, 255, 1);
+          }
 
           #{weasel-config.$darkSelector} & {
             background: var(--theme-color-dark);
+            color: rgba(255, 255, 255, 1);
           }
         }
 
