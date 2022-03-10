@@ -11,7 +11,7 @@
     "plop": "plop",
     "build": "yarn clean && rollup -c",
     "build:watch": "rollup -c -w",
-    "clean": "rimraf ./packages/**/lib",
+    "clean": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "commit": "git-cz",
     "release": "standard-version",
     "lint": "eslint ./packages --ext .vue,.js,.ts",
@@ -20,7 +20,8 @@
     "test": "jest --coverage",
     "deploy": "yarn build && pnpm publish",
     "demo:dev": "pnpm recursive run dev --filter @mr-huang/weasel-theme-demo",
-    "demo:build": "pnpm recursive run build --filter @mr-huang/weasel-theme-demo"
+    "demo:build": "pnpm recursive run build --filter @mr-huang/weasel-theme-demo",
+    "reset": "rimraf ./node_modules && pnpm run clean && rimraf ./packages/**/node_modules"
   },
   "repository": {
     "type": "git",

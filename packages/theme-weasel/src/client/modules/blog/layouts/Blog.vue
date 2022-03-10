@@ -12,7 +12,4 @@ import { usePageFrontmatter } from '../../../composables'
 const page = usePageData()
 const frontmatter = usePageFrontmatter()
 const isHome = frontmatter.value.home
-
-console.log('isHome', isHome)
-
 </script>
