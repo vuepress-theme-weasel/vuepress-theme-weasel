@@ -21,7 +21,16 @@ export type PluginType = 'slugify' | 'date' | 'customer'
 :hash	SHA1 hash of filename (same as :title) and date (12-hexadecimal)
 :slugify 拼音生成
  */
+export type SlugifyKey = ':slugify'
 export type PluginFormat = ':year' | ':month' | ':i_month' | ':day' | ':i_day' | ':hour' | ':minute' | ':second' | ':title' | ':name' | ':post_title' | ':id' | ':category' | ':hash' | ':slugify'
-export interface PluginConfig {
-  format:
+
+export interface PluginConfigCustomer {
+  format: PluginFormat
 }
+
+export interface PluginConfigSlugify {
+  format: PluginFormat,
+  options?: SlugifyOption
+}
+
+export type PermaLinkPluginConfig = PluginConfigSlugify

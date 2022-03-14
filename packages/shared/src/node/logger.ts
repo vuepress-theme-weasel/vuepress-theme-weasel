@@ -56,7 +56,10 @@ export class Logger {
    * @param text Loading hint text
    * @returns Ora Instance
    */
-  info(text = ""): ora.Ora {
+  info(text: any = ""): ora.Ora {
+    if (typeof text === 'object') {
+      text = JSON.stringify(text, null, 2)
+    }
     return (
       !text && this.currentInstance ? this.currentInstance : this.create(text)
     ).info();

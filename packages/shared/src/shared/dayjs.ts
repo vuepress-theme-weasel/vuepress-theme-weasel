@@ -126,5 +126,4 @@ const enLocale: Partial<Locale> = {
 
 Dayjs.locale("zh", zhLocale);
 Dayjs.locale("en", enLocale);
-
 export const dayjs = Dayjs;

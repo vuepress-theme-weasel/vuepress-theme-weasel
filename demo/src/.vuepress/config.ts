@@ -1,3 +1,4 @@
+import { permalinkPlugin } from './../../../packages/plugin-permalink/src/node/plugin';
 /**
  * vitpress 配置文件
  */
@@ -30,6 +31,9 @@ export default defineUserConfig<DefaultThemeOptions>({
     author: {
       name: "Mr.Huang",
       url: "https://mrhope.site",
+    },
+    permalink: {
+      format: ':year-:month-:day/:id'
     },
     // 开启blog
     blog: {

@@ -1,4 +1,4 @@
-import type { Page, Theme } from '@vuepress/core'
+import type { App, Page, Theme } from '@vuepress/core'
 import { WeaselThemeConfig, WeaselThemeOptions, WeaselThemePageData } from '../typings'
 import { path } from '@vuepress/utils'
 import { getLayoutConfig } from './utils'
@@ -23,6 +23,15 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
       page as Page<WeaselThemePageData>,
       app.env.isDev
     ),
+    onInitialized: (app: App) => {
+      console.log(app.layouts)
+      console.log(app.pages)
+      app.pages.forEach(page => {
+        if (page.filePathRelative?.startsWith('blog/')) {
+          page.frontmatter.layout = 'Blog'
+        }
+      })
+    },
     // 主题默认的插件
     plugins: getPluginConfig(app, plugins, themeOptions),
     // 主题布局

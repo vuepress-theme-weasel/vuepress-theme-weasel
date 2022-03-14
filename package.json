@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev:libs": "concurrently --kill-others \"pnpm run dev -C packages/shared\" \"pnpm run dev -C packages/plugin-components\" \"pnpm run dev -C packages/plugin-blog\" \"pnpm run dev -C packages/sass-palette\" \"pnpm run dev -C packages/theme-weasel\"",
-    "dev:demo": "pnpm run dev -r --filter @mr-huang/weasel-theme-demo",
+    "dev:libs": "concurrently --kill-others \"pnpm run dev -C packages/shared\" \"pnpm run dev -C packages/plugin-components\" \"pnpm run dev -C packages/plugin-blog\" \"pnpm run dev -C packages/sass-palette\" \"pnpm run dev -C packages/plugin-permalink\" \"pnpm run dev -C packages/theme-weasel\"",
+    "dev:demo": "pnpm run dev -C demo",
     "pkg-run": "node ./scripts/pnpm-run.js",
     "plop": "plop",
     "build": "yarn clean && rollup -c",
@@ -21,7 +21,8 @@
     "deploy": "yarn build && pnpm publish",
     "demo:dev": "pnpm recursive run dev --filter @mr-huang/weasel-theme-demo",
     "demo:build": "pnpm recursive run build --filter @mr-huang/weasel-theme-demo",
-    "reset": "rimraf ./node_modules && pnpm run clean && rimraf ./packages/**/node_modules"
+    "clean:node": "rimraf ./node_modules && rimraf ./packages/**/node_modules",
+    "reset": "pnpm run clean:node && pnpm run clean"
   },
   "repository": {
     "type": "git",
@@ -122,6 +123,7 @@
   "dependencies": {
     "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
     "@mr-huang/vuepress-plugin-components": "workspace:^0.0.1",
+    "@mr-huang/vuepress-plugin-permalink": "workspace:^0.0.1",
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
     "@mr-huang/weasel-theme-demo": "workspace:^0.0.1",
     "@vuepress/client": "^2.0.0-beta.35",

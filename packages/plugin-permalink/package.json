@@ -39,6 +39,11 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "transliteration": "^2.2.0"
+  },
+  "devDependencies": {
+    "@vuepress/core": "^2.0.0-beta.36",
+    "execa": "5.1.1"
   }
 }

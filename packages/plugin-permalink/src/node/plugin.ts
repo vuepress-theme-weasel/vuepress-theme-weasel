@@ -1,18 +1,18 @@
-import { SlugifyOption } from './../typings/slugify';
+import type { App } from '@vuepress/core'
+import { gennerSlugify } from './slug';
+import { PermaLinkPluginConfig } from '../typings/options'
+import { SlugifyOption } from '../typings/slugify'
 import { slugify } from 'transliteration'
 import type { Page, Plugin } from '@vuepress/core'
+import { logger } from './utils'
 
-const slugifyPlugin = ($page: Page, pluginConfig: SlugifyOption) => {
+export const slugifyPlugin = ($page: Page, pluginConfig?: SlugifyOption) => {
   // $page.path was encoded by VuePress already.
   // Make sure original so I decode it once.
   const pathArr = decodeURIComponent($page.path).split('/')
   // https://github.com/andyhu/transliteration#slugifystr-options
   const options = Object.assign({}, pluginConfig, { ignore: ['/', '.'] })
   $page.path = pathArr.map(str => slugify(str, options)).join('/')
-}
-
-const datePlugin = ($page: Page, formate: string) => {
-
 }
 
 /**
@@ -35,15 +35,19 @@ const datePlugin = ($page: Page, formate: string) => {
 :hash	SHA1 hash of filename (same as :title) and date (12-hexadecimal)
 :slugify 拼音生成
  */
-const customerPlugin = ($page: Page, formate: string) => {
-
+const customerPlugin = async ($page: Page, app: App, options?: PermaLinkPluginConfig) => {
+  if (options && options.format === ':slugify') {
+    slugifyPlugin($page, options.options)
+  } else {
+    await gennerSlugify($page, app, options)
+  }
 }
 
-export const permalinkPlugin: Plugin = (pluginConfig) => {
+export const permalinkPlugin: Plugin = (pluginConfig: PermaLinkPluginConfig, app: App) => {
   return {
     // https://vuepress.vuejs.org/plugin/option-api.html#extendpagedata
-    extendPageData ($page: Page) {
-
+    extendsPage: async ($page: Page) => {
+      await customerPlugin($page, app, pluginConfig)
     }
   }
 }

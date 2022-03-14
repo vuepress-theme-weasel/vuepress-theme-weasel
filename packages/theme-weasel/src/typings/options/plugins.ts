@@ -1,3 +1,4 @@
+import { PermaLinkPluginConfig } from '@mr-huang/vuepress-plugin-permalink';
 import type { BlogOptions } from '@mr-huang/vuepress-plugin-blog'
 // import type { CommentOptions } from 'vuepress-plugin-comment2'
 // import type { CopyCodeOptions } from 'vuepress-plugin-copy-code2'
@@ -189,6 +190,8 @@ export interface WeaselThemePluginsOptions {
    * 是否启用 @vuepress/external-link-icon 插件
    */
   externalLinkIcon?: boolean
+
+  permalink?: PermaLinkPluginConfig
 
   /**
    * Feed plugin options

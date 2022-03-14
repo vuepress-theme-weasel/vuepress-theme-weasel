@@ -28,6 +28,7 @@ export const getPluginConfig = (
     // ['@vuepress/nprogress', plugins.nprogress !== false],
     // ['@vuepress/prismjs', plugins.prismjs !== false],
     ['@vuepress/theme-data', { themeData }],
+    ['@mr-huang/vuepress-plugin-permalink', themeData.permalink ? themeData.permalink : false],
     blog(resolveBlogOptions(plugins.blog))
   ]
 
