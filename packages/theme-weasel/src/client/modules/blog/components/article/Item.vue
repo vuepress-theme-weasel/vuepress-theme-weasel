@@ -38,7 +38,7 @@ const props = defineProps({
   },
   path: { type: String, required: true }
 })
- const info = toRef(props, 'info');
+const info = toRef(props, 'info');
 // const { getPathEncryptStatus } = usePathEncrypt()
 
 // const isEncrypted = computed(() => getPathEncryptStatus(props.path))

@@ -1,5 +1,6 @@
 ---
 title: Blob类型数据转换Json数据类型
+layout: Blog
 category:
   - JavaScript
   - Blob
@@ -18,8 +19,10 @@ tag:
 ```javascript
 // 定义JSON数据
 let data = { "name": "小明" };
+
 // 转换成字符串数组
 let string = JSON.stringify(data);
+
 // 转换成Blob类型数据
 let blobData = new Blob([string]);
 
@@ -29,10 +32,12 @@ console.log(blobData)
  // 创建读取文件对象
 let reader = new FileReader();
 reader.addEventListener("loadend", function () {
+
   // 返回的数据
   let res = JSON.parse(reader.result);
   console.log(res,'返回结果数据') // { name: "小明" }
 });
+
 // 设置读取的数据以及返回的数据类型为utf-8
 reader.readAsText(blobData, 'utf-8');
 ```

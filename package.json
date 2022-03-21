@@ -21,7 +21,7 @@
     "deploy": "yarn build && pnpm publish",
     "demo:dev": "pnpm recursive run dev --filter @mr-huang/weasel-theme-demo",
     "demo:build": "pnpm recursive run build --filter @mr-huang/weasel-theme-demo",
-    "clean:node": "rimraf ./node_modules && rimraf ./packages/**/node_modules",
+    "clean:node": "rimraf ./packages/**/node_modules && rimraf ./node_modules",
     "reset": "pnpm run clean:node && pnpm run clean"
   },
   "repository": {

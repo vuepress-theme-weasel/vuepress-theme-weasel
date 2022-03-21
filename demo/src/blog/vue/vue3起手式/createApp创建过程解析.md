@@ -1,5 +1,7 @@
-# createApp创建过程解析
-
+---
+title: createApp创建过程解析
+layout: Blog
+---
 记录createApp的学习和debug过程
 
 ## 起步
@@ -66,7 +68,7 @@ const createApp = ((...args) => {
   const { mount } = app;
   // app实例的挂载方法 对应 app.mount('#app') 接受的是我们传入需要挂载的选择器
   app.mount = (containerOrSelector) => {
-    // 拿到选择器的节点 此处拿到的是 HTMLElement 
+    // 拿到选择器的节点 此处拿到的是 HTMLElement
     const container = normalizeContainer(containerOrSelector);
     if (!container) return;
     // 此处是实例化的 App组件
@@ -152,35 +154,35 @@ function baseCreateRenderer(options, createHydrationFns) {
   ···
 
   // dom操作方法的封装
-  const { 
+  const {
     // 插入
-    insert: hostInsert, 
+    insert: hostInsert,
     // 移除
-    remove: hostRemove, 
+    remove: hostRemove,
     // 对比属性
-    patchProp: hostPatchProp, 
+    patchProp: hostPatchProp,
     // 无论什么情况都会执行的对比方法
-    forcePatchProp: hostForcePatchProp, 
+    forcePatchProp: hostForcePatchProp,
     // 创建元素
-    createElement: hostCreateElement, 
+    createElement: hostCreateElement,
     // 创建文本节点
-    createText: hostCreateText, 
+    createText: hostCreateText,
     // 创建注释
-    createComment: hostCreateComment, 
+    createComment: hostCreateComment,
     // 设置文本
-    setText: hostSetText, 
+    setText: hostSetText,
     // 设置节点的文本
-    setElementText: hostSetElementText, 
+    setElementText: hostSetElementText,
     // 指定父节点
     parentNode: hostParentNode, 、
     // 指定下一个兄弟的节点
-    nextSibling: hostNextSibling, 
+    nextSibling: hostNextSibling,
     // 设置css scoped
-    setScopeId: hostSetScopeId = NOOP, 
+    setScopeId: hostSetScopeId = NOOP,
     // 克隆一个节点
-    cloneNode: hostCloneNode, 
+    cloneNode: hostCloneNode,
     // 插入静态节点的内容
-    insertStaticContent: hostInsertStaticContent 
+    insertStaticContent: hostInsertStaticContent
   } = options;
 
   // vue的diff过程叫做patch过程，这个方法是核心，整个渲染过程的核心方法

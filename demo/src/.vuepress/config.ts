@@ -77,6 +77,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       blog: {
         autoExcerpt: true,
       },
+      prismjs: true
     },
     // navbar: nav,
     // sidebar,

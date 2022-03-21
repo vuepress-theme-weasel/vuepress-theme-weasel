@@ -17,7 +17,7 @@ $codeLang: "c" "cpp" "cs" "css" "dart" "docker" "fs" "go" "html" "java" "js"
   "styl" "ts" "toml" "vue" "yml" !default;
 
 /* Content Class */
-$contentClass: ".theme-default-content" !default;
+$contentClass: ".theme-weasel-content" !default;
 
 /** dark mode selecters */
 $darkSelector: "html.dark" !default;
@@ -35,3 +35,5 @@ $themeColorPicker: (
   "orange": #f39c12,
   "purple": #8e44ad,
 ) !default;
+
+$textColor: #3a385d;

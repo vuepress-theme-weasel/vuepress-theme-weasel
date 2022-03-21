@@ -25,6 +25,8 @@ defineProps({
   text-align: center;
   position: relative;
   margin-bottom: 12px;
+  height: 100%;
+  width: 100%;
   .image-icon {
     position: absolute;
     bottom: -12px;

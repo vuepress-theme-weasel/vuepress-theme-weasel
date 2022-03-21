@@ -1,4 +1,7 @@
-# 使用 pnpm 构建 Monorepo 项目
+---
+title: 使用 pnpm 构建 Monorepo 项目
+layout: Blog
+---
 
 ## monorepo 是什么
 

@@ -1,4 +1,7 @@
-# Test
+---
+title: Test
+layout: Blog
+---
 
 ::: codeDemo 使用`size`、`style`属性来定义 Card 的样式
 

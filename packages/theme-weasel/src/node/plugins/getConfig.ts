@@ -26,11 +26,16 @@ export const getPluginConfig = (
     // ['@vuepress/container', resolveContainerPluginOptionsForCodeGroupItem(plugins)],
     ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
     // ['@vuepress/nprogress', plugins.nprogress !== false],
-    // ['@vuepress/prismjs', plugins.prismjs !== false],
     ['@vuepress/theme-data', { themeData }],
     ['@mr-huang/vuepress-plugin-permalink', themeData.permalink ? themeData.permalink : false],
     blog(resolveBlogOptions(plugins.blog))
   ]
+
+  if (plugins.prismjs !== false) {
+    pluginConfig.push(['@vuepress/prismjs', {
+      preloadLanguages: ['markdown', 'jsdoc', 'yaml', 'scss', 'stylus', 'php', 'python']
+    }])
+  }
 
   // debug log
   if (app.env.isDebug) console.log("Theme plugin options:", pluginConfig)

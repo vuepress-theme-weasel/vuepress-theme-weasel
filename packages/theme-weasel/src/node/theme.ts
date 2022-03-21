@@ -16,6 +16,9 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
   return {
     name: 'vuepress-theme-weasel',
     alias: getAlias(app),
+    define: () => ({
+      ENABLE_BLOG: enableBlog,
+    }),
     extendsPage: (page) => extendsPage(
       app,
       themeOptions as WeaselThemeConfig,
@@ -23,15 +26,6 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
       page as Page<WeaselThemePageData>,
       app.env.isDev
     ),
-    onInitialized: (app: App) => {
-      console.log(app.layouts)
-      console.log(app.pages)
-      app.pages.forEach(page => {
-        if (page.filePathRelative?.startsWith('blog/')) {
-          page.frontmatter.layout = 'Blog'
-        }
-      })
-    },
     // 主题默认的插件
     plugins: getPluginConfig(app, plugins, themeOptions),
     // 主题布局

@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-weasel-content" :class="custom">
+  <div class="theme-weasel-content" :class="{custom}">
     <Content />
   </div>
 </template>

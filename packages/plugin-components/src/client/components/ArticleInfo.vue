@@ -1,7 +1,7 @@
 <template>
   <div class="article-info" v-if="config">
     <template v-for="(item, index) in config" :key="'component' + index">
-      <component :is="resolveComponent(`${item}Info`)
+      <component v-if="item" :is="resolveComponent(`${item}Info`)
 " v-bind="componentProp(item)" />
     </template>
   </div>
@@ -55,7 +55,7 @@ const props = defineProps({
   },
 
   author: {
-    type: Array as PropType<AuthorInfoType[]>,
+    type: [Array, Boolean] as PropType<AuthorInfoType[] | false>,
     default: () => [],
   },
 
@@ -70,7 +70,7 @@ const props = defineProps({
   },
 
   date: {
-    type: Object as PropType<DateInfoType | null>,
+    type: [Object, Boolean] as PropType<DateInfoType | null | false>,
     default: null,
   },
 
