@@ -4,7 +4,7 @@
     <div class="content-container">
       <Navbar />
       <div class="blog-page-wrapper">
-        <main class="blog-home">
+        <main class="blog-home blog-body-container">
           <DropTransition :delay="0.16">
             <ArticleContent />
           </DropTransition>

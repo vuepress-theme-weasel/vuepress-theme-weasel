@@ -1,5 +1,5 @@
 <template>
-  <span class="author-info" :aria-label="pageInfoLocale.author" v-bind="(hint ? { 'data-balloon-pos': 'down' } : {})">
+  <span v-if="author" class="author-info" :aria-label="pageInfoLocale.author" v-bind="(hint ? { 'data-balloon-pos': 'down' } : {})">
     <AuthorIcon />
     <span v-for="(item, index) in author" :key="'author' + index">
       <a v-if="item.url" :href="item.url" class="author-item" target="_blank">{{item.name}}</a>
@@ -19,7 +19,7 @@ import { articleInfoLocales } from "../define";
 
 const props = defineProps({
   author: {
-    type: Array as PropType<AuthorInfo[]>,
+    type: [Array, Boolean] as PropType<AuthorInfo[] | false>,
     required: true,
   },
 

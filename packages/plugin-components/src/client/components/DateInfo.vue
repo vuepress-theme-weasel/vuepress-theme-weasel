@@ -1,5 +1,5 @@
 <template>
-  <span class="date-info" :aria-label="pageInfoLocale.date" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
+  <span v-if="date" class="date-info" :aria-label="pageInfoLocale.date" v-bind="hint !== false ? { 'data-balloon-pos': 'down' } : {}">
     <CalendarIcon />
     <span>{{ date && date.display }}</span>
     <meta property="datePublished" :content="date?.value?.toISOString() || ''"/>
@@ -16,7 +16,7 @@ import { CalendarIcon } from './Icons'
 
 defineProps({
   date: {
-    type: Object as PropType<DateInfo | null>,
+    type: [Object, Boolean] as PropType<DateInfo | null | false>,
     default: null,
   },
 

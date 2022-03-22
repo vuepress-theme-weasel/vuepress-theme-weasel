@@ -100,4 +100,4 @@ const componentProp = (item: ArticleInfo): any => {
 }
 </script>
 
-<style lang="scss" scoped src="../styles/article-info.scss"></style>
+<style lang="scss" src="../styles/article-info.scss"></style>
