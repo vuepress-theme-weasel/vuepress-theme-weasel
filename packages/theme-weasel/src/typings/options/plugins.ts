@@ -1,6 +1,6 @@
 import { PermaLinkPluginConfig } from '@mr-huang/vuepress-plugin-permalink';
 import type { BlogOptions } from '@mr-huang/vuepress-plugin-blog'
-// import type { CommentOptions } from 'vuepress-plugin-comment2'
+import type { CommentOptions } from '@mr-huang/vuepress-plugin-comment'
 // import type { CopyCodeOptions } from 'vuepress-plugin-copy-code2'
 // import type { FeedOptions } from 'vuepress-plugin-feed2'
 // import type { MarkdownEnhanceOptions } from 'vuepress-plugin-md-enhance'
@@ -161,6 +161,17 @@ export interface WeaselThemePluginsOptions {
    * @default false
    */
   blog?: WeaselThemeBlogPluginOptions | boolean
+
+  /**
+   * Comment plugin options
+   *
+   * @see http://vuepress-theme-hope.github.io/v2/comment/config/
+   *
+   * 评论插件配置
+   *
+   * @see http://vuepress-theme-hope.github.io/v2/comment/zh/config/
+   */
+  comment?: CommentOptions | false;
 
   /**
    * Comment plugin options

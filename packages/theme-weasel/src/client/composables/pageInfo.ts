@@ -34,7 +34,7 @@ export const usePageAuthor = (): ComputedRef<AuthorInfo[]> => {
   return computed(() => {
     const { author } = frontmatter.value;
 
-    if (author) return getAuthor(author);
+    if (author) return getAuthor(author!);
     if (author) return [];
 
     return getAuthor(themeLocale.value.author, false);

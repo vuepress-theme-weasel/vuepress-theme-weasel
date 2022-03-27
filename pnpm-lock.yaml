@@ -11,6 +11,7 @@ importers:
       '@commitlint/cli': ^16.2.1
       '@commitlint/config-conventional': ^16.2.1
       '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
+      '@mr-huang/vuepress-plugin-comment': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-components': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-permalink': workspace:^0.0.1
       '@mr-huang/vuepress-theme-weasel': workspace:^0.0.1
@@ -56,6 +57,7 @@ importers:
       vue: ^3.2.29
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:packages/plugin-blog
+      '@mr-huang/vuepress-plugin-comment': link:packages/plugin-comment
       '@mr-huang/vuepress-plugin-components': link:packages/plugin-components
       '@mr-huang/vuepress-plugin-permalink': link:packages/plugin-permalink
       '@mr-huang/vuepress-theme-weasel': link:packages/theme-weasel
@@ -144,6 +146,31 @@ importers:
       '@mr-huang/vuepress-theme-weasel': link:../theme-weasel
       '@mr-huang/weasel-theme-demo': link:../../demo
 
+  packages/plugin-comment:
+    specifiers:
+      '@giscus/vue': ^1.1.1
+      '@mr-huang/vuepress-plugin-sass-palette': workspace:^0.0.1
+      '@mr-huang/vuepress-shared': workspace:^0.0.1
+      '@vuepress/client': 2.0.0-beta.35
+      '@vuepress/core': 2.0.0-beta.36
+      '@vuepress/utils': 2.0.0-beta.35
+      '@waline/client': ^1.6.0
+      twikoo: ^1.5.0
+      vue: ^3.2.31
+      vue-router: ^4.0.14
+    dependencies:
+      '@giscus/vue': registry.npmmirror.com/@giscus/vue/1.1.1_vue@3.2.31
+      '@mr-huang/vuepress-plugin-sass-palette': link:../sass-palette
+      '@mr-huang/vuepress-shared': link:../shared
+      '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.35
+      '@vuepress/utils': registry.npmmirror.com/@vuepress/utils/2.0.0-beta.35
+      '@waline/client': registry.npmmirror.com/@waline/client/1.6.0
+      twikoo: registry.npmmirror.com/twikoo/1.5.0
+      vue: registry.npmmirror.com/vue/3.2.31
+      vue-router: registry.npmmirror.com/vue-router/4.0.14_vue@3.2.31
+    devDependencies:
+      '@vuepress/core': registry.npmmirror.com/@vuepress/core/2.0.0-beta.36
+
   packages/plugin-components:
     specifiers:
       '@mr-huang/vuepress-plugin-sass-palette': workspace:^0.0.1
@@ -222,6 +249,7 @@ importers:
   packages/theme-weasel:
     specifiers:
       '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
+      '@mr-huang/vuepress-plugin-comment': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-components': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-permalink': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-sass-palette': workspace:^0.0.1
@@ -241,6 +269,7 @@ importers:
       vue: ^3.2.29
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:../plugin-blog
+      '@mr-huang/vuepress-plugin-comment': link:../plugin-comment
       '@mr-huang/vuepress-plugin-components': link:../plugin-components
       '@mr-huang/vuepress-plugin-permalink': link:../plugin-permalink
       '@mr-huang/vuepress-plugin-sass-palette': link:../sass-palette
@@ -261,35 +290,6 @@ importers:
 
 packages:
 
-  /@babel/code-frame/7.16.7:
-    resolution: {integrity: sha512-iAXqUn8IIeBTNd72xsFlgaXHkMBMt6y4HJp1tIaK465CWLT/fG1aqB7ykr95gHHmlBdGbFeWWfyB4NJJ0nmeIg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/highlight': registry.npmmirror.com/@babel/highlight/7.16.10
-    dev: true
-
-  /@commitlint/load/16.2.1:
-    resolution: {integrity: sha512-oSpz0jTyVI/A1AIImxJINTLDOMB8YF7lWGm+Jg5wVWM0r7ucpuhyViVvpSRTgvL0z09oIxlctyFGWUQQpI42uw==}
-    engines: {node: '>=v12'}
-    requiresBuild: true
-    dependencies:
-      '@commitlint/config-validator': registry.npmmirror.com/@commitlint/config-validator/16.2.1
-      '@commitlint/execute-rule': registry.npmmirror.com/@commitlint/execute-rule/16.2.1
-      '@commitlint/resolve-extends': registry.npmmirror.com/@commitlint/resolve-extends/16.2.1
-      '@commitlint/types': registry.npmmirror.com/@commitlint/types/16.2.1
-      '@types/node': registry.npmmirror.com/@types/node/17.0.21
-      chalk: registry.npmmirror.com/chalk/4.1.2
-      cosmiconfig: registry.npmmirror.com/cosmiconfig/7.0.1
-      cosmiconfig-typescript-loader: registry.npmmirror.com/cosmiconfig-typescript-loader/1.0.6_e79e62fe450383fd2d418267dc75e645
-      lodash: registry.npmmirror.com/lodash/4.17.21
-      resolve-from: registry.npmmirror.com/resolve-from/5.0.0
-      typescript: registry.npmmirror.com/typescript/4.6.2
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-    dev: true
-    optional: true
-
   /cliui/7.0.4:
     resolution: {integrity: sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==}
     dependencies:
@@ -302,13 +302,6 @@ packages:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
     engines: {node: '>=6'}
     dev: false
-
-  /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    optional: true
 
   /get-caller-file/2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -2102,6 +2095,17 @@ packages:
       '@cspotcode/source-map-consumer': registry.npmmirror.com/@cspotcode/source-map-consumer/0.8.0
     dev: true
 
+  registry.npmmirror.com/@giscus/vue/1.1.1_vue@3.2.31:
+    resolution: {integrity: sha512-N//nUA4ykteOptTOA9oPJYTkcx365pPPPmTVZJSjzWHDSf5O6IcPXoKzTTiTL8oJHHuVHe9bMnvX3K/VrtgYxQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@giscus/vue/-/vue-1.1.1.tgz}
+    id: registry.npmmirror.com/@giscus/vue/1.1.1
+    name: '@giscus/vue'
+    version: 1.1.1
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.31
+    dev: false
+
   registry.npmmirror.com/@hapi/hoek/9.2.1:
     resolution: {integrity: sha512-gfta+H8aziZsm8pZa0vj04KO6biEiisppNgA1kbJvFrrWu9Vm7eaUEy76DIxsuTaWvti5fkJVhllWc6ZTE+Mdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@hapi/hoek/-/hoek-9.2.1.tgz}
     name: '@hapi/hoek'
@@ -3129,7 +3133,7 @@ packages:
       '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.0.13
       '@vuepress/shared': registry.npmmirror.com/@vuepress/shared/2.0.0-beta.35
       vue: registry.npmmirror.com/vue/3.2.31
-      vue-router: registry.npmmirror.com/vue-router/4.0.13_vue@3.2.31
+      vue-router: registry.npmmirror.com/vue-router/4.0.14_vue@3.2.31
 
   registry.npmmirror.com/@vuepress/core/2.0.0-beta.35:
     resolution: {integrity: sha512-EWcO/C+VgYl/i4o5arfKeasvtRUgHBe/fNqiDwTGysJVlez6brH1TvViTPth1nAXi+YZeJ6C2LCuH7gCU6Wh+w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vuepress/core/-/core-2.0.0-beta.35.tgz}
@@ -3420,6 +3424,12 @@ packages:
     dependencies:
       vue: registry.npmmirror.com/vue/3.2.31
       vue-demi: registry.npmmirror.com/vue-demi/0.12.1_vue@3.2.31
+    dev: false
+
+  registry.npmmirror.com/@waline/client/1.6.0:
+    resolution: {integrity: sha512-nVjNh4l0GiO1D//aJj/6N6oCgFikhRqs4Juc9sbT2g9w+FxeEYosOc5PMlyDvp8JXGGla8uFuzhD8em5o7QZ3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@waline/client/-/client-1.6.0.tgz}
+    name: '@waline/client'
+    version: 1.6.0
     dev: false
 
   registry.npmmirror.com/@webassemblyjs/ast/1.11.1:
@@ -5308,7 +5318,7 @@ packages:
       longest: registry.npmmirror.com/longest/2.0.1
       word-wrap: registry.npmmirror.com/word-wrap/1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.2.1
+      '@commitlint/load': registry.npmmirror.com/@commitlint/load/16.2.1
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -5327,7 +5337,7 @@ packages:
       longest: registry.npmmirror.com/longest/2.0.1
       word-wrap: registry.npmmirror.com/word-wrap/1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.2.1
+      '@commitlint/load': registry.npmmirror.com/@commitlint/load/16.2.1
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -8527,7 +8537,7 @@ packages:
     name: jsonfile
     version: 4.0.0
     optionalDependencies:
-      graceful-fs: 4.2.9
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
     dev: true
 
   registry.npmmirror.com/jsonfile/6.1.0:
@@ -9971,7 +9981,7 @@ packages:
     version: 5.2.0
     engines: {node: '>=8'}
     dependencies:
-      '@babel/code-frame': 7.16.7
+      '@babel/code-frame': registry.npmmirror.com/@babel/code-frame/7.16.7
       error-ex: registry.npmmirror.com/error-ex/1.3.2
       json-parse-even-better-errors: registry.npmmirror.com/json-parse-even-better-errors/2.3.1
       lines-and-columns: registry.npmmirror.com/lines-and-columns/1.2.4
@@ -11363,7 +11373,7 @@ packages:
       rollup: registry.npmmirror.com/rollup/2.70.0
       typescript: registry.npmmirror.com/typescript/4.6.2
     optionalDependencies:
-      '@babel/code-frame': 7.16.7
+      '@babel/code-frame': registry.npmmirror.com/@babel/code-frame/7.16.7
     dev: true
 
   registry.npmmirror.com/rollup-plugin-postcss/4.0.2_postcss@8.4.8:
@@ -11488,7 +11498,7 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
 
   registry.npmmirror.com/run-async/2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/run-async/-/run-async-2.4.1.tgz}
@@ -12840,6 +12850,12 @@ packages:
     version: 2.3.1
     dev: true
 
+  registry.npmmirror.com/twikoo/1.5.0:
+    resolution: {integrity: sha512-qxMb4aUKrvfDjPE4J6dEFX3VPvAmD9fADTeydV3RLmDLQjHQOpzPVR8bfsQ6XjiYThxLYeQNyXLTL6qy54V6sQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/twikoo/-/twikoo-1.5.0.tgz}
+    name: twikoo
+    version: 1.5.0
+    dev: false
+
   registry.npmmirror.com/type-check/0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/type-check/-/type-check-0.3.2.tgz}
     name: type-check
@@ -13275,6 +13291,17 @@ packages:
     id: registry.npmmirror.com/vue-router/4.0.13
     name: vue-router
     version: 4.0.13
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api/6.0.13
+      vue: registry.npmmirror.com/vue/3.2.31
+
+  registry.npmmirror.com/vue-router/4.0.14_vue@3.2.31:
+    resolution: {integrity: sha512-wAO6zF9zxA3u+7AkMPqw9LjoUCjSxfFvINQj3E/DceTt6uEz1XZLraDhdg2EYmvVwTBSGlLYsUw8bDmx0754Mw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-router/-/vue-router-4.0.14.tgz}
+    id: registry.npmmirror.com/vue-router/4.0.14
+    name: vue-router
+    version: 4.0.14
     peerDependencies:
       vue: ^3.2.0
     dependencies:

@@ -3,7 +3,7 @@
 @mixin wrapper($pad: weasel-config.$pad, $mobileS: weasel-config.$mobileS) {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: 1.25rem 1.75rem;
 
   @media (max-width: $pad) {
     padding: 1.5rem;

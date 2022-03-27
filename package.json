@@ -122,6 +122,7 @@
   },
   "dependencies": {
     "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
+    "@mr-huang/vuepress-plugin-comment": "workspace:^0.0.1",
     "@mr-huang/vuepress-plugin-components": "workspace:^0.0.1",
     "@mr-huang/vuepress-plugin-permalink": "workspace:^0.0.1",
     "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",

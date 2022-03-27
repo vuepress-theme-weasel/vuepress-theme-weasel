@@ -8,7 +8,7 @@ import type { DefaultThemeOptions } from 'vuepress'
 // import sidebar from './configs/sidebar'
 import * as navbar from "./configs/navbar";
 import * as sidebar from "./configs/sidebar";
-const base = '/note/'
+const base = '/'
 const path = require('path')
 const isProd = process.env.NODE_ENV === "production"
 
@@ -77,7 +77,28 @@ export default defineUserConfig<DefaultThemeOptions>({
       blog: {
         autoExcerpt: true,
       },
-      prismjs: true
+      prismjs: true,
+      // comment: {
+      //   type: "twikoo",
+      //   // repo: "vuepress-theme-hope/giscus-discussions",
+      //   envId: "https://blog-comment-qihd.vercel.app/",
+      //   // category: "Announcements",
+      //   // categoryId: "DIC_kwDOG_Pt2M4COD69",
+      // },export http_proxy="http://127.0.0.1:1087" export https_proxy="http://127.0.0.1:1087"
+      comment: {
+        type: "giscus",
+        repo: "vuepress-theme-weasel/blog-comment",
+        repoId: "R_kgDOHEoaBA",
+        category: "Announcements",
+        categoryId: "DIC_kwDOHEoaBM4COShW",
+      },
+      // comment: {
+      //   type: "giscus",
+      //   repo: "vuepress-theme-hope/giscus-discussions",
+      //   repoId: "R_kgDOG_Pt2A",
+      //   category: "Announcements",
+      //   categoryId: "DIC_kwDOG_Pt2M4COD69",
+      // },
     },
     // navbar: nav,
     // sidebar,

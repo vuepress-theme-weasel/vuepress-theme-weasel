@@ -13,6 +13,7 @@ import type { PluginConfig, PluginOptions } from '@vuepress/core'
 import type { WeaselThemeOptions, WeaselThemePluginsOptions } from '../../typings'
 import { resolveComponentsOptions } from './components'
 import { components } from '@mr-huang/vuepress-plugin-components'
+import { resolveCommentPlugin } from './comment';
 
 export const getPluginConfig = (
   app: App,
@@ -28,7 +29,8 @@ export const getPluginConfig = (
     // ['@vuepress/nprogress', plugins.nprogress !== false],
     ['@vuepress/theme-data', { themeData }],
     ['@mr-huang/vuepress-plugin-permalink', themeData.permalink ? themeData.permalink : false],
-    blog(resolveBlogOptions(plugins.blog))
+    blog(resolveBlogOptions(plugins.blog)),
+    resolveCommentPlugin(plugins.comment),
   ]
 
   if (plugins.prismjs !== false) {
