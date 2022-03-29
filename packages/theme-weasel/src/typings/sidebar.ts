@@ -1,4 +1,5 @@
-import { WeaselThemeNavGroup, AutoLink } from "./navbar";
+import { WeaselThemeNavGroup } from "./navbar"
+import { AutoLink } from './utils'
 
 /**
  * Sidebar types

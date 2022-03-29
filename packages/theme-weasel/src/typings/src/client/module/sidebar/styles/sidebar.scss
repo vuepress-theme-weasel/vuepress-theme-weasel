@@ -1,0 +1,91 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 150;
+
+  overflow-y: auto;
+
+  // compatible with non Chrome browsers
+  overflow-y: scroll;
+
+  // only works on Chrome
+  overflow-y: overlay;
+  box-sizing: border-box;
+
+  width: var(--sidebar-width);
+  margin: 0;
+
+  background: var(--sidebar-bg-color);
+  box-shadow: 2px 0 4px var(--card-shadow);
+
+  font-size: 16px;
+
+  transition: background-color var(--color-transition),
+    box-shadow var(--color-transition), transform var(--transform-transition);
+  transform: translateX(-100%);
+
+  backdrop-filter: saturate(150%) blur(12px);
+  scrollbar-color: var(--theme-color) var(--border-color);
+
+  scrollbar-width: thin;
+
+  @media (max-width: hope-config.$pad) {
+    width: var(--sidebar-mobile-width);
+    font-size: 15px;
+  }
+
+  &.hide-icon .icon {
+    display: none !important;
+  }
+
+  a {
+    display: inline-block;
+    color: var(--text-color);
+    font-weight: normal;
+  }
+
+  .icon {
+    margin-right: 0.25em;
+  }
+
+  .blogger-info.mobile {
+    display: none;
+
+    @media (max-width: hope-config.$mobile) {
+      display: block;
+    }
+
+    + hr {
+      display: none;
+
+      @media (max-width: hope-config.$mobile) {
+        display: block;
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+.sidebar-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgb(0 0 0 / 15%);
+
+  &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity 0.25s;
+  }
+
+  &.fade-enter-from,
+  &.fade-leave-to {
+    opacity: 0;
+  }
+}

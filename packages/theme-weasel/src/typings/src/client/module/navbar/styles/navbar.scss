@@ -1,0 +1,75 @@
+.navbar {
+  --navbar-line-height: calc(
+    var(--navbar-height) - var(--navbar-vertical-padding) * 2
+  );
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  height: var(--navbar-height);
+  padding: var(--navbar-vertical-padding) var(--navbar-horizontal-padding);
+
+  background: var(--navbar-bg-color);
+  box-shadow: 0 2px 8px var(--card-shadow);
+
+  line-height: var(--navbar-line-height);
+  white-space: nowrap;
+
+  transition: transform ease-in-out 0.3s,
+    background-color var(--color-transition), box-shadow var(--color-transition);
+
+  backdrop-filter: saturate(150%) blur(12px);
+
+  @media (max-width: hope-config.$pad) {
+    --navbar-line-height: calc(
+      var(--navbar-mobile-height) - var(--navbar-mobile-vertical-padding) * 2
+    );
+
+    height: var(--navbar-mobile-height);
+    padding: var(--navbar-mobile-vertical-padding)
+      var(--navbar-mobile-horizontal-padding);
+  }
+
+  .hide-navbar &.auto-hide {
+    transform: translateY(-100%);
+  }
+
+  &.hide-icon .icon {
+    display: none !important;
+  }
+
+  .nav-link {
+    padding: 0 0.25rem;
+    color: var(--dark-grey);
+
+    &.active {
+      color: var(--theme-color);
+    }
+
+    .icon {
+      margin-right: 0.25em;
+      font-size: 1em;
+    }
+  }
+}
+
+// docsearch fix
+// stylelint-disable selector-class-pattern
+.DocSearch {
+  &.DocSearch-Button {
+    margin-left: 0;
+  }
+
+  &.DocSearch-Container {
+    position: fixed !important;
+  }
+}

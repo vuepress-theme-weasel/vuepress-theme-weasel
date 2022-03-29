@@ -1,3 +1,14 @@
+import type { AutoLink, TextItem } from "./utils";
+
+/**
+ * Base nav group, has nav items children
+ */
+export interface WeaselThemeNavGroup<T> extends TextItem {
+  prefix?: string;
+  link?: string;
+  children: T[];
+}
+
 /**
  * Base nav item, displayed as text
  */
@@ -5,25 +16,6 @@ export interface WeaselThemeNavLinkItem {
   text: string;
   icon?: string;
   ariaLabel?: string;
-}
-
-/**
- * Base nav group, has nav items children
- */
-export interface WeaselThemeNavGroup<T> extends WeaselThemeNavLinkItem {
-  prefix?: string;
-  link?: string;
-  children: T[];
-}
-
-/**
- * Props for `<AutoLink>`
- */
-export interface AutoLink extends WeaselThemeNavLinkItem {
-  link: string;
-  rel?: string;
-  target?: string;
-  activeMatch?: string;
 }
 
 /**
