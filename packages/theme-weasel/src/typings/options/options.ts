@@ -28,6 +28,7 @@ export interface WeaselThemeRootOptions
 
 export interface WeaselThemeRootConfig
   extends WeaselThemeFeatureConfig,
+  WeaselThemeLocaleConfig,
     WeaselThemeLayoutOptions {
   /**
    * Global default author
@@ -50,5 +51,6 @@ export interface WeaselThemeOptions
   plugins?: WeaselThemePluginsOptions;
 }
 
-export type WeaselThemeConfig = WeaselThemeRootConfig &
-  ThemeData<WeaselThemeLocaleConfig>;
+export type WeaselThemeConfig = WeaselThemeRootConfig & {
+  locales: Record<string, WeaselThemeLocaleConfig>;
+}

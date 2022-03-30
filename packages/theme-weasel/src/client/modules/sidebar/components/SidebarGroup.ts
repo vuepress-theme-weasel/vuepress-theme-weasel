@@ -1,13 +1,13 @@
 import { computed, defineComponent, h } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 
-import DropdownTransition from "@theme-hope/components/transitions/DropTransition.vue";
-import SidebarLinks from "@theme-hope/module/sidebar/components/SidebarLinks";
-import { renderIcon } from "@theme-hope/module/sidebar/composables";
-import { isActiveSidebarItem } from "@theme-hope/module/sidebar/utils";
+import DropdownTransition from "@theme-weasel/components/transitions/DropTransition.vue";
+import SidebarLinks from "@theme-weasel/modules/sidebar/components/SidebarLinks";
+import { renderIcon } from "@theme-weasel/modules/sidebar/composables";
+import { isActiveSidebarItem } from "@theme-weasel/modules/sidebar/utils";
 
 import type { PropType, VNode } from "vue";
-import type { ResolvedHopeThemeSidebarGroupItem } from "../../../../shared";
+import type { ResolvedWeaselThemeSidebarGroupItem } from "../../../../typings";
 
 import "../styles/sidebar-group.scss";
 
@@ -16,7 +16,7 @@ export default defineComponent({
 
   props: {
     config: {
-      type: Object as PropType<ResolvedHopeThemeSidebarGroupItem>,
+      type: Object as PropType<ResolvedWeaselThemeSidebarGroupItem>,
       required: true,
     },
     open: { type: Boolean, required: true },

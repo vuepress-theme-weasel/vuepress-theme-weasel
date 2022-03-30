@@ -12,20 +12,20 @@ import {
 } from "@vuepress/shared";
 import { useRoute } from "vue-router";
 
-import { useAutoLink, useThemeLocaleData } from "@theme-hope/composables";
+import { useAutoLink, useThemeLocaleData } from "@theme-weasel/composables";
 import { resolvePrefix } from "./utils";
 
 import type { PageHeader } from "@vuepress/client";
 import type {
-  HopeThemeNormalPageFrontmatter,
-  HopeThemeSidebarArrayConfig,
-  HopeThemeSidebarObjectConfig,
-  HopeThemeSidebarItem,
+  WeaselThemeNormalPageFrontmatter,
+  WeaselThemeSidebarArrayConfig,
+  WeaselThemeSidebarObjectConfig,
+  WeaselThemeSidebarItem,
   ResolvedSidebarItem,
-  ResolvedHopeThemeSidebarHeaderItem,
-  ResolvedHopeThemeSidebarPageItem,
-  ResolvedHopeThemeSidebarGroupItem,
-} from "../../../../shared";
+  ResolvedWeaselThemeSidebarHeaderItem,
+  ResolvedWeaselThemeSidebarPageItem,
+  ResolvedWeaselThemeSidebarGroupItem,
+} from "../../../../typings";
 
 /**
  * Util to transform page header to sidebar item
@@ -33,7 +33,7 @@ import type {
 export const headerToSidebarItem = (
   header: PageHeader,
   headerDepth: number
-): ResolvedHopeThemeSidebarHeaderItem => {
+): ResolvedWeaselThemeSidebarHeaderItem => {
   const page = usePageData();
 
   return {
@@ -47,7 +47,7 @@ export const headerToSidebarItem = (
 export const headersToSidebarItemChildren = (
   headers: PageHeader[],
   headerDepth: number
-): ResolvedHopeThemeSidebarHeaderItem[] =>
+): ResolvedWeaselThemeSidebarHeaderItem[] =>
   headerDepth > 0
     ? headers.map((header) => headerToSidebarItem(header, headerDepth - 1))
     : [];
@@ -57,7 +57,7 @@ export const headersToSidebarItemChildren = (
  */
 export const resolveHeadingSidebarItems = (
   headerDepth: number
-): ResolvedHopeThemeSidebarHeaderItem[] => {
+): ResolvedWeaselThemeSidebarHeaderItem[] => {
   const page = usePageData();
 
   return headersToSidebarItemChildren(page.value.headers, headerDepth);
@@ -67,7 +67,7 @@ export const resolveHeadingSidebarItems = (
  * Resolve sidebar items if the config is an array
  */
 export const resolveArraySidebarItems = (
-  sidebarConfig: HopeThemeSidebarArrayConfig,
+  sidebarConfig: WeaselThemeSidebarArrayConfig,
   headerDepth: number,
   prefix = ""
 ): ResolvedSidebarItem[] => {
@@ -86,9 +86,9 @@ export const resolveArraySidebarItems = (
   }
 
   const handleChildItem = (
-    item: HopeThemeSidebarItem,
+    item: WeaselThemeSidebarItem,
     pathPrefix = prefix
-  ): ResolvedHopeThemeSidebarPageItem | ResolvedHopeThemeSidebarGroupItem => {
+  ): ResolvedWeaselThemeSidebarPageItem | ResolvedWeaselThemeSidebarGroupItem => {
     const childItem = isString(item)
       ? useAutoLink(resolvePrefix(pathPrefix, item))
       : item.link
@@ -156,7 +156,7 @@ export const resolveArraySidebarItems = (
  * Resolve sidebar items if the config is a key -> value (path-prefix -> array) object
  */
 export const resolveMultiSidebarItems = (
-  sidebarConfig: HopeThemeSidebarObjectConfig,
+  sidebarConfig: WeaselThemeSidebarObjectConfig,
   headerDepth: number
 ): ResolvedSidebarItem[] => {
   const route = useRoute();
@@ -189,7 +189,7 @@ export const resolveMultiSidebarItems = (
  */
 export const resolveSidebarItems = (): ResolvedSidebarItem[] => {
   const routeLocale = useRouteLocale();
-  const frontmatter = usePageFrontmatter<HopeThemeNormalPageFrontmatter>();
+  const frontmatter = usePageFrontmatter<WeaselThemeNormalPageFrontmatter>();
   const themeLocale = useThemeLocaleData();
 
   // get sidebar config from frontmatter > themeConfig

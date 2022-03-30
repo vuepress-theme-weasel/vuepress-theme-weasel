@@ -14,12 +14,12 @@ import { useSidebarItems } from "@theme-weasel/modules/sidebar/composables";
 
 import type { VNode } from "vue";
 import type {
-  HopeThemeNormalPageFrontmatter,
+  WeaselThemeNormalPageFrontmatter,
   AutoLink as AutoLinkType,
   ResolvedSidebarItem,
-} from "../../shared";
+} from "../../../typings";
 
-import "../styles/page-nav.scss";
+import "../../styles/page-nav.scss";
 
 /**
  * Resolve `prev` or `next` config from frontmatter
@@ -74,7 +74,7 @@ export default defineComponent({
   setup() {
     const themeLocale = useThemeLocaleData();
     const iconPrefix = useIconPrefix();
-    const frontmatter = usePageFrontmatter<HopeThemeNormalPageFrontmatter>();
+    const frontmatter = usePageFrontmatter<WeaselThemeNormalPageFrontmatter>();
     const sidebarItems = useSidebarItems();
     const route = useRoute();
     const navigate = useNavigate();

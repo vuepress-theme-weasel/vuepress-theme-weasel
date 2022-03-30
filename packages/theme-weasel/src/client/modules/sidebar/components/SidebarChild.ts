@@ -3,14 +3,14 @@ import { useRoute } from "vue-router";
 import {
   renderChildren,
   renderItem,
-} from "@theme-hope/module/sidebar/composables";
-import { isActiveSidebarItem } from "@theme-hope/module/sidebar/utils";
+} from "@theme-weasel/modules/sidebar/composables";
+import { isActiveSidebarItem } from "@theme-weasel/modules/sidebar/utils";
 
 import type { PropType, VNode } from "vue";
 import type {
-  ResolvedHopeThemeSidebarHeaderItem,
-  ResolvedHopeThemeSidebarPageItem,
-} from "../../../../shared";
+  ResolvedWeaselThemeSidebarHeaderItem,
+  ResolvedWeaselThemeSidebarPageItem,
+} from "../../../../typings";
 
 import "../styles/sidebar-child.scss";
 
@@ -20,7 +20,7 @@ export default defineComponent({
   props: {
     config: {
       type: Object as PropType<
-        ResolvedHopeThemeSidebarPageItem | ResolvedHopeThemeSidebarHeaderItem
+        ResolvedWeaselThemeSidebarPageItem | ResolvedWeaselThemeSidebarHeaderItem
       >,
       required: true,
     },

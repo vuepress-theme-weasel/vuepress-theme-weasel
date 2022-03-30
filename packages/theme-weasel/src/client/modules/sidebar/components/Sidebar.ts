@@ -1,8 +1,8 @@
 import { defineComponent, h } from "vue";
 
-import { useThemeLocaleData } from "@theme-hope/composables";
-import SidebarLinks from "@theme-hope/module/sidebar/components/SidebarLinks";
-import { useSidebarItems } from "@theme-hope/module/sidebar/composables";
+import { useThemeLocaleData } from "@theme-weasel/composables";
+import SidebarLinks from "@theme-weasel/modules/sidebar/components/SidebarLinks";
+import { useSidebarItems } from "@theme-weasel/modules/sidebar/composables";
 
 import type { VNode } from "vue";
 

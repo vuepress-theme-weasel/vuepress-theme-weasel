@@ -12,7 +12,7 @@ export interface WeaselThemeSidebarLocaleOptions {
    * @description 设置为 `false` 以在当前语言中禁用侧边栏
    * @see https://vuepress-theme-Weasel.github.io/v2/zh/guide/layout/sidebar.html
    */
-  sidebar?: WeaselThemeSidebarConfig | "auto" | false;
+  sidebar?: WeaselThemeSidebarConfig | "structure" | "heading" | false;
 
   /**
    * Whether show icons in the sidebar

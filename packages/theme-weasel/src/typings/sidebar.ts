@@ -1,5 +1,5 @@
 import { WeaselThemeNavGroup } from "./navbar"
-import { AutoLink } from './utils'
+import { AutoLink, TextItem } from './utils'
 
 /**
  * Sidebar types
@@ -14,16 +14,24 @@ export interface WeaselThemeSidebarGroupItem
   collapsable?: boolean;
 }
 
+export interface WeaselThemeSidebarStructureItem extends TextItem {
+  prefix: string;
+  link?: string;
+  collapsable?: boolean;
+  children: "structure";
+}
+
 export type WeaselThemeSidebarItem =
   | WeaselThemeSidebarPageItem
   | WeaselThemeSidebarGroupItem
+  | WeaselThemeSidebarStructureItem
   | string;
 
 export type WeaselThemeSidebarArrayConfig = WeaselThemeSidebarItem[];
 
 export type WeaselThemeSidebarObjectConfig = Record<
   string,
-  WeaselThemeSidebarArrayConfig
+  WeaselThemeSidebarArrayConfig | "structure" | false
 >;
 
 export type WeaselThemeSidebarConfig =

@@ -1,13 +1,13 @@
 import { defineComponent, h, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
-import SidebarChild from "@theme-hope/module/sidebar/components/SidebarChild";
-import SidebarGroup from "@theme-hope/module/sidebar/components/SidebarGroup";
-import { isActiveSidebarItem } from "@theme-hope/module/sidebar/utils";
+import SidebarChild from "@theme-weasel/modules/sidebar/components/SidebarChild";
+import SidebarGroup from "@theme-weasel/modules/sidebar/components/SidebarGroup";
+import { isActiveSidebarItem } from "@theme-weasel/modules/sidebar/utils";
 
 import type { PropType, VNode } from "vue";
 import type { RouteLocationNormalized } from "vue-router";
-import type { ResolvedSidebarItem } from "../../../../shared";
+import type { ResolvedSidebarItem } from "../../../../typings";
 
 import "../styles/sidebar-links.scss";
 

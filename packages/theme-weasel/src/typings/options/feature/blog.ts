@@ -129,10 +129,4 @@ export interface WeaselThemeBlogOptions {
   articleInfo?: ArticleInfo[]
 }
 
-export type WeaselThemeBlogConfig = WeaselThemeBlogOptions &
-  Required<
-    Pick<
-      WeaselThemeBlogOptions,
-      'articleInfo' | 'articlePerPage' | 'sidebarDisplay'
-    >
-  >
+export type WeaselThemeBlogConfig = WeaselThemeBlogOptions

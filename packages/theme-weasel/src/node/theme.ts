@@ -6,10 +6,14 @@ import { usePlugins, getPluginConfig } from './plugins'
 import { getAlias } from './alias'
 import { extendsPage } from './extends'
 import { handleThemeData } from './handleThemeData'
+import { prepareSidebarData } from './sidebar'
+import { getThemeConfig } from './utils/getThemeConfig'
 
 export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
   // 是否开启blog
   const enableBlog = Boolean(plugins.blog);
+  const themeConfig = getThemeConfig(app, themeOptions);
+
   // 使用前置插件
   handleThemeData(app, themeOptions)
   usePlugins(app, plugins)
@@ -19,6 +23,11 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     define: () => ({
       ENABLE_BLOG: enableBlog,
     }),
+    onPrepared: (): Promise<void> =>
+      Promise.all([
+        prepareSidebarData(app, themeConfig),
+        // prepareThemeColorScss(app, themeConfig),
+      ]).then(() => void 0),
     extendsPage: (page) => extendsPage(
       app,
       themeOptions as WeaselThemeConfig,
@@ -33,6 +42,7 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     // 主题客户端注入入口，主要用于插件和样式注入
     clientAppEnhanceFiles: [
       path.resolve(__dirname, '../client/appEnhance.js'),
+      path.resolve(__dirname, "../client/module/sidebar/appEnhance.js"),
       ...(enableBlog
         ? [path.resolve(__dirname, "../client/modules/blog/appEnhance.js")]
         : []),
@@ -42,7 +52,7 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
         ? [path.resolve(__dirname, "../client/modules/blog/appSetup.js")]
         : []),
       // path.resolve(__dirname, "../client/modules/outlook/appSetup.js"),
-      // path.resolve(__dirname, "../client/modules/sidebar/appSetup.js"),
+      path.resolve(__dirname, "../client/modules/sidebar/appSetup.js"),
     ],
   }
 }

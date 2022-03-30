@@ -2,7 +2,7 @@ import { computed, inject, provide } from "vue";
 import { resolveSidebarItems } from "./resolveConfig";
 
 import type { ComputedRef, InjectionKey } from "vue";
-import type { ResolvedSidebarItem } from "../../../../shared";
+import type { ResolvedSidebarItem } from "../../../../typings";
 
 export type SidebarItemsRef = ComputedRef<ResolvedSidebarItem[]>;
 

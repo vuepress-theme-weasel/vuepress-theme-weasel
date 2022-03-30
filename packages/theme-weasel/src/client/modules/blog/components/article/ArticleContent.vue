@@ -19,14 +19,16 @@
         </div>
       </div>
       <div class="article-content-wrapper">
-        <MarkdownContent :custom="true" />
+        <DropTransition :delay="0.16">
+          <MarkdownContent :custom="true" />
+        </DropTransition>
       </div>
       <div class="article-belong">
         <ArticleInfo v-bind="pageInfoProps"/>
       </div>
     </div>
     <div class="article-footer">
-      一些分享和收藏点赞之类的
+      <PageMeta />
     </div>
   </article>
 
@@ -44,7 +46,7 @@ import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
 import { ArticleInfo } from '@mr-huang/vuepress-plugin-components/lib/client'
 import { usePageInfo } from "@theme-weasel/composables";
 import { PageTitleProps } from '@mr-huang/vuepress-plugin-components';
-import { DropTransition } from '@theme-weasel/components'
+import { DropTransition, PageMeta } from '@theme-weasel/components'
 
 const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }};
 
