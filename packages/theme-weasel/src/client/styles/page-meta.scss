@@ -3,8 +3,9 @@
 .page-meta {
   @include wrapper.horizontal-wrapper;
   overflow: auto;
-  padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 
   .meta-item {
     margin-top: 0.5rem;

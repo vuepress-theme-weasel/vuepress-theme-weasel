@@ -37,7 +37,7 @@ const getLang = (lang = "en"): string => {
 
   console.warn(`${lang} locale missing in config`);
 
-  return "en";
+  return "zh";
 };
 
 export const timeTransformer = (

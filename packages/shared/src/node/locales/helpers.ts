@@ -69,7 +69,7 @@ export const getRootLang = (app: App): HopeLang => {
 
   showLangError('root')
 
-  return 'en-US'
+  return 'zh-CN'
 }
 
 /**
