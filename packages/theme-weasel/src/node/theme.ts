@@ -42,7 +42,7 @@ export const WeaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     // 主题客户端注入入口，主要用于插件和样式注入
     clientAppEnhanceFiles: [
       path.resolve(__dirname, '../client/appEnhance.js'),
-      path.resolve(__dirname, "../client/module/sidebar/appEnhance.js"),
+      path.resolve(__dirname, "../client/modules/sidebar/appEnhance.js"),
       ...(enableBlog
         ? [path.resolve(__dirname, "../client/modules/blog/appEnhance.js")]
         : []),

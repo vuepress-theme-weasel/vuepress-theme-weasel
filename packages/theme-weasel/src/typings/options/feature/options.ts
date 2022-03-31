@@ -9,7 +9,7 @@ import type {
 } from './encrypt'
 
 export interface WeaselThemeFeatureLocaleData {
-  blogLocales: WeaselThemeBlogLocaleData
+  blogLocales?: WeaselThemeBlogLocaleData
 
   /**
    * Encrypt

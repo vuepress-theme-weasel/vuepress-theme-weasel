@@ -16,7 +16,7 @@ export interface WeaselThemeLocaleData extends WeaselThemeFeatureLocaleData, Wea
   /**
    * Current lang code
    */
-  lang: string;
+  lang?: string;
 }
 
 export type WeaselThemeLocaleOptions =

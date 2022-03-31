@@ -28,6 +28,8 @@ const defaultRootOptions: WeaselThemeRootConfig = {
   blog: {},
   encrypt: {},
 
+  lang: '',
+
   // appearance
   pure: false,
   iconPrefix: "",

@@ -276,7 +276,7 @@ export const prepareSidebarData = async (
     );
 
   await app.writeTemp(
-    "theme-hope/sidebar.js",
+    "theme-weasel/sidebar.js",
     `export const sidebarData = ${JSON.stringify(sidebarData)}`
   );
 };

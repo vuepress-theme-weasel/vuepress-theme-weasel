@@ -129,7 +129,7 @@ export default defineComponent({
                   () => [
                     h("div", { class: "hint" }, [
                       h("span", { class: "arrow left" }),
-                      themeLocale.value.metaLocales.prev,
+                      themeLocale.value.metaLocales!.prev,
                     ]),
                     h("div", { class: "link" }, [
                       prevNavLink.value?.icon
@@ -148,7 +148,7 @@ export default defineComponent({
                   { class: "next", config: nextNavLink.value },
                   () => [
                     h("div", { class: "hint" }, [
-                      themeLocale.value.metaLocales.next,
+                      themeLocale.value.metaLocales!.next,
                       h("span", { class: "arrow right" }),
                     ]),
                     h("div", { class: "link" }, [

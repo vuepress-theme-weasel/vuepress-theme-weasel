@@ -39,13 +39,13 @@ export default defineComponent({
           : null,
         updateTime.value
           ? h("div", { class: "meta-item update-time" }, [
-              h("span", { class: "label" }, `${metaLocales.lastUpdated}: `),
+              h("span", { class: "label" }, `${metaLocales!.lastUpdated}: `),
               h("span", { class: "info" }, updateTime.value),
             ])
           : null,
         contributors.value && contributors.value.length
           ? h("div", { class: "meta-item contributors" }, [
-              h("span", { class: "label" }, `${metaLocales.contributors}: `),
+              h("span", { class: "label" }, `${metaLocales!.contributors}: `),
               contributors.value.map(({ email, name }, index) => [
                 h(
                   "span",

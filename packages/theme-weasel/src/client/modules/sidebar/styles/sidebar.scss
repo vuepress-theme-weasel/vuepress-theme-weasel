@@ -31,7 +31,7 @@
 
   scrollbar-width: thin;
 
-  @media (max-width: hope-config.$pad) {
+  @media (max-width: weasel-config.$pad) {
     width: var(--sidebar-mobile-width);
     font-size: 15px;
   }
@@ -53,14 +53,14 @@
   .blogger-info.mobile {
     display: none;
 
-    @media (max-width: hope-config.$mobile) {
+    @media (max-width: weasel-config.$mobile) {
       display: block;
     }
 
     + hr {
       display: none;
 
-      @media (max-width: hope-config.$mobile) {
+      @media (max-width: weasel-config.$mobile) {
         display: block;
         margin-top: 16px;
       }

@@ -47,7 +47,7 @@ export const useEditLink = (): ComputedRef<null | AutoLink> => {
     if (!link) return null;
 
     return {
-      text: themeLocale.value.metaLocales.editLink,
+      text: themeLocale.value.metaLocales!.editLink,
       link,
     };
   });

@@ -1,7 +1,7 @@
 import { computed, defineComponent, h } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 
-import DropdownTransition from "@theme-weasel/components/transitions/DropTransition.vue";
+import { DropTransition } from "@theme-weasel/components";
 import SidebarLinks from "@theme-weasel/modules/sidebar/components/SidebarLinks";
 import { renderIcon } from "@theme-weasel/modules/sidebar/composables";
 import { isActiveSidebarItem } from "@theme-weasel/modules/sidebar/utils";
@@ -70,7 +70,7 @@ export default defineComponent({
                 : null,
             ]
           ),
-          h(DropdownTransition, () =>
+          h(DropTransition, () =>
             props.open || !collapsable
               ? h(SidebarLinks, { config: children })
               : null

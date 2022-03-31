@@ -12,13 +12,13 @@ import type { WeaselThemeSidebarLocaleOptions } from "./sidebar";
 import type { WeaselThemeRouteLocaleData } from "./route";
 
 export interface WeaselThemeLayoutLocaleData {
-  navbarLocales: WeaselThemeNavbarLocaleData;
+  navbarLocales?: WeaselThemeNavbarLocaleData;
   /**
    * Page locate config
    */
-  metaLocales: WeaselThemeMetaLocateData;
+  metaLocales?: WeaselThemeMetaLocateData;
 
-  routeLocales: WeaselThemeRouteLocaleData;
+  routeLocales?: WeaselThemeRouteLocaleData;
 }
 
 export interface WeaselThemeLayoutLocaleOptions
