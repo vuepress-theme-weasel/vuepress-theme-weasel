@@ -32,10 +32,10 @@ export const path2Lang = (path = ''): HopeLang => {
   if (path in path2langConfig) return path2langConfig[path]
 
   console.error(
-    `${path} isn’t assign with a lang, and will return 'en-US' instead.`
+    `${path} isn’t assign with a lang, and will return 'zh-CN' instead.`
   )
 
-  return 'en-US'
+  return 'zh-CN'
 }
 
 /** Get path from language */

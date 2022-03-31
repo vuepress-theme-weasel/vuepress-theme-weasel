@@ -32,6 +32,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       name: "Mr.Huang",
       url: "https://mrhope.site",
     },
+    lang: 'zh-CN',
     permalink: {
       format: ':year-:month-:day/:id'
     },

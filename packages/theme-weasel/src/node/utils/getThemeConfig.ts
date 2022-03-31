@@ -28,7 +28,7 @@ const defaultRootOptions: WeaselThemeRootConfig = {
   blog: {},
   encrypt: {},
 
-  lang: '',
+  lang: 'zh-CN',
 
   // appearance
   pure: false,

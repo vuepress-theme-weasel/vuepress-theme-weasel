@@ -55,7 +55,7 @@ export const themeLocalesData: Record<string, WeaselThemeLocaleData> = {
     },
   },
 
-  "/zh/": {
+  "/": {
     lang: "zh-CN",
 
     navbarLocales: {

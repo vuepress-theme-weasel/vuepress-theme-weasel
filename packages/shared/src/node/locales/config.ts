@@ -2,7 +2,7 @@ import { HopeLang } from './types'
 
 export const lang2PathConfig = {
   'en-US': '/en/',
-  'zh-CN': '/zh/',
+  'zh-CN': '/',
   'zh-TW': '/zh-tw/',
   'de-AT': '/de/',
   'vi-VN': '/vi/',
