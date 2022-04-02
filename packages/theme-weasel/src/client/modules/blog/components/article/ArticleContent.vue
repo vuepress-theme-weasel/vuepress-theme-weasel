@@ -32,10 +32,13 @@
     </div>
   </article>
 
+  <div class="article-nav-container">
+    <page-nav />
+  </div>
+
   <div class="article-comment">
     <page-comment />
   </div>
-  <div class="article-next-prev">这里放上下篇</div>
   <div class="article-author-info">这里放作者的详细介绍</div>
   <div class="article-recommend">这里放推荐的文章</div>
 </template>
@@ -46,7 +49,7 @@ import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
 import { ArticleInfo } from '@mr-huang/vuepress-plugin-components/lib/client'
 import { usePageInfo } from "@theme-weasel/composables";
 import { PageTitleProps } from '@mr-huang/vuepress-plugin-components';
-import { DropTransition, PageMeta } from '@theme-weasel/components'
+import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
 
 const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }};
 

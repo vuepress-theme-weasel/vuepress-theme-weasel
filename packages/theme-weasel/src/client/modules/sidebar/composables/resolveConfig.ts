@@ -192,6 +192,8 @@ export const resolveSidebarItems = (): ResolvedSidebarItem[] => {
   const frontmatter = usePageFrontmatter<WeaselThemeNormalPageFrontmatter>();
   const themeLocale = useThemeLocaleData();
 
+  console.log('+++++++++++++++++++++++++++==============', themeLocale)
+
   // get sidebar config from frontmatter > themeConfig
   const sidebarConfig = frontmatter.value.home
     ? false
