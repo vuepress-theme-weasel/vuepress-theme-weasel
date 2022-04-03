@@ -245,7 +245,10 @@ export const prepareSidebarData = async (
   const generatePaths: string[] = [];
 
   // exact generate sidebar paths
+  console.log('themeConfig.locales', themeConfig.locales)
   Object.entries(themeConfig.locales).forEach(([localePath, { sidebar }]) => {
+    console.log('sidebar', sidebar)
+    console.log('localePath', localePath)
     if (Array.isArray(sidebar))
       generatePaths.push(...getGeneratePaths(sidebar));
     else if (typeof sidebar === "object")
@@ -256,11 +259,13 @@ export const prepareSidebarData = async (
             ...getGeneratePaths(config).map((item) => `${prefix}${item}`)
           );
       });
-    else if (sidebar === "structure") generatePaths.push(localePath);
+    else generatePaths.push(localePath);
+    // if (sidebar === "structure") 
   });
 
   const sidebarData: Record<string, (WeaselThemeSidebarGroupItem | string)[]> =
     {};
+  console.log('generatePaths', generatePaths)
 
   await Promise.all(
     generatePaths.map(async (path) => {
