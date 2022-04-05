@@ -1,5 +1,5 @@
 {
-  "name": "@mr-huang/{{name}}",
+  "name": "@mr-huang/vuepress-theme-weasel",
   "version": "0.0.1",
   "description": "weasel theme",
   "main": "lib/node/index.js",
@@ -10,13 +10,13 @@
   ],
   "author": "mr-huang",
   "scripts": {
-    "build": "tsc --build tsconfig.build.json",
+    "build": "tsc --build tsconfig.build.json && esno scripts/postbuild.ts",
     "clean": "rimraf lib *.tsbuildinfo",
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
-    "dev:ts": "tsc --build -w tsconfig.build.json"
+    "dev:ts": "tsc --build -w tsconfig.build.json && esno scripts/postbuild.ts"
   },
-  "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/{{name}}",
+  "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/theme",
   "repository": {
     "type": "git",
     "url": "https://github.com/cavinHuang/vuepress-theme-weasel"
@@ -34,9 +34,17 @@
     "access": "public"
   },
   "license": "MIT",
-  "peerDependencies": {
-  },
   "engines": {
     "node": ">=12"
+  },
+  "devDependencies": {
+    "@vuepress/core": "^2.0.0-beta.37",
+    "@vuepress/utils": "^2.0.0-beta.37",
+    "chalk": "4.1.2",
+    "esno": "^0.14.1",
+    "ora": "5.4.1"
+  },
+  "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1"
   }
 }

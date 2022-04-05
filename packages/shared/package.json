@@ -1,5 +1,5 @@
 {
-  "name": "@mr-huang/{{name}}",
+  "name": "@mr-huang/vuepress-shared",
   "version": "0.0.1",
   "description": "weasel theme",
   "main": "lib/node/index.js",
@@ -16,7 +16,7 @@
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
     "dev:ts": "tsc --build -w tsconfig.build.json"
   },
-  "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/{{name}}",
+  "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/shared",
   "repository": {
     "type": "git",
     "url": "https://github.com/cavinHuang/vuepress-theme-weasel"
@@ -34,9 +34,16 @@
     "access": "public"
   },
   "license": "MIT",
-  "peerDependencies": {
-  },
   "engines": {
     "node": ">=12"
+  },
+  "devDependencies": {
+    "chalk": "4.1.2",
+    "esno": "^0.14.1",
+    "ora": "5.4.1"
+  },
+  "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
+    "execa": "5.1.1"
   }
 }

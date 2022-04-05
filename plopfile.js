@@ -43,7 +43,7 @@ module.exports = plop => {
         transform: (content, args) => {
           const name = args.name
           const reg = new RegExp(`@mr-huang\/${name}`, 'ig')
-          return content.replace(reg, `@mr-huang\/vuepress-${name}`)
+          return content.replace(reg, `@mr-huang\/vuepress-plugin-${name}`)
         }
       },
       {
@@ -75,11 +75,6 @@ module.exports = plop => {
         type: 'add',
         path: 'packages/{{name}}/tsconfig.esm.json',
         templateFile: 'templates/tsconfig.esm.json'
-      },
-      {
-        type: 'add',
-        path: 'packages/{{name}}/rollup.config.js',
-        templateFile: 'templates/rollup.config.hbs'
       },
       // {
       //   type: 'append',

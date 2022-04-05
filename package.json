@@ -5,10 +5,10 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev:libs": "",
-    "dev:theme": "pnpm run dev -C packages/theme-weasel",
+    "dev:libs": "concurrently --kill-others \"pnpm dev -C packages/shared\"",
+    "dev:theme": "pnpm run dev -C packages/theme",
     "dev:demo": "pnpm run dev -C demo",
-    "plop": "plop",
+    "create:pkg": "plop",
     "clean": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "commit": "git-cz",
     "release": "standard-version",
@@ -32,5 +32,17 @@
   "bugs": {
     "url": "https://github.com/CavinHuang/vuepress-theme-weasel/issues"
   },
-  "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme"
+  "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
+  "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vuepress/core": "^2.0.0-beta.37",
+    "@vuepress/utils": "^2.0.0-beta.37",
+    "chalk": "4.1.2",
+    "esno": "^0.14.1",
+    "ora": "5.4.1",
+    "plop": "^3.0.5"
+  }
 }

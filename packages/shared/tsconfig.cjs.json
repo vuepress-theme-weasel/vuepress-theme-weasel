@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "ES2020",
+    "module": "CommonJS",
     "rootDir": "./src",
     "outDir": "./lib"
   },
-  "include": ["./src/client", "./src/shared", "./src/typings"]
+  "include": ["./src/node", "./src/shared", "./src/typings"]
 }
