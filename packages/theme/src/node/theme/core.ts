@@ -11,10 +11,6 @@ export const weaselTheme: Theme<WeaselThemeConfig> = (plugins, app) => {
   return {
     name: 'vuepress-theme-weasel',
     alias: createAlias(app),
-    onPrepared() {
-    },
-    async extendsPage() {
-    },
     layouts: createLayout(app)
   }
 }
