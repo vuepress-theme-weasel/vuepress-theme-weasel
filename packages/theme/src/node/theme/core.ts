@@ -1,3 +1,4 @@
+import { createLayout } from './layout';
 import { createAlias } from './alias';
 import type { Theme } from '@vuepress/core'
 import { WeaselThemeConfig } from '../../typings'
@@ -13,7 +14,8 @@ export const weaselTheme: Theme<WeaselThemeConfig> = (plugins, app) => {
     onPrepared() {
     },
     async extendsPage() {
-    }
+    },
+    layouts: createLayout(app)
   }
 }
 

@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { usePageFrontmatter } from '../../../composables'
+import { usePageFrontmatter } from '@theme-weasel/composables'
 
 const frontmatter = usePageFrontmatter()
 const isHome = frontmatter.value.home
