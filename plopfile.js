@@ -84,7 +84,7 @@ module.exports = plop => {
       // },
       {
         type: 'append',
-        path: 'tsconfig.json',
+        path: 'tsconfig.build.json',
         pattern: /(\/\/ -- APPEND NEW PACKAGE --)/gi,
         template: "   { \"path\": \"./packages/{{name}}/tsconfig.build.json\" },"
       }

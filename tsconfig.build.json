@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    // -- APPEND NEW PACKAGE --
+   { "path": "./packages/shared/tsconfig.build.json" },
+   { "path": "./packages/theme/tsconfig.build.json" },
+  ],
+  "files": [],
+  "include": ["**/*.ts", "**/*.vue"]
+}

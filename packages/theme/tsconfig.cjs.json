@@ -3,7 +3,15 @@
   "compilerOptions": {
     "module": "CommonJS",
     "rootDir": "./src",
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@client/*": ["./src/client/*"],
+      "@node/*": ["./src/node/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@typings/*": ["./src/typings/*"],
+      "@theme-weasel/*": ["./src/client/*"]
+    }
   },
   "include": ["./src/node", "./src/shared", "./src/typings"]
 }

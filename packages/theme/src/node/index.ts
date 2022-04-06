@@ -1,4 +1,4 @@
-import { weaselTheme } from './theme'
+import { weaselTheme } from './theme/core'
 
 export {
   weaselTheme

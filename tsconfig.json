@@ -1,15 +1,11 @@
 {
   "extends": "./tsconfig.base.json",
-  "references": [
-    // -- APPEND NEW PACKAGE --
-   { "path": "./packages/shared/tsconfig.build.json" },
-   { "path": "./packages/theme/tsconfig.build.json" },
-  ],
   "compilerOptions": {
+    "baseUrl": "./",
     "paths": {
-      "@typings": ["./packages/theme/src/typings/index.ts"]
+      "@theme-weasel/*": ["./packages/theme/src/client/*"]
     }
   },
-  "files": [],
-  "include": ["**/*.ts", "**/*.vue"]
+  "include": ["**/*.ts", "**/*.vue"],
+  "exclude": ["scripts/"]
 }

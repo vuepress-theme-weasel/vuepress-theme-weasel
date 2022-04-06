@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "ES2020",
+    "baseUrl": "./",
+    "module": "ESNext",
     "rootDir": "./src",
-    "outDir": "./lib",
     "paths": {
       "@/*": ["./src/*"],
       "@client/*": ["./src/client/*"],
@@ -11,8 +11,7 @@
       "@shared/*": ["./src/shared/*"],
       "@typings/*": ["./src/typings/*"],
       "@theme-weasel/*": ["./src/client/*"]
-    },
-    "types": ["@vuepress/client/types"]
+    }
   },
-  "include": ["./src/client", "./src/shared","./src/typings", "./src/*.d.ts"]
+  "include": ["./src"]
 }
