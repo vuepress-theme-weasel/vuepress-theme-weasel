@@ -5,14 +5,13 @@
 @use "sass:meta";
 
 @use "./common" as helper;
-@use "../config" as config;
+@use "../config/vars.scss" as config;
 
 $variables: meta.module-variables("config");
 
 @each $name, $value in $variables {
   $key: helper.camel-to-kebab($name);
-
-  @if meta.type-of($value) == number or meta.type-of($value) == string {
+  @if meta.type-of($value) == number or meta.type-of($value) == string or $name == 'fontFamily' {
     :root {
       #{$key}: #{$value};
     }

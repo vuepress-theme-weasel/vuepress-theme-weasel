@@ -118,11 +118,17 @@ export const getAlias = (): Record<string, string> => {
  */
 export const createAlias = (app: App) => {
 
+  const stylesAlias: {[x: string]: string} = {}
+  stylesAlias[`${CLIENT_ALIAS}styles`] = path.resolve(__dirname, '../../client/styles')
+  stylesAlias[`${CLIENT_ALIAS}styles/config`] = path.resolve(__dirname, '../../client/styles/config/index.scss')
+
   const alias = {
     ...Object.fromEntries([
       ...getRootAlias(app)
     ]),
-    ...getAlias()
+    ...getAlias(),
+    // styles
+    ...stylesAlias
   }
   if (app.env.isDebug) {
     logger.info('加载的alias:')

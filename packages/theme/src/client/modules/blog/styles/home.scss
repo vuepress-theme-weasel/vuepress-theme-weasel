@@ -1,0 +1,298 @@
+@use 'sass:list';
+@use 'sass:color';
+@use '@theme-weasel/styles/config';
+
+// header
+.content-container {
+  margin: 0 var(--h-banner-margin-lr);
+}
+.header-container {
+  height: var(--h-height);
+  background: var(--h-bg-color);
+  position: relative;
+  .header-nav {
+    height: var(--h-nav-height);
+    .header-menu-logo {
+      height: 100%;
+      line-height: var(--h-nav-height);
+      color: var(--h-logo-color);
+      font-size: var(--h-login-size);
+      margin-left: var(--h-banner-margin-lr);
+    }
+  }
+  .banner-container {
+    position: absolute;
+    top: var(--h-nav-height);
+    left: var(--h-banner-margin-lr);
+    right: var(--h-banner-margin-lr);
+    height: var(--h-banner-height);
+    margin: 0 auto;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// navbar
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%, 100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+.nav-bar-container {
+  margin: var(--n-margin-top) var(--n-margin-lr) var(--n-margin-bottom) var(--n-margin-lr);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .nav-logo {
+    width: 160px;
+  }
+  .nav-bar-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 var(--n-item-margin-lr);
+  }
+  .nav-logo {
+    font-size: 22px;
+    line-height: var(--n-item-height);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+  .nav-bar__item {
+    background: var(--n-item-bg-color);
+    // width: var(--n-item-width);
+    height: var(--n-item-height);
+    line-height: var(--n-item-height);
+    margin: 0 var(--n-item-margin-lr);
+    padding: 4px 24px;
+    font-size: 16px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    filter: hue-rotate(0deg);
+    border: 2px solid #fff;
+    transition: all 0.1s linear;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid transparent;
+      box-shadow: 4px 4px 14px 0px rgb(0, 0, 0, 0.15);
+      .nav-bar__border {
+        position: absolute;
+        display: block;
+      }
+      span:nth-child(1) {
+        filter: hue-rotate(0deg);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--theme-color));
+        animation: animate1 1s linear infinite;
+      }
+      span:nth-child(2) {
+        filter: hue-rotate(60deg);
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, var(--theme-color));
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+      span:nth-child(3) {
+        filter: hue-rotate(120deg);
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        background: linear-gradient(270deg, transparent, var(--theme-color));
+        animation: animate3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      span:nth-child(4) {
+        filter: hue-rotate(300deg);
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, var(--theme-color));
+        animation: animate4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+    }
+    .nav-bar__text {
+      line-height: var(--n-item-height);
+      margin: 0;
+    }
+  }
+}
+
+//feature
+.weasel-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border-color);
+  transition: border-color ease 0.3s;
+
+  @media (max-width: config.$mobileS) {
+    margin: 0 -1.5rem;
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: calc(33% - 4rem);
+    margin: 0.5rem;
+    padding: 0 1.5rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+
+    @media (max-width: config.$pad) {
+      flex-basis: calc(50% - 4rem);
+    }
+
+    @media (max-width: config.$mobile) {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: config.$mobileS) {
+      flex-basis: calc(100%);
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      border-radius: 0;
+    }
+
+    &.link {
+      cursor: pointer;
+    }
+
+    &:hover {
+      transform: scale(0.98);
+      background: rgba($color: #fff, $alpha: 0.6);
+      box-shadow: 0 2px 12px 0 var(--card-shadow-color);
+    }
+
+    h2 {
+      margin-bottom: 0.25rem;
+      border-bottom: none;
+      color: var(--text-color-light);
+      font-size: 1.25rem;
+      font-weight: 500;
+
+      @media (max-width: config.$mobileS) {
+        font-size: 1.2rem;
+      }
+    }
+
+    p {
+      margin-top: 0;
+      color: var(--text-color-lighter);
+    }
+  }
+
+  @each $color in config.$colors {
+    $index: list.index(config.$colors, $color);
+
+    .feature#{$index} {
+      background: color.scale($color, $lightness: 90%);
+
+      #{config.$darkSelector} & {
+        background: color.scale($color, $lightness: -75%);
+      }
+    }
+  }
+}
+
+#{config.$contentClass} {
+  padding-bottom: 1.5rem;
+}
+
+.theme-home-container {
+  background: var(--b-home-bg-color);
+}
+
+.content-container .home-container.theme-default-content {
+  max-width: none;
+}
+
+// blog info
+.blog-body-container {
+  .blog-page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto 1.25rem auto;
+
+    @media (min-width: config.$mobile) {
+      padding: 0 1rem;
+    }
+
+    @media (min-width: config.$pad) {
+      padding: 0 2rem;
+    }
+
+    @media (min-width: config.$wide) {
+      padding: 0;
+    }
+
+    .blog-home {
+      max-width: 780px;
+      overflow: hidden;
+      flex: 1;
+      padding-bottom: 1.25rem;
+
+      @media (min-width: config.$mobile) {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  #{config.$contentClass}:empty {
+    padding: 0;
+  }
+}
