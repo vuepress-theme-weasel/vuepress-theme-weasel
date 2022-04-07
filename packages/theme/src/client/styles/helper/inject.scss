@@ -1,0 +1,26 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:math";
+@use "sass:map";
+@use "sass:meta";
+
+@use "./common" as helper;
+@use "../config" as config;
+
+$variables: meta.module-variables("config");
+
+@each $name, $value in $variables {
+  $key: helper.camel-to-kebab($name);
+
+  @if meta.type-of($value) == number or meta.type-of($value) == string {
+    :root {
+      #{$key}: #{$value};
+    }
+  } @else if helper.color-islegal($value) {
+    @if meta.global-variable-exists("darkSelector", $module: "config") {
+      @include helper.inject-color($key, $value, $darkSelector: config.$darkSelector);
+    } @else {
+      @include helper.inject-color($key, $value);
+    }
+  }
+}

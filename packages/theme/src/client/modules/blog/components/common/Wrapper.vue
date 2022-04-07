@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { usePageFrontmatter } from '../../../composables'
+import { usePageFrontmatter } from '@theme-weasel/composables'
 import { Footer } from './'
 
 const frontmatter = usePageFrontmatter()
