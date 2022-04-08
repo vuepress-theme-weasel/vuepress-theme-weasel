@@ -76,6 +76,11 @@ module.exports = plop => {
         path: 'packages/{{name}}/tsconfig.esm.json',
         templateFile: 'templates/tsconfig.esm.json'
       },
+      {
+        type: 'add',
+        path: 'packages/{{name}}/tsconfig.json',
+        templateFile: 'templates/tsconfig.json'
+      },
       // {
       //   type: 'append',
       //   path: 'docs/.vuepress/clientAppEnhance.ts',

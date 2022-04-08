@@ -50,6 +50,12 @@ importers:
       esno: 0.14.1
       ora: 5.4.1
 
+  packages/blog:
+    specifiers:
+      '@vuepress/core': ^2.0.0-beta.38
+    dependencies:
+      '@vuepress/core': 2.0.0-beta.38
+
   packages/shared:
     specifiers:
       '@mr-huang/vuepress-shared': workspace:^0.0.1
