@@ -14,7 +14,8 @@
     "clean": "rimraf lib *.tsbuildinfo",
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
-    "dev:ts": "tsc --build -w tsconfig.build.json"
+    "dev:ts": "tsc --build -w tsconfig.build.json",
+    "dev:demo": "vuepress-vite dev __tests__/demo"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/blog",
   "repository": {
@@ -38,6 +39,7 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "@vuepress/core": "^2.0.0-beta.38"
   }
 }
