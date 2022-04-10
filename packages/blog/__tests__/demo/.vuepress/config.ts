@@ -1,5 +1,5 @@
 import { defineUserConfig } from "@vuepress/cli";
-import { blog } from "../../../lib/node/index.js";
+import { blogPluginInit } from "../../../lib/node/index.js";
 import type { DefaultThemeOptions } from "@vuepress/theme-default";
 
 export default defineUserConfig<DefaultThemeOptions>({
@@ -29,32 +29,32 @@ export default defineUserConfig<DefaultThemeOptions>({
   },
 
   plugins: [
-    blog({
-      category: [
-        {
-          key: "category",
-          getter: (page) => {
-            return (page.frontmatter.category as string[]) || [];
-          },
-          layout: "Layout",
-        },
-        {
-          key: "tag",
-          getter: (page) => {
-            return (page.frontmatter.tag as string[]) || [];
-          },
-          itemPath: "/tags/:name/",
-          itemLayout: "Layout",
-        },
-      ],
+    blogPluginInit({
+      // category: [
+      //   {
+      //     key: "category",
+      //     getter: (page) => {
+      //       return (page.frontmatter.category as string[]) || [];
+      //     },
+      //     layout: "Layout",
+      //   },
+      //   {
+      //     key: "tag",
+      //     getter: (page) => {
+      //       return (page.frontmatter.tag as string[]) || [];
+      //     },
+      //     itemPath: "/tags/:name/",
+      //     itemLayout: "Layout",
+      //   },
+      // ],
       type: [
         {
-          key: "Slide",
+          key: "slide",
           filter: (page) => page.frontmatter.layout === "Slide",
           path: "/slides/",
-          layout: "Layout",
-        },
-      ],
-    }),
-  ],
+          layout: "Layout"
+        }
+      ]
+    })
+  ]
 });

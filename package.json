@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
   "dependencies": {
+    "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
     "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "typescript": "^4.6.3"
   },

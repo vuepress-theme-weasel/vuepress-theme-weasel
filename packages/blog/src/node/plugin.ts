@@ -1,3 +1,4 @@
+import { preparePageType } from './pageType/preparePageType';
 /**
  * blog plugin
  */
@@ -13,6 +14,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
     // 初始化时创建页面
     onInitialized(app) {
       const pages = filterPages(options, app)
+      preparePageType(app, options, pages)
     }
   }
 }
