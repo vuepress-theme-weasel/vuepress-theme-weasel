@@ -1,3 +1,4 @@
+import { DirectoryClassifierOption } from './directoryClassifier';
 /**
  * 插件参数相关的类型
  */
@@ -138,6 +139,15 @@ export interface BlogOptions {
    * @default []
    */
   pageTypeClassifier?: PageTypeOptions[];
+
+  /**
+   * 目录分类器 根据目录统一配置
+   *
+   * directory classifier
+   *
+   * @default []
+   */
+  directoryClassifier?: DirectoryClassifierOption[];
 
   /**
    * Key used when injecting info to route meta.
