@@ -114,11 +114,11 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
  */
 export const preparePageType = (app: App, options: Partial<BlogOptions>, pages: PageMap): Promise<string[]> => {
   const {
-    type = [],
+    pageTypeClassifier = [],
     slugify = defaultSlugify
   } = options
 
-  return Promise.all(createTypePage(app, type, pages, slugify)).then(async (result) => {
+  return Promise.all(createTypePage(app, pageTypeClassifier, pages, slugify)).then(async (result) => {
     const finalMap: Record<string, PageTypeMap> = {}
     const paths: string[] = []
 

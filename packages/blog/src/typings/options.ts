@@ -4,9 +4,10 @@
 import { Page } from "@vuepress/core";
 
 /**
- * page type
+ * page type classifier
  */
 export interface PageTypeOptions {
+
   /**
    * Unique type name
    *
@@ -48,9 +49,87 @@ export interface PageTypeOptions {
 }
 
 /**
+ * frontmatter 分类器
+ */
+export interface FrontmatterClassifierOptions {
+  /**
+   * Unique category name
+   *
+   * 唯一的分类名称
+   */
+  key: string;
+
+  /**
+   * Function getting category from page
+   *
+   * 从页面中获取分类的函数
+   */
+  getter: (page: Page) => string[];
+
+  /**
+   * A custom function to sort the pages
+   *
+   * 页面排序器
+   */
+  sorter?: (pageA: Page, pageB: Page) => number;
+
+  /**
+   * Path pattern
+   *
+   * @description `:key` will be replaced by the "slugify" result of the orginal key
+   *
+   * 路径图案
+   *
+   * @description `:key` 将会被替换为原 key 的 slugify 结果
+   *
+   * @default `/:key/`
+   */
+  path?: string;
+
+  /**
+   * Layout name
+   *
+   * 布局组件名称
+   *
+   * @default 'Layout'
+   */
+  layout?: string;
+
+  /**
+   * Path pattern or custom function
+   *
+   * @description When filling in a string, `:key` and `:name` will be replaced by the "slugify" result of the orginal key and name
+   *
+   * 路径图案或自定义函数
+   *
+   * @description 当填入字符串的时候, `:key` 和 `:name` 会被自动替换为原始的 key、name 的 slugify 结果。
+   *
+   * @default `/:key/:name/`
+   */
+  itemPath?: string | ((name: string) => string);
+
+  /**
+   * Item layout name
+   *
+   * 项目布局组件名称
+   *
+   * @default 'Layout'
+   */
+  itemLayout?: string;
+}
+
+/**
  * 插件参数
  */
 export interface BlogOptions {
+
+  /**
+   * frontmatter 分类器配置
+   *
+   * frontmatter classifier
+   */
+  frontmatterClassifier?: FrontmatterClassifierOptions[];
+
   /**
    * 页面类型配置
    *
@@ -58,7 +137,17 @@ export interface BlogOptions {
    *
    * @default []
    */
-  type?: PageTypeOptions[];
+  pageTypeClassifier?: PageTypeOptions[];
+
+  /**
+   * Key used when injecting info to route meta.
+   *
+   * 注入文章信息至路由元数据时使用的键名。
+   *
+   * @default '_blog'
+   */
+  metaScope?: string;
+
   /**
    * Page filter, determine whether a page should be included.
    *
@@ -67,6 +156,7 @@ export interface BlogOptions {
    * @default (page) => Boolean(page.filePathRelative) && !page.frontmatter.home
    */
   filter?: (page: Page) => boolean;
+
   /**
    * Slugify function
    *
