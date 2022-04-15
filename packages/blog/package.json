@@ -15,7 +15,8 @@
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
     "dev:ts": "tsc --build -w tsconfig.build.json",
-    "dev:demo": "vuepress-vite dev __tests__/demo"
+    "dev:demo": "vuepress-vite dev __tests__/demo",
+    "build:demo": "vuepress-vite build __tests__/demo"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/blog",
   "repository": {

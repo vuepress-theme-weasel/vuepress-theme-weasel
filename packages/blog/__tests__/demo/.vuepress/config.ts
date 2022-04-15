@@ -47,12 +47,27 @@ export default defineUserConfig<DefaultThemeOptions>({
       //     itemLayout: "Layout",
       //   },
       // ],
-      type: [
+      directoryClassifier: [
+        {
+          key: 'post',
+          dirname: '_post',
+          path: '/',
+          layout: 'Blog',
+          itemLayout: 'Blog'
+        }
+      ],
+      pageTypeClassifier: [
         {
           key: "slide",
           filter: (page) => page.frontmatter.layout === "Slide",
           path: "/slides/",
           layout: "Layout"
+        },
+        {
+          key: "picture",
+          filter: (page) => page.frontmatter.layout === 'Picture',
+          path: '/images/',
+          layout: 'Layout'
         }
       ]
     })

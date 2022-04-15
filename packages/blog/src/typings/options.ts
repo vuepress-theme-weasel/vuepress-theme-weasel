@@ -1,7 +1,7 @@
-import { DirectoryClassifierOption } from './directoryClassifier';
 /**
  * 插件参数相关的类型
  */
+import { DirectoryClassifierOption } from './directoryClassifier';
 import { Page } from "@vuepress/core";
 
 /**
@@ -132,7 +132,7 @@ export interface BlogOptions {
   frontmatterClassifier?: FrontmatterClassifierOptions[];
 
   /**
-   * 页面类型配置
+   * 页面分类器配置
    *
    * Types config
    *
@@ -141,7 +141,7 @@ export interface BlogOptions {
   pageTypeClassifier?: PageTypeOptions[];
 
   /**
-   * 目录分类器 根据目录统一配置
+   * 目录分类器 根据目录统一管理页面
    *
    * directory classifier
    *

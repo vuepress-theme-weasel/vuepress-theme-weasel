@@ -72,7 +72,7 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
           frontmatter: {
             blog: {
               type: 'type',
-              key,
+              key
             },
             layout
           }
