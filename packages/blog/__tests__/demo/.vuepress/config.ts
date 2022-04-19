@@ -1,10 +1,12 @@
 import { defineUserConfig } from "@vuepress/cli";
 import { blogPluginInit } from "../../../lib/node/index.js";
+import { path } from '@vuepress/utils'
 import type { DefaultThemeOptions } from "@vuepress/theme-default";
 
 export default defineUserConfig<DefaultThemeOptions>({
   base: process.env.VuePress_BASE || "/",
   dest: "./dist",
+
 
   locales: {
     "/": {
@@ -13,6 +15,8 @@ export default defineUserConfig<DefaultThemeOptions>({
       description: "VuePress 的博客插件",
     },
   },
+
+  theme: path.resolve(__dirname, './theme'),
 
   themeConfig: {
     logo: "/logo.svg",
@@ -27,6 +31,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
     },
   },
+
 
   plugins: [
     blogPluginInit({

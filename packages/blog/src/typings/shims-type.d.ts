@@ -1,4 +1,4 @@
-declare module "@temp/blog/type" {
+declare module "@temp/blog/pageType" {
   interface PageTypeMap {
     path: string;
     keys: string[];

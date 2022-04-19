@@ -1,3 +1,6 @@
-import { pageTypeMap } from '@temp/blog/type'
+import { pageTypeMap } from '@temp/blog/pageType'
 
-console.log(pageTypeMap)
+
+export const usePageType = () => {
+  console.log(pageTypeMap)
+}

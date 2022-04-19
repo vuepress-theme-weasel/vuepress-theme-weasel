@@ -67,7 +67,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           dirname,
           layout,
           itemLayout,
-          itemPermalink = '/:year/:month/:day/:slug.html',
+          // itemPermalink = '/:year/:month/:day/:slug.html',
           frontmatter
         } = classifier
         const { filePath } = pageOptions
@@ -85,8 +85,8 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           if (isIndex) {
             pageOptions.path = indexPath
           } else {
-            const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
-            pageOptions.frontmatter.permalinkPattern = `${_prefix}${itemPermalink}`
+            // const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
+            // pageOptions.frontmatter.permalinkPattern = `${_prefix}${itemPermalink}`
           }
         }
 
