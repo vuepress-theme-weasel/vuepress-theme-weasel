@@ -1,9 +1,8 @@
-import { prepareDirectories } from './classifier/prepareDirectories';
 /**
  * blog plugin
  */
 
-import { preparePageType } from './classifier'
+import { preparePageType, prepareFrontmatter } from './classifier'
 import { Plugin } from '@vuepress/core'
 import { BlogOptions } from '../typings'
 import { filterPages } from './utils'
@@ -51,6 +50,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
       const pages = filterPages(options, app)
       return Promise.all([
           preparePageType(app, options, pages),
+          prepareFrontmatter(app, options, pages)
         ]).then(() => {
           console.log(app.pages)
         })
