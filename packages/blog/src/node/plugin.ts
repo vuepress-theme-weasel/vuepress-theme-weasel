@@ -1,12 +1,57 @@
-import { prepareDirectories } from './classifier/prepareDirectories';
+import { directoryClassifier } from './helper';
 /**
  * blog plugin
  */
-
+import { App, Plugin } from '@vuepress/core'
 import { preparePageType } from './classifier'
-import { Plugin } from '@vuepress/core'
-import { BlogOptions } from '../typings'
-import { filterPages } from './utils'
+import { BlogOptions, PageMap } from '../typings'
+import { filterPages, logger } from './utils'
+
+/**
+ * 开发时热更新
+ */
+const HMR_CODE = `
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateBlogType) {
+    __VUE_HMR_RUNTIME__.updateBlogType(directoryMap)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ directoryMap }) => {
+    __VUE_HMR_RUNTIME__.updateBlogType(directoryMap)
+  })
+}
+`
+
+const filterDir = (options: BlogOptions, pages: PageMap) => {
+  const { directoryClassifier = [] } = options
+  console.log(pages)
+  return directoryClassifier.map(classfifier => {
+    const map: Record<string, string[]> = {}
+    map[classfifier.key] = []
+    for (const localPath in pages) {
+      const classifierKey = pages[localPath].filter(page => page.frontmatter && page.frontmatter.classifier === classfifier.key).map(({ key }) => key)
+      map[classfifier.key] = classifierKey
+    }
+    return map
+  })
+}
+
+const prepareDirectories = (app: App, options: BlogOptions, pages: PageMap) => {
+  return Promise.all(filterDir(options, pages)).then(async (result) => {
+    if (app.env.isDebug) logger.info('目录分配器', result)
+      const finalMap: Record<string, string[]> = {}
+      result.forEach(res => {
+        Object.assign(finalMap, res)
+      })
+      await app.writeTemp(
+        `blog/pageClassfier.js`,
+        `export const directoryMap = ${JSON.stringify(finalMap)}\n${HMR_CODE}`
+      )
+  })
+}
 
 export const blogPlugin: Plugin<BlogOptions> = (options) => {
 
@@ -35,15 +80,18 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           pageOptions.frontmatter = {
             ...pageOptions.frontmatter,
             layout: isIndex ? layout : itemLayout,
-            ...frontmatter
+            ...frontmatter,
+            classifier: key
           }
           if (isIndex) {
             pageOptions.path = indexPath
           } else {
-            const _prefix = indexPath.endsWith('/') ? indexPath.substring(indexPath.length - 2, indexPath.length - 1) : indexPath
+            const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
             pageOptions.frontmatter.permalinkPattern = `${_prefix}${itemPermalink}`
           }
         }
+
+        // 筛选出对应的pages
       })
     },
     // 初始化时创建页面
@@ -51,8 +99,9 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
       const pages = filterPages(options, app)
       return Promise.all([
           preparePageType(app, options, pages),
+          prepareDirectories(app, options, pages)
         ]).then(() => {
-          console.log(app.pages)
+          // console.log(app.pages)
         })
     }
   }

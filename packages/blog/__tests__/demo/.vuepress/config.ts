@@ -51,7 +51,14 @@ export default defineUserConfig<DefaultThemeOptions>({
         {
           key: 'post',
           dirname: '_post',
-          path: '/',
+          path: '/post/',
+          layout: 'Blog',
+          itemLayout: 'Blog'
+        },
+        {
+          key: 'project',
+          dirname: '_project',
+          path: '/project/',
           layout: 'Blog',
           itemLayout: 'Blog'
         }
