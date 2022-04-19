@@ -1,11 +1,10 @@
-import { directoryClassifier } from './helper';
 /**
  * blog plugin
  */
 import { App, Plugin } from '@vuepress/core'
-import { preparePageType } from './classifier'
 import { BlogOptions, PageMap } from '../typings'
 import { filterPages, logger } from './utils'
+import { preparePageType, prepareFrontmatter } from './classifier'
 
 /**
  * 开发时热更新
@@ -99,7 +98,8 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
       const pages = filterPages(options, app)
       return Promise.all([
           preparePageType(app, options, pages),
-          prepareDirectories(app, options, pages)
+          prepareDirectories(app, options, pages),
+          prepareFrontmatter(app, options, pages)
         ]).then(() => {
           // console.log(app.pages)
         })

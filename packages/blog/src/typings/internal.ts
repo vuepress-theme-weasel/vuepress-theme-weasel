@@ -31,3 +31,25 @@ export type PageTypeMap = Record<
   /** Locale Type config */
   TypeConfig
 >;
+
+export interface FrontmatterConfig {
+  path: string;
+  keys: string[];
+}
+
+export type FrontmatterLocaleMap = Record<
+  /** Frontmatter name */ string,
+  /** Frontmatter config */ FrontmatterConfig
+>;
+
+export interface FrontmatterLocaleConfig {
+  /** Main page of Frontmatter */
+  path: string;
+  /** Frontmatter map for current locale */
+  map: FrontmatterLocaleMap;
+}
+
+export type FrontmatterMap = Record<
+  /** Locale Path */ string,
+  /** Locale Frontmatter config */ FrontmatterLocaleConfig
+>;

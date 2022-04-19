@@ -30,23 +30,23 @@ export default defineUserConfig<DefaultThemeOptions>({
 
   plugins: [
     blogPluginInit({
-      // category: [
-      //   {
-      //     key: "category",
-      //     getter: (page) => {
-      //       return (page.frontmatter.category as string[]) || [];
-      //     },
-      //     layout: "Layout",
-      //   },
-      //   {
-      //     key: "tag",
-      //     getter: (page) => {
-      //       return (page.frontmatter.tag as string[]) || [];
-      //     },
-      //     itemPath: "/tags/:name/",
-      //     itemLayout: "Layout",
-      //   },
-      // ],
+      frontmatterClassifier: [
+        {
+          key: "category",
+          getter: (page) => {
+            return (page.frontmatter.category as string[]) || [];
+          },
+          layout: "Layout",
+        },
+        {
+          key: "tag",
+          getter: (page) => {
+            return (page.frontmatter.tag as string[]) || [];
+          },
+          itemPath: "/tags/:name/",
+          itemLayout: "Layout",
+        },
+      ],
       directoryClassifier: [
         {
           key: 'post',
