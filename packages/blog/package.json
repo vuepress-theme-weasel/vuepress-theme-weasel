@@ -41,6 +41,8 @@
   },
   "dependencies": {
     "@mr-huang/vuepress-shared": "workspace:^0.0.1",
-    "@vuepress/core": "^2.0.0-beta.38"
+    "@vuepress/client": "^2.0.0-beta.38",
+    "@vuepress/core": "^2.0.0-beta.38",
+    "vue-router": "^4.0.13"
   }
 }
