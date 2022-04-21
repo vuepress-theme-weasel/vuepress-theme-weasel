@@ -43,6 +43,7 @@
     "ora": "5.4.1"
   },
   "dependencies": {
+    "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
     "@mr-huang/vuepress-shared": "workspace:^0.0.1",
     "execa": "5.1.1"
   }

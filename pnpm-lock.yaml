@@ -27,6 +27,7 @@ importers:
 
   demo:
     specifiers:
+      '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@mr-huang/vuepress-theme-weasel': workspace:^0.0.1
       '@vuepress/client': ^2.0.0-beta.38
@@ -39,6 +40,7 @@ importers:
       vuepress: ^2.0.0-beta.38
       vuepress-vite: ^2.0.0-beta.38
     dependencies:
+      '@mr-huang/vuepress-plugin-blog': link:../packages/blog
       '@mr-huang/vuepress-shared': link:../packages/shared
       '@mr-huang/vuepress-theme-weasel': link:../packages/theme
       '@vuepress/client': 2.0.0-beta.38
@@ -54,11 +56,13 @@ importers:
 
   packages/blog:
     specifiers:
+      '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@vuepress/client': ^2.0.0-beta.38
       '@vuepress/core': ^2.0.0-beta.38
       vue-router: ^4.0.13
     dependencies:
+      '@mr-huang/vuepress-plugin-blog': 'link:'
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': registry.npmmirror.com/@vuepress/client/2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
@@ -66,12 +70,14 @@ importers:
 
   packages/shared:
     specifiers:
+      '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       chalk: 4.1.2
       esno: ^0.14.1
       execa: 5.1.1
       ora: 5.4.1
     dependencies:
+      '@mr-huang/vuepress-plugin-blog': link:../blog
       '@mr-huang/vuepress-shared': 'link:'
       execa: 5.1.1
     devDependencies:
@@ -81,6 +87,7 @@ importers:
 
   packages/theme:
     specifiers:
+      '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@vuepress/client': ^2.0.0-beta.38
       '@vuepress/core': ^2.0.0-beta.38
@@ -90,6 +97,7 @@ importers:
       esno: ^0.14.1
       ora: 5.4.1
     dependencies:
+      '@mr-huang/vuepress-plugin-blog': link:../blog
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/plugin-theme-data': 2.0.0-beta.38
@@ -777,7 +785,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: false
 
   /clean-stack/2.2.0:
@@ -1122,14 +1130,6 @@ packages:
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
     dev: true
-
-  /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
 
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -1934,7 +1934,7 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: false
 
   /run-async/2.4.1:
@@ -2210,7 +2210,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.70.1
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: false
 
   /vue-demi/0.12.5_vue@3.2.31:
@@ -2643,6 +2643,16 @@ packages:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/estree-walker/-/estree-walker-2.0.2.tgz}
     name: estree-walker
     version: 2.0.2
+
+  registry.npmmirror.com/fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
 
   registry.npmmirror.com/graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.10.tgz}

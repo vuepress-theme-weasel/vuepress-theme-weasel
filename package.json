@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev:libs": "concurrently --kill-others \"pnpm dev -C packages/shared\"",
+    "dev:libs": "concurrently --kill-others \"pnpm dev -C packages/shared\" \"pnpm dev -C packages/blog\"",
     "dev:theme": "pnpm run dev -C packages/theme",
     "dev:demo": "pnpm run dev -C demo",
     "create:pkg": "plop",
