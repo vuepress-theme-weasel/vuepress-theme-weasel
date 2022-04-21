@@ -53,9 +53,23 @@ const prepareDirectories = (app: App, options: BlogOptions, pages: PageMap) => {
 }
 
 export const blogPlugin: Plugin<BlogOptions> = (options) => {
-
+  const { metaScope = '_blog' } = options
   return {
     name: '@mr-huang/vuepress-plugin-blog',
+
+    define: () => ({
+      BLOG_META_SCOPE: metaScope,
+    }),
+
+    extendsPage(page): void {
+      const { getInfo = (): Record<string, never> => ({}) } = options
+
+      page.routeMeta = {
+        ...(metaScope === '' ? getInfo(page) : { [metaScope]: getInfo(page) }),
+        ...page.routeMeta,
+      }
+    },
+
     // 为页面增强
     extendsPageOptions: (pageOptions, app) => {
     // prepareDirectories(app, options, pages)
@@ -93,6 +107,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
         // 筛选出对应的pages
       })
     },
+
     // 初始化时创建页面
     onInitialized(app) {
       const pages = filterPages(options, app)

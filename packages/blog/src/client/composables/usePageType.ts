@@ -1,4 +1,3 @@
-import { PageTypeMap } from './../../typings/internal';
 import { pageTypeMap } from '@temp/blog/pageType'
 import { useRouter } from 'vue-router'
 import { useRouteLocale, usePageFrontmatter } from '@vuepress/client'
@@ -6,12 +5,17 @@ import { computed, ref } from 'vue'
 import { resolveRouteWithRedirect } from './../utils';
 
 import type { ComputedRef } from 'vue'
-import { BlogPageTypeData, BlogPageTypeFrontmatterOptions } from 'src/typings'
+import { BlogPageTypeData, BlogPageTypeFrontmatterOptions, PageTypeMap } from '../../typings'
 
 export const blogPageTypeMap = ref(pageTypeMap)
 declare const BLOG_META_SCOPE: string
 declare const __VUE_HMR_RUNTIME__: Record<string, any>
 
+/**
+ * page type hooks
+ * @param key
+ * @returns
+ */
 export const usePageType = <T extends Record<string, unknown> = Record<string, unknown>>(key = ''):ComputedRef<BlogPageTypeData> => {
   console.log(blogPageTypeMap)
   const router = useRouter()

@@ -17,7 +17,7 @@ export type PageMap = Record<
 /**
  * page type config
  */
-export interface TypeConfig {
+export interface PageTypeConfig {
   path: string;
   keys: string[];
 }
@@ -29,7 +29,7 @@ export type PageTypeMap = Record<
   /** Locale Path */
   string,
   /** Locale Type config */
-  TypeConfig
+  PageTypeConfig
 >;
 
 export interface FrontmatterConfig {
@@ -52,4 +52,4 @@ export interface FrontmatterLocaleConfig {
 export type FrontmatterMap = Record<
   /** Locale Path */ string,
   /** Locale Frontmatter config */ FrontmatterLocaleConfig
->;
+>

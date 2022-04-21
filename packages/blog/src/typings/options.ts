@@ -123,6 +123,12 @@ export interface FrontmatterClassifierOptions {
  * 插件参数
  */
 export interface BlogOptions {
+  /**
+   * Function getting article info.
+   *
+   * 获取文章信息的函数。
+   */
+  getInfo?: (page: Page) => Record<string, unknown>;
 
   /**
    * frontmatter 分类器配置
