@@ -16,8 +16,7 @@ declare const __VUE_HMR_RUNTIME__: Record<string, any>
  * @param key
  * @returns
  */
-export const usePageType = <T extends Record<string, unknown> = Record<string, unknown>>(key = ''):ComputedRef<BlogPageTypeData> => {
-  console.log(blogPageTypeMap)
+export const useBlogPageType = <T extends Record<string, unknown> = Record<string, unknown>>(key = ''):ComputedRef<BlogPageTypeData> => {
   const router = useRouter()
   const routerLocale = useRouteLocale()
 

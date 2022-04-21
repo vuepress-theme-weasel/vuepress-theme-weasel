@@ -10,13 +10,13 @@ const HMR_CODE = `
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()
   if (__VUE_HMR_RUNTIME__.updateBlogCategory) {
-    __VUE_HMR_RUNTIME__.updateBlogCategory(categoryMap)
+    __VUE_HMR_RUNTIME__.updateBlogCategory(frontmatterMap)
   }
 }
 
 if (import.meta.hot) {
-  import.meta.hot.accept(({ categoryMap }) => {
-    __VUE_HMR_RUNTIME__.updateBlogCategory(categoryMap)
+  import.meta.hot.accept(({ frontmatterMap }) => {
+    __VUE_HMR_RUNTIME__.updateBlogCategory(frontmatterMap)
   })
 }
 `
@@ -34,9 +34,9 @@ const createFrontmatterPromise = (
       key,
       getter,
       sorter = (): number => -1,
-      path = '',
+      path = `/${key}/`,
       layout = 'Layout',
-      itemPath = '',
+      itemPath = `/:key/:name/`,
       itemLayout = 'Layout',
     } = classifier
 
@@ -61,8 +61,7 @@ const createFrontmatterPromise = (
     const getItemPath =
       typeof itemPath === 'function'
         ? itemPath
-        : (name: string): string =>
-            itemPath
+        : (name: string): string => itemPath
               .replace(/:key/g, slugify(key))
               .replace(/:name/g, slugify(name))
 

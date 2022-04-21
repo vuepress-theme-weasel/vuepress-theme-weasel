@@ -41,6 +41,8 @@ export default defineUserConfig<DefaultThemeOptions>({
           getter: (page) => {
             return (page.frontmatter.category as string[]) || [];
           },
+          // path: '/categories/',
+          // itemPath: "/category/:name/",
           layout: "Layout",
         },
         {
@@ -48,7 +50,8 @@ export default defineUserConfig<DefaultThemeOptions>({
           getter: (page) => {
             return (page.frontmatter.tag as string[]) || [];
           },
-          itemPath: "/tags/:name/",
+          path: '/tags/',
+          itemPath: "/tag/:name/",
           itemLayout: "Layout",
         },
       ],

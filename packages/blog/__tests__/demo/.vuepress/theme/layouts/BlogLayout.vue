@@ -5,11 +5,12 @@
 </template>
 
 <script lang="ts" setup>
-import { usePageType } from '../../../../../lib/client'
+import { useBlogPageType, useBlogFrontmatter } from '../../../../../lib/client'
 
-const pageType = usePageType('slide')
-
+const pageType = useBlogPageType('slide')
+const category = useBlogFrontmatter('category')
 console.log(pageType)
+console.log(category)
 </script>
 
 <style lang="scss" scoped>

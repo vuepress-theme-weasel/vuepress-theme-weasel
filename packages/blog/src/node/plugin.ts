@@ -26,7 +26,6 @@ if (import.meta.hot) {
 
 const filterDir = (options: BlogOptions, pages: PageMap) => {
   const { directoryClassifier = [] } = options
-  console.log(pages)
   return directoryClassifier.map(classfifier => {
     const map: Record<string, string[]> = {}
     map[classfifier.key] = []
