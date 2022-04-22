@@ -2,7 +2,7 @@
   <div class="page">
     <BlogWrapper class='blog-body-container'>
       <BlogHome v-if="isHome"/>
-      <NormalPage v-else />
+      <BlogPage v-else />
     </BlogWrapper>
   </div>
 </template>
