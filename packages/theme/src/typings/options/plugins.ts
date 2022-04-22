@@ -76,6 +76,15 @@ export interface ThemeBlogPluginOptions extends Pick<BlogOptions, 'filter'> {
   slides?: string
 
   /**
+   * Path of picture list
+   *
+   * 图片列表的路径
+   *
+   * @default '/pictures/'
+   */
+  pictures?: string
+
+  /**
    * Path of star article list
    *
    * 星标文章列表的路径
@@ -101,4 +110,25 @@ export interface ThemeBlogPluginOptions extends Pick<BlogOptions, 'filter'> {
    * @default false
    */
   autoExcerpt?: boolean
+}
+
+
+export interface ThemePluginsOptions {
+  /**
+   * Enable @vuepress/plugin-git or not
+   *
+   * 是否开启git插件
+   *
+   * @default true
+   */
+  git?: boolean
+
+  /**
+   * Blog plugin options
+   *
+   * 博客插件选项
+   *
+   * @default false
+   */
+  blog?: ThemeBlogPluginOptions | false
 }

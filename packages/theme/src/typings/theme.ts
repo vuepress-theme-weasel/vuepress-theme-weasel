@@ -1,4 +1,8 @@
+import { ThemePluginsOptions } from "./options";
+
 export interface WeaselThemeConfig {
 }
 
-export interface WeaselThemeOptions {}
+export interface WeaselThemeOptions {
+  plugin?: ThemePluginsOptions
+}
