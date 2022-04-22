@@ -97,8 +97,8 @@
       :root {
         #{$key}: #{$lightColor};
       }
-
-      @if $lightColor != $darkColor and $darkSelector {
+      $length: string.length($darkSelector);
+      @if $lightColor != $darkColor and $length != 0 {
         #{$darkSelector} {
           #{$key}: #{$darkColor};
         }
