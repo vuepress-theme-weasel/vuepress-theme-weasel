@@ -5,4 +5,5 @@ export * from './options'
 export * from './articleInfo'
 export * from './author'
 export * from './locales'
+export * from './page'
 export default {}
