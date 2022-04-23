@@ -51,4 +51,4 @@ const colorMap = ref(Array(9).fill(null).map((_, index) => index))
 
 </script>
 
-<style lang="scss" scoped src="../styles/category.scss"></style>
+<style lang="scss" scoped src="../../styles/article/category.scss"></style>

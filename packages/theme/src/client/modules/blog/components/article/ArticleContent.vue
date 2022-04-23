@@ -46,14 +46,11 @@
 <script lang="ts" setup>
 import { MarkdownContent } from '@theme-weasel/components'
 import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
-import { ArticleInfo } from '@mr-huang/vuepress-plugin-components/lib/client'
-import { usePageInfo } from "@theme-weasel/composables";
-import { PageTitleProps } from '@mr-huang/vuepress-plugin-components';
+import { usePageInfo } from "@theme-weasel/composables"
+import { PageTitleProps } from '@mr-huang/vuepress-plugin-components'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
 
-const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }};
-
-console.log(pageInfoProps)
+const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }}
 </script>
 
 <style lang="scss" scoped src="../../styles/article-info.scss"></style>

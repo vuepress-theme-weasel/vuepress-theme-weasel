@@ -102,3 +102,8 @@ export interface ArticleCategory {
    */
   path?: string;
 }
+
+/**
+ * 文章标签
+ */
+export type ArticleTag = ArticleCategory;

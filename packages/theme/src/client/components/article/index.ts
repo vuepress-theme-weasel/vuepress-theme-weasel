@@ -1,4 +1,5 @@
 
+export { default as ArticleInfo } from './ArticleInfo.vue'
 export { default as AuthorInfo } from './AuthorInfo.vue'
 export { default as CategoryInfo }  from './CategoryInfo.vue'
 export { default as DateInfo } from './DateInfo.vue'

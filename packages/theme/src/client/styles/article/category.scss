@@ -1,0 +1,61 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+@use 'sass:color';
+@use 'sass:list';
+
+.categories-wrapper {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    .category {
+        display: inline-block;
+        margin: 0 0.25em;
+        padding: 0 0.25em;
+        border-radius: 0.25em;
+
+        font-size: 0.75rem;
+        font-weight: bold;
+        line-height: 2;
+
+        transition: background-color var(--color-transition, 0.3s), color var(--color-transition, 0.3s);
+
+        > span {
+            &:after {
+                content: ', ';
+            }
+
+            &:last-child:after {
+                content: '';
+            }
+        }
+
+        &.clickable {
+            > span:hover {
+                cursor: pointer;
+                color: var(--c-brand, #3eaf7c);
+            }
+        }
+    }
+
+    @each $color in weasel-config.$colors {
+        $index: list.index(weasel-config.$colors, $color) - 1;
+
+        .category#{$index} {
+            background: color.scale($color, $lightness: 90%);
+            color: color.scale($color, $lightness: 20%);
+
+            #{weasel-config.$darkSelector} & {
+                background: color.scale($color, $lightness: -75%);
+                color: color.scale($color, $lightness: -10%);
+            }
+
+            &:hover {
+                background: color.scale($color, $lightness: 75%);
+
+                #{weasel-config.$darkSelector} & {
+                    background: color.scale($color, $lightness: -60%);
+                }
+            }
+        }
+    }
+}

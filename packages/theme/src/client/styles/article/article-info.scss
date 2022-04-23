@@ -1,0 +1,67 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
+.blog-body-container {
+  .article-info {
+    display: flex;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--dark-grey);
+    font-size: 14px;
+
+    & > span {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      margin-right: 0.5em;
+      line-height: 2;
+
+      @media (min-width: weasel-config.$wide) {
+        font-size: 1.1em;
+      }
+
+      @media (max-width: weasel-config.$mobileS) {
+        font-size: 0.875em;
+      }
+
+      &.origin {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        margin: 0 0.5em;
+        padding: 0 0.5em;
+        border: 0.5px solid var(--dark-grey);
+        border-radius: 0.75em;
+        background: var(--c-bg, #fff);
+        font-size: 0.75em;
+        line-height: 1.5;
+        overflow: hidden;
+      }
+    }
+
+    .icon {
+      position: relative;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-right: 0.25em;
+      vertical-align: middle;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover,
+      &:active {
+        color: var(--c-brand, #3eaf7c);
+      }
+    }
+  }
+
+  .author-item {
+    display: inline-block;
+    margin: 0 4px;
+    font-weight: normal;
+  }
+}

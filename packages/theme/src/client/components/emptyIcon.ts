@@ -1,7 +1,7 @@
 import { defineComponent, h } from "vue";
 import type { VNode } from "vue";
 
-import "../../styles/empty.icon.scss";
+import "../styles/empty.icon.scss";
 
 export const EmptyIcon = defineComponent({
   name: "EmptyIcon",

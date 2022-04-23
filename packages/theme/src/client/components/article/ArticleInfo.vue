@@ -78,4 +78,4 @@ const componentProp = (item: ArticleInfo): any => {
 }
 </script>
 
-<style lang="scss" src="../styles/article-info.scss"></style>
+<style lang="scss" src="../../styles/article/article-info.scss"></style>
