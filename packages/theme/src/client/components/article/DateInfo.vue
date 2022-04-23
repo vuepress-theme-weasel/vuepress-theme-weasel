@@ -9,10 +9,9 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import type { DateInfo } from '@mr-huang/vuepress-shared'
-import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
-import { articleInfoLocales } from '../define'
+import { useLocaleConfig } from '@theme-weasel/composables'
+import { articleInfoLocales } from '../../define'
 import { CalendarIcon } from './Icons'
-
 
 defineProps({
   date: {

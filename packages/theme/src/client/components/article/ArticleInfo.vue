@@ -1,19 +1,17 @@
 <template>
   <div class="article-info" v-if="config">
     <template v-for="(item, index) in config" :key="'component' + index">
-      <component v-if="item" :is="resolveComponent(`${item}Info`)
-" v-bind="componentProp(item)" />
+      <component v-if="item" :is="`${item}Info`" v-bind="componentProp(item)" />
     </template>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { PropType, resolveComponent } from 'vue'
+import { PropType } from 'vue'
 import { ArticleInfo, AuthorInfo as AuthorInfoType } from '../../../typings'
 import type {
   DateInfo as DateInfoType,
 } from '@mr-huang/vuepress-shared'
-
 
 const props = defineProps({
   config: {

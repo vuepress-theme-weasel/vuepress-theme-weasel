@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
-import { articleInfoLocales } from '../define'
+import { useLocaleConfig } from '@theme-weasel/composables'
+import { articleInfoLocales } from '../../define'
 
 defineProps({
   isOriginal: { type: Boolean, default: false },

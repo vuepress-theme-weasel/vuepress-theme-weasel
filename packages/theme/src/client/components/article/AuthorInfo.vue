@@ -13,9 +13,9 @@
 import { AuthorIcon } from './Icons'
 import { Fragment } from 'vue'
 import type { PropType } from 'vue'
-import type { AuthorInfo } from '@mr-huang/vuepress-shared'
-import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
-import { articleInfoLocales } from "../define";
+import type { AuthorInfo } from '../../../typings'
+import { useLocaleConfig } from '@theme-weasel/composables'
+import { articleInfoLocales } from "../../define";
 
 const props = defineProps({
   author: {
