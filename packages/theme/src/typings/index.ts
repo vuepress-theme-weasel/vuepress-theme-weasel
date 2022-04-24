@@ -8,4 +8,4 @@ export * from './locales'
 export * from './page'
 export * from './navbar'
 export * from './sidebar'
-export default {}
+export * from './pageTitle'
