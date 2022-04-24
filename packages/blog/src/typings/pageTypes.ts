@@ -18,9 +18,7 @@ export type Articles<
 /**
  * frontmatter classifier data
  */
-export interface BlogFrontmatterData<
-  T extends Record<string, unknown> = Record<string, unknown>
-> {
+export interface BlogFrontmatterData<T extends Record<string, unknown> = Record<string, unknown>> {
   path: string;
   currentItems?: Articles<T>;
   map: Record<string, { path: string; items: Articles<T> }>;

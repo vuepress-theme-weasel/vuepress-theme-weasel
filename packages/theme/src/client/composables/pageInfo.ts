@@ -5,10 +5,10 @@ import { DateInfo, DateOptions } from '@mr-huang/vuepress-shared';
 import { getDate } from '@mr-huang/vuepress-shared/lib/client'
 import { usePageData, usePageFrontmatter, usePageLang } from '@vuepress/client';
 import { GitData } from '@vuepress/plugin-git';
-import { UnwrapNestedRefs, computed, ComputedRef, inject } from 'vue'
+import { UnwrapNestedRefs, computed, ComputedRef, inject, reactive } from 'vue'
 import { getAuthor, getCategory, getTag } from '../utils';
 import { AuthorInfo, PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, CategoryMapRef, ArticleTag } from './../../typings';
-import { useThemeLocaleData } from './themeData';
+import { usePure, useThemeLocaleData } from './themeData';
 
 declare const ENABLE_BLOG: boolean;
 
@@ -84,6 +84,10 @@ export const usePageDate = (): ComputedRef<DateInfo | null> => {
   });
 };
 
+/**
+ * 获取页面数据
+ * @returns
+ */
 export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
   const themeLocale = useThemeLocaleData()
   const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>()
@@ -92,4 +96,21 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
   const tag = usePageTag();
   const date = usePageDate();
   const pure = usePure();
+  const page = usePageData();
+
+  return reactive<PageTitleProps>({
+    config:
+      frontmatter.value.pageInfo === false
+        ? false
+        : frontmatter.value.pageInfo || themeLocale.value.pageInfo,
+    author: author.value,
+    category: category.value,
+    date: date.value,
+    tag: tag.value,
+    isOriginal: frontmatter.value.isOriginal,
+    // readingTime: page.value.readingTime,
+    // pageview: "pageview" in frontmatter.value ? frontmatter.value.pageview : true,
+    // color: !pure.value,
+    hint: !pure.value,
+  });
 }

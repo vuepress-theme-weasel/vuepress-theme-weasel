@@ -1,4 +1,4 @@
-import { ArticleInfo } from "../../../typings/articleInfo";
+import { ArticleInfoComponent } from "../../../typings/articleInfo";
 
 export interface ThemeLayoutLocaleData {}
 
@@ -55,7 +55,7 @@ export interface ThemeLayoutLocaleOptions {
    *
    * @default ["Author", "Original", "PageView", "Date", "Category", "Tag", "ReadingTime"]
    */
-  pageInfo?: ArticleInfo[] | false;
+  pageInfo?: ArticleInfoComponent[] | false;
 
   /**
    * Whether show toc list in desktop mode
