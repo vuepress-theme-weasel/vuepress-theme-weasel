@@ -3,21 +3,21 @@ import { isPlainObject, isString } from "@vuepress/shared";
 import { computed, defineComponent, h, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 
-import AutoLink from "@theme-weasel/components/common/AutoLink";
+import {AutoLink } from "@theme-weasel/components";
 import {
   useAutoLink,
   useIconPrefix,
   useNavigate,
   useThemeLocaleData,
-} from "@theme-weasel/composables";
+} from "@theme-weasel/composables"
 import { useSidebarItems } from "@theme-weasel/modules/sidebar/composables";
 
 import type { VNode } from "vue";
 import type {
-  WeaselThemeNormalPageFrontmatter,
+  ThemeNormalPageFrontmatter,
   AutoLink as AutoLinkType,
   ResolvedSidebarItem,
-} from "../../../typings";
+} from "../../typings";
 
 import "../../styles/page-nav.scss";
 
@@ -74,7 +74,7 @@ export default defineComponent({
   setup() {
     const themeLocale = useThemeLocaleData();
     const iconPrefix = useIconPrefix();
-    const frontmatter = usePageFrontmatter<WeaselThemeNormalPageFrontmatter>();
+    const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>();
     const sidebarItems = useSidebarItems();
     const route = useRoute();
     const navigate = useNavigate();

@@ -8,7 +8,8 @@ import { logger } from './../utils/logger'
 export const createClientAppSetupFiles = (app: App): string[] => {
   const appSetupFiles: string[] = [
     path.resolve(__dirname, '../../client/appSetup.js'),
-    path.resolve(__dirname, '../../client/modules/blog/appSetup.js')
+    path.resolve(__dirname, '../../client/modules/blog/appSetup.js'),
+    path.resolve(__dirname, '../../client/modules/sidebar/appSetup.js')
   ]
   if (app.env.isDebug) {
     logger.info('setup注册文件', appSetupFiles)

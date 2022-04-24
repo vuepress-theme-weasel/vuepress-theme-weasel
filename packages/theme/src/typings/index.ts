@@ -6,4 +6,6 @@ export * from './articleInfo'
 export * from './author'
 export * from './locales'
 export * from './page'
+export * from './navbar'
+export * from './sidebar'
 export default {}

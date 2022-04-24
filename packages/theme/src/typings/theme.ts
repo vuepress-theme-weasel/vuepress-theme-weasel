@@ -1,12 +1,11 @@
 import { LocaleData } from "@vuepress/core";
 import { ThemeData } from "@vuepress/plugin-theme-data";
-import { ThemePluginsOptions } from "./options";
-
-export interface ThemeLocaleConfig extends LocaleData {}
+import { ThemeLocaleConfig, ThemePluginsOptions } from "./options";
 
 export interface WeaselThemeConfig extends ThemeData<ThemeLocaleConfig> {
+  // locales: Record<string, ThemeLocaleConfig>;
 }
 
-export interface WeaselThemeOptions {
+export interface WeaselThemeOptions extends ThemeData {
   plugin?: ThemePluginsOptions
 }

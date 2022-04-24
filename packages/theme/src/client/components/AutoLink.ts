@@ -7,7 +7,7 @@ import { isLinkHttp, isLinkMailto, isLinkTel } from "@vuepress/shared";
 import { useIconPrefix } from "@theme-weasel/composables";
 
 import type { PropType, VNode } from "vue";
-import type { AutoLink } from "../../../typings";
+import type { AutoLink } from "../../typings";
 
 export default defineComponent({
   name: "AutoLink",

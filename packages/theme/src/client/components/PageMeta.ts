@@ -1,7 +1,5 @@
 import { defineComponent, h } from "vue";
-
-import AutoLink from "@theme-weasel/components/common/AutoLink";
-import { EditIcon } from "@theme-weasel/components/common/icons";
+import { AutoLink, EditIcon } from "@theme-weasel/components"
 import {
   useContributors,
   useEditLink,
