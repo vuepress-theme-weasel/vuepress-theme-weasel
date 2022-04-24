@@ -19,7 +19,7 @@ import type {
   ResolvedSidebarItem,
 } from "../../typings";
 
-import "../../styles/page-nav.scss";
+import "../styles/page-nav.scss";
 
 /**
  * Resolve `prev` or `next` config from frontmatter

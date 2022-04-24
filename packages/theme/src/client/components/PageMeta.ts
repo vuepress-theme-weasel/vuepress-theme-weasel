@@ -9,7 +9,7 @@ import {
 
 import type { VNode } from "vue";
 
-import "../../styles/page-meta.scss";
+import "../styles/page-meta.scss"
 
 export default defineComponent({
   name: "PageMeta",
