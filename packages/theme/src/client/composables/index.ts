@@ -5,4 +5,4 @@ export * from './themeData'
 export * from './pageMeta'
 export * from './navLink'
 export * from './navigate'
-export default {}
+export * from './pageInfo'

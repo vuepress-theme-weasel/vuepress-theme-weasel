@@ -1,4 +1,4 @@
-import { capitalize } from "@mr-huang/vuepress-shared"
+import { capitalize } from "@mr-huang/vuepress-shared/lib/client"
 import { Author, AuthorInfo } from "../../typings"
 
 /**

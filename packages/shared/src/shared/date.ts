@@ -1,31 +1,5 @@
+import { DateInfo, DateOptions } from "../typings";
 import { dayjs } from "./dayjs";
-
-export interface DateOptions {
-  /**
-   * @default 'en'
-   */
-  lang?: string;
-  timezone?: string;
-  /**
-   * @default 'full'
-   */
-  type?: "date" | "time" | "full";
-}
-
-export interface DateDetail {
-  year: number;
-  month: number;
-  day: number;
-  hour: number;
-  minute: number;
-  second: number;
-}
-
-export interface DateInfo {
-  display: string;
-  value: Date | undefined;
-  detail: Partial<DateDetail>;
-}
 
 const getLang = (lang = "en"): string => {
   const langcode = lang.toLowerCase();

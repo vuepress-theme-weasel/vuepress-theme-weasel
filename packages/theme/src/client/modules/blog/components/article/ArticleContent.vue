@@ -47,10 +47,11 @@
 import { MarkdownContent } from '@theme-weasel/components'
 import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
 import { usePageInfo } from "@theme-weasel/composables"
-import { PageTitleProps } from '@mr-huang/vuepress-plugin-components'
+import { PageTitleProps } from '../../../../../typings'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
 
 const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }}
+
 </script>
 
 <style lang="scss" scoped src="../../styles/article-info.scss"></style>

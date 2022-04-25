@@ -3,5 +3,4 @@
  */
 import { PageFrontmatter } from '@vuepress/core'
 
-export interface BasePageFrontMatter extends PageFrontmatter {
-}
+export interface BasePageFrontMatter extends PageFrontmatter {}

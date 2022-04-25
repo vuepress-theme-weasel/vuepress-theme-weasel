@@ -1,5 +1,5 @@
 import { WeaselLang } from './types'
-import { ThemeLocaleData } from '../../typings'
+import { ArticleInfoLocaleConfig, ThemeLocaleData } from '../../typings'
 
 export const lang2PathConfig = {
   'en-US': '/en/',
@@ -125,5 +125,32 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     //   back: "返回上一页",
     //   home: "带我回家",
     // },
+  }
+}
+
+/**
+ * Default locales config for Article Info
+ */
+export const articleInfoLocales: ArticleInfoLocaleConfig = {
+  '/en/': {
+    author: 'Author🖊',
+    date: 'Writing Date📅',
+    isOrigin: 'Original💡',
+    views: 'Page views🔢',
+    category: 'Category🌈',
+    tag: 'Tags🏷',
+    readingTime: 'Reading Time⌛',
+    words: 'Words🔠',
+  },
+
+  '/zh/': {
+    author: '作者🖊',
+    date: '写作日期📅',
+    isOrigin: '原创💡',
+    views: '访问量🔢',
+    category: '分类🌈',
+    tag: '标签🏷',
+    readingTime: '阅读时间⌛',
+    words: '字数🔠',
   }
 }
