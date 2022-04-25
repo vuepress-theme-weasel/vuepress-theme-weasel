@@ -19,12 +19,12 @@ export const usePageAuthor = (): ComputedRef<AuthorInfo[]> => {
   const themeLocale = useThemeLocaleData()
   const frontmatter = usePageFrontmatter<BasePageFrontMatter>()
   return computed(() => {
-    const { author } = frontmatter.value;
+    const { author } = frontmatter.value
 
-    if (author) return getAuthor(author!);
+    if (author) return getAuthor(author!)
 
-    return getAuthor(themeLocale.value.author, false);
-  });
+    return getAuthor(themeLocale.value.author, false)
+  })
 }
 
 /**
