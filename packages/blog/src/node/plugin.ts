@@ -5,6 +5,7 @@ import { App, Plugin } from '@vuepress/core'
 import { BlogOptions, PageMap } from '../typings'
 import { filterPages, logger } from './utils'
 import { preparePageType, prepareFrontmatter } from './classifier'
+import { path } from '@vuepress/utils';
 
 /**
  * 开发时热更新
@@ -80,11 +81,12 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           dirname,
           layout,
           itemLayout,
-          // itemPermalink = '/:year/:month/:day/:slug.html',
+          itemPermalink = '',
           frontmatter
         } = classifier
         const { filePath } = pageOptions
-        if (filePath && filePath.startsWith(app.dir.source(dirname))) {
+        const sourceDir = app.dir.source(dirname)
+        if (filePath && filePath.startsWith(sourceDir)) {
           const reg = /[readme|index].md$/gi
           const isIndex = reg.test(filePath)
           pageOptions.frontmatter = pageOptions.frontmatter ?? {}
@@ -95,11 +97,14 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
             ...frontmatter,
             classifier: key
           }
+          const filePathRelative = filePath.replace(sourceDir + '/', '')
+          const pathDir = path.dirname(filePathRelative)
+
           if (isIndex) {
-            pageOptions.path = indexPath
+            pageOptions.path = indexPath + pathDir
           } else {
             // const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
-            // pageOptions.frontmatter.permalinkPattern = `${_prefix}${itemPermalink}`
+            pageOptions.frontmatter.permalinkPattern = itemPermalink ? itemPermalink : `${indexPath}${pathDir}/:slug.html`
           }
         }
 
@@ -115,7 +120,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           prepareDirectories(app, options, pages),
           prepareFrontmatter(app, options, pages)
         ]).then(() => {
-          // console.log(app.pages)
+          console.log(app.pages)
         })
     }
   }
