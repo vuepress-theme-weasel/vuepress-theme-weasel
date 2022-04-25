@@ -34,7 +34,6 @@ export const useBlogPageType = <T extends Record<string, unknown> = Record<strin
 
       if (route) {
         const finalRoute = resolveRouteWithRedirect(router, route.path)
-
         result.items.push({
           path: finalRoute.path,
           info: BLOG_META_SCOPE === '' ? (finalRoute.meta as T) : (finalRoute.meta[BLOG_META_SCOPE] as T)

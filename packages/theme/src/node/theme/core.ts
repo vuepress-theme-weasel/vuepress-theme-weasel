@@ -1,20 +1,23 @@
+import { handleThemeData } from './themeData';
 import { prepareSidebarData } from './../plugins/sidebar';
 import { createPluginConfig } from './../plugins/index';
 import { createClientAppSetupFiles } from './clientAppSetupFiles';
 import { createClientAppEnhanceFiles } from './clientAppEnhanceFiles';
 import { createLayout } from './layout';
 import { createAlias } from './alias';
-import type { Theme } from '@vuepress/core'
-import { WeaselThemeOptions } from '../../typings'
+import type { Page, Theme } from '@vuepress/core'
+import { ThemePageData, WeaselThemeConfig, WeaselThemeOptions } from '../../typings'
 import { getThemeConfig, logger } from '../utils'
 import { getDefine } from './define';
+import { extendsPage } from './extends';
 
 // @ts-ignore
 export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
   logger.info("========= 主题阶段开始 ===========")
   logger.info(app.options.source)
   const themeConfig = getThemeConfig(app, themeOptions);
-
+  // 主题数据注入
+  handleThemeData(app, themeOptions)
   return {
     name: 'vuepress-theme-weasel',
     alias: createAlias(app),
@@ -23,6 +26,7 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     onPrepared: () => {
       prepareSidebarData(app, themeConfig)
     },
+    extendsPage: (page) => extendsPage(app, themeOptions as WeaselThemeConfig, plugins, page as Page<ThemePageData>, app.env.isDev),
     // 主题默认的插件
     plugins: createPluginConfig(app, plugins, themeOptions),
     // 主题布局

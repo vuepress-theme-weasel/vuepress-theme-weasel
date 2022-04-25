@@ -76,7 +76,7 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
   }
 
   return {
-    metaScope: '_weaselBlog',
+    metaScope: '',
 
     filter: blogOptions.filter || defaultClassifierFilter,
 
@@ -153,19 +153,19 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
 
     directoryClassifier: [
       {
-          key: 'blog',
-          dirname: 'blog',
-          path: '/post/',
-          layout: 'Blog',
-          itemLayout: 'Blog'
-        },
-        {
-          key: 'project',
-          dirname: '_project',
-          path: '/project/',
-          layout: 'Blog',
-          itemLayout: 'Blog'
-        }
+        key: 'blog',
+        dirname: 'blog',
+        path: '/post/',
+        layout: 'Blog',
+        itemLayout: 'Blog'
+      },
+      {
+        key: 'project',
+        dirname: '_project',
+        path: '/project/',
+        layout: 'Blog',
+        itemLayout: 'Blog'
+      }
     ]
   }
 }

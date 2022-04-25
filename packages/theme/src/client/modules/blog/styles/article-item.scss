@@ -1,0 +1,195 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
+.article {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.4rem;
+  background: var(--bg-color);
+  box-shadow: 0 1px 3px 0 var(--card-shadow);
+
+  text-align: left;
+
+  @media (max-width: weasel-config.$mobileS) {
+    border-radius: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 6px 0 var(--card-shadow);
+  }
+
+  .sticky-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--theme-color);
+
+    .sticky-text {
+      color: var(--white);
+    }
+  }
+
+  .title {
+    display: inline-block;
+    position: relative;
+
+    font-family: var(--font-family-fancy);
+    font-size: 1.28rem;
+    line-height: 2rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--theme-color);
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .lock-icon,
+    .slides-icon {
+      position: relative;
+      bottom: -0.125em;
+      display: inline-block;
+      vertical-align: baseline;
+      width: 1.25em;
+      height: 1.25em;
+      margin-right: 0.25em;
+      color: var(--theme-color);
+    }
+  }
+
+  .excerpt {
+    overflow: hidden;
+    line-height: 1.7;
+
+    h1 {
+      display: none;
+
+      & + p {
+        margin-top: 0.5em;
+      }
+    }
+
+    p {
+      &:first-child {
+        margin-top: 0.5em;
+      }
+
+      &:last-child {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    // code block fix
+    pre {
+      line-height: 1.4;
+      padding: 1.25rem 1.5rem;
+      margin: 0.85rem 0;
+    }
+
+    // line number fix
+    .line-numbers-mode {
+      pre {
+        padding-left: calc(var(--line-numbers-width) + 1rem);
+      }
+    }
+
+    // hide code demo
+    .code-demo-wrapper {
+      display: none;
+    }
+  }
+
+  .article-read-more {
+    display: block;
+    margin: 24px auto 16px auto;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    &::before {
+      content: '';
+      width: 2px;
+      height: 90%;
+      background: rgba($color: #000000, $alpha: 0.4);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 2px;
+    }
+    &::after {
+      content: '';
+      width: 2px;
+      height: 90%;
+      background: rgba($color: #000000, $alpha: 0.4);
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      border-radius: 2px;
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      transform: translateX(6px);
+    }
+  }
+
+  .article-info {
+    color: var(--dark-grey);
+    font-size: 14px;
+
+    & > span {
+      display: inline-block;
+      margin-right: 0.5em;
+      line-height: 1.8;
+
+      @media (max-width: weasel-config.$mobileS) {
+        margin-right: 0.3em;
+        font-size: 0.86rem;
+      }
+
+      &::after {
+        --balloon-font-size: 8px;
+        padding: 0.3em 0.6em !important;
+      }
+
+      .categories-wrapper,
+      .tags-wrapper {
+        display: inline-block;
+      }
+    }
+
+    .icon {
+      width: 1em;
+      height: 1em;
+    }
+  }
+}

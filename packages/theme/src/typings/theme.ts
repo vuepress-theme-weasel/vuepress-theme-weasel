@@ -1,4 +1,3 @@
-import { LocaleData } from "@vuepress/core";
 import { ThemeData } from "@vuepress/plugin-theme-data";
 import { ThemeLocaleConfig, ThemePluginsOptions } from "./options";
 
