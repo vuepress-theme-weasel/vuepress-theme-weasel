@@ -51,6 +51,8 @@ app.use(MyPlugin)
 首先放一张完整的流程图，先有一个印象：
 ![createApp整个流程](./createApp/all.jpg)
 
+<!-- more -->
+
 ### createApp源码分析
 
 分析过程请看如下代码注释

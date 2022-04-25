@@ -59,7 +59,6 @@ const getEntryAlias = (entry: string): [string, string] | null =>
  */
 const getRootAlias = (app: App): [string, string][] => {
   const dirs = fs.readdirSync(themeRootDir)
-  console.log(getDirAlias('node', '../../', false))
   if (app.env.isDebug) {
     console.log('-------------')
   }

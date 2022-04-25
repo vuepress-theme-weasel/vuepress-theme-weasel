@@ -13,6 +13,7 @@ layout: Blog
 使用该指令可以隐式的扩展元素的点击范围，由于借用伪元素实现，故不会影响元素在页面上的排列布局。
 
 ### 源码
+
 ```javascript
 /**
  * 元素点击范围扩展指令
@@ -35,7 +36,9 @@ export function expandClick(el, binding) {
   }
 }
 ```
+
 ### 参数 Attributes：
+
 > 可传入的参数为：上右下左扩展的范围，单位 px，默认向外扩展 10px。
 
 | 参数 | 说明 | 默认值 | 类型 | 必填 |
@@ -53,9 +56,10 @@ export function expandClick(el, binding) {
 ## 文本内容复制指令 `v-copy`
 
 使用该指令可以复制元素的文本内容,指令支持:
-  - 单击复制 v-copy
-  - 双击复制 v-copy.dblclick
-  - 点击icon复制 v-copy.icon
+
+- 单击复制 v-copy
+- 双击复制 v-copy.dblclick
+- 点击icon复制 v-copy.icon
 
 三种模式，不传参数时，默认使用单击复制。
 
@@ -231,6 +235,7 @@ data() {
 ## 文字超出省略指令 `v-ellipsis`
 
 使用该指令当文字内容超出宽度（默认 100 px）时自动变为省略形式。等同于使用 css：
+
 ```css
 width: 100px;
 whiteSpace: nowrap
@@ -550,6 +555,7 @@ Vue.directive('focus', {
   }
 })
 ```
+
 这样就可以正常使用这些指令了：
 
 ```html

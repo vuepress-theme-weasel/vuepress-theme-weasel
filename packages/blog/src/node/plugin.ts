@@ -63,6 +63,17 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
 
     extendsPage(page): void {
       const { getInfo = (): Record<string, never> => ({}) } = options
+      console.log(page)
+
+      const { indexPath, dirname } = page.frontmatter
+
+      if (indexPath && dirname) {
+        const reg = new RegExp(`@source/${dirname}/`, 'ig')
+        const source = `@source${indexPath}`
+        page.excerpt = page.excerpt.replace(reg, source)
+        page.content = page.content.replace(reg, source)
+        page.contentRendered = page.contentRendered.replace(reg, source)
+      }
 
       page.routeMeta = {
         ...(metaScope === '' ? getInfo(page) : { [metaScope]: getInfo(page) }),
@@ -106,6 +117,8 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
             // const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
             pageOptions.frontmatter.permalinkPattern = itemPermalink ? itemPermalink : `${indexPath}${pathDir}/:slug.html`
           }
+          pageOptions.frontmatter.indexPath = indexPath
+          pageOptions.frontmatter.dirname = dirname
         }
 
         // 筛选出对应的pages

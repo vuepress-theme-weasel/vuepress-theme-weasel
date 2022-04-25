@@ -94,19 +94,20 @@ pnpm 相比 yarn，npm，yarn PnP 安装包更快速，对包的依赖管理更�
     pnpm i @test/utils -r --filter @test/ui
 
 之后，打开 `packages/ui/package.json` 发现 dependencies 中多了一行。
-
-    {
-      "name": "@test/ui",
-      "version": "1.0.0",
-      "description": "",
-      "main": "./index.tsx",
-      "scripts": {},
-      "author": "Innei",
-      "license": "MIT",
-      "dependencies": {
-        "@test/utils": "workspace:^1.0.0" // <--------
-      }
-    }
+```json
+{
+  "name": "@test/ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.tsx",
+  "scripts": {},
+  "author": "Innei",
+  "license": "MIT",
+  "dependencies": {
+    "@test/utils": "workspace:^1.0.0" // <--------
+  }
+}
+```
 
 由于是 workspace 管理的，所有有一个前缀 workspace。接下来则可以从 package/ui 中直接引入这个包了。
 

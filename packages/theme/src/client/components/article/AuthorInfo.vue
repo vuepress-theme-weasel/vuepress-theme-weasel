@@ -28,7 +28,6 @@ const props = defineProps({
     default: true,
   },
 })
-console.log(props)
 const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 </script>
 

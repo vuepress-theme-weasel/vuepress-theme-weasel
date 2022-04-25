@@ -2,6 +2,7 @@
 title: vue自定义指令jsx语法
 layout: Blog
 ---
+
 vue中自定义指令使用jsx语法实现
 
 ```javascript
@@ -20,3 +21,5 @@ render () {
   )
 }
 ```
+
+<!-- more -->

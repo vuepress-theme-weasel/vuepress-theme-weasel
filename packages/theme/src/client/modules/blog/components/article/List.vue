@@ -26,7 +26,6 @@ const blogOptions = useBlogOptions()
 const currentPage = ref(1)
 
 const articlePerPage = computed(() => blogOptions.value.articlePerPage)
-console.log(blogOptions)
 const currentArticles = computed(() =>
   props.items.slice(
     (currentPage.value - 1) * articlePerPage.value!,

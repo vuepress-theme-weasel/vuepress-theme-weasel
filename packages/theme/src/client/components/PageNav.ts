@@ -95,8 +95,6 @@ export default defineComponent({
         : resolveFromSidebarItems(sidebarItems.value, route.path, 1);
     });
 
-    console.log(sidebarItems, prevNavLink, nextNavLink, '===============')
-
     const keyboardListener = (event: KeyboardEvent): void => {
       if (event.altKey) {
         if (event.key === "ArrowRight") {

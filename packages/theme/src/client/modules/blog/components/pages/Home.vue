@@ -31,7 +31,4 @@ import { Features } from '../feature'
 import { ArticleList } from '../article'
 
 const articles = useArticles()
-
-console.log('=+++================', articles)
-
 </script>

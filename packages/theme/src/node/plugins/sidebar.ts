@@ -95,7 +95,6 @@ const isThemeSidebarDir = (app: App, dir: string): boolean => {
  */
 const getFileStat = (app: App, rootDir: string, fileName: string, fileFullPath: string, fileRelativePath: string):Info | null => {
   const stat = fs.statSync(fileFullPath)
-  console.log('========', fileFullPath)
   // 是文件夹 继续往下查找
   if (stat.isDirectory()) {
     // 获取当前文件夹下的信息

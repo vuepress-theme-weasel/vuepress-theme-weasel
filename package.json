@@ -8,6 +8,7 @@
     "dev:libs": "concurrently --kill-others \"pnpm dev -C packages/shared\" \"pnpm dev -C packages/blog\"",
     "dev:theme": "pnpm run dev -C packages/theme",
     "dev:demo": "pnpm run dev -C demo",
+    "build:demo": "pnpm run build -C demo",
     "create:pkg": "plop",
     "clean": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "commit": "git-cz",
