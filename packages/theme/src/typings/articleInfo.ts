@@ -1,7 +1,7 @@
 import { DateInfo } from "@mr-huang/vuepress-shared";
 import { ComputedRef } from 'vue'
-import { BlogCategoryData } from '@mr-huang/vuepress-plugin-blog'
-import { AuthorInfo } from "./author";
+import { BlogFrontmatterData } from '@mr-huang/vuepress-plugin-blog'
+import { Author, AuthorInfo } from "./author";
 import { ConvertLocaleConfig } from "./locales";
 
 /**
@@ -9,7 +9,7 @@ import { ConvertLocaleConfig } from "./locales";
  *
  * 文章信息类型
  */
-export type ArticleInfo =
+export type ArticleInfoComponent =
   | "Author"
   | "Category"
   | "Date"
@@ -18,6 +18,78 @@ export type ArticleInfo =
   | "Tag"
   | "ReadingTime"
   | "Word";
+
+export interface ArticleInfo extends Record<string, unknown> {
+  /**
+   * Type
+   */
+  type: "article" | "page" | "slide" | "picture" | "book";
+
+  /**
+   * Whether is encrypted
+   */
+  isEncrypted?: boolean;
+
+  /**
+   * Whether is original
+   */
+  isOriginal?: boolean;
+
+  /**
+   * Article title
+   */
+  title: string;
+
+  /**
+   * Page icon
+   */
+  icon?: string;
+
+  /**
+   * Article author
+   */
+  author?: Author | false;
+
+  /**
+   * writing date info
+   */
+  date?: Date;
+
+  /**
+   * article category
+   */
+  category?: string[];
+
+  /**
+   * Article tag
+   */
+  tag?: string[];
+
+  /**
+   * Reading time info
+   */
+  readingTime?: ReadingTime;
+
+  /**
+   * article excerpt
+   */
+  excerpt: string;
+
+  /**
+   * Sticky info
+   */
+  sticky?: number | boolean;
+
+  /**
+   * Start info
+   */
+  star?: number | boolean;
+
+  /**
+   * Cover image
+   */
+  cover?: string;
+}
 
 
 /**
@@ -146,7 +218,7 @@ export interface ArticleInfoProps {
    *
    * @default ["Author", "Original", "PageView", "Date", "Category", "Tag", "ReadingTime"]
    */
-  config?: ArticleInfo[] | false;
+  config?: ArticleInfoComponent[] | false;
 
   /**
    * Whether enable hint popup for articleInfo
@@ -214,4 +286,4 @@ export interface ArticleInfoProps {
 /**
  * 分类集合
  */
-export type CategoryMapRef = ComputedRef<BlogCategoryData<ArticleInfo>>
+export type CategoryMapRef = ComputedRef<BlogFrontmatterData<ArticleInfo>>

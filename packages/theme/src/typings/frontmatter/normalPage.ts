@@ -1,9 +1,8 @@
-import type { ArticleInfo } from "../articleInfo";
-import type { WeaselThemePageFrontmatter } from "./base";
+import type { ArticleInfoComponent } from "../articleInfo";
+import type { BasePageFrontMatter } from "./base";
 // import type { AutoLink } from "../navbar";
 
-export interface ThemeNormalPageFrontmatter
-  extends WeaselThemePageFrontmatter {
+export interface ThemeNormalPageFrontmatter extends BasePageFrontMatter {
   /**
    * Whether is homepage
    *
@@ -61,7 +60,7 @@ export interface ThemeNormalPageFrontmatter
    *
    * @default ["Author", "Visitor", "Time", "Category", "Tag", "ReadTime"]
    */
-  pageInfo?: ArticleInfo[] | false;
+  pageInfo?: ArticleInfoComponent[] | false;
 
   /**
    * Whether enable breadcrumb

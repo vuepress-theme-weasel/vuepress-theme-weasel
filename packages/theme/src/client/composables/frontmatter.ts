@@ -1,5 +1,5 @@
 import { computed } from 'vue'
 import { usePageFrontmatter as _usePageFrontmatter } from '@vuepress/client'
-import { WeaselThemePageFrontmatter } from '../../typings'
+import { BasePageFrontMatter } from '../../typings'
 
-export const usePageFrontmatter = () => computed(() => _usePageFrontmatter<WeaselThemePageFrontmatter>().value)
+export const usePageFrontmatter = () => computed(() => _usePageFrontmatter<BasePageFrontMatter>().value)

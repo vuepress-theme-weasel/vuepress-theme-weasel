@@ -1,4 +1,4 @@
-import type { ArticleInfo } from '../../articleInfo'
+import type { ArticleInfoComponent } from '../../articleInfo'
 
 /**
  * 博客相关的locale配置
@@ -129,7 +129,7 @@ export interface ThemeBlogOptions {
    *
    * @default ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime']
    */
-  articleInfo?: ArticleInfo[]
+  articleInfo?: ArticleInfoComponent[]
 }
 
 /**
