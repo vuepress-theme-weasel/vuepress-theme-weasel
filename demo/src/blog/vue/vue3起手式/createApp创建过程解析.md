@@ -14,6 +14,8 @@ layout: Blog
 yarn create vite my-vue-app --template vue
 ```
 
+<!-- more -->
+
 我们都知道的vue3基础用法，比如以下 `main.js` 的内容
 
 ```javascript
@@ -50,8 +52,6 @@ app.use(MyPlugin)
 
 首先放一张完整的流程图，先有一个印象：
 ![createApp整个流程](./createApp/all.jpg)
-
-<!-- more -->
 
 ### createApp源码分析
 
