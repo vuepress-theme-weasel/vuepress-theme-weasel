@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { BlogHeader, Navbar } from '../header'
-import { MarkdownContent, DropTransition } from '@theme-weasel/components'
+import { DropTransition } from '@theme-weasel/components'
 import { useArticles } from '@theme-weasel/composables'
 import { Features } from '../feature'
 import { ArticleList } from '../article'

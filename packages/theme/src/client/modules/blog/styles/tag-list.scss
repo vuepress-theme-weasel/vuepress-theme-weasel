@@ -1,0 +1,64 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+@use "sass:color";
+@use "sass:list";
+
+.tag-list-wrapper {
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  a {
+    color: inherit;
+  }
+
+  .tag {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    min-width: 24px;
+    margin: 4px 6px;
+    padding: 3px 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px 0 var(--box-shadow);
+    color: var(--white);
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.active {
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  @each $color in weasel-config.$colors {
+    $index: list.index(weasel-config.$colors, $color) - 1;
+
+    .tag#{$index} {
+      background: color.scale($color, $lightness: 10%);
+
+      &:hover,
+      &.active {
+        background: color.scale($color, $lightness: -5%);
+      }
+
+      #{weasel-config.$darkSelector} & {
+        background: color.scale($color, $lightness: -5%);
+
+        &:hover,
+        &.active {
+          background: color.scale($color, $lightness: 10%);
+        }
+      }
+    }
+  }
+}

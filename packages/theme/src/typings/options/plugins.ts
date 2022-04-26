@@ -131,4 +131,11 @@ export interface ThemePluginsOptions {
    * @default false
    */
   blog?: ThemeBlogPluginOptions | false
+
+  /**
+   * Enable @vuepress/prismjs or not
+   *
+   * 是否启用 @vuepress/prismjs 插件
+   */
+  prismjs?: boolean;
 }
