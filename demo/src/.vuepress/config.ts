@@ -16,6 +16,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   lang: 'zh-CN',
   locales: {
     '/': {
+      lang: 'zh-CN',
       title: 'CavinHuangNote笔记',
       description: '愿世界和平！',
     }

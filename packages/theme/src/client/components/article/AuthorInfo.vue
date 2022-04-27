@@ -3,7 +3,7 @@
     <AuthorIcon />
     <span v-for="(item, index) in author" :key="'author' + index">
       <a v-if="item.url" :href="item.url" class="author-item" target="_blank">{{item.name}}</a>
-      <span v-else class="author-item">{{item.name}}</span>
+      <span v-else class="author-item">{{ item.name }}</span>
     </span>
     <span property="author" :content="author.map(item => item.name).join(', ')"></span>
   </span>
@@ -11,7 +11,6 @@
 
 <script lang="ts" setup>
 import { AuthorIcon } from './Icons'
-import { Fragment } from 'vue'
 import type { PropType } from 'vue'
 import type { AuthorInfo } from '../../../typings'
 import { useLocaleConfig } from '@theme-weasel/composables'

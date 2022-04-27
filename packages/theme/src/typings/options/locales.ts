@@ -5,6 +5,7 @@
 import { LocaleData } from "@vuepress/core";
 import { ThemeBlogLocaleData, ThemeFeatureConfig, ThemeFeatureLocaleConfig, ThemeFeatureLocaleData } from "./feature";
 import { ThemeLayoutLocaleData, ThemeLayoutLocaleOptions } from "./layout";
+import { ThemeMetaLocateData } from "./layout/meta";
 
 export interface ThemeLocaleOptions extends LocaleData {}
 
@@ -17,7 +18,12 @@ export interface ThemeLocaleData extends ThemeFeatureLocaleData, ThemeLayoutLoca
   /**
    * blog相关的locale
    */
-  blogLocales?: ThemeBlogLocaleData
+  blogLocales?: ThemeBlogLocaleData;
+
+  /**
+   * Page locate config
+   */
+  metaLocales?: ThemeMetaLocateData;
 }
 
 /**
