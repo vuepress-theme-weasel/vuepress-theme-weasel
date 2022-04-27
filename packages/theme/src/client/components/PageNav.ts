@@ -54,7 +54,7 @@ const resolveFromSidebarItems = (
     return targetItem as AutoLinkType;
   }
 
-  for (const item of sidebarItems)
+  for (const item of sidebarItems) {
     if (item.children) {
       const childResult = resolveFromSidebarItems(
         item.children,
@@ -64,6 +64,7 @@ const resolveFromSidebarItems = (
 
       if (childResult) return childResult;
     }
+  }
 
   return null;
 };
@@ -79,6 +80,7 @@ export default defineComponent({
     const route = useRoute();
     const navigate = useNavigate();
 
+
     const prevNavLink = computed(() => {
       const prevConfig = resolveFromFrontmatterConfig(frontmatter.value.prev);
 
@@ -86,6 +88,9 @@ export default defineComponent({
         ? prevConfig
         : resolveFromSidebarItems(sidebarItems.value, route.path, -1);
     });
+
+    console.log('===============', sidebarItems)
+
 
     const nextNavLink = computed(() => {
       const nextConfig = resolveFromFrontmatterConfig(frontmatter.value.next);

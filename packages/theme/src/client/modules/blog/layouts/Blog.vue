@@ -13,6 +13,4 @@ import { computed } from 'vue';
 
 const frontmatter = usePageFrontmatter()
 const isHome = computed(() => frontmatter.value.home)
-
-console.log(isHome, '++++++++++++++++++++++++++')
 </script>

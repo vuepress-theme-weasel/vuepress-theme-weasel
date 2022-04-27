@@ -39,25 +39,22 @@
   <div class="article-comment">
     <page-comment />
   </div>
-  <div class="article-author-info">这里放作者的详细介绍</div>
+  <div class="article-author-info"><AuthorInfoCard /></div>
   <div class="article-recommend">这里放推荐的文章</div>
 </template>
 
 <script lang="ts" setup>
-import { MarkdownContent } from '@theme-weasel/components'
+import { MarkdownContent, AuthorInfoCard } from '@theme-weasel/components'
 import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
-import { useLocaleConfig, usePageInfo } from "@theme-weasel/composables"
+import { usePageInfo } from "@theme-weasel/composables"
 import { PageTitleProps } from '../../../../../typings'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
-import { articleInfoLocales } from '../../../../define'
 import { usePageData } from '@vuepress/client'
 
 const pageInfo = usePageInfo()
 const pageData = usePageData()
 const pageInfoProps: PageTitleProps = {...pageInfo, ...{ author: false, date: false }}
-const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 
-console.log(pageInfo, '===============')
 </script>
 
 <style lang="scss" scoped src="../../styles/article-info.scss"></style>
