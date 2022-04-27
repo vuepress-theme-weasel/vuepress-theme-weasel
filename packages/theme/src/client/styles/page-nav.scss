@@ -2,33 +2,41 @@
 @use "./mixins/arrow";
 
 .page-nav {
-  @include wrapper.horizontal-wrapper;
-
-  // clear float
   overflow: auto;
-
   min-height: 2rem;
-  margin-top: 0;
+  margin-top: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-top: 1px solid var(--border-color);
+  display: flex;
 
   transition: border-top var(--color-transition);
 
   .nav-link {
     display: inline-block;
     padding: 0.25rem;
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 80px;
+    align-items: center;
 
     .hint {
-      color: var(--light-grey);
+      color: rgba(255, 255, 255, 1);
       font-size: 0.875rem;
       line-height: 2;
+      margin-right: 10px;
     }
 
     .arrow {
       @include arrow.arrow;
 
-      font-size: 0.75rem;
+      font-size: 1.5rem;
+    }
+
+    &:first-child {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
     }
   }
 

@@ -9,7 +9,8 @@
 
 <script lang="ts" setup>
 import { usePageFrontmatter } from '@theme-weasel/composables'
+import { computed } from 'vue';
 
 const frontmatter = usePageFrontmatter()
-const isHome = frontmatter.value.home
+const isHome = computed(() => frontmatter.value.home)
 </script>

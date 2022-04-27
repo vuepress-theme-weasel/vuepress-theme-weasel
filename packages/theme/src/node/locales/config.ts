@@ -28,27 +28,27 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     //   selectLangAriaLabel: "Select language",
     // },
 
-    // metaLocales: {
-    //   prev: "Prev",
-    //   next: "Next",
-    //   lastUpdated: "Last update",
-    //   contributors: "Contributors",
-    //   editLink: "Edit this page",
-    // },
+    metaLocales: {
+      prev: "Prev",
+      next: "Next",
+      lastUpdated: "Last update",
+      contributors: "Contributors",
+      editLink: "Edit this page",
+    },
 
-    // blogLocales: {
-    //   article: "Articles",
-    //   articleList: "Article List",
-    //   category: "Category",
-    //   tag: "Tags",
-    //   timeline: "Timeline",
-    //   timelineTitle: "Yesterday Once More!",
-    //   all: "All",
-    //   intro: "Personal Intro",
-    //   star: "Star",
-    //   slides: "Slides",
-    //   encrypt: "Encrypted",
-    // },
+    blogLocales: {
+      article: "Articles",
+      articleList: "Article List",
+      category: "Category",
+      tag: "Tags",
+      timeline: "Timeline",
+      timelineTitle: "Yesterday Once More!",
+      all: "All",
+      intro: "Personal Intro",
+      star: "Star",
+      slides: "Slides",
+      encrypt: "Encrypted",
+    },
 
     // outlookLocales: {
     //   themeColor: "Theme Color",
@@ -82,27 +82,27 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     //   selectLangAriaLabel: "选择语言",
     // },
 
-    // metaLocales: {
-    //   prev: "上一页",
-    //   next: "下一页",
-    //   lastUpdated: "上次编辑于",
-    //   contributors: "贡献者",
-    //   editLink: "编辑此页",
-    // },
+    metaLocales: {
+      prev: "上一页",
+      next: "下一页",
+      lastUpdated: "上次编辑于",
+      contributors: "贡献者",
+      editLink: "编辑此页",
+    },
 
-    // blogLocales: {
-    //   article: "文章",
-    //   articleList: "文章列表",
-    //   category: "分类",
-    //   tag: "标签",
-    //   timeline: "时间轴",
-    //   timelineTitle: "昨日不在",
-    //   all: "全部",
-    //   intro: "个人介绍",
-    //   star: "收藏",
-    //   slides: "幻灯片",
-    //   encrypt: "加密",
-    // },
+    blogLocales: {
+      article: "文章",
+      articleList: "文章列表",
+      category: "分类",
+      tag: "标签",
+      timeline: "时间轴",
+      timelineTitle: "昨日不在",
+      all: "全部",
+      intro: "个人介绍",
+      star: "收藏",
+      slides: "幻灯片",
+      encrypt: "加密",
+    },
 
     // outlookLocales: {
     //   themeColor: "主题色",
@@ -143,7 +143,7 @@ export const articleInfoLocales: ArticleInfoLocaleConfig = {
     words: 'Words🔠',
   },
 
-  '/zh/': {
+  '/': {
     author: '作者🖊',
     date: '写作日期📅',
     isOrigin: '原创💡',

@@ -45,6 +45,7 @@ export default {
   editLink: true,
   nextLinks: true,
   prevLinks: true,
+  pageInfo: ["Category", "Tag", "ReadingTime"],
   plugins: {
     blog: {
       autoExcerpt: true,

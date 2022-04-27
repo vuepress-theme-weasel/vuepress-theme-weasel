@@ -14,6 +14,5 @@ export const useLocaleConfig = <T>(
   localesConfig: ConvertLocaleConfig<T>
 ): ComputedRef<T> => {
   const routeLocale = useRouteLocale()
-
   return computed(() => localesConfig[routeLocale.value])
 }

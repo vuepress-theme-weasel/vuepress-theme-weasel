@@ -7,15 +7,15 @@
       </div>
     </div>
     <div class="article-content-container">
-      <h1 class="article-title">最刺激的历险记</h1>
+      <h1 class="article-title">{{ pageData.title }}</h1>
       <div class="article-info">
         <div class="article-author article-info__item">
           <AuthorIcon />
-          <span>cavinHuang</span>
+          <span v-for="(author, index) in pageInfo.author" :key="'author' + index">{{ author.name }}</span>
         </div>
         <div class="article-date article-info__item">
           <CalendarIcon />
-          <span>2022.05.16</span>
+          <span>{{ pageInfo.date.display}}</span>
         </div>
       </div>
       <div class="article-content-wrapper">
@@ -39,18 +39,21 @@
   <div class="article-comment">
     <page-comment />
   </div>
-  <div class="article-author-info">这里放作者的详细介绍</div>
+  <div class="article-author-info"><AuthorInfoCard /></div>
   <div class="article-recommend">这里放推荐的文章</div>
 </template>
 
 <script lang="ts" setup>
-import { MarkdownContent } from '@theme-weasel/components'
+import { MarkdownContent, AuthorInfoCard } from '@theme-weasel/components'
 import { CoverIcon, AuthorIcon, CalendarIcon } from '../icons'
 import { usePageInfo } from "@theme-weasel/composables"
 import { PageTitleProps } from '../../../../../typings'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
+import { usePageData } from '@vuepress/client'
 
-const pageInfoProps: PageTitleProps = {...usePageInfo(), ...{ author: false, date: false }}
+const pageInfo = usePageInfo()
+const pageData = usePageData()
+const pageInfoProps: PageTitleProps = {...pageInfo, ...{ author: false, date: false }}
 
 </script>
 

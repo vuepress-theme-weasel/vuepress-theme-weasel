@@ -16,19 +16,17 @@
           <BlogPanel />
         </DropTransition>
       </div>
-      <DropTransition :delay="0.28">
-        <MarkdownContent />
-      </DropTransition>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { BlogHeader, Navbar } from '../header'
-import { MarkdownContent, DropTransition } from '@theme-weasel/components'
+import { DropTransition } from '@theme-weasel/components'
 import { useArticles } from '@theme-weasel/composables'
 import { Features } from '../feature'
 import { ArticleList } from '../article'
+import { BlogPanel } from '../blogInfo'
 
 const articles = useArticles()
 </script>

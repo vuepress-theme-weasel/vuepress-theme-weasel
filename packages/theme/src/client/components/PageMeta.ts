@@ -1,4 +1,4 @@
-import { defineComponent, h } from "vue";
+import { defineComponent, h, computed } from "vue";
 import { AutoLink, EditIcon } from "@theme-weasel/components"
 import {
   useContributors,
@@ -19,6 +19,17 @@ export default defineComponent({
     const editLink = useEditLink();
     const updateTime = useUpdateTime();
     const contributors = useContributors();
+
+    const contributorsSelf = computed(() => {
+      const _cacheName: string[] = []
+      return contributors.value?.map(item => ({ name: item.name.toLowerCase(), email: item.email })).filter(({ name }) => {
+        if (_cacheName.includes(name)) {
+          return false
+        }
+        _cacheName.push(name)
+        return true
+      })
+    })
 
     return (): VNode => {
       const { metaLocales } = themeLocale.value;
@@ -41,17 +52,17 @@ export default defineComponent({
               h("span", { class: "info" }, updateTime.value),
             ])
           : null,
-        contributors.value && contributors.value.length
+        contributorsSelf.value && contributorsSelf.value.length
           ? h("div", { class: "meta-item contributors" }, [
               h("span", { class: "label" }, `${metaLocales!.contributors}: `),
-              contributors.value.map(({ email, name }, index) => [
+              contributorsSelf.value.map(({ email, name }, index) => [
                 h(
                   "span",
                   { class: "contributor", title: `email: ${email}` },
                   name
                 ),
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                index !== contributors.value!.length - 1 ? "," : "",
+                index !== contributorsSelf.value!.length - 1 ? "," : "",
               ]),
             ])
           : null,

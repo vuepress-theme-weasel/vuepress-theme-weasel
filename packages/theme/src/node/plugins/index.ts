@@ -20,6 +20,7 @@ export const createPluginConfig = (
   const blogConfig = resolveBlogOptions(plugins.blog)
 
   const pluginConfig: PluginConfig<PluginOptions>[] = [
+    ["@vuepress/prismjs", plugins.prismjs !== false],
     ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
     ['@vuepress/theme-data', { themeData }],
     blogPluginInit(blogConfig)

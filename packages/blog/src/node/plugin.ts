@@ -63,17 +63,16 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
 
     extendsPage(page): void {
       const { getInfo = (): Record<string, never> => ({}) } = options
-      console.log(page)
 
-      const { indexPath, dirname } = page.frontmatter
+      // const { indexPath, dirname } = page.frontmatter
 
-      if (indexPath && dirname) {
-        const reg = new RegExp(`@source/${dirname}/`, 'ig')
-        const source = `@source${indexPath}`
-        page.excerpt = page.excerpt.replace(reg, source)
-        page.content = page.content.replace(reg, source)
-        page.contentRendered = page.contentRendered.replace(reg, source)
-      }
+      // if (indexPath && dirname) {
+      //   const reg = new RegExp(`@source/${dirname}/`, 'ig')
+      //   const source = `@source${indexPath}`
+      //   page.excerpt = page.excerpt.replace(reg, source)
+      //   page.content = page.content.replace(reg, source)
+      //   page.contentRendered = page.contentRendered.replace(reg, source)
+      // }
 
       page.routeMeta = {
         ...(metaScope === '' ? getInfo(page) : { [metaScope]: getInfo(page) }),
