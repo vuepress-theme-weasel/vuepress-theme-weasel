@@ -1,31 +1,28 @@
 import { defineUserConfig } from "@vuepress/cli";
-import { path } from '@vuepress/utils'
+import { path } from "@vuepress/utils";
 import type { DefaultThemeOptions } from "@vuepress/theme-default";
 
 export default defineUserConfig<DefaultThemeOptions>({
-  base: process.env.VuePress_BASE || "/",
-  dest: "./dist",
+  base: "/",
+  title: "Comment Plugin",
 
+  description: "Comment Plugin for VuePress",
 
   locales: {
-    "/": {
-      lang: "zh-CN",
-      title: "Blog2",
-      description: "VuePress 的博客插件",
-    },
+    "/": { lang: "en-US" },
   },
+
+  theme: path.resolve(__dirname, "./theme"),
 
   themeConfig: {
     logo: "/logo.svg",
 
-    locales: {
-      "/": {
-        navbar: [{ text: "主页", link: "/" }],
-        lang: "zh-CN",
-        selectText: "选择语言",
-        lastUpdatedText: "上次编辑于",
-        label: "简体中文",
+    navbar: [
+      { text: "Home", link: "/" },
+      {
+        text: "Test",
+        children: [{ text: "Test", link: "/test/" }],
       },
-    },
+    ],
   },
 });

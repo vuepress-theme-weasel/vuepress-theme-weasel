@@ -1,4 +1,3 @@
-@use "@mr-hope/vuepress-shared/styles/wrapper";
 
 .page .waline-wrapper {
   --waline-accent-color: var(--c-brand, #3eaf7c);
@@ -7,6 +6,4 @@
   --waline-border: 1px solid var(--dark-grey);
   --waline-bgcolor: var(--c-bg, #fff);
   --waline-bgcolor-light: var(--c-bg-light, #f3f4f5);
-
-  @include wrapper.wrapper;
 }

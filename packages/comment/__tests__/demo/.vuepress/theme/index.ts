@@ -1,12 +1,32 @@
-import type { ThemeObject } from '@vuepress/core'
-import { path } from '@vuepress/utils'
+import { path } from "@vuepress/utils";
+import type { Theme } from "@vuepress/core";
+import type { DefaultThemeOptions } from "@vuepress/theme-default";
 
-const localTheme: ThemeObject = {
-  name: 'vuepress-theme-local',
-  extends: '@vuepress/theme-default',
-  layouts: {
-    Blog: path.resolve(__dirname, 'layouts/BlogLayout.vue'),
-  },
-}
+const commentTheme: Theme<DefaultThemeOptions> = {
+  name: "comment-theme",
 
-export default localTheme
+  layouts: path.resolve(__dirname, "./layouts"),
+
+  extends: "@vuepress/theme-default",
+
+  plugins: [
+    [
+      "@mr-huang/vuepress-plugin-comment",
+      {
+        type: "twikoo",
+        envId: "https://twikoo.ccknbc.vercel.app",
+        // type: "giscus",
+        // repo: "vuepress-theme-hope/giscus-discussions",
+        // repoId: "R_kgDOG_Pt2A",
+        // category: "Announcements",
+        // categoryId: "DIC_kwDOG_Pt2M4COD69",
+
+        // type: "waline",
+        // author: "Mr.Hope",
+        // serverURL: "https://vuepress-theme-hope-comment.vercel.app",
+      },
+    ],
+  ],
+};
+
+export default commentTheme;
