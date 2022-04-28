@@ -20,6 +20,7 @@
     flex-wrap: nowrap;
     height: 80px;
     align-items: center;
+    padding: 0 16px;
 
     .hint {
       color: rgba(255, 255, 255, 1);
@@ -37,6 +38,16 @@
     &:first-child {
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
+    }
+    &:last-child {
+      background: RGBA(58, 60, 73, 1);
+      color: #fff;
+      margin-left: 16px;
+      justify-content: flex-end;
+      .hint {
+        margin-right: 0;
+        margin-left: 10px;
+      }
     }
   }
 

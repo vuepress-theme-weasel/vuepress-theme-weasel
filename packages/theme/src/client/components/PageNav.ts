@@ -152,10 +152,6 @@ export default defineComponent({
                   AutoLink,
                   { class: "next", config: nextNavLink.value },
                   () => [
-                    h("div", { class: "hint" }, [
-                      themeLocale.value.metaLocales!.next,
-                      h("span", { class: "arrow right" }),
-                    ]),
                     h("div", { class: "link" }, [
                       nextNavLink.value?.text,
                       nextNavLink.value?.icon
@@ -164,6 +160,10 @@ export default defineComponent({
                           })
                         : null,
                     ]),
+                    h("div", { class: "hint" }, [
+                      themeLocale.value.metaLocales!.next,
+                      h("span", { class: "arrow right" }),
+                    ])
                   ]
                 )
               : null,
