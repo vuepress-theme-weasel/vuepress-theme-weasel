@@ -10,12 +10,13 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocaleConfig } from '@theme-weasel/composables'
+import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
 import { useRoute, useRouter } from 'vue-router'
 import { TagIcon } from './Icons'
 import { articleInfoLocales } from '../../define'
+
 import type { PropType } from 'vue'
-import type { ArticleTag } from '../../../typings'
+import type { ArticleTag } from '@mr-huang/vuepress-shared'
 
 defineProps({
   tag: {

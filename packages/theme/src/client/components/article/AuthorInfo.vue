@@ -11,10 +11,11 @@
 
 <script lang="ts" setup>
 import { AuthorIcon } from './Icons'
+import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
+import { articleInfoLocales } from "../../define"
+
 import type { PropType } from 'vue'
-import type { AuthorInfo } from '../../../typings'
-import { useLocaleConfig } from '@theme-weasel/composables'
-import { articleInfoLocales } from "../../define";
+import type { AuthorInfo } from '@mr-huang/vuepress-shared'
 
 const props = defineProps({
   author: {

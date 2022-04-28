@@ -18,11 +18,12 @@
 
 <script lang="ts" setup>
 import { PropType, ref } from 'vue';
-import type { ArticleCategory } from '../../../typings'
 import { articleInfoLocales } from '../../define'
 import { CategoryIcon } from './Icons'
-import { useLocaleConfig } from '@theme-weasel/composables'
 import { useRoute, useRouter } from 'vue-router'
+import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
+
+import type { ArticleCategory } from '@mr-huang/vuepress-shared'
 
 defineProps({
   category: {
