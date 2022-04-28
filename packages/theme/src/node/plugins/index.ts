@@ -7,6 +7,7 @@ import { resolveGitPluginOptions } from './git'
 import { ThemePluginsOptions, WeaselThemeOptions } from '../../typings'
 import { blogPluginInit } from '@mr-huang/vuepress-plugin-blog'
 import { resolveBlogOptions } from './blog'
+import { resolveCommentPlugin } from './comment'
 
 export const createPluginConfig = (
   app: App,
@@ -23,7 +24,8 @@ export const createPluginConfig = (
     ["@vuepress/prismjs", plugins.prismjs !== false],
     ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
     ['@vuepress/theme-data', { themeData }],
-    blogPluginInit(blogConfig)
+    blogPluginInit(blogConfig),
+    resolveCommentPlugin(plugins.comment),
   ]
 
   if (app.env.isDebug) {

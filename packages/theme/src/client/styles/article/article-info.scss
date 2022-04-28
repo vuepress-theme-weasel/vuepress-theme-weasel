@@ -64,4 +64,11 @@
     margin: 0 4px;
     font-weight: normal;
   }
+
+  .giscus-wrapper {
+    padding: 16px;
+    .giscus {
+      padding-bottom: 16px;
+    }
+  }
 }

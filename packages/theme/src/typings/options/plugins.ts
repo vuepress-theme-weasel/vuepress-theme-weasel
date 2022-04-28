@@ -1,4 +1,5 @@
 import { BlogOptions } from "@mr-huang/vuepress-plugin-blog"
+import type { CommentOptions } from '@mr-huang/vuepress-plugin-comment'
 
 /**
  * blog plugin option
@@ -138,4 +139,11 @@ export interface ThemePluginsOptions {
    * 是否启用 @vuepress/prismjs 插件
    */
   prismjs?: boolean;
+
+  /**
+   * Comment plugin options
+   *
+   * 评论插件配置
+   */
+  comment?: CommentOptions | false;
 }

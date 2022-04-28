@@ -103,6 +103,7 @@ importers:
   packages/theme:
     specifiers:
       '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
+      '@mr-huang/vuepress-plugin-comment': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
@@ -115,6 +116,7 @@ importers:
       prism-theme-vars: ^0.2.2
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:../blog
+      '@mr-huang/vuepress-plugin-comment': link:../comment
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/plugin-git': 2.0.0-beta.38
