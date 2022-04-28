@@ -40,7 +40,9 @@
     <page-comment />
   </div>
   <div class="article-author-info"><AuthorInfoCard /></div>
-  <div class="article-recommend">这里放推荐的文章</div>
+  <div class="article-recommend">
+    <RecommendList />
+  </div>
 </template>
 
 <script lang="ts" setup>
