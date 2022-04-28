@@ -1,4 +1,4 @@
-import type { WalineLocaleConfig } from "../shared";
+import type { WalineLocaleConfig } from "../typings";
 
 /**
  * Default locale config for Waline

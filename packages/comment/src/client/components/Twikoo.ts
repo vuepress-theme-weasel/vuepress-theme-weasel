@@ -3,7 +3,7 @@ import { computed, defineComponent, h, onMounted } from "vue";
 import { enableTwikoo, twikooOption } from "../define";
 
 import type { VNode } from "vue";
-import type { CommentPluginFrontmatter } from "../../shared";
+import type { CommentPluginFrontmatter } from "../../typings";
 
 import "../styles/twikoo.scss";
 

@@ -1,4 +1,3 @@
-// TODO: Support vssue when it support vue3
 // import { usePageTitle } from "@mr-hope/vuepress-shared/lib/client";
 import { usePageFrontmatter } from "@vuepress/client";
 import { computed, defineComponent, h } from "vue";
@@ -8,7 +7,7 @@ import Waline from "@Waline";
 import { commentOptions } from "../define";
 
 import type { VNode } from "vue";
-import type { CommentPluginFrontmatter } from "../../shared";
+import type { CommentPluginFrontmatter } from "../../typings";
 
 export default defineComponent({
   name: "CommentService",

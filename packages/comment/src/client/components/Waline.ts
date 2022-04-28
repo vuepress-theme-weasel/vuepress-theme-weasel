@@ -14,7 +14,7 @@ import { enableWaline, walineLocales, walineOption } from "../define";
 
 import type { WalineInstance } from "@waline/client";
 import type { VNode } from "vue";
-import type { CommentPluginFrontmatter } from "../../shared";
+import type { CommentPluginFrontmatter } from "../../typings";
 
 import "../styles/waline.scss";
 

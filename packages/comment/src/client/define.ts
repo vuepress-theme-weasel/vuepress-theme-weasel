@@ -4,7 +4,7 @@ import type {
   TwikooOptions,
   WalineOptions,
   WalineLocaleConfig,
-} from "../shared";
+} from "../typings";
 
 declare const COMMENT_OPTIONS: CommentOptions;
 

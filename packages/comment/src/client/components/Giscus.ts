@@ -5,7 +5,7 @@ import { enableGiscus, giscusOption } from "../define";
 
 import type { GiscusProps, Mapping } from "@giscus/vue";
 import type { VNode } from "vue";
-import type { CommentPluginFrontmatter } from "../../shared";
+import type { CommentPluginFrontmatter } from "../../typings";
 
 import "../styles/giscus.scss";
 
@@ -64,7 +64,7 @@ export default defineComponent({
         (pluginConfig !== false && pageConfig !== false)
       );
     });
-    
+
     console.log('===============', giscusOption, giscusLang)
     const config: GiscusProps = {
       repo: giscusOption.repo as `${string}/${string}`,
