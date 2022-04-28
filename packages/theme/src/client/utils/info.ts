@@ -1,5 +1,5 @@
 import { capitalize } from "@mr-huang/vuepress-shared/lib/client"
-import { Author, AuthorInfo } from "../../typings"
+import { Author, AuthorInfo } from "@mr-huang/vuepress-shared"
 
 /**
  * 获取作者信息

@@ -1,8 +1,4 @@
-import { DateInfo } from "@mr-huang/vuepress-shared";
-import { ComputedRef } from 'vue'
-import { BlogFrontmatterData } from '@mr-huang/vuepress-plugin-blog'
-import { Author, AuthorInfo } from "./author";
-import { ConvertLocaleConfig } from "./locales";
+import { Author, AuthorInfo, ConvertLocaleConfig, DateInfo } from "@mr-huang/vuepress-shared";
 
 /**
  * Type of article infomation
@@ -282,8 +278,3 @@ export interface ArticleInfoProps {
    */
   readingTime?: ReadingTime;
 }
-
-/**
- * 分类集合
- */
-export type CategoryMapRef = ComputedRef<BlogFrontmatterData<ArticleInfo>>

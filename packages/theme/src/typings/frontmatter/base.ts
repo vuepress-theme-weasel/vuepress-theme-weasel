@@ -3,7 +3,7 @@
  * vuepress frontmatter base for all packages
  */
 import { PageFrontmatter } from "@vuepress/core"
-import { Author } from "../author";
+import { Author } from "@mr-huang/vuepress-shared";
 
 /**
  * 页面frontmatter

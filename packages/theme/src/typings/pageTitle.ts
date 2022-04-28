@@ -1,4 +1,4 @@
-import { DateInfo } from '@mr-huang/vuepress-shared';
+import type { DateInfo } from '@mr-huang/vuepress-shared';
 import type { ArticleInfoProps } from './articleInfo'
 
 export interface PageTitleProps extends ArticleInfoProps {

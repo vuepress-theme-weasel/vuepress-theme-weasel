@@ -1,4 +1,4 @@
-import { Author } from "../author";
+import { Author } from "@mr-huang/vuepress-shared";
 import { ThemeFeatureConfig } from "./feature";
 import { ThemeLayoutOptions } from "./layout";
 import { ThemeLocaleConfig } from "./locales";

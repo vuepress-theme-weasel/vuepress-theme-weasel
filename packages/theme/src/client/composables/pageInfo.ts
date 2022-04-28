@@ -1,14 +1,16 @@
 /**
  * page info hooks
  */
-import { DateInfo, DateOptions } from '@mr-huang/vuepress-shared';
 import { getDate } from '@mr-huang/vuepress-shared/lib/client'
 import { usePageData, usePageFrontmatter, usePageLang } from '@vuepress/client';
 import { GitData } from '@vuepress/plugin-git';
 import { UnwrapNestedRefs, computed, ComputedRef, inject, reactive } from 'vue'
 import { getAuthor, getCategory, getTag } from '../utils';
-import { AuthorInfo, PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, CategoryMapRef, ArticleTag } from './../../typings';
 import { usePure, useThemeLocaleData } from './themeData';
+
+import type { PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, ArticleTag } from './../../typings';
+import type { CategoryMapRef } from './categoryMap'
+import type { AuthorInfo, DateInfo, DateOptions } from '@mr-huang/vuepress-shared'
 
 declare const ENABLE_BLOG: boolean;
 

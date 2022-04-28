@@ -11,9 +11,10 @@ import { useBlogOptions } from '@theme-weasel/modules/blog/composables'
 import { useTagMap } from './tagMap'
 import { usePure, useThemeData } from '@theme-weasel/composables'
 
-import type { DateInfo } from '@mr-huang/vuepress-shared'
+import type { AuthorInfo, DateInfo } from '@mr-huang/vuepress-shared'
 import type { ComputedRef, UnwrapNestedRefs } from 'vue'
-import type { AuthorInfo, ArticleInfo, ArticleCategory, ArticleInfoProps, ArticleTag } from '../../typings'
+import type { ArticleInfo, ArticleCategory, ArticleInfoProps, ArticleTag } from '../../typings'
+
 
 export type AuthorRef = ComputedRef<AuthorInfo[]>
 

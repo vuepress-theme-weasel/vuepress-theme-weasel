@@ -3,10 +3,10 @@
  */
 
 import { App } from "@vuepress/core"
-import { getLocales } from "../locales"
 import { articleInfoLocales } from '../locales'
 import { logger } from "../utils";
 import { WeaselThemeConfig } from './../../typings';
+import { getLocales } from '@mr-huang/vuepress-shared'
 
 /**
  * 全局常量定义

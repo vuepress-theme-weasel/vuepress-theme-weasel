@@ -31,7 +31,7 @@ export const commentPlugin: Plugin<CommentOptions> = (options, app) => {
   // app.use("@vssue/vuepress-plugin-vssue", options);
 
   return {
-    name: "vuepress-plugin-comment2",
+    name: "@mr-huang/vuepress-plugin-comment",
 
     alias: {
       "@Giscus": isGiscus
@@ -50,28 +50,28 @@ export const commentPlugin: Plugin<CommentOptions> = (options, app) => {
       WALINE_LOCALES: userWalineLocales,
     }),
 
-    onInitialized: (app): void => {
-      // addViteSsrNoExternal(app, [
-      //   "@mr-huang/vuepress-shared",
-      //   "@mr-huang/vuepress-plugin-comment",
-      // ]);
-      // addViteOptimizeDepsExclude(app, "@mr-huang/vuepress-plugin-comment");
+    // onInitialized: (): void => {
+    //   // addViteSsrNoExternal(app, [
+    //   //   "@mr-huang/vuepress-shared",
+    //   //   "@mr-huang/vuepress-plugin-comment",
+    //   // ]);
+    //   // addViteOptimizeDepsExclude(app, "@mr-huang/vuepress-plugin-comment");
 
-      // if (isGiscus) {
-      //   addViteOptimizeDepsInclude(app, "@giscus/vue");
-      //   addViteSsrExternal(app, "@giscus/vue");
-      // }
+    //   // if (isGiscus) {
+    //   //   addViteOptimizeDepsInclude(app, "@giscus/vue");
+    //   //   addViteSsrExternal(app, "@giscus/vue");
+    //   // }
 
-      // if (isTwikoo) {
-      //   addViteOptimizeDepsInclude(app, "twikoo");
-      //   addViteSsrExternal(app, "twikoo");
-      // }
+    //   // if (isTwikoo) {
+    //   //   addViteOptimizeDepsInclude(app, "twikoo");
+    //   //   addViteSsrExternal(app, "twikoo");
+    //   // }
 
-      // if (isWaline) {
-      //   addViteOptimizeDepsInclude(app, "@waline/client");
-      //   addViteSsrExternal(app, "@waline/client");
-      // }
-    },
+    //   // if (isWaline) {
+    //   //   addViteOptimizeDepsInclude(app, "@waline/client");
+    //   //   addViteSsrExternal(app, "@waline/client");
+    //   // }
+    // },
 
     clientAppEnhanceFiles: path.resolve(__dirname, "../client/appEnhance.js"),
   };

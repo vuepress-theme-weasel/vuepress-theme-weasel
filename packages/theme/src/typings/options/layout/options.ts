@@ -1,4 +1,4 @@
-import { ArticleInfoComponent } from "../../../typings/articleInfo";
+import { ArticleInfoComponent } from "../../articleInfo";
 
 export interface ThemeLayoutLocaleData {}
 

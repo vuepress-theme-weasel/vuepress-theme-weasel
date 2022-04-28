@@ -1,7 +1,7 @@
-import { deepAssignReverse } from "@mr-huang/vuepress-shared";
+import { deepAssignReverse, getLocales } from "@mr-huang/vuepress-shared";
 import type { App } from "@vuepress/core";
-import type { WeaselThemeConfig, ThemeLocaleConfig, WeaselThemeOptions } from "../../typings"
-import { getLocales, themeLocalesData } from "../locales";
+import type { ThemeLocaleConfig, WeaselThemeOptions } from "../../typings"
+import { themeLocalesData } from "../locales";
 
 const defaultRootOptions: WeaselThemeOptions = {
   blog: {
