@@ -1,8 +1,8 @@
 <template>
   <article class="article-page-container">
     <div class="article-thumb">
-      <div class="article-thumb-wrapper">
-        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwallpaperm.cmcm.com%2F5f72d25ba4252610196518b3be3397ac.jpg&refer=http%3A%2F%2Fwallpaperm.cmcm.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1650250480&t=62ceed36c38d5cf7f998ec4fd5d33cec" alt="" />
+      <div class="article-thumb-wrapper" v-if="pageInfo.cover">
+        <img :src="pageInfo.cover" :alt="pageData.title" />
         <CoverIcon class="thumb-icon" />
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar__item">
+  <div class="nav-bar__item" @click="navigator()">
     <span class="nav-bar__border"></span>
     <span class="nav-bar__border"></span>
     <span class="nav-bar__border"></span>
@@ -9,8 +9,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router';
 
-defineProps({
+
+const props = defineProps({
   text: {
     type: String,
     require: true
@@ -20,4 +22,12 @@ defineProps({
     default: '/'
   }
 })
+
+const router = useRouter()
+
+const navigator = () => {
+  router.push({
+    path: props.url
+  })
+}
 </script>

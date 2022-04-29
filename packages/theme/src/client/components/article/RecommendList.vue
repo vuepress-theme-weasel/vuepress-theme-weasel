@@ -3,7 +3,11 @@
     <div class="recommand-list-title">热门文章推荐</div>
     <div class="recommend-list-articles">
       <div class="recommend-article" v-for="(article, index) in starts.items" :key="'recomand' + index">
-        <div class="article-summay">{{ getText(article.info.excerpt) }}</div>
+        <div class="article-summay">
+          <div class="article-summay-content">
+            {{ getText(article.info.excerpt) }}
+          </div>
+        </div>
         <div class="article-title">{{ article.info.title }}</div>
       </div>
     </div>

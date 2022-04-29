@@ -1,0 +1,61 @@
+.recomment-list {
+  margin-top: 40px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 var(--card-shadow);
+
+  .recommand-list-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .recommend-list-articles {
+    display: grid;
+    gap: 16px;
+    height: auto;
+    margin-top: 16px;
+    grid-auto-rows: minmax(45px, auto);
+    grid-template-columns: repeat(12, 1fr);
+
+    .recommend-article {
+      height: 100%;
+      min-width: 0px;
+      grid-column: auto / span 3;
+      grid-row-end: span 1;
+      text-align: center;
+      display: inline-flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      justify-self: stretch;
+    }
+
+    .article-summay {
+      line-height: 24px;
+      font-size: 14px;
+      background: rgba(96, 99, 108, 0.4);
+      padding: 16px;
+      box-sizing: border-box;
+      overflow: hidden;
+      height: 160px;
+      display: inline-flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      justify-self: stretch;
+
+      .article-summay-content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        word-break: break-all;
+      }
+    }
+
+    .article-title {
+      margin-top: 10px;
+    }
+  }
+}

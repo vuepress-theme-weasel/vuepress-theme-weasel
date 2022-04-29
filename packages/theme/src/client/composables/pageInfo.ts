@@ -11,6 +11,7 @@ import { usePure, useThemeLocaleData } from './themeData';
 import type { PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, ArticleTag } from './../../typings';
 import type { CategoryMapRef } from './categoryMap'
 import type { AuthorInfo, DateInfo, DateOptions } from '@mr-huang/vuepress-shared'
+import { usePageMeate } from './articleInfo';
 
 declare const ENABLE_BLOG: boolean;
 
@@ -99,6 +100,10 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
   const date = usePageDate();
   const pure = usePure();
   const page = usePageData();
+  const meta = usePageMeate()
+  const cover = meta.value && meta.value.cover ? meta.value.cover as string : null
+
+  console.log('+++++++++++++++++', cover, meta)
 
   return reactive<PageTitleProps>({
     config:
@@ -109,6 +114,7 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
     category: category.value,
     date: date.value,
     tag: tag.value,
+    cover,
     isOriginal: frontmatter.value.isOriginal,
     // readingTime: page.value.readingTime,
     // pageview: "pageview" in frontmatter.value ? frontmatter.value.pageview : true,

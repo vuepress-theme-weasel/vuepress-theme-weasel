@@ -8,8 +8,9 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { ArticleInfo, AuthorInfo as AuthorInfoType } from '../../../typings'
+import { ArticleInfo } from '../../../typings'
 import type {
+  AuthorInfo as AuthorInfoType,
   DateInfo as DateInfoType,
 } from '@mr-huang/vuepress-shared'
 
@@ -67,6 +68,8 @@ const props = defineProps({
   //   default: () => null,
   // }
 })
+
+
 
 const componentProp = (item: ArticleInfo): any => {
   const { author, hint, category, tag, isOriginal, date } = props

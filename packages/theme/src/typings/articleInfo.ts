@@ -203,6 +203,7 @@ export interface ReadingTime {
  * 组件props
  */
 export interface ArticleInfoProps {
+
   /**
    * Article Info display configuration
    *
@@ -252,6 +253,13 @@ export interface ArticleInfoProps {
    * 写作日期
    */
   date?: DateInfo | null;
+
+  /**
+   * page image cover
+   *
+   * 页面文章封面
+   */
+  cover?: string | null;
 
   /**
    * Whether the aricle is orginal

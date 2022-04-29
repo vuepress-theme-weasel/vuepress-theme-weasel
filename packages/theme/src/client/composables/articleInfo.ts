@@ -10,6 +10,8 @@ import { useCategoryMap } from './categoryMap'
 import { useBlogOptions } from '@theme-weasel/modules/blog/composables'
 import { useTagMap } from './tagMap'
 import { usePure, useThemeData } from '@theme-weasel/composables'
+import { resolveRouteWithRedirect } from '@mr-huang/vuepress-plugin-blog/lib/client';
+import { useRoute, useRouter } from 'vue-router';
 
 import type { AuthorInfo, DateInfo } from '@mr-huang/vuepress-shared'
 import type { ComputedRef, UnwrapNestedRefs } from 'vue'
@@ -69,6 +71,16 @@ export const useArticleDate = (info: Ref<ArticleInfo>): DateRef => {
   })
 }
 
+export const usePageMeate = () => {
+  const router = useRouter()
+  const route = useRoute()
+
+  return computed(() => {
+    const routeInfo = resolveRouteWithRedirect(router, route.path)
+    return routeInfo.meta || null
+  })
+}
+
 export const useArticleInfo = (
   info: Ref<ArticleInfo>
 ): UnwrapNestedRefs<ArticleInfoProps> => {
@@ -78,6 +90,8 @@ export const useArticleInfo = (
   const tag = useArticleTag(info)
   const date = useArticleDate(info)
   const pure = usePure()
+  const meta = usePageMeate()
+  const cover = meta.value ? meta.value.cover as string : null
 
   return reactive<ArticleInfoProps>({
     config: blogOptions.value.articleInfo,
@@ -85,8 +99,11 @@ export const useArticleInfo = (
     category: category.value,
     date: date.value,
     tag: tag.value,
+    cover,
     isOriginal: info.value.isOriginal,
     // readingTime: info.value.readingTime,
     hint: !pure.value,
   })
 }
+
+

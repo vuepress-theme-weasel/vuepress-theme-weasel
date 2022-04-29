@@ -5,6 +5,7 @@
   flex-wrap: nowrap;
   height: 120px;
   overflow: hidden;
+  box-shadow: 0 1px 3px 0 var(--card-shadow);
 
   .author-info-avatar {
     width: 120px;
