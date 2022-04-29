@@ -3,9 +3,10 @@
  */
 import { defineClientAppEnhance } from '@vuepress/client'
 import { h } from 'vue'
-import { AuthorInfo, DateInfo, ArticleInfo, TagInfo, CategoryInfo, OriginalInfo, ReadingTimeInfo, RecommendList } from './components/article'
+import { AuthorInfo, DateInfo, ArticleInfo, TagInfo, CategoryInfo, OriginalInfo, ReadingTimeInfo, RecommendList, Pagination } from './components/article'
 import './styles/index.scss';
 export default defineClientAppEnhance(({ app }) => {
+  // 注入组件
   app.component('ArticleInfo', ArticleInfo)
   app.component('TagInfo', TagInfo)
   app.component('AuthorInfo', AuthorInfo)
@@ -14,6 +15,7 @@ export default defineClientAppEnhance(({ app }) => {
   app.component('OriginalInfo', OriginalInfo)
   app.component('ReadingTimeInfo', ReadingTimeInfo)
   app.component('RecommendList', RecommendList)
+  app.component('Pagination', Pagination)
 
   // compat with vuepress-plugin-comment
   app.component("PageComment", ({ darkmode }: { darkmode?: boolean }) => {

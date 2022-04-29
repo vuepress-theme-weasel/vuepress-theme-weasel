@@ -20,16 +20,19 @@ const props = defineProps({
   items: {
     type: Array as PropType<{ path: string; info: ArticleInfo }[]>,
     default: () => []
+  },
+  currentPage: {
+    type: Number,
+    default: 1
   }
 })
 const blogOptions = useBlogOptions()
-const currentPage = ref(1)
 
 const articlePerPage = computed(() => blogOptions.value.articlePerPage)
 const currentArticles = computed(() =>
   props.items.slice(
-    (currentPage.value - 1) * articlePerPage.value!,
-    currentPage.value * articlePerPage.value!
+    (props.currentPage - 1) * articlePerPage.value!,
+    props.currentPage * articlePerPage.value!
   )
 )
 </script>

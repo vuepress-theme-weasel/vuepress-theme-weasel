@@ -1,4 +1,4 @@
-import { ArticleInfoLocaleConfig, ThemeLocaleData } from "../../typings"
+import { ArticleInfoLocaleConfig, PaginationLocaleConfig, ThemeLocaleData } from "../../typings"
 
 export const themeLocalesData: Record<string, ThemeLocaleData> = {
   "/en/": {
@@ -136,3 +136,16 @@ export const articleInfoLocales: ArticleInfoLocaleConfig = {
     words: '字数🔠',
   }
 }
+
+/**
+ * 枫叶
+ */
+export const paginationLocales: PaginationLocaleConfig = {
+  "/": {
+    prev: "上一页",
+    next: "下一页",
+    navigate: "跳转到",
+    button: "前往",
+    errorText: "请输入 1 到 $page 之前的页码！",
+  }
+};

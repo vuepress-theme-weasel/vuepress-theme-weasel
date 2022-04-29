@@ -1,0 +1,48 @@
+.pager {
+  padding: 20px 0 0 0;
+  font-size: 14px;
+
+  .page-con {
+    margin: 0 auto;
+    height: 50px;
+
+    li {
+      display: inline-block;
+      margin-right: 14px;
+      &.disabled {
+        color: #BFBFBF;
+        cursor: default;
+      }
+      span {
+        padding: 0 12px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #d9d9d9;
+        display: inline-block;
+        background: #fff;
+        border-radius: 4px;
+      }
+      a {
+        padding: 0 12px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        font-size: 18px;
+        color: #414141;
+        border: 1px solid #d9d9d9;
+        display: inline-block;
+        background: #fff;
+        border-radius: 4px;
+      }
+      a:hover,
+      &.current a {
+        height: 38px;
+        line-height: 38px;
+        background: var(--theme-color);
+        color: #fff;
+      }
+    }
+  }
+}

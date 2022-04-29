@@ -6,6 +6,7 @@ export default {
     name: "Mr.Huang",
     url: "https://mrhope.site",
   },
+  articlePerPage: 2,
   lang: 'zh-CN',
   // 开启blog
   blog: {

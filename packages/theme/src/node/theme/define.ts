@@ -3,7 +3,7 @@
  */
 
 import { App } from "@vuepress/core"
-import { articleInfoLocales } from '../locales'
+import { articleInfoLocales, paginationLocales } from '../locales'
 import { logger } from "../utils";
 import { WeaselThemeConfig } from './../../typings';
 import { getLocales } from '@mr-huang/vuepress-shared'
@@ -23,6 +23,11 @@ export const getDefine = (app: App, themeConfig: WeaselThemeConfig) => {
       app,
       articleInfoLocales,
       themeConfig.articleInfoLocales
+    ),
+    PAGINATION_LOCALES: getLocales(
+      app,
+      paginationLocales,
+      themeConfig.paginationLocales
     )
   }
 }
