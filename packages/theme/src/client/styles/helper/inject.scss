@@ -6,8 +6,12 @@
 
 @use "./common" as helper;
 @use "../config/vars.scss" as config;
+@use './generator.scss' as generator;
 
-$variables: meta.module-variables("config");
+$configVariables: meta.module-variables("config");
+$generatorVariables: meta.module-variables("config");
+
+$variables: map.deep-merge($configVariables, $generatorVariables);
 
 @each $name, $value in $variables {
   $key: helper.camel-to-kebab($name);

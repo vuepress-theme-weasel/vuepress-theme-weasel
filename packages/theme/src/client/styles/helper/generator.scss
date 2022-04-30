@@ -2,7 +2,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "common" as helper;
-
+@import '../config/color.scss';
 $textColorLight: (
   light:
     color.scale(helper.get-color($textColor, $isDark: false), $lightness: 10%),

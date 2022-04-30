@@ -2,7 +2,7 @@
   <div class="pager clear" v-if="enable">
     <ul class="page-con">
       <li class="prev" :class="{disabled: currentPage === 1}">
-        <a v-if="currentPage > 1" href="javascript:;">上一页</a>
+        <a v-if="currentPage > 1" href="javascript:;" @click="navigate(currentPage - 1)">上一页</a>
         <span v-else>上一页</span>
       </li>
       <li v-if="displayLeftEllipsis"><a href="javascript:;" data-page="1" @click="navigate(1)">1</a></li>
@@ -10,7 +10,7 @@
       <li v-for="index in indexs" :key="'pagination' + index" :class="{ current: currentPage === index }"><a href="javascript:;" :data-page="index" @click="navigate(index)">{{ index }}</a></li>
       <li v-if="displayRightEllipsis" class="disabled"><span>...</span></li>
       <li v-if="displayRightEllipsis"><a href="javascript:;" :data-page="totalPages" @click="navigate(totalPages)">{{totalPages}}</a></li>
-      <li class="next"><a href="javascript:;">下一页</a></li>
+      <li class="next"><a href="javascript:;" @click="navigate(currentPage + 1)">下一页</a></li>
     </ul>
   </div>
 </template>
