@@ -6,9 +6,19 @@
       <div class="blog-page-wrapper">
         <main class="blog-home">
           <DropTransition :delay="0.16">
-            <ArticleContentPage v-if="pageType === 'articleContent'" />
-            <ArticleType v-if="pageType === 'ArticleType'" :key="route.path" />
-            <TagList v-if="pageType === 'TagList'" :key="route.path" />
+            <div>
+              <ArticleContentPage v-if="pageType === 'articleContent'" />
+              <ArticleType v-if="pageType === 'ArticleType'" />
+              <TagList v-if="pageType === 'TagList'" />
+              <CategoryList v-if="pageType === 'CategoryList'" />
+              <ArticleList id="article-list" :key="route.path" :items="items" :currentPage="currentPage" />
+              <Pagination
+                :currentPage="currentPage"
+                :perPage="articlePerPage"
+                :total="items.length"
+                @UpdateCurrentPage="updatePage"
+              />
+            </div>
           </DropTransition>
         </main>
         <DropTransition :delay="0.16">
@@ -22,15 +32,22 @@
 <script lang="ts" setup>
 import { BlogHeader, Navbar } from '../header'
 import { DropTransition } from '@theme-weasel/components'
+import { useArticles, useCategoryMap, useStars, useTagMap } from '@theme-weasel/composables'
 import { BlogPanel } from '../blogInfo'
-import { usePageFrontmatter, useRoute } from '@vuepress/client';
-import { BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
-import { computed, watchEffect } from 'vue'
+import { usePageFrontmatter, useRoute, useRouter } from '@vuepress/client';
+import { BlogFrontmatterOptions, BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
+import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import ArticleContentPage from './ArticleContentPage.vue';
-import { ArticleType, TagList } from '../../components'
+import { ArticleType, TagList, ArticleList, CategoryList } from '../../components'
+import { useBlogOptions } from '../../composables';
 
 const route = useRoute()
+const router = useRouter();
 const frontmatter = usePageFrontmatter<BlogPluginFrontmatter>()
+const tagMap = useTagMap();
+const categoryMap = useCategoryMap();
+const stars = useStars();
+const articles = useArticles();
 
 const pageType = computed<string>(() => {
   const { key } = frontmatter.value.blog || {}
@@ -43,6 +60,67 @@ const pageType = computed<string>(() => {
         : key === 'timeline'
         ? ''
         : 'ArticleType'
+})
+
+console.log(pageType)
+
+const items = computed(() => {
+  const { name = "", key = "" } =
+    (frontmatter.value.blog as BlogFrontmatterOptions) || {};
+
+  return (
+    // key === "encrypted"
+    // ? encryptedArticles.value.items
+    // :
+    key === "star"
+    ? stars.value.items
+    // : key === "slide"
+    // ? slides.value.items
+    : key === "timeline"
+    ? []
+    : key === "category"
+    ? name
+      ? categoryMap.value.map[name].items
+      : []
+    : key === "tag"
+    ? name
+      ? tagMap.value.map[name].items
+      : []
+    : articles.value.items
+  )
+})
+
+console.log(items)
+
+const blogOptions = useBlogOptions();
+const currentPage = ref(1)
+const articlePerPage = computed(() => blogOptions.value.articlePerPage)
+
+const updatePage = (page: number): void => {
+  currentPage.value = page
+
+  const query = { ...route.query }
+
+  if (query.page === page.toString() || (page === 1 && !query.page)) return
+  if (page === 1) delete query.page
+  else query.page = page.toString()
+
+  void router.push({ path: route.path, query })
+}
+
+watch(currentPage, () => {
+  // list top border distance
+  const distance =
+    (document.querySelector("#article-list") as Element).getBoundingClientRect().top + window.scrollY
+
+  setTimeout(() => {
+    window.scrollTo(0, distance);
+  }, 100);
+})
+
+onMounted(() => {
+  const { page } = route.query
+  updatePage(page ? Number(page) : 1);
 })
 
 watchEffect(() => {
