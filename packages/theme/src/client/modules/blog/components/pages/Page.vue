@@ -7,7 +7,7 @@
         <main class="blog-home">
           <DropTransition :delay="0.16">
             <ArticleContentPage v-if="pageType === 'articleContent'" />
-            <ArticleType v-if="pageType === 'ArticleType'" />
+            <ArticleType v-if="pageType === 'ArticleType'" :key="route.path" />
           </DropTransition>
         </main>
         <DropTransition :delay="0.16">
@@ -22,12 +22,13 @@
 import { BlogHeader, Navbar } from '../header'
 import { DropTransition } from '@theme-weasel/components'
 import { BlogPanel } from '../blogInfo'
-import { usePageFrontmatter } from '@vuepress/client';
+import { usePageFrontmatter, useRoute } from '@vuepress/client';
 import { BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
 import { computed } from 'vue'
 import ArticleContentPage from './ArticleContentPage.vue';
 import { ArticleType } from '../../components'
 
+const route = useRoute()
 const frontmatter = usePageFrontmatter<BlogPluginFrontmatter>()
 
 const pageType = computed<string>(() => {

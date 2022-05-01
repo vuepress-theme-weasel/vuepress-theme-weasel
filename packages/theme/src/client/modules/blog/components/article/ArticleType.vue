@@ -4,29 +4,35 @@
       <RouterLink :to="type.path">{{ type.text }}</RouterLink>
     </li>
   </ul>
-  <ArticleList id="article-list" :key="route.path" :items="articles.items" :currentPage="currentPage" />
+  <ArticleList id="article-list" :key="route.path" :items="items" :currentPage="currentPage" />
   <Pagination
     :currentPage="currentPage"
     :perPage="articlePerPage"
-    :total="articles.items.length"
+    :total="items.length"
     @UpdateCurrentPage="updatePage"
   />
 </template>
 
 <script lang="ts" setup>
-import { useThemeLocaleData, useArticles, useStars } from "@theme-weasel/composables";
+import { useThemeLocaleData, useArticles, useStars, useCategoryMap, useTagMap } from "@theme-weasel/composables";
 import { RouterLink, useRoute, useRouter } from "vue-router";
 import { computed, onMounted, ref, watch } from "vue";
 import { useBlogOptions } from "../../composables";
 import { ArticleList } from '../article'
+import { usePageFrontmatter } from "@vuepress/client";
+import { BlogFrontmatterOptions, BlogPluginFrontmatter } from "@mr-huang/vuepress-plugin-blog";
 
+const frontmatter = usePageFrontmatter<BlogPluginFrontmatter>();
 const themeLocale = useThemeLocaleData();
 const route = useRoute();
 const router = useRouter();
 const articles = useArticles();
+const tagMap = useTagMap();
 // const encryptedArticles = useEncryptedArticles();
 // const slides = useSlides();
 const stars = useStars();
+const categoryMap = useCategoryMap();
+
 const blogOptions = useBlogOptions();
 const currentPage = ref(1)
 const articlePerPage = computed(() => blogOptions.value.articlePerPage)
@@ -71,5 +77,33 @@ const types = computed(() => {
     // { text: locale.encrypt, path: encryptedArticles.value.path },
   ];
 });
+
+const items = computed(() => {
+  const { name = "", key = "" } =
+    (frontmatter.value.blog as BlogFrontmatterOptions) || {};
+
+  return (
+    // key === "encrypted"
+    // ? encryptedArticles.value.items
+    // :
+    key === "star"
+    ? stars.value.items
+    // : key === "slide"
+    // ? slides.value.items
+    : key === "timeline"
+    ? []
+    : key === "category"
+    ? name
+      ? categoryMap.value.map[name].items
+      : []
+    : key === "tag"
+    ? name
+      ? tagMap.value.map[name].items
+      : []
+    : articles.value.items
+  )
+})
+
+console.log(items)
 
 </script>
