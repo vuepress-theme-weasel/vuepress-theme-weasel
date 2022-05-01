@@ -9,7 +9,7 @@
 @use './generator.scss' as generator;
 
 $configVariables: meta.module-variables("config");
-$generatorVariables: meta.module-variables("config");
+$generatorVariables: meta.module-variables("generator");
 
 $variables: map.deep-merge($configVariables, $generatorVariables);
 

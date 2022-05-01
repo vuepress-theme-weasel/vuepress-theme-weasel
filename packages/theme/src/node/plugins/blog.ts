@@ -157,7 +157,12 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         dirname: 'blog',
         path: '/post/',
         layout: 'Blog',
-        itemLayout: 'Blog'
+        itemLayout: 'Blog',
+        frontmatter: {
+          blog: {
+            key: 'articleContent'
+          }
+        }
       },
       {
         key: 'project',

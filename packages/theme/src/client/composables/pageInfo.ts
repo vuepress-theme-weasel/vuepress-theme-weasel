@@ -103,8 +103,6 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
   const meta = usePageMeate()
   const cover = meta.value && meta.value.cover ? meta.value.cover as string : null
 
-  console.log('+++++++++++++++++', cover, meta)
-
   return reactive<PageTitleProps>({
     config:
       frontmatter.value.pageInfo === false

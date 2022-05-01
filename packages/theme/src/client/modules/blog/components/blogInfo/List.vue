@@ -63,7 +63,6 @@ const buttons: {
   { key: 'timeline', icon: TimelineIcon }
 ]
 const themeLocale = useThemeLocaleData()
-console.log('+++++', themeLocale)
 const active = ref('article')
 const articles = useArticles()
 const stars = useStars()

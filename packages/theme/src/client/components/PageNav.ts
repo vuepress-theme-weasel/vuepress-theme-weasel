@@ -89,9 +89,6 @@ export default defineComponent({
         : resolveFromSidebarItems(sidebarItems.value, route.path, -1);
     });
 
-    console.log('===============', sidebarItems)
-
-
     const nextNavLink = computed(() => {
       const nextConfig = resolveFromFrontmatterConfig(frontmatter.value.next);
 

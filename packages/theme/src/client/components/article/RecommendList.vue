@@ -33,7 +33,6 @@ const navigetor = (path: string) => {
   })
 }
 
-console.log(starts)
 </script>
 
 <style lang="scss" scoped>
