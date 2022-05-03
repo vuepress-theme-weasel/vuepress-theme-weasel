@@ -97,6 +97,8 @@ export const extendsPage = (
 
   checkFrontmatter(page, isDev)
 
+  // console.log('=============================', app.dir.source())
+
   // save relative file path into page data to generate edit link
   page.data.filePathRelative = filePathRelative
 
@@ -158,7 +160,7 @@ export const extendsPage = (
     // resolve image
     if ('cover' in frontmatter) page.routeMeta.cover = frontmatter.cover
     const images = matchImageSource(page.contentRendered)
-    if (images.length) page.routeMeta.cover = images[0]
+    if (images.length) page.routeMeta.cover = (app.env.isDev ? images[0].replace('@source', `/@fs/${app.dir.source().replace('\\', '/')}`) : images[0])
 
     // resolve isOriginal
     if ('isOriginal' in frontmatter)

@@ -132,7 +132,7 @@ export const blogPlugin: Plugin<BlogOptions> = (options) => {
           prepareDirectories(app, options, pages),
           prepareFrontmatter(app, options, pages)
         ]).then(() => {
-          console.log(app.pages)
+          // console.log(app.pages)
         })
     }
   }

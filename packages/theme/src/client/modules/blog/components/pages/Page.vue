@@ -66,8 +66,7 @@ const pageType = computed<string>(() => {
 console.log(pageType)
 
 const items = computed(() => {
-  const { name = "", key = "" } =
-    (frontmatter.value.blog as BlogFrontmatterOptions) || {};
+  const { name = "", key = "" } = (frontmatter.value.blog as BlogFrontmatterOptions) || {};
 
   return (
     // key === "encrypted"
@@ -78,6 +77,8 @@ const items = computed(() => {
     // : key === "slide"
     // ? slides.value.items
     : key === "timeline"
+    ? []
+    : key === "articleContent"
     ? []
     : key === "category"
     ? name
@@ -90,8 +91,6 @@ const items = computed(() => {
     : articles.value.items
   )
 })
-
-console.log(items)
 
 const blogOptions = useBlogOptions();
 const currentPage = ref(1)

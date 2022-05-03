@@ -127,7 +127,8 @@ export const createAlias = (app: App) => {
     ]),
     ...getAlias(),
     // styles
-    ...stylesAlias
+    ...stylesAlias,
+    '@source': app.dir.source(),
   }
   if (app.env.isDebug) {
     logger.info('加载的alias:')
