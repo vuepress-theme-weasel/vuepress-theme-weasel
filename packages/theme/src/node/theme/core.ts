@@ -21,7 +21,7 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
   return {
     name: 'vuepress-theme-weasel',
     alias: createAlias(app),
-    define: getDefine(app, themeConfig),
+    define: getDefine(app, plugins, themeConfig),
     // 初始化之前的配置
     onPrepared: () => {
       prepareSidebarData(app, themeConfig)

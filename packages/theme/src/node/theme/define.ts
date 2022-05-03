@@ -5,7 +5,7 @@
 import { App } from "@vuepress/core"
 import { articleInfoLocales, paginationLocales } from '../locales'
 import { logger } from "../utils";
-import { WeaselThemeConfig } from './../../typings';
+import { WeaselThemeConfig, ThemePluginsOptions } from './../../typings';
 import { getLocales } from '@mr-huang/vuepress-shared'
 
 /**
@@ -14,11 +14,13 @@ import { getLocales } from '@mr-huang/vuepress-shared'
  * @param themeConfig
  * @returns
  */
-export const getDefine = (app: App, themeConfig: WeaselThemeConfig) => {
+export const getDefine = (app: App, plugins: ThemePluginsOptions, themeConfig: WeaselThemeConfig) => {
   if (app.env.isDebug) {
     logger.info('写入全局常量')
   }
+  const enableBlog = Boolean(plugins.blog);
   return {
+    ENABLE_BLOG: enableBlog,
     ARTICLE_INFO_LOCALES: getLocales(
       app,
       articleInfoLocales,
