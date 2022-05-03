@@ -11,6 +11,7 @@
               <ArticleType v-if="pageType === 'ArticleType'" />
               <TagList v-if="pageType === 'TagList'" />
               <CategoryList v-if="pageType === 'CategoryList'" />
+              <TimelineItems v-if="pageType === 'timeline'"/>
               <ArticleList id="article-list" :key="route.path" :items="items" :currentPage="currentPage" />
               <Pagination
                 :currentPage="currentPage"
@@ -38,7 +39,7 @@ import { usePageFrontmatter, useRoute, useRouter } from '@vuepress/client';
 import { BlogFrontmatterOptions, BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
 import { computed, onMounted, ref, watch, watchEffect } from 'vue'
 import ArticleContentPage from './ArticleContentPage.vue';
-import { ArticleType, TagList, ArticleList, CategoryList } from '../../components'
+import { ArticleType, TagList, ArticleList, CategoryList, TimelineItems } from '../../components'
 import { useBlogOptions } from '../../composables';
 
 const route = useRoute()
@@ -58,7 +59,7 @@ const pageType = computed<string>(() => {
         : key === 'articleContent'
         ? 'articleContent'
         : key === 'timeline'
-        ? ''
+        ? 'timeline'
         : 'ArticleType'
 })
 

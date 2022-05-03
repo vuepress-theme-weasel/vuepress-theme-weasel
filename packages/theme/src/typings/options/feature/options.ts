@@ -1,6 +1,8 @@
-import { ThemeBlogConfig } from "./blog"
+import { ThemeBlogConfig, ThemeBlogLocaleData } from "./blog"
 
-export interface ThemeFeatureLocaleData {}
+export interface ThemeFeatureLocaleData {
+  blogLocales?: ThemeBlogLocaleData;
+}
 
 /**
  * feature options

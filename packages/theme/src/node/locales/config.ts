@@ -11,6 +11,15 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     // },
 
     metaLocales: {
+      author: "Author",
+      date: "Writing Date",
+      origin: "Original",
+      views: "Page views",
+      category: "Category",
+      tag: "Tags",
+      readingTime: "Reading Time",
+      words: "Words",
+      toc: "On This Page",
       prev: "Prev",
       next: "Next",
       lastUpdated: "Last update",
@@ -65,6 +74,15 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     // },
 
     metaLocales: {
+      author: "作者",
+      date: "写作日期",
+      origin: "原创",
+      views: "访问量",
+      category: "分类",
+      tag: "标签",
+      readingTime: "阅读时间",
+      words: "字数",
+      toc: "此页内容",
       prev: "上一页",
       next: "下一页",
       lastUpdated: "上次编辑于",

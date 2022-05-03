@@ -47,6 +47,4 @@ export interface BlogPluginTypeFrontmatter extends BasePageFrontMatter {
 /**
  * 博客frontmatter
  */
-export type BlogPluginFrontmatter =
-  | BlogPluginCategoryFrontmatter
-  | BlogPluginTypeFrontmatter;
+export type BlogPluginFrontmatter = BlogPluginCategoryFrontmatter | BlogPluginTypeFrontmatter;

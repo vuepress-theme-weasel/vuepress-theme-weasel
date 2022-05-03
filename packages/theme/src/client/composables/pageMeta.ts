@@ -13,6 +13,7 @@ import type {
   AutoLink,
   ThemePageData,
   ThemeNormalPageFrontmatter,
+  ThemeMetaLocateData
 } from "../../typings";
 
 export const useEditLink = (): ComputedRef<null | AutoLink> => {
@@ -86,4 +87,10 @@ export const useContributors = (): ComputedRef<null | GitContributor[]> => {
 
     return page.value.git?.contributors ?? null;
   });
+};
+
+export const useMetaLocale = (): ComputedRef<ThemeMetaLocateData> => {
+  const themeLocale = useThemeLocaleData();
+
+  return computed(() => themeLocale.value.metaLocales!);
 };
