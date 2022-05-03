@@ -1,6 +1,6 @@
-import { getLocales } from '@mr-huang/vuepress-shared'
-import {themeLocalesData } from '../locales'
+import { getLocales } from "@mr-huang/vuepress-shared";
 // import { resolveEncrypt } from "./encrypt";
+import { themeLocalesData } from "../locales";
 
 import type { App } from "@vuepress/core";
 import {
@@ -8,10 +8,9 @@ import {
   ThemeLocaleConfig,
   ThemeLocaleOptions,
   WeaselThemeOptions,
-  ThemeRootConfig
+  ThemeRootConfig,
 } from "../../typings";
 
-// root config
 const rootAllowConfig = [
   "blog",
   "encrypt",
@@ -24,15 +23,10 @@ const rootAllowConfig = [
   "mobileBreakPoint",
 ];
 
-/**
- * 默认的配置项
- */
 const defaultRootOptions: ThemeRootConfig = {
   // features
   blog: {},
   encrypt: {},
-
-  lang: 'zh-CN',
 
   // appearance
   pure: false,
@@ -48,10 +42,7 @@ const defaultRootOptions: ThemeRootConfig = {
   fullscreen: true,
 };
 
-/**
- * 默认的locale配置项
- */
-const defaultLocaleOptions: ThemeLocaleOptions = {
+const defaultLocaleOptions: WeaselThemeOptions = {
   // features
   blog: {},
   // layouts
@@ -69,26 +60,41 @@ const defaultLocaleOptions: ThemeLocaleOptions = {
  */
 export const getThemeConfig = (
   app: App,
-  themeOptions: WeaselThemeOptions
+  themeOptions: WeaselThemeOptions,
+  enableBlog = false
 ): WeaselThemeConfig => {
   const themeData: WeaselThemeConfig = {
     ...defaultRootOptions,
     ...Object.fromEntries(
-      Object.entries(themeOptions).filter(([key]) =>
-        rootAllowConfig.includes(key)
-      )
+      Object.entries(themeOptions).filter(([key]) => {
+        return rootAllowConfig.includes(key)
+      })
     ),
     locales:
       // assign locale data to `themeConfig`
       getLocales(
         app,
-        themeLocalesData,
+        // name: "vuepress-theme-weasel",
+        Object.fromEntries(
+          Object.entries(themeLocalesData).map(([locale, config]) => {
+            if (!enableBlog) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              delete config.blogLocales;
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              delete config.paginationLocales;
+            }
+
+            return [locale, config];
+          })
+        ),
         // extract localeConfig
         Object.fromEntries(
           [
             ["/", {}] as [string, ThemeLocaleOptions],
             ...Object.entries(themeOptions.locales || {}),
-          ].map<[string, ThemeLocaleConfig]>(
+          ].map<[string, ThemeLocaleOptions]>(
             ([localePath, localeConfig]) => [
               localePath,
               {
@@ -98,8 +104,7 @@ export const getThemeConfig = (
                 ...Object.fromEntries(
                   Object.entries(themeOptions).filter(
                     ([key]) =>
-                      key === "blog" ||
-                      (key !== "locales" && !rootAllowConfig.includes(key))
+                      key !== "locales" && !rootAllowConfig.includes(key)
                   )
                 ),
                 // locale options
@@ -107,12 +112,12 @@ export const getThemeConfig = (
               } as ThemeLocaleConfig,
             ]
           )
-        )
+        ),
       ) as ThemeLocaleConfig,
   };
 
   // handle encrypt options
-  // resolveEncrypt(themeData.encrypt);
+  // themeData.encrypt = resolveEncrypt(themeData.encrypt);
 
   if (app.env.isDebug) console.log("Theme config: ", themeData);
 

@@ -10,14 +10,20 @@ import { ThemePageData, WeaselThemeConfig, WeaselThemeOptions } from '../../typi
 import { getThemeConfig, logger } from '../utils'
 import { getDefine } from './define';
 import { extendsPage } from './extends';
+import { usePlugin } from './usePlugin';
 
 // @ts-ignore
 export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
   logger.info("========= 主题阶段开始 ===========")
   logger.info(app.options.source)
-  const themeConfig = getThemeConfig(app, themeOptions);
+
   // 主题数据注入
   handleThemeData(app, themeOptions)
+
+  const themeConfig = getThemeConfig(app, themeOptions);
+
+  // 前置插件
+  usePlugin(app, plugins, themeConfig)
   return {
     name: 'vuepress-theme-weasel',
     alias: createAlias(app),
@@ -28,7 +34,7 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     },
     extendsPage: (page) => extendsPage(app, themeOptions as WeaselThemeConfig, plugins, page as Page<ThemePageData>, app.env.isDev),
     // 主题默认的插件
-    plugins: createPluginConfig(app, plugins, themeOptions),
+    plugins: createPluginConfig(app, plugins, themeConfig),
     // 主题布局
     layouts: createLayout(app),
     // 主题客户端注入入口，主要用于插件和样式注入

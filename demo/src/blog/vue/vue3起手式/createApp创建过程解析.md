@@ -1,6 +1,5 @@
 ---
 title: createApp创建过程解析
-layout: Blog
 ---
 记录createApp的学习和debug过程
 

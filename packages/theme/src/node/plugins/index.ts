@@ -15,6 +15,8 @@ export const createPluginConfig = (
   themeData: Omit<WeaselThemeOptions, 'plugins'>
 ): PluginConfig<PluginOptions>[] => {
 
+  console.log('=======================', themeData)
+
   /**
    * 博客插件
    */

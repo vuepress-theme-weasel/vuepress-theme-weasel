@@ -1,6 +1,5 @@
 ---
 title: Blog
-layout: Blog
 icon: creative
 category:
   - 使用指南

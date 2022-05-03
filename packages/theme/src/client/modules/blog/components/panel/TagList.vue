@@ -13,13 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-import { BlogCategoryFrontmatterOptions } from '@mr-huang/vuepress-plugin-blog'
+import { BlogFrontmatterOptions } from '@mr-huang/vuepress-plugin-blog'
 import { usePageFrontmatter } from '@vuepress/client'
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router'
-import { useTagMap } from '../../composables'
+import { useTagMap } from '@theme-weasel/composables'
 
-const frontmatter = usePageFrontmatter<BlogCategoryFrontmatterOptions>()
+const frontmatter = usePageFrontmatter<BlogFrontmatterOptions>()
 const tagMap = useTagMap()
 const tagList = computed(() =>
   Object.keys(tagMap.value.map).map((tag) => ({

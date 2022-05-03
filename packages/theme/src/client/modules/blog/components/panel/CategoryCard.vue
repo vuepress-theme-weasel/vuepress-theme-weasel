@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCategoryMap } from '../../composables'
+import { useCategoryMap } from '@theme-weasel/composables'
 import { RouterLink, useRoute } from 'vue-router'
 import { capitalize } from '@mr-huang/vuepress-shared/lib/shared'
 

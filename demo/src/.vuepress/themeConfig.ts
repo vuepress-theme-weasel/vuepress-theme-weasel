@@ -10,6 +10,7 @@ export default {
   lang: 'zh-CN',
   // 开启blog
   blog: {
+    avatar: './avatar.jpg',
     medias: {
       Baidu: "https://example.com",
       Bitbucket: "https://example.com",
@@ -93,7 +94,7 @@ export default {
 
       blog: {
         description: "A FrontEnd programmer",
-        intro: "/intro.html",
+        intro: "/intro.html"
       },
 
       metaLocales: {

@@ -1,6 +1,5 @@
 ---
 title: Vue3起手式
-layout: Blog
 category:
   - vue3
 ---

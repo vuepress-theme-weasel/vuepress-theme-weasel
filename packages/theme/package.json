@@ -6,7 +6,8 @@
   "types": "lib/node/index.d.ts",
   "files": [
     "lib",
-    "src"
+    "src",
+    "templates"
   ],
   "author": "mr-huang",
   "scripts": {

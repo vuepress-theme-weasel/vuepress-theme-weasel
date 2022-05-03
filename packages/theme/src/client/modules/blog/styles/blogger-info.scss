@@ -2,48 +2,44 @@
   padding: 0.5rem;
   font-family: var(--font-family-fancy);
 
-  .blog-body-container & {
-    background: var(--bg-color);
+  .page & {
+    background: #fff;
   }
 
   .blogger {
     padding: 0.5rem;
     text-align: center;
+  }
 
-    &.hasIntro {
-      cursor: pointer;
+  .blogger-avatar {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto;
+
+    &.round {
+      border-radius: 50%;
     }
+  }
 
-    .avatar {
-      width: 8rem;
-      height: 8rem;
-      margin: 0 auto;
+  .blogger-name {
+    margin: 1rem auto;
+    font-size: 22px;
+  }
 
-      &.round {
-        border-radius: 50%;
-      }
-    }
-
-    .name {
-      margin: 1rem auto;
-      font-size: 22px;
-    }
-
-    .description {
-      margin: 1rem auto;
-      font-size: 14px;
-    }
+  .blogger-description {
+    margin: 1rem auto;
+    font-size: 14px;
   }
 
   .num-wrapper {
     display: flex;
-    margin: 0 auto 1rem;
     width: 80%;
+    margin: 0 auto 1rem;
 
     > div {
       width: 25%;
-      text-align: center;
       font-size: 13px;
+      text-align: center;
       cursor: pointer;
 
       &:hover {

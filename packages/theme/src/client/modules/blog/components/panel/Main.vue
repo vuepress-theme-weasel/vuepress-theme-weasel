@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { DropTransition } from '@theme-weasel/components'
-import BlogCard from './BlogCard.vue'
+import { BlogCard } from '../blogInfo'
 import List from './List.vue'
 import CategoryCard from './CategoryCard.vue'
 </script>

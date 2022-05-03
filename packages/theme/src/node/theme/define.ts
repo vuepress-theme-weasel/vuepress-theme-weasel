@@ -18,7 +18,8 @@ export const getDefine = (app: App, plugins: ThemePluginsOptions, themeConfig: W
   if (app.env.isDebug) {
     logger.info('写入全局常量')
   }
-  const enableBlog = Boolean(plugins.blog);
+  const enableBlog = Boolean(plugins.blog)
+
   return {
     ENABLE_BLOG: enableBlog,
     ARTICLE_INFO_LOCALES: getLocales(

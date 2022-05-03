@@ -57,7 +57,7 @@ import {
   TagIcon,
   TimelineIcon,
 } from "../icons"
-import { useArticles, useStars, useTagMap } from '../../composables'
+import { useArticles, useStars, useTagMap } from '@theme-weasel/composables'
 import { useNavigate, useThemeLocaleData } from '@theme-weasel/composables'
 import TagList from './TagList.vue'
 

@@ -1,6 +1,5 @@
 ---
 title: Vue使用技巧
-layout: Blog
 category:
   - vue3
 tag:
