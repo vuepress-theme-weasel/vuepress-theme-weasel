@@ -20,8 +20,6 @@ export default defineComponent({
 
       const config = socialMedia === false ? false : blogOptions.value.medias || false;
 
-      console.log('========================', blogOptions)
-
       if (config)
         return Object.entries(config).map(([media, url]) => ({
           name: media,

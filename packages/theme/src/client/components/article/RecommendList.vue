@@ -21,9 +21,9 @@ import { useRouter } from '@vuepress/client';
 const starts = useStars()
 
 const getText = (str: string) => {
-  const div = document.createElement('div')
-  div.innerHTML = str
-  return div.innerText
+  const ref = /(?<=>)[^<>]+(?=<)/g
+  const res = str.match(ref)
+  return res ? res.join('<br />') : ''
 }
 
 const router = useRouter()

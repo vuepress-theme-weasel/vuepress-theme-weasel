@@ -8,17 +8,19 @@
           <DropTransition :delay="0.16">
             <div>
               <ArticleContentPage v-if="pageType === 'articleContent'" />
-              <ArticleType v-if="pageType === 'ArticleType'" />
-              <TagList v-if="pageType === 'TagList'" />
-              <CategoryList v-if="pageType === 'CategoryList'" />
-              <TimelineItems v-if="pageType === 'timeline'"/>
-              <ArticleList id="article-list" :key="route.path" :items="items" :currentPage="currentPage" />
-              <Pagination
-                :currentPage="currentPage"
-                :perPage="articlePerPage"
-                :total="items.length"
-                @UpdateCurrentPage="updatePage"
-              />
+              <div v-if="pageType !== 'articleContent'">
+                <ArticleType v-if="pageType === 'ArticleType'" />
+                <TagList v-if="pageType === 'TagList'" />
+                <CategoryList v-if="pageType === 'CategoryList'" />
+                <TimelineItems v-if="pageType === 'timeline'"/>
+                <ArticleList id="article-list" :key="route.path" :items="items" :currentPage="currentPage" />
+                <Pagination
+                  :currentPage="currentPage"
+                  :perPage="articlePerPage"
+                  :total="items.length"
+                  @UpdateCurrentPage="updatePage"
+                />
+              </div>
             </div>
           </DropTransition>
         </main>
@@ -37,7 +39,7 @@ import { useArticles, useCategoryMap, useStars, useTagMap } from '@theme-weasel/
 import { BlogPanel } from '../blogInfo'
 import { usePageFrontmatter, useRoute, useRouter } from '@vuepress/client';
 import { BlogFrontmatterOptions, BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
-import { computed, onMounted, ref, watch, watchEffect } from 'vue'
+import { computed, onMounted, ref, watch, watchEffect, Fragment } from 'vue'
 import ArticleContentPage from './ArticleContentPage.vue';
 import { ArticleType, TagList, ArticleList, CategoryList, TimelineItems } from '../../components'
 import { useBlogOptions } from '../../composables';
@@ -52,6 +54,7 @@ const articles = useArticles();
 
 const pageType = computed<string>(() => {
   const { key } = frontmatter.value.blog || {}
+  console.log('================', key)
   return key === 'category'
         ? 'CategoryList'
         : key === 'tag'
@@ -60,10 +63,14 @@ const pageType = computed<string>(() => {
         ? 'articleContent'
         : key === 'timeline'
         ? 'timeline'
-        : 'ArticleType'
+        : key === 'article'
+        ? 'ArticleType'
+        : 'articleContent'
 })
 
-console.log(pageType)
+watchEffect(() => {
+  console.log(pageType)
+})
 
 const items = computed(() => {
   const { name = "", key = "" } = (frontmatter.value.blog as BlogFrontmatterOptions) || {};
@@ -126,5 +133,4 @@ onMounted(() => {
 watchEffect(() => {
   console.log(route.path)
 })
-console.log(pageType, frontmatter, '===============================')
 </script>

@@ -12,7 +12,6 @@ export const useBlogOptions = (): ComputedRef<ThemeBlogConfig> => {
   const themeData = useThemeData()
   const themeLocale = useThemeLocaleData()
 
-  console.log('+++++++++++++++++++++', themeData, themeLocale)
   return computed(() => ({
     ...themeData.value.blog,
     ...themeLocale.value.blog

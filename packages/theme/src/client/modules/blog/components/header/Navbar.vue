@@ -20,7 +20,7 @@ const navConfig: NavItem[] = [
     text: '博客首页'
   },
   {
-    url: '/list',
+    url: '/article/',
     text: '博客目录'
   },
   {

@@ -81,7 +81,7 @@ export default {
   // navbar: nav,
   // sidebar,
   locales: {
-    "/": {
+    "/en/": {
       // navbar
       navbar: navbar.en,
 
@@ -94,7 +94,7 @@ export default {
 
       blog: {
         description: "A FrontEnd programmer",
-        intro: "/intro.html"
+        intro: "about-me.html"
       },
 
       metaLocales: {
@@ -105,7 +105,7 @@ export default {
     /**
      * Chinese locale config
      */
-    "/zh/": {
+    "/": {
       // navbar
       navbar: navbar.zh,
 
@@ -118,7 +118,7 @@ export default {
 
       blog: {
         description: "一个前端开发者",
-        intro: "/zh/intro.html",
+        intro: "about-me.html",
       },
 
       // page meta

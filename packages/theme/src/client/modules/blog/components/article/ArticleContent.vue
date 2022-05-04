@@ -13,7 +13,7 @@
           <AuthorIcon />
           <span v-for="(author, index) in pageInfo.author" :key="'author' + index">{{ author.name }}</span>
         </div>
-        <div class="article-date article-info__item">
+        <div class="article-date article-info__item" v-if="pageInfo.date">
           <CalendarIcon />
           <span>{{ pageInfo.date.display}}</span>
         </div>
