@@ -1,4 +1,4 @@
-import { ArticleInfoLocaleConfig, PaginationLocaleConfig, ThemeLocaleData } from "../../typings"
+import { ArticleInfoLocaleConfig, PaginationLocaleConfig, ThemeLocaleData, BackToTopLocaleConfig } from "../../typings"
 
 export const themeLocalesData: Record<string, ThemeLocaleData> = {
   "/en/": {
@@ -165,5 +165,15 @@ export const paginationLocales: PaginationLocaleConfig = {
     navigate: "跳转到",
     button: "前往",
     errorText: "请输入 1 到 $page 之前的页码！",
+  }
+};
+
+export const backToTopLocales: BackToTopLocaleConfig = {
+  "/en/": {
+    backToTop: "Back to top",
+  },
+
+  "/": {
+    backToTop: "返回顶部",
   }
 };
