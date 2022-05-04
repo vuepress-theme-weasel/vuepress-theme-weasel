@@ -16,12 +16,9 @@ import { usePlugin } from './usePlugin';
 export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
   logger.info("========= 主题阶段开始 ===========")
   logger.info(app.options.source)
-
   // 主题数据注入
   handleThemeData(app, themeOptions)
-
   const themeConfig = getThemeConfig(app, themeOptions);
-
   // 前置插件
   usePlugin(app, plugins, themeConfig)
   return {

@@ -12,6 +12,7 @@ import {
 } from "../../typings";
 
 const rootAllowConfig = [
+  "author",
   "blog",
   "encrypt",
   "pure",

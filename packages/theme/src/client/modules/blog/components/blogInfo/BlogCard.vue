@@ -1,6 +1,6 @@
 <template>
   <div class="blogger-info" vocab="https://schema.org" typeof="Person">
-    <div class="blogger" v-if="intro" :style="{ cursor: 'pointer' }" :aria-label="locale.intro" data-balloon-pos="down" role="navigation" @click="navigate(intro.value!)">
+    <div class="blogger" v-if="intro" :style="{ cursor: 'pointer' }" :aria-label="locale.intro" data-balloon-pos="down" role="navigation" @click="navigate(intro)">
       <img v-if="bloggerAvatar" class="blogger-avatar" :class="{round: blogOptions.roundAvatar}" :src="withBase(bloggerAvatar)" alt="Blogger Avatar" />
       <div v-if="bloggerName" class="blogger-name" property="name">{{ bloggerName }}</div>
       <div v-if="blogOptions.description" class="blogger-description" v-html="blogOptions.description"></div>

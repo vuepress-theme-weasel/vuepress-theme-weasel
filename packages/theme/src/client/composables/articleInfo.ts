@@ -26,6 +26,8 @@ export const useArticleAuthor = (info: Ref<ArticleInfo>): AuthorRef => {
   return computed(() => {
     const { author } = info.value
 
+    console.log(author, '++===================', themeData)
+
     if (author) return getAuthor(author)
     if (author === false) return []
 
