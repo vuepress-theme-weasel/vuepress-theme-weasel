@@ -193,7 +193,6 @@ function animate(ctx: CanvasRenderingContext2D, target: PointItem) {
       // detect points in range
       if (Math.abs(getDistance(target, points.value[i])) < 4000) {
         points.value[i].active = 0.3;
-        // @ts-ignore
         points.value[i].circle?.active = 0.6;
       } else if (Math.abs(getDistance(target, points.value[i])) < 20000) {
         points.value[i].active = 0.1;
@@ -250,15 +249,17 @@ onMounted(() => {
 
   if (canvas.value) {
     const context = canvas.value.getContext('2d')
-    const target = {
+    const target: PointItem = {
       x: width.value / 2,
-      y: height.value / 2
+      originX: width.value / 2,
+      y: height.value / 2,
+      originY: height.value / 2
     }
 
     // Main
-    initHeader();
-    initAnimation();
-    addListeners();
+    initPoints(width.value, height.value);
+    initAnimation(context!, target);
+    addListeners(target, height.value);
   }
 })
 </script>
