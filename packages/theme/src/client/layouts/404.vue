@@ -60,7 +60,7 @@ function getDistance(p1: PointItem, p2: PointItem) {
  * @param color
  */
 class Circle {
-  constructor(public pos, public radius, public color, public ctx: CanvasRenderingContext2D) {}
+  constructor(public pos: PointItem, public radius: number, public color: string, public ctx: CanvasRenderingContext2D) {}
 
   draw() {
     if (!active.value) return
@@ -179,10 +179,10 @@ function resize() {
 }
 
 // animation
-function initAnimation() {
-  animate();
-  for (var i in points) {
-    shiftPoint(points[i]);
+function initAnimation(ctx: CanvasRenderingContext2D, target: PointItem) {
+  animate(ctx, target);
+  for (const i in points.value) {
+    shiftPoint(points.value[i]);
   }
 }
 
@@ -208,30 +208,35 @@ function animate(ctx: CanvasRenderingContext2D, target: PointItem) {
         // @ts-ignore
         points.value[i].circle.active = 0;
       }
-      drawLines(points.value[i]);
+      drawLines(ctx, points.value[i]);
       // @ts-ignore
       points.value[i].circle.draw();
     }
   }
-  requestAnimationFrame(animate);
+  requestAnimationFrame(() => {
+    animate(ctx, target)
+  });
 }
 
 // Canvas manipulation
-function drawLines(p) {
+function drawLines(ctx: CanvasRenderingContext2D, p: PointItem) {
   if (!p.active) return;
   for (var i in p.closest) {
     ctx.beginPath();
     ctx.moveTo(p.x, p.y);
+    // @ts-ignore
     ctx.lineTo(p.closest[i].x, p.closest[i].y);
     ctx.strokeStyle = 'rgba(156,217,249,' + p.active + ')';
     ctx.stroke();
   }
 }
 
-function shiftPoint(p) {
+function shiftPoint(p: PointItem) {
+  // @ts-ignore
   TweenLite.to(p, 1 + 1 * Math.random(), {
       x: p.originX - 50 + Math.random() * 100,
       y: p.originY - 50 + Math.random() * 100,
+      // @ts-ignore
       ease: Circ.easeInOut,
       onComplete: function () {
           shiftPoint(p);
