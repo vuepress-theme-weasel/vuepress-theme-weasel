@@ -39,6 +39,7 @@
     "node": ">=12"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
     "@vuepress/core": "2.0.0-beta.38",
     "@vuepress/utils": "2.0.0-beta.38",
     "chalk": "4.1.2",

@@ -1,6 +1,17 @@
 <template>
-  <div class="article-item-image-wrapper">
-    <img class="article-item-image" :src="url" :alt="title" />
+  <div
+    class="article-item-image-wrapper"
+    :style="{
+      width: '100%',
+      height: '200px',
+      maxHeight: '200px',
+      backgroundImage: `url(\'${url}\')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundSize: 'contain'
+    }"
+  >
+    <!-- <img class="article-item-image" :src="url" :alt="title" /> -->
     <CoverIcon class="image-icon" />
   </div>
 </template>
@@ -27,6 +38,7 @@ defineProps({
   margin-bottom: 12px;
   height: 100%;
   width: 100%;
+  max-height: 180px;
   .image-icon {
     position: absolute;
     bottom: -12px;
@@ -41,6 +53,8 @@ defineProps({
   .article-item-image {
     height: 100%;
     width: 100%;
+    max-height: 180px;
+    object-fit: cover;
   }
 }
 </style>

@@ -11,6 +11,7 @@ import { getThemeConfig, logger } from '../utils'
 import { getDefine } from './define';
 import { extendsPage } from './extends';
 import { usePlugin } from './usePlugin';
+import { path } from '@vuepress/utils';
 
 // @ts-ignore
 export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
@@ -37,7 +38,11 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     // 主题客户端注入入口，主要用于插件和样式注入
     clientAppEnhanceFiles: createClientAppEnhanceFiles(app),
     // 主题客户端注入入口，主要用于注入hooks
-    clientAppSetupFiles: createClientAppSetupFiles(app)
+    clientAppSetupFiles: createClientAppSetupFiles(app),
+    // 注册到根节点的组件
+    clientAppRootComponentFiles: [
+      path.resolve(__dirname, '../../client/root-components/BackToTop.js')
+    ]
   }
 }
 

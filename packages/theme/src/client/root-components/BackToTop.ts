@@ -16,7 +16,7 @@ import { BacktoTopIcon } from "../components/icons";
 import "../styles/back-to-top.scss";
 
 import type { VNode } from "vue";
-import type { BackToTopLocaleConfig } from "../../shared";
+import type { BackToTopLocaleConfig } from "../../typings";
 
 declare const BACK_TO_TOP_LOCALES: BackToTopLocaleConfig;
 
