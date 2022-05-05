@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-
+// https://404.life/demo/black-cool/
 type PointItem = {
   x: number
   originX: number
