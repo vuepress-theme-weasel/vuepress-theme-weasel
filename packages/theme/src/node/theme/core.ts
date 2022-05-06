@@ -12,6 +12,7 @@ import { getDefine } from './define';
 import { extendsPage } from './extends';
 import { usePlugin } from './usePlugin';
 import { path } from '@vuepress/utils';
+import { prepareThemeColorScss } from './themeColor';
 
 // @ts-ignore
 export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
@@ -28,7 +29,8 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     define: getDefine(app, plugins, themeConfig),
     // 初始化之前的配置
     onPrepared: () => {
-      prepareSidebarData(app, themeConfig)
+      prepareSidebarData(app, themeConfig),
+      prepareThemeColorScss(app, themeConfig)
     },
     extendsPage: (page) => extendsPage(app, themeOptions as WeaselThemeConfig, plugins, page as Page<ThemePageData>, app.env.isDev),
     // 主题默认的插件

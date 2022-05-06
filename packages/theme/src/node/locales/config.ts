@@ -41,11 +41,11 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       encrypt: "Encrypted",
     },
 
-    // outlookLocales: {
-    //   themeColor: "Theme Color",
-    //   darkmode: "Theme Mode",
-    //   fullscreen: "Full Screen",
-    // },
+    outlookLocales: {
+      themeColor: "Theme Color",
+      darkmode: "Theme Mode",
+      fullscreen: "Full Screen",
+    },
 
     // encryptLocales: {
     //   title: "Please enter password",
@@ -106,11 +106,11 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       encrypt: "加密",
     },
 
-    // outlookLocales: {
-    //   themeColor: "主题色",
-    //   darkmode: "外观",
-    //   fullscreen: "全屏",
-    // },
+    outlookLocales: {
+      themeColor: "主题色",
+      darkmode: "外观",
+      fullscreen: "全屏",
+    },
 
     // encryptLocales: {
     //   title: "请输入密码",

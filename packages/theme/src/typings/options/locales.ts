@@ -29,6 +29,32 @@ export interface ThemeLocaleData extends ThemeFeatureLocaleData, ThemeLayoutLoca
    * 页面相关的local config
    */
   routeLocales?: ThemeRouteLocaleData;
+
+  /**
+   * 外观
+   */
+  outlookLocales?: {
+    /**
+     * Theme Color
+     *
+     * 主题色
+     */
+    themeColor: string;
+
+    /**
+     * Theme mode
+     *
+     * 夜间模式
+     */
+    darkmode: string;
+
+    /**
+     * Fullscreen text
+     *
+     * 全屏文字
+     */
+    fullscreen: string;
+  };
 }
 
 /**

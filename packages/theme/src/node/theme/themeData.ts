@@ -41,6 +41,7 @@ const defaultRootOptions: WeaselThemeOptions = {
     green: "#3eaf7c",
     orange: "#f39c12",
     purple: "#8e44ad",
+    default: '#000000'
   },
   fullScreen: true,
   plugins: {}
