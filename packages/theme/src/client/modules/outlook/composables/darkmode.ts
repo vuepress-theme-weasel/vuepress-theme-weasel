@@ -15,16 +15,7 @@ export interface DarkMode {
   status: DarkModeStatusRef;
 }
 
-export type PureModeRef = WritableComputedRef<boolean>;
-export type PureModeStatusRef = Ref<DarkmodeStatus>;
-
-export interface PureMode {
-  isPure: PureModeRef
-  status: PureModeStatusRef
-}
-
 export const darkModeSymbol: InjectionKey<DarkMode> = Symbol.for("darkMode");
-export const pureModeSymbol: InjectionKey<PureMode> = Symbol.for("pureMode");
 
 /**
  * Inject dark mode global computed
@@ -57,7 +48,7 @@ export const setupDarkMode = (): void => {
   const themeData = useThemeData();
   const isDarkPreferred = usePreferredDark();
   const darkmodeStorage = useStorage<DarkmodeStatus>(
-    "vuepress-theme-hope-scheme",
+    "vuepress-theme-weasel-scheme",
     "auto"
   );
 
