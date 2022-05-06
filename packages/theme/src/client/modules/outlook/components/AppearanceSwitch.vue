@@ -1,8 +1,8 @@
 <template>
   <button id="appearance-switch" @click="toggleDarkMode">
-    <AutoIcon :style="{ display: status.value === 'auto' ? 'block' : 'none' }" />
-    <DarkIcon :style="{ display: status.value === 'dark' ? 'block' : 'none' }" />
-    <LightIcon :style="{ display: status.value === 'light' ? 'block' : 'none' }" />
+    <AutoIcon :style="{ display: status === 'auto' ? 'block' : 'none' }" />
+    <DarkIcon :style="{ display: status === 'dark' ? 'block' : 'none' }" />
+    <LightIcon :style="{ display: status === 'light' ? 'block' : 'none' }" />
   </button>
 </template>
 

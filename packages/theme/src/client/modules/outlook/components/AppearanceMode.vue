@@ -13,7 +13,7 @@ import AppearanceSwitchVue from './AppearanceSwitch.vue';
 const themeData = useThemeData();
 const themeLocale = useThemeLocaleData();
 
-const locale = computed(() => themeLocale.value.outlookLocales.darkmode);
+const locale = computed(() => themeLocale.value.outlookLocales!.darkmode);
 
 const darkmode = computed(() => themeData.value.darkmode);
 

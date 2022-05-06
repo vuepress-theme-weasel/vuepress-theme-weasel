@@ -45,6 +45,7 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       themeColor: "Theme Color",
       darkmode: "Theme Mode",
       fullscreen: "Full Screen",
+      pure: 'pure model'
     },
 
     // encryptLocales: {
@@ -110,6 +111,7 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       themeColor: "主题色",
       darkmode: "外观",
       fullscreen: "全屏",
+      pure: '沉浸模式'
     },
 
     // encryptLocales: {

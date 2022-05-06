@@ -54,6 +54,13 @@ export interface ThemeLocaleData extends ThemeFeatureLocaleData, ThemeLayoutLoca
      * 全屏文字
      */
     fullscreen: string;
+
+    /**
+     * pure model text
+     *
+     * 沉浸模式文字
+     */
+    pure: string
   };
 }
 

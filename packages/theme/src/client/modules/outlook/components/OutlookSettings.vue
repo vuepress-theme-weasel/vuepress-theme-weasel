@@ -3,6 +3,7 @@
     <ThemeColorVue v-if="enableThemeColor" />
     <AppearanceModeVue v-if="enableDarkmode" />
     <ToggleFullScreenButtonVue v-if="enableFullScreen" />
+    <PureButtonVue />
   </ClientOnly>
 </template>
 
@@ -13,6 +14,7 @@ import { computed } from 'vue'
 import ThemeColorVue from "./ThemeColor.vue";
 import AppearanceModeVue from "./AppearanceMode.vue";
 import ToggleFullScreenButtonVue from "./ToggleFullScreenButton.vue";
+import PureButtonVue from "./PureButton.vue";
 
 const themeData = useThemeData();
 const pure = usePure();
@@ -30,6 +32,8 @@ const enableThemeColor = computed(
 const enableFullScreen = computed(
   () => !pure.value && themeData.value.fullscreen
 );
+
+const enablePure = computed(() => !pure.value && themeData.value.pure)
 </script>
 
 <style lang="scss" scoped>
