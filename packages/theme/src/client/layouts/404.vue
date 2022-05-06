@@ -1,18 +1,13 @@
 <template>
   <div class="container demo-1">
     <div class="content">
-      <div id="large-header" :ref="largeHeader" class="large-header" style="height: 917px;">
-        <canvas id="demo-canvas" :ref="canvas" width="1920" height="917"></canvas>
+      <div id="large-header" ref="largeHeader" class="large-header" style="height: 917px;">
+        <canvas id="demo-canvas" ref="canvas" width="1920" height="917"></canvas>
         <h1 class="main-title">404<br><span class="STYLE3">sorry!网页不见了...</span></h1>
       </div>
       <div id="Layer1">
         <nav class="codrops-demos">
-          <a href="https://404.life/">网站首页</a>
-          <a href="https://404.life/">公司简介</a>
-          <a href="https://404.life/">产品中心</a>
-          <a href="https://404.life/">成功案例</a>
-          <a href="https://404.life/">在线留言</a>
-          <a href="https://404.life/">联系我们</a>
+          <a href="/">返回首页</a>
         </nav>
       </div>
     </div>
@@ -21,7 +16,8 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-// https://404.life/demo/black-cool/
+import { TweenLite } from 'gsap'
+import Circ from 'gsap/dist/EasePack'
 type PointItem = {
   x: number
   originX: number
@@ -60,8 +56,8 @@ function getDistance(p1: PointItem, p2: PointItem) {
  * @param color
  */
 class Circle {
+  public active = 0
   constructor(public pos: PointItem, public radius: number, public color: string, public ctx: CanvasRenderingContext2D) {}
-
   draw() {
     if (!active.value) return
     this.ctx.beginPath();
@@ -76,7 +72,7 @@ class Circle {
  * @param width
  * @param height
  */
-const initPoints = (width: number, height: number) => {
+const initPoints = (width: number, height: number, context: CanvasRenderingContext2D) => {
   for (let x = 0; x < width; x = x + width / 20) {
     for (let y = 0; y < height; y = y + height / 20) {
       const px = x + Math.random() * width / 20;
@@ -90,6 +86,7 @@ const initPoints = (width: number, height: number) => {
       points.value.push(p)
     }
   }
+  findClosestPoints(points.value, context)
 }
 
 /**
@@ -193,23 +190,19 @@ function animate(ctx: CanvasRenderingContext2D, target: PointItem) {
       // detect points in range
       if (Math.abs(getDistance(target, points.value[i])) < 4000) {
         points.value[i].active = 0.3;
-        points.value[i].circle?.active = 0.6;
+        points.value[i].circle!.active = 0.6;
       } else if (Math.abs(getDistance(target, points.value[i])) < 20000) {
         points.value[i].active = 0.1;
-        // @ts-ignore
-        points.value[i].circle.active = 0.3;
+        points.value[i].circle!.active = 0.3;
       } else if (Math.abs(getDistance(target, points.value[i])) < 40000) {
         points.value[i].active = 0.02;
-        // @ts-ignore
-        points.value[i].circle.active = 0.1;
+        points.value[i].circle!.active = 0.1;
       } else {
         points.value[i].active = 0;
-        // @ts-ignore
-        points.value[i].circle.active = 0;
+        points.value[i].circle!.active = 0;
       }
       drawLines(ctx, points.value[i]);
-      // @ts-ignore
-      points.value[i].circle.draw();
+      points.value[i].circle!.draw();
     }
   }
   requestAnimationFrame(() => {
@@ -231,11 +224,9 @@ function drawLines(ctx: CanvasRenderingContext2D, p: PointItem) {
 }
 
 function shiftPoint(p: PointItem) {
-  // @ts-ignore
   TweenLite.to(p, 1 + 1 * Math.random(), {
       x: p.originX - 50 + Math.random() * 100,
       y: p.originY - 50 + Math.random() * 100,
-      // @ts-ignore
       ease: Circ.easeInOut,
       onComplete: function () {
           shiftPoint(p);
@@ -247,8 +238,11 @@ onMounted(() => {
   width.value = window.innerWidth
   height.value = window.innerHeight
 
+  console.log(TweenLite, Circ)
+
+
   if (canvas.value) {
-    const context = canvas.value.getContext('2d')
+    const context = canvas.value.getContext('2d')!
     const target: PointItem = {
       x: width.value / 2,
       originX: width.value / 2,
@@ -257,9 +251,11 @@ onMounted(() => {
     }
 
     // Main
-    initPoints(width.value, height.value);
+    initPoints(width.value, height.value, context);
     initAnimation(context!, target);
     addListeners(target, height.value);
+
+    console.log(points.value)
   }
 })
 </script>
@@ -326,9 +322,10 @@ onMounted(() => {
     border-radius: 2px;
     font-size: 110%;
     border: 2px solid transparent;
+    color: #fff;
+    border-color: #fff;
     &:hover {
-      color: #fff;
-      border-color: #fff;
+      box-shadow: 0 0 9px 1px rgba(255, 255, 255, 0.4);
     }
   }
 }

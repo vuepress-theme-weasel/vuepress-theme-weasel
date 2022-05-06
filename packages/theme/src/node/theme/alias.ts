@@ -129,6 +129,8 @@ export const createAlias = (app: App) => {
     // styles
     ...stylesAlias,
     '@source': app.dir.source(),
+    '@TweenLite': path.resolve(__dirname, '../../../templates/assets/TweenLite.min.js'),
+    '@EasePack': path.resolve(__dirname, '../../../templates/assets/EasePack.min.js')
   }
   if (app.env.isDebug) {
     logger.info('加载的alias:')

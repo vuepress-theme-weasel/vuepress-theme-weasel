@@ -114,6 +114,7 @@ importers:
       '@vuepress/utils': 2.0.0-beta.38
       chalk: 4.1.2
       esno: ^0.14.1
+      gsap: ^3.10.4
       lodash.debounce: ^4.0.8
       prism-theme-vars: ^0.2.2
     dependencies:
@@ -124,6 +125,7 @@ importers:
       '@vuepress/plugin-git': 2.0.0-beta.38
       '@vuepress/plugin-theme-data': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
+      gsap: 3.10.4
       lodash.debounce: registry.npmmirror.com/lodash.debounce/4.0.8
       prism-theme-vars: 0.2.2
     devDependencies:
@@ -1407,6 +1409,10 @@ packages:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
+
+  /gsap/3.10.4:
+    resolution: {integrity: sha512-6QatdkKxXCMfvCW4rM++0RqyLQAzFX5nwl3yHS0XPgkZBkiSEY3VZVbMltrdtsbER/xZonLtyHt684wRp4erlQ==}
+    dev: false
 
   /handlebars/4.7.7:
     resolution: {integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==}
