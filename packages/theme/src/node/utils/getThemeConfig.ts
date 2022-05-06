@@ -40,7 +40,7 @@ const defaultRootOptions: ThemeRootConfig = {
     orange: "#f39c12",
     purple: "#8e44ad",
   },
-  fullscreen: true,
+  fullscreen: true
 };
 
 const defaultLocaleOptions: WeaselThemeOptions = {

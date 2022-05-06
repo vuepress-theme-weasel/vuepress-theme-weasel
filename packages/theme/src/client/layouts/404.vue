@@ -3,11 +3,12 @@
     <div class="content">
       <div id="large-header" ref="largeHeader" class="large-header" style="height: 917px;">
         <canvas id="demo-canvas" ref="canvas" width="1920" height="917"></canvas>
-        <h1 class="main-title">404<br><span class="STYLE3">sorry!网页不见了...</span></h1>
+        <h1 class="main-title">404<br><span class="STYLE3">{{ getMsg() }}</span></h1>
       </div>
       <div id="Layer1">
         <nav class="codrops-demos">
-          <a href="/">返回首页</a>
+          <a href="javascript:void(0);" @click="window.history.go(-1)">{{ themeLocale.value.routeLocales.back }}</a>
+          <a href="javascript:void(0);" @click="navigate">{{ themeLocale.value.routeLocales.home }}</a>
         </nav>
       </div>
     </div>
@@ -17,6 +18,10 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { TweenLite, Elastic } from 'gsap'
+import { useRouteLocale } from '@vuepress/client';
+import { useThemeLocaleData } from '../composables';
+import { useLink } from 'vue-router';
+
 type PointItem = {
   x: number
   originX: number
@@ -257,6 +262,18 @@ onMounted(() => {
     console.log(points.value)
   }
 })
+
+const routeLocale = useRouteLocale();
+const themeLocale = useThemeLocaleData();
+
+const getMsg = (): string => {
+  const messages = themeLocale.value.routeLocales["404msg"] || 'sorry!网页不见了...';
+  return messages[Math.floor(Math.random() * messages.length)];
+};
+
+const { navigate } = useLink({
+  to: themeLocale.value.home ?? routeLocale.value,
+});
 </script>
 
 <style lang="scss" scoped>

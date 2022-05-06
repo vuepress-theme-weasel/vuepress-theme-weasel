@@ -52,16 +52,18 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     //   errorHint: "Please enter the correct password!",
     // },
 
-    // routeLocales: {
-    //   "404msg": [
-    //     "There’s nothing here.",
-    //     "How did we get here?",
-    //     "That’s a Four-Oh-Four.",
-    //     "Looks like we've got some broken links.",
-    //   ],
-    //   back: "Go back",
-    //   home: "Take me home",
-    // },
+    routeLocales: {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      "404msg": [
+        "There’s nothing here.",
+        "How did we get here?",
+        "That’s a Four-Oh-Four.",
+        "Looks like we've got some broken links.",
+      ],
+      back: "Go back",
+      home: "Take me home",
+      openInNewWindow: "Open in new window",
+    },
   },
 
   "/": {
@@ -115,16 +117,17 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
     //   errorHint: "请输入正确密码",
     // },
 
-    // routeLocales: {
-    //   "404msg": [
-    //     "这里什么也没有",
-    //     "我们是怎么来到这儿的？",
-    //     "这 是 四 零 四 !",
-    //     "看起来你访问了一个失效的链接",
-    //   ],
-    //   back: "返回上一页",
-    //   home: "带我回家",
-    // },
+    routeLocales: {
+      "404msg": [
+          "这里什么也没有",
+          "我们是怎么来到这儿的？",
+          "这 是 四 零 四 !",
+          "看起来你访问了一个失效的链接",
+        ],
+        back: "返回上一页",
+        home: "带我回家",
+        openInNewWindow: "Open in new window",
+      },
   }
 }
 
