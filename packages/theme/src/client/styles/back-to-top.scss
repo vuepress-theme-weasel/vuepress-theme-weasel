@@ -14,10 +14,10 @@
   border-radius: 1rem;
   background-color: var(--c-bg, #fff);
   box-shadow: 2px 2px 10px 0 var(--card-shadow);
-  color: var(--c-brand, #3eaf7c);
+  color: var(--theme-color);
 
   &:hover {
-    color: var(--c-brand-light, #4abf8a);
+    color: var(--theme-color);
   }
 
   @media (max-width: weasel-config.$mobile) {
