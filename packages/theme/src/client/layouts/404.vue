@@ -16,8 +16,7 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import { TweenLite } from 'gsap'
-import Circ from 'gsap/dist/EasePack'
+import { TweenLite, Elastic } from 'gsap'
 type PointItem = {
   x: number
   originX: number
@@ -227,7 +226,7 @@ function shiftPoint(p: PointItem) {
   TweenLite.to(p, 1 + 1 * Math.random(), {
       x: p.originX - 50 + Math.random() * 100,
       y: p.originY - 50 + Math.random() * 100,
-      ease: Circ.easeInOut,
+      ease: Elastic.easeInOut,
       onComplete: function () {
           shiftPoint(p);
       }
