@@ -8,14 +8,14 @@ category:
  - 组件开发
 ---
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/1b4022dc5558465483eb92dd3fb48166.png "image.png")
+![image.png](./vite-react/1.png "image.png")
 
 作者 | 风水
 来源 | 阿里技术公众号
 
 去年发表的《一个好的组件应该是什么样的？》 一文介绍了借助 TypeScript AST 语法树解析，对 React 组件 Props 类型定义及注释提取，自动生成组件对应 截图、用法、参数说明、README、Demo 等。在社区中取得了比较好的反响，同时应用在团队中也取得了较为不错的结果，现在内部组件系统中已经累计使用该方案沉淀 1000+ 的 React 组件。
 
-![gif0.gif](https://ucc.alicdn.com/pic/developer-ecology/71c786a7d7794ac882216151d26e7e90.gif "gif0.gif")
+![gif0.gif](./vite-react/2.gif "gif0.gif")
 
 之前我们是借助了 webpack + TypeScript 做了一套用于开发 React 组件的脚手架套件，当开发者要组件开发时，即可直接使用脚手架初始化对应项目结构进行开发。
 
@@ -31,7 +31,7 @@ Vite 给前端带来的绝对是一次革命性的变化，这么说毫不夸张
 
 Vite 为什么快，主要是 esbuild 进行 pre-bundles dependencies + 浏览器 native ESM 动态编译，这里我不做过多赘述，详细参考：Vite: The Problems
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/413840b2d78d482383cd892c29c048e3.png "image.png")
+![image.png](./vite-react/3.png "image.png")
 
 在这个思路的背景下，回到我们组件开发的场景再看会发现以下几个问题高度吻合：
 
@@ -46,15 +46,15 @@ Vite 为什么快，主要是 esbuild 进行 pre-bundles dependencies + 浏览�
 
 TypeScript 对组件 Props 的定义
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/c2097b2ca4e848c985b7b490a853b59a.png "image.png")
+![image.png](./vite-react/4.png "image.png")
 
 分析注入到 JS Bundle 中的内容
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/8af8b5843ad040b6b54ac35a78aa9190.png "image.png")
+![image.png](./vite-react/5.png "image.png")
 
 分析转换后实现的参数交互设置
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/06fb3f0301df4814b4d740a8c31eeff2.png "image.png")
+![image.png](./vite-react/6.png "image.png")
 
 所以对于组件来说，实际上获取这一份类型定义的元数据对于组件本身来说是冗余的，不论这个组件中的这部分元数据有没有被用到，都会在 Webpack 编译过程中解析提取并注入到组件 Bundle 中，这显然是很低效的。
 
@@ -94,7 +94,7 @@ TypeScript 对组件 Props 的定义
 
 预期设想效果，请点击放大查看：
 
-![gif1.gif](https://ucc.alicdn.com/pic/developer-ecology/482dd7fb525841ae94f354aacd222d21.gif "gif1.gif")
+![gif1.gif](./vite-react/7.gif "gif1.gif")
 
 #### 2 组件 Runtime
 
@@ -130,7 +130,7 @@ TypeScript 对组件 Props 的定义
 
 正如我上述内容中讲到的，如果利用 Vite 添加一个对 tsx 的组件 props interface 类型解析的能力，也可以做成独立插件用于解析 .tsx.type.json 结尾的文件类型，通过 import 这种类型的文件，从而让编译器动态解析其 tsx 文件中所定义的 TypeScript 类型，并作为模块返回给前端消费。
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/63f935b2e3774031863b9a04b5d4d0fd.png "image.png")
+![image.png](./vite-react/8.png "image.png")
 
 其加载过程就可以当做是一个虚拟的模块，可以理解为你可以通过直接 import 一个虚拟的文件地址，获取到对应的 React 组件元信息：
 
@@ -158,7 +158,7 @@ TypeScript 对组件 Props 的定义
 
 在插件编写过程中，一定需要遵循 Rollup 所提供的插件加载生命周期，才能保证 Build 过程和 Serve 过程的模块加载逻辑和编译逻辑保持一致。
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/da9dfe23987c47eb89d939634d90170a.png "image.png")
+![image.png](./vite-react/9.png "image.png")
 
 我一开始在实现的过程中，就是没有了解透彻 Vite 和 Rollup 的关系，在模块解析过程中依赖了大量 Vite 的 Server 提供的服务端中间件能力。导致在考虑到 Build 态时，才意识到其中的问题，最后几乎重新写了之前的加载逻辑。
 
@@ -170,7 +170,7 @@ TypeScript 对组件 Props 的定义
 *   TypeScript Interface，用于解析 .tsx 文件中对于 export 组件的 props 类型定义。
 *   Vite Comp Runtime，用于运行组件开发态，编译最终组件文档。
 
-![image.png](https://ucc.alicdn.com/pic/developer-ecology/7510476977594d74b2ccf9b78ec81d50.png "image.png")
+![image.png](./vite-react/10.png "image.png")
 
 结合 Vite，已经实现了 Vite 模式下的 React、Rax 组件开发，它相比于之前使用 Webpack 做的组件开发，已经体现出了以下几个大优势：
 
@@ -182,15 +182,15 @@ TypeScript 对组件 Props 的定义
 
 **启动**
 
-![gif2.gif](https://ucc.alicdn.com/pic/developer-ecology/fd7ef0aa33ca43a7b999337671c6e6c9.gif "gif2.gif")
+![gif2.gif](./vite-react/11.gif "gif2.gif")
 
 Markdown 组件文档毫秒级响应
 
-![gif3.gif](https://ucc.alicdn.com/pic/developer-ecology/135d218565bb40caaca67ce00236608a.gif "gif3.gif")
+![gif3.gif](./vite-react/12.gif "gif3.gif")
 
 TypeScript 类型识别
 
-![gif4.gif](https://ucc.alicdn.com/pic/developer-ecology/f888fff729c94a378cdbaecc8a8ee297.gif "gif4.gif")
+![gif4.gif](./vite-react/14.gif "gif4.gif")
 
 Vite 现在还是只是刚刚起步，这种全新的编译模式，已经给我带来了非常多的开发态收益，结合 Vite 的玩法未来一定还会层出不穷，比如 Midway + lambda + Vite 的前端一体化方案也是看得让人拍案叫绝，在这个欣欣向荣的前端大时代，相信不同前端产物都会和 Vite 结合出下一段传奇故事。
 

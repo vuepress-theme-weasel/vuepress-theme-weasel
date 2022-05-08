@@ -307,18 +307,3 @@
     padding: 0;
   }
 }
-
-// 沉浸模式
-html[data-pure="true"] {
-  --h-banner-margin-lr: 0;
-  .content-container {
-    margin: 0;
-  }
-  .blog-page-wrapper {
-    margin: 0;
-    padding: 0;
-    .blog-home {
-      max-width: unset;
-    }
-  }
-}

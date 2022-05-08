@@ -1,0 +1,27 @@
+// 沉浸模式
+html[data-pure="true"] {
+  --h-banner-margin-lr: 0;
+
+  .content-container {
+    margin: 0;
+  }
+  .banner-container {
+    display: none;
+  }
+  .header-container {
+    height: var(--h-nav-height);
+  }
+  .nav-bar-container {
+    margin-top: 16px !important;
+  }
+  .blog-page-wrapper {
+    margin: 0;
+    padding: 0;
+    .blog-home {
+      max-width: unset;
+    }
+  }
+  .blog-info-wrapper {
+    display: none;
+  }
+}
