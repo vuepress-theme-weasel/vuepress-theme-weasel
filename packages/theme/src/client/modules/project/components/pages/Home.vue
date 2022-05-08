@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>default</h1>
+    project Home
   </div>
 </template>
 
