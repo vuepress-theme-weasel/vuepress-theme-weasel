@@ -1,11 +1,11 @@
 import { isLinkHttp } from "@vuepress/shared";
 import { computed } from "vue";
 
-import { useThemeLocaleData } from '@theme-weasle/composables'
-import { resolveRepoType } from '@theme-weasle/utils'
+import { useThemeLocaleData } from '@theme-weasel/composables'
+import { resolveRepoType } from '@theme-weasel/utils'
 
 import type { ComputedRef } from "vue";
-import type { RepoType } from "@theme-weasle/utils";
+import type { RepoType } from "@theme-weasel/utils";
 
 export interface RepoConfig {
   type: RepoType | "Source";
