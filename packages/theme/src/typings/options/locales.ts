@@ -6,10 +6,11 @@ import { LocaleData } from "@vuepress/core";
 import { ThemeBlogLocaleData, ThemeFeatureConfig, ThemeFeatureLocaleConfig, ThemeFeatureLocaleData } from "./feature";
 import { ThemeLayoutLocaleData, ThemeLayoutLocaleOptions, ThemeRouteLocaleData } from "./layout";
 import { ThemeMetaLocateData } from "./layout/meta";
+import { ThemeNavbarLocaleOptions } from './../navbar';
 
 export interface ThemeLocaleOptions extends LocaleData {}
 
-export interface ThemeLocaleData extends ThemeFeatureLocaleData, ThemeLayoutLocaleData {
+export interface ThemeLocaleData extends ThemeFeatureLocaleData, ThemeLayoutLocaleData, ThemeNavbarLocaleOptions {
   /**
    * Current lang code
    */
