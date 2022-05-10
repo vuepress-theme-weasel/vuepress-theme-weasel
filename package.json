@@ -4,12 +4,18 @@
   "description": "A vuepress theme and tools",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7.0.0"
+  },
+  "packageManager": "pnpm@7.0.0",
   "scripts": {
-    "dev:libs": "concurrently --kill-others \"pnpm dev -C packages/shared\" \"pnpm dev -C packages/blog\"",
-    "dev:theme": "pnpm run dev -C packages/theme",
-    "dev:demo": "pnpm run dev -C demo",
-    "build:demo": "pnpm run build -C demo",
-    "build:theme": "pnpm run build -C packages/theme",
+    "dev:libs": "pnpm --filter \"./packages/**\" --filter=!./packages/theme dev",
+    "dev:theme": "pnpm run --filter \"./packages/theme\" dev",
+    "dev:demo": "pnpm run --filter \"./demo\" dev",
+    "build:libs": "pnpm run --filter \"./packages/**\" --filter=!./packages/theme build",
+    "build:demo": "pnpm run --filter \"./demo\" build",
+    "build:theme": "pnpm run --filter \"./packages/theme\" build",
     "create:pkg": "plop",
     "clean": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "commit": "git-cz",
