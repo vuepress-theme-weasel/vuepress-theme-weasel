@@ -1,4 +1,5 @@
-@use "@mr-hope/vuepress-shared/styles/reset";
+@use "@theme-weasel/styles/mixins/reset";
+@use "@theme-weasel/styles/config" as weasel-config;
 
 .toggle-navbar-button {
   @include reset.button;
@@ -11,7 +12,7 @@
 
   padding: 6px;
 
-  @media screen and (max-width: hope-config.$tablet) {
+  @media screen and (max-width: weasel-config.$tablet) {
     display: flex;
   }
 

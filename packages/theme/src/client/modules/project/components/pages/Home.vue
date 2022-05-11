@@ -1,5 +1,5 @@
 <template>
-  <main class="home project" id="main-content" :aria-labelledby="frontmatter.value.heroText === null ? undefined : 'main-title'">
+  <main class="home project" id="main-content">
     <slot name="top"></slot>
   </main>
 </template>

@@ -1,3 +1,5 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
 #nav-screen {
   position: fixed;
   top: var(--navbar-mobile-height);
@@ -14,7 +16,7 @@
 
   transition: background-color 0.5s;
 
-  @media (min-width: hope-config.$tablet) {
+  @media (min-width: weasel-config.$tablet) {
     display: none;
   }
 

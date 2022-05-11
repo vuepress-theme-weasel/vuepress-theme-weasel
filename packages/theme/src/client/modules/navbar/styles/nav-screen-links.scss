@@ -1,8 +1,10 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
 .nav-screen-links {
   display: none;
   padding-bottom: 0.75rem;
 
-  @media (max-width: hope-config.$tablet) {
+  @media (max-width: weasel-config.$tablet) {
     display: block;
   }
 

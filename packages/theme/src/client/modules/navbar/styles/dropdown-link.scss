@@ -1,5 +1,5 @@
-@use "@mr-hope/vuepress-shared/styles/arrow";
-@use "@mr-hope/vuepress-shared/styles/reset";
+@use "@theme-weasel/styles/mixins/arrow";
+@use "@theme-weasel/styles/mixins/reset";
 
 .dropdown-wrapper {
   cursor: pointer;

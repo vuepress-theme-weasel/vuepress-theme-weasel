@@ -1,3 +1,5 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
 .navbar {
   .logo {
     vertical-align: top;
@@ -12,7 +14,7 @@
       display: none;
     }
 
-    #{hope-config.$dark-selector} & {
+    #{weasel-config.$darkSelector} & {
       &.light {
         display: none;
       }
@@ -28,7 +30,7 @@
     color: var(--text-color);
     font-size: 1.25rem;
 
-    @media (max-width: hope-config.$tablet) {
+    @media (max-width: weasel-config.$tablet) {
       overflow: hidden;
       width: calc(100vw - 9.4rem);
       text-overflow: ellipsis;

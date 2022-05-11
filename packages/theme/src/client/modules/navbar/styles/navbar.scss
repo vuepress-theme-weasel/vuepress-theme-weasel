@@ -1,3 +1,5 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
 .navbar {
   --navbar-line-height: calc(
     var(--navbar-height) - var(--navbar-vertical-padding) * 2
@@ -29,7 +31,7 @@
 
   backdrop-filter: saturate(150%) blur(12px);
 
-  @media (max-width: hope-config.$pad) {
+  @media (max-width: weasel-config.$pad) {
     --navbar-line-height: calc(
       var(--navbar-mobile-height) - var(--navbar-mobile-vertical-padding) * 2
     );

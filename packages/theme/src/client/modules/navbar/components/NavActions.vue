@@ -7,13 +7,13 @@
     <RepoLink />
     <OutlookButton />
     <Component v-if="searchComponent" :is="searchComponent" />
-    <ToggleNavbarButton :active="showScreen" @toggle="emit("toggleScreen")" />
+    <ToggleNavbarButton :active="showScreen" @toggle="emit('toggleScreen')" />
     <slot name="after"></slot>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Component, computed, resolveComponent } from 'vue'
+import { computed, resolveComponent } from 'vue'
 import LanguageDropdown from './LanguageDropdown.vue';
 import RepoLink from './RepoLink.vue';
 import OutlookButton from '../../outlook/components/OutlookButton.vue';
@@ -21,6 +21,10 @@ import ToggleNavbarButton from './ToggleNavbarButton.vue'
 import { isComponentRegistered } from '@mr-huang/vuepress-shared/lib/client'
 
 const emit = defineEmits(["toggleScreen"])
+
+const props = defineProps({
+  showScreen: { type: Boolean, default: false },
+})
 
 const searchComponent = computed(() => {
   return isComponentRegistered('Docsearch') ? resolveComponent('Docsearch') : isComponentRegistered('SearchBox') ? resolveComponent('SearchBox') : null

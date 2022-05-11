@@ -1,11 +1,11 @@
 <template>
-  <header class="['navbar', {
+  <header :class="['navbar', {
     'auto-hide': autoHide,
     'hide-icon': !themeLocale.navbarIcon,
   }]"
   ref="navbar"
   >
-    <ToggleFullScreenButton @toggle="sidebarToggle" />
+    <ToggleSidebarButton @toggle="sidebarToggle" />
     <NavbarBrand ref="siteBrand">
       <slot name="left"></slot>
     </NavbarBrand>
@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import { useMobile, useThemeLocaleData } from '@theme-weasel/composables';
 import { computed, ref } from 'vue';
-import ToggleFullScreenButton from './ToggleFullScreenButton.vue';
+import ToggleSidebarButton from './ToggleSidebarButton.vue';
 import NavbarBrand from './NavbarBrand.vue';
 import NavbarLinks from './NavbarLinks.vue';
 import NavActions from './NavActions.vue';

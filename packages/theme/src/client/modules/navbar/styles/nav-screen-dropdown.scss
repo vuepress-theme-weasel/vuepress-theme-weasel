@@ -1,5 +1,5 @@
-@use "@mr-hope/vuepress-shared/styles/reset";
-@use "@mr-hope/vuepress-shared/styles/arrow";
+@use "@theme-weasel/styles/mixins/arrow";
+@use "@theme-weasel/styles/mixins/reset";
 
 .nav-screen-dropdown-title {
   @include reset.button;

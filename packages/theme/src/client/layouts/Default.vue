@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
 import { useMobile, usePageFrontmatter, useThemeLocaleData } from '../composables'
 import { ProjectHome } from '@theme-weasel/modules/project/components'
 import { usePageData } from '@vuepress/client'
@@ -32,7 +32,6 @@ import { useEventListener } from '@vueuse/core';
 import debounce from 'lodash.debounce';
 import { useRouter } from "vue-router";
 import { Navbar } from '@theme-weasel/modules/navbar/components'
-import Navbar from '../modules/navbar/components/Navbar.vue';
 
 const page = usePageData()
 const frontmatter = usePageFrontmatter()
@@ -40,6 +39,7 @@ const isHome = computed(() => frontmatter.value.home)
 const themeLocale = useThemeLocaleData()
 const isMobile = useMobile()
 const router = useRouter()
+const slots = useSlots()
 
 // navbar
 const hideNavbar = ref(false);

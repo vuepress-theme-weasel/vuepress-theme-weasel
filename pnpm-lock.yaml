@@ -7,12 +7,14 @@ importers:
       '@mr-huang/vuepress-plugin-blog': workspace:^0.0.1
       '@mr-huang/vuepress-plugin-comment': workspace:^0.0.1
       '@mr-huang/vuepress-shared': workspace:^0.0.1
+      '@mr-huang/vuepress-theme-weasel': workspace:^0.0.1
       plop: ^3.0.5
       typescript: ^4.6.3
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:packages/blog
       '@mr-huang/vuepress-plugin-comment': link:packages/comment
       '@mr-huang/vuepress-shared': link:packages/shared
+      '@mr-huang/vuepress-theme-weasel': link:packages/theme
       typescript: 4.6.4
     devDependencies:
       plop: 3.1.0
