@@ -1,9 +1,9 @@
 {
-  "name": "vuepress-theme-weasel-demo",
-  "version": "0.0.1",
+  "name": "vuepress-theme-weasel-root",
+  "version": "1.0.0-beta.1",
   "description": "A vuepress theme and tools",
-  "main": "index.js",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=14",
     "pnpm": ">=7.0.0"
@@ -13,18 +13,22 @@
     "dev:libs": "pnpm --filter \"./packages/**\" --filter=!./packages/theme dev",
     "dev:theme": "pnpm run --filter \"./packages/theme\" dev",
     "dev:demo": "pnpm run --filter \"./demo\" dev",
+    "clean": "pnpm run --stream -r clean",
+    "build": "cross-env mode=production pnpm run --stream -r build",
     "build:libs": "pnpm run --filter \"./packages/**\" --filter=!./packages/theme build",
     "build:demo": "pnpm run --filter \"./demo\" build",
     "build:theme": "pnpm run --filter \"./packages/theme\" build",
     "create:pkg": "plop",
-    "clean": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "commit": "git-cz",
-    "release": "standard-version",
     "lint": "eslint ./packages --ext .vue,.js,.ts",
     "lint-fix": "eslint --fix ./packages --ext .vue,.js,.ts",
     "prettier": "prettier --write ./packages",
+    "clean:dist": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "clean:node": "rimraf ./packages/**/node_modules && rimraf ./node_modules",
-    "reset": "pnpm run clean && pnpm run clean:node"
+    "reset": "pnpm run clean:dist && pnpm run clean:node",
+    "release:bump": "bumpp package.json demo/package.json packages/*/package.json --execute=\"pnpm standard-version --skip.bump --skip.commit --skip.tag && git add CHANGELOG.md\" --commit \"chore(release): publish v%s\" --all --tag --push",
+    "release:publish": "cross-env NODE_OPTIONS=\"--experimental-json-modules\" ts-node-esm  -O {\\\"module\\\":\\\"ESNext\\\"} scripts/release",
+    "release": "pnpm release:bump && release:publish"
   },
   "repository": {
     "type": "git",
@@ -49,6 +53,17 @@
     "typescript": "^4.6.3"
   },
   "devDependencies": {
-    "plop": "^3.0.5"
+    "@types/inquirer": "8.2.1",
+    "@types/node": "17.0.32",
+    "@types/semver": "7.3.9",
+    "bumpp": "^7.1.1",
+    "chalk": "5.0.1",
+    "execa": "6.1.0",
+    "inquirer": "8.2.4",
+    "ora": "6.1.0",
+    "plop": "^3.0.5",
+    "semver": "7.3.7",
+    "standard-version": "^9.3.2",
+    "ts-node": "10.7.0"
   }
 }

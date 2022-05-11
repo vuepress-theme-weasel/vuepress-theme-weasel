@@ -1,6 +1,6 @@
 {
   "name": "@mr-huang/vuepress-plugin-blog",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "weasel theme",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
