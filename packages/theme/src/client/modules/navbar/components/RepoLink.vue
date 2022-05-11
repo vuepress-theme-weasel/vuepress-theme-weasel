@@ -1,13 +1,13 @@
 <template>
   <div class="nav-item" v-if="repo">
     <a class="repo-link" :href="repo.link" target="_blank" rel="noopener noreferrer">
-      <Component :is="resolveComponent(`${repo.value.type}Icon`)" :style="{width: "1.25rem", height: "1.25rem", verticalAlign: "middle"}"/>
+      <component :is="resolveComponent(`${repo.type}Icon`)" :style="{width: '1.25rem', height: '1.25rem', verticalAlign: 'middle'}"/>
     </a>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { Component } from 'vue'
+<script lang="ts">
+import { resolveComponent, defineComponent } from 'vue'
 import { useNavbarRepo } from '../composables';
 import {
   BitbucketIcon,
@@ -17,8 +17,24 @@ import {
   SourceIcon,
 } from "./icons"
 
-const repo = useNavbarRepo();
 
+export default defineComponent({
+  components: {
+    BitbucketIcon,
+    GiteeIcon,
+    GitHubIcon,
+    GitlabIcon,
+    SourceIcon,
+  },
+  setup() {
+    const repo = useNavbarRepo();
+
+    return {
+      repo,
+      resolveComponent
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

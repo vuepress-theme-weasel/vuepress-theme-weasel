@@ -7,6 +7,7 @@ export default {
     url: "https://mrhope.site",
   },
   articlePerPage: 2,
+  repo: "vuepress-theme-hope/vuepress-theme-hope",
   lang: 'zh-CN',
   // 开启blog
   blog: {
