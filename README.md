@@ -11,9 +11,8 @@
 
 <!-- markdownlint-restore -->
 
-[![Version](https://img.shields.io/npm/v/vuepress-theme-weasel/next.svg?style=flat-square&logo=npm) ![Downloads](https://img.shields.io/npm/dm/vuepress-theme-weasel.svg?style=flat-square&logo=npm) ![Total downloads](https://img.shields.io/npm/dt/vuepress-theme-weasel?style=flat-square&logo=npm) ![Size](https://img.shields.io/bundlephobia/min/vuepress-theme-weasel?style=flat-square&logo=npm)](https://www.npmjs.com/package/vuepress-theme-hope)
+[![Version](https://img.shields.io/npm/v/@mr-huang/vuepress-theme-weasel/latest.svg?style=flat-square&logo=npm) ![Downloads](https://img.shields.io/npm/dm/@mr-huang/vuepress-theme-weasel.svg?style=flat-square&logo=npm) ![Total downloads](https://img.shields.io/npm/dt/@mr-huang/vuepress-theme-weasel?style=flat-square&logo=npm) ![Size](https://img.shields.io/bundlephobia/min/@mr-huang/vuepress-theme-weasel?style=flat-square&logo=npm)](https://www.npmjs.com/package/@mr-huang/vuepress-theme-weasel)
 
-[![opencollective](https://opencollective.com/vuepress-theme-weasel/tiers/badge.svg)](https://opencollective.com/vuepress-theme-hope)
 
 [![DeepScan grade](https://deepscan.io/api/teams/9792/projects/17544/branches/405512/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9792&pid=17544&bid=405512)
 ![CodeQL](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/actions/workflows/codeql-analysis.yml/badge.svg)
