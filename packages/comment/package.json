@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@giscus/vue": "1.1.1",
-    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
+    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.1",
     "@vuepress/client": "2.0.0-beta.38",
     "@vuepress/core": "2.0.0-beta.38",
     "@vuepress/utils": "2.0.0-beta.38",

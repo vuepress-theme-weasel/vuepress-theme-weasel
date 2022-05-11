@@ -26,6 +26,9 @@
     "clean:dist": "rimraf ./packages/**/lib ./packages/**/*.tsbuildinfo",
     "clean:node": "rimraf ./packages/**/node_modules && rimraf ./node_modules",
     "reset": "pnpm run clean:dist && pnpm run clean:node",
+    "packages:check-update": "ncu --deep --timeout 600000",
+    "packages:update": "pnpm up -r",
+    "packages:up": "pnpm --filter \"./packages/**\" --filter \"./demo\" up \"@mr-huang/*\" ",
     "release:bump": "bumpp package.json demo/package.json packages/*/package.json --execute=\"pnpm standard-version --skip.bump --skip.commit --skip.tag && git add CHANGELOG.md\" --commit \"chore(release): publish v%s\" --all --tag --push",
     "release:publish": "cross-env NODE_OPTIONS=\"--experimental-json-modules\" ts-node-esm  -O {\\\"module\\\":\\\"ESNext\\\"} scripts/release",
     "release": "pnpm release:bump && release:publish"
@@ -46,10 +49,10 @@
   },
   "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
   "dependencies": {
-    "@mr-huang/vuepress-plugin-blog": "workspace:^0.0.1",
-    "@mr-huang/vuepress-plugin-comment": "workspace:^0.0.1",
-    "@mr-huang/vuepress-shared": "workspace:^0.0.1",
-    "@mr-huang/vuepress-theme-weasel": "workspace:^0.0.1",
+    "@mr-huang/vuepress-plugin-blog": "workspace:1.0.0-beta.1",
+    "@mr-huang/vuepress-plugin-comment": "workspace:1.0.0-beta.1",
+    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.1",
+    "@mr-huang/vuepress-theme-weasel": "workspace:1.0.0-beta.1",
     "typescript": "^4.6.3"
   },
   "devDependencies": {
