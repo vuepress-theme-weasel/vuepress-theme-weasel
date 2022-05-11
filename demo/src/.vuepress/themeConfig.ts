@@ -83,10 +83,10 @@ export default {
   locales: {
     "/en/": {
       // navbar
-      navbar: navbar.en,
+      // navbar: navbar.en,
 
       // sidebar
-      sidebar: sidebar.en,
+      // sidebar: sidebar.en,
 
       footer: "Default footer",
 
@@ -110,7 +110,7 @@ export default {
       navbar: navbar.zh,
 
       // sidebar
-      sidebar: sidebar.zh,
+      // sidebar: sidebar.zh,
 
       footer: "默认页脚",
 

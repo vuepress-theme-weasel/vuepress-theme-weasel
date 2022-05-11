@@ -33,7 +33,7 @@ const defaultRootOptions: WeaselThemeOptions = {
 
   // appearance
   pure: false,
-  iconPrefix: "",
+  iconPrefix: "iconfont icon-",
   darkmode: "auto-switch",
   themeColor: {
     red: "#e74c3c",

@@ -3,7 +3,7 @@
     <button class="dropdown-title" type="button" :aria-label="dropdownAriaLabel" @click="handleDropdown">
       <slot name="title">
         <span class="title">
-          <i v-if="config.icon" :class="`icon ${iconPrefix.value}${config.value.icon}`"/>
+          <i v-if="config.icon" :class="`icon ${iconPrefix}${config.icon}`"/>
           {{ config.text }}
         </span>
       </slot>
@@ -35,7 +35,7 @@
                     ) &&
                     isLastItemOfArray(
                       child,
-                      config.value.children
+                      config.children
                     )
                   ) {
                     open.value = false;
@@ -45,7 +45,7 @@
             </ul>
           </template>
           <AutoLink v-else :config="child" @focusout="() => {
-            if (isLastItemOfArray(child, config.value.children)) {
+            if (isLastItemOfArray(child, config.children)) {
               open.value = false;
             }
           }" />
@@ -72,6 +72,8 @@ const props = defineProps({
 const route = useRoute();
 const iconPrefix = useIconPrefix();
 const config = toRef(props, "config");
+
+console.log('cion', iconPrefix)
 
 const dropdownAriaLabel = computed(
   () => config.value.ariaLabel || config.value.text

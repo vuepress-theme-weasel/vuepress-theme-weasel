@@ -14,6 +14,15 @@ const isProd = process.env.NODE_ENV === "production"
 export default defineUserConfig<DefaultThemeOptions>({
   base,
   lang: 'zh-CN',
+  head: [
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css",
+      },
+    ],
+  ],
   locales: {
     '/': {
       lang: 'zh-CN',
