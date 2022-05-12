@@ -33,7 +33,7 @@ jobs:
 
       - name: Build GitHub Pages Demo
         env:
-          BASE: /
+          BASE: /vuepress-theme-weasel/
           HOSTNAME: https://vuepress-theme-weasel.github.io/
         run: pnpm build:demo
 
@@ -42,6 +42,6 @@ jobs:
         with:
           repository-name: vuepress-theme-weasel/vuepress-theme-weasel
           branch: gh-pages
-          folder: demo/dist
+          folder: demo/src/.vuepress/dist
           token: ${{ secrets.ACCESS_TOKEN }}
           single-commit: true
