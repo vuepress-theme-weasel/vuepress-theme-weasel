@@ -4,11 +4,6 @@
   "description": "A vuepress theme and tools",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=14",
-    "pnpm": ">=7.0.0"
-  },
-  "packageManager": "pnpm@7.0.0",
   "scripts": {
     "dev:libs": "pnpm --filter \"./packages/**\" --filter=!./packages/theme dev",
     "dev:theme": "pnpm run --filter \"./packages/theme\" dev",
@@ -72,5 +67,27 @@
     "standard-version": "^9.3.2",
     "ts-node": "10.7.0",
     "tslib": "2.4.0"
+  },
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7.0.0"
+  },
+  "packageManager": "pnpm@7.0.0",
+  "pnpm": {
+    "overides": {
+      "minimist": "^1.2.6"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "eslint-plugin-import",
+        "eslint-plugin-n",
+        "eslint-plugin-promise",
+        "postcss",
+        "react",
+        "react-dom",
+        "webpack"
+      ]
+    }
   }
 }
