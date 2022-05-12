@@ -10,7 +10,7 @@
   ],
   "author": "mr-huang",
   "scripts": {
-    "build": "concurrently \"cpx \"src/**/*.{d.ts,vue,scss}\" lib\" \"tsc --build tsconfig.build.json\"",
+    "build": "cpx \"src/**/*.{d.ts,vue,scss}\" lib && tsc --build tsconfig.build.json",
     "clean": "rimraf lib *.tsbuildinfo",
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
