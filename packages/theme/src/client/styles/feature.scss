@@ -1,0 +1,97 @@
+@use "@theme-weasel/styles/config" as weasel-config;
+
+.feature-container {
+  display: flex;
+  justify-content: center;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 1160px;
+
+  overflow: hidden;
+
+  margin: 0 -2rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border-color);
+
+  transition: border-color var(--color-transition);
+
+  @media (max-width: weasel-config.$mobile) {
+    margin: 0 -1.5rem;
+  }
+}
+
+.feature {
+  position: relative;
+
+  flex-basis: calc(33% - 4rem);
+
+  overflow: hidden;
+
+  margin: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+
+  text-align: center;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  @media (min-width: weasel-config.$pc) {
+    flex-basis: calc(25% - 4rem);
+  }
+
+  @media (max-width: weasel-config.$pad) {
+    flex-basis: calc(50% - 4rem);
+  }
+
+  @media (max-width: weasel-config.$tablet) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: weasel-config.$mobile) {
+    flex-basis: calc(100%);
+    margin: 0.5rem 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+  }
+
+  &.link {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 12px 0 var(--card-shadow);
+    transform: scale(1.05);
+  }
+
+  .icon {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: var(--theme-color);
+    font-size: 2rem;
+  }
+
+  h2 {
+    margin: 0.25rem 0;
+    border-bottom: none;
+
+    color: var(--text-color-light);
+
+    font-weight: bold;
+    font-size: 1.25rem;
+
+    @media (max-width: weasel-config.$mobile) {
+      font-size: 1.2rem;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-color-lighter);
+    line-height: 1.4;
+  }
+}

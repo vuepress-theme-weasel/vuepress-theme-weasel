@@ -4,6 +4,7 @@
  */
 import { PageFrontmatter } from "@vuepress/core"
 import { Author } from "@mr-huang/vuepress-shared";
+import { ThemeProjectHomePageFrontmatter } from "./home";
 
 /**
  * 页面frontmatter
@@ -113,5 +114,5 @@ export interface BasePageFrontMatter extends PageFrontmatter {
   /**
    * 特性
    */
-  // features?: HomeFeature[]
+  features?: ThemeProjectHomePageFrontmatter
 }
