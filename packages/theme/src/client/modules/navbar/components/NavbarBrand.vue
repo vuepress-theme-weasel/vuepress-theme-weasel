@@ -1,6 +1,6 @@
 <template>
   <RouterLink :to="{ siteBrandLink }" class="home-link">
-    <img v-if="siteBrandLogo" :src="siteBrandLogo" :alt="siteBrandTitle" :class="[ 'logo', light: Boolean(siteBrandLogoDark) ]" />
+    <img v-if="siteBrandLogo" :src="siteBrandLogo" :alt="siteBrandTitle" :class="[ 'logo', {light: Boolean(siteBrandLogoDark)} ]" />
     <img v-else-if="siteBrandLogoDark" :src="siteBrandLogoDark" :alt="siteBrandTitle" :class="[ 'logo', 'dark']" />
     <span v-else :class="['site-name', { 'hide-in-pad': siteBrandLogo }]">
       <slot>{{siteBrandTitle}}</slot>

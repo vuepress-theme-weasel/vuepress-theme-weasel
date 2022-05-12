@@ -29,7 +29,7 @@ jobs:
       - name: Build project
         env:
           NODE_OPTIONS: --max_old_space_size=4096
-        run: pnpm run build
+        run: pnpm run build:libs
 
       - name: Build GitHub Pages Demo
         env:

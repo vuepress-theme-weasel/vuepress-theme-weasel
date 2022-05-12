@@ -11,10 +11,10 @@
   ],
   "author": "mr-huang",
   "scripts": {
-    "build": "tsc --build tsconfig.build.json && esno scripts/postbuild.ts",
+    "build": "cpx \"src/**/*.{d.ts,vue,scss}\" lib && tsc --build tsconfig.build.json && esno scripts/postbuild.ts",
     "clean": "rimraf lib *.tsbuildinfo",
-    "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
-    "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
+    "copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
+    "dev": "concurrently \"pnpm copy\" \"pnpm dev:ts\"",
     "dev:ts": "tsc --build -w tsconfig.build.json && esno scripts/postbuild.ts"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/theme",

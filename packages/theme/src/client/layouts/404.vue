@@ -7,8 +7,8 @@
       </div>
       <div id="Layer1">
         <nav class="codrops-demos">
-          <a href="javascript:void(0);" @click="window.history.go(-1)">{{ themeLocale.value.routeLocales.back }}</a>
-          <a href="javascript:void(0);" @click="navigate">{{ themeLocale.value.routeLocales.home }}</a>
+          <a href="javascript:void(0);" @click="window.history.go(-1)">{{ themeLocale.routeLocales.back }}</a>
+          <a href="javascript:void(0);" @click="navigate">{{ themeLocale.routeLocales.home }}</a>
         </nav>
       </div>
     </div>
