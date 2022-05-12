@@ -4,7 +4,7 @@
 import { defineUserConfig } from 'vuepress'
 import themeConfig from './themeConfig';
 
-const base = '/'
+const base = (process.env.BASE as "/" | `/${string}/`) || "/";
 const path = require('path')
 const isProd = process.env.NODE_ENV === "production"
 
