@@ -33,7 +33,7 @@ jobs:
 
       - name: Build GitHub Pages Demo
         env:
-          BASE: /
+          BASE: /vuepress-theme-weasel/
           HOSTNAME: https://vuepress-theme-weasel.github.io/
         run: pnpm build:demo
 
