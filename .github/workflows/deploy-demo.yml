@@ -1,0 +1,47 @@
+name: Deploy V2 Theme Demo
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - name: Install Deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: pnpm run build
+
+      - name: Build GitHub Pages Demo
+        env:
+          BASE: /
+          HOSTNAME: https://vuepress-theme-weasel.github.io/
+        run: pnpm build:demo
+
+      - name: Deploy to gh pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: vuepress-theme-weasel/vuepress-theme-weasel
+          branch: gh-pages
+          folder: demo/dist
+          token: ${{ secrets.ACCESS_TOKEN }}
+          single-commit: true
