@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CavinHuang/vuepress-theme-weasel.git"
+    "url": "git+https://github.com/vuepress-theme-weasel/vuepress-theme-weasel.git"
   },
   "keywords": [
     "weasel",
@@ -45,9 +45,9 @@
   "author": "cavinHuang",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CavinHuang/vuepress-theme-weasel/issues"
+    "url": "https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/issues"
   },
-  "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
+  "homepage": "https://github.com/vuepress-theme-weasel/vuepress-theme-weasel#readme",
   "dependencies": {
     "@mr-huang/vuepress-plugin-blog": "workspace:1.0.0-beta.1",
     "@mr-huang/vuepress-plugin-comment": "workspace:1.0.0-beta.1",
