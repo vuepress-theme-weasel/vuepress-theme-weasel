@@ -13,6 +13,7 @@ actions:
 
   - text: 博客主页 🏠
     link: /
+
 badges:
   - text: GitHub license
     link: https://github.com/vuepress-reco/vuepress-theme-reco
@@ -30,6 +31,7 @@ badges:
   - text: Npm version
     link: https://www.npmjs.com/package/vuepress-theme-reco
     imgUrl: https://img.shields.io/npm/v/vuepress-theme-reco.svg?style=flat&amp;logo=npm&amp;label=version
+
 features:
   - title: Markdown 增强
     icon: markdown
@@ -123,4 +125,4 @@ footer: MIT Licensed | Copyright © 2019-present Mr.Hope
 
 想要使用此布局，你需要在页面 front matter 中设置 `home: true`。
 
-配置项的相关说明详见 [项目主页配置](https://vuepress-theme-hope.github.io/v2/zh/guide/layout/home/)。
+配置项的相关说明详见 [项目主页配置](./home.html)。

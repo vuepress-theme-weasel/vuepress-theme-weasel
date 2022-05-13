@@ -1,29 +1,48 @@
 <template>
   <div class="project-page">
-    <div :class="[
-      'theme-container',
-      {
-        'no-navbar': !enableNavbar,
-        'no-sidebar': !enableSidebar && !(slots.sidebar || slots.sidebarTop || slots.sidebarBottom),
-        'has-toc': enableToc,
-        'hide-navbar': hideNavbar,
-        'sidebar-open': isMobile ? isMobileSidebarOpen : isDesktopSidebarOpen,
-      }
-    ]">
-      <Navbar @toggleSidebar="toggleMobileSidebar()">
+    <div
+      :class="[
+        'theme-container',
+        {
+          'no-navbar': !enableNavbar,
+          'no-sidebar': !enableSidebar && !(slots.sidebar || slots.sidebarTop || slots.sidebarBottom),
+          'has-toc': enableToc,
+          'hide-navbar': hideNavbar,
+          'sidebar-open': isMobile ? isMobileSidebarOpen : isDesktopSidebarOpen,
+        }
+      ]"
+      @touchStart="onTouchStart"
+      @touchEnd="onTouchEnd"
+    >
+      <Navbar v-if="enableNavbar" @toggleSidebar="toggleMobileSidebar()">
         <slot name="navbarLeft" slot="left"></slot>
         <slot name="navbarCenter" slot="center"></slot>
         <slot name="navbarRight" slot="right"></slot>
         <slot name="navScreenTop" slot="screenTop"></slot>
         <slot name="navScreenBottom" slot="screenBottom"></slot>
       </Navbar>
+      <!-- sidebar mask -->
+      <Transition name="fade">
+        <div v-if="isMobileSidebarOpen" class="sidebar-mask" @click="toggleMobileSidebar(false)"></div>
+      </Transition>
+      <!-- toggle sidebar button -->
+      <Transition name="fade">
+        <div v-if="!isMobile" class="toggle-sidebar-wrapper" @click="toggleDesktopSidebar">
+          <span class="arrow" :class="isDesktopSidebarOpen ? 'left' : 'right'"></span>
+        </div>
+      </Transition>
+      <Sidebar>
+        <slot name="sidebar"></slot>
+        <slot name="sidebarTop" slot="top"></slot>
+        <slot name="sidebarBottom" slot="bottom"></slot>
+      </Sidebar>
       <ProjectHome v-if="isHome" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted, ref, useSlots, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, useSlots, watch, Transition } from 'vue'
 import { useMobile, usePageFrontmatter, useThemeLocaleData } from '../composables'
 import { ProjectHome } from '@theme-weasel/modules/project/components'
 import { usePageData } from '@vuepress/client'
@@ -32,6 +51,7 @@ import { useEventListener } from '@vueuse/core';
 import debounce from 'lodash.debounce';
 import { useRouter } from "vue-router";
 import { Navbar } from '@theme-weasel/modules/navbar/components'
+import { Sidebar } from '@theme-weasel/modules/sidebar/components'
 
 const page = usePageData()
 const frontmatter = usePageFrontmatter()
