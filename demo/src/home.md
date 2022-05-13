@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: 项目主页
-heroImage: /logo.png
+heroImage: ./logo.png
 heroText: 项目名称
 tagline: 一款简洁、小众而优雅的 vuepress 博客 &amp; 文档 主题。
 actions:
