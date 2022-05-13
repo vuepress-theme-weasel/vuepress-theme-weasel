@@ -12,6 +12,13 @@ export interface ThemeHomeFeatureOptions {
   link?: string;
 }
 
+export interface ThemeHomeBadgesOptions {
+  text: string;
+  link: string;
+  imgUrl: string;
+  black?: boolean
+}
+
 export interface ThemeProjectHomePageFrontmatter {
   home: true;
   heroImage?: string;
@@ -22,4 +29,6 @@ export interface ThemeProjectHomePageFrontmatter {
 
   actions?: ThemeHomeActionOptions[];
   features?: ThemeHomeFeatureOptions[];
+
+  badges?: ThemeHomeBadgesOptions[];
 }

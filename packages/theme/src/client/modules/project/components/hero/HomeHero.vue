@@ -1,32 +1,23 @@
 <template>
   <section class="hero-main">
     <div>
-      <img src="/logo.png" alt="hero" style="max-width: 200px; width: 100%; display: block; margin: 0px auto 2rem; border-radius: 1rem; transition: transform 0.25s ease-in-out 0.04s, opacity 0.25s ease-in-out 0.04s; transform: translateY(0px); opacity: 1;">
-      <p class="description" style="transition: transform 0.25s ease-in-out 0.08s, opacity 0.25s ease-in-out 0.08s; transform: translateY(0px); opacity: 1;">一款简洁而优雅的 vuepress 博客 &amp; 文档 主题。</p>
-      <div style="transition: transform 0.25s ease-in-out 0.12s, opacity 0.25s ease-in-out 0.12s; transform: translateY(0px); opacity: 1;">
-      <a target="_black" href="https://github.com/vuepress-reco/vuepress-theme-reco">
-        <img alt="GitHub license" src="https://img.shields.io/github/license/vuepress-reco/vuepress-theme-reco?&amp;logo=github">
-      </a>
-      <a target="_black" href="https://github.com/vuepress-reco/vuepress-theme-reco">
-        <img alt="GitHub stars" src="https://img.shields.io/github/stars/vuepress-reco/vuepress-theme-reco?style=flat&amp;logo=github" />
-      </a>
-      <a target="_black" href="https://github.com/vuepress-reco/vuepress-theme-reco">
-        <img alt="GitHub forks" src="https://img.shields.io/github/forks/vuepress-reco/vuepress-theme-reco?style=flat&amp;logo=github">
-      </a>
-      <a target="_black" href="https://www.npmjs.com/package/vuepress-theme-reco">
-        <img alt="Npm downloads" src="https://img.shields.io/npm/dt/vuepress-theme-reco?style=flat&amp;logo=npm">
-      </a>
-      <a target="_black" href="https://www.npmjs.com/package/vuepress-theme-reco">
-        <img alt="Npm version" src="https://img.shields.io/npm/v/vuepress-theme-reco.svg?style=flat&amp;logo=npm&amp;label=version"></a>
+      <img :src="frontmatter.heroImage" alt="hero" />
+      <p class="description">{{ frontmatter.tagline }}</p>
+      <div class="home-badges">
+        <a v-for="(badge, index) in frontmatter.badges" :key="'badge' + index" :target="badge.black === false ? 'self' : '_black'" :href="badge.link">
+          <img :alt="badge.text" :src="badge.imgUrl" />
+        </a>
       </div>
-      <a href="/views/other/about" class="btn-about" style="transition: transform 0.25s ease-in-out 0.16s, opacity 0.25s ease-in-out 0.16s; transform: translateY(0px); opacity: 1;">About</a>
+      <p class="actions">
+        <a v-for="(action, index) in frontmatter.actions" :href="action.link" class="nav-link action-button" :class="{ primary: action.type === 'primary' }" :style="action.style || {}">{{ action.text }}</a>
+      </p>
     </div>
   </section>
-  <HomeFeature />
 </template>
 
 <script lang="ts" setup>
-import { HomeFeature } from '../feature'
+import { usePageFrontmatter } from '@theme-weasel/composables'
+const frontmatter = usePageFrontmatter()
 </script>
 
 <style lang="scss" scoped>
@@ -46,14 +37,25 @@ import { HomeFeature } from '../feature'
     font-size: 20px;
     margin-bottom: 2rem;
   }
-  .btn-about {
-    margin: 2rem 0;
+  .home-badges {
+    a {
+      margin-right: 0.4rem;
+    }
+  }
+  .action-button {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.25rem;
-    background: #3eaf7c;
-    color: #fff;
-    font-size: 1rem;
+    overflow: hidden;
+    margin: 0.6rem 0.8rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--theme-color);
+    border-radius: 0.5rem;
+    color: var(--theme-color);
+    font-size: 1.2rem;
+    transition: background-color var(--color-transition),color var(--color-transition);
+    &:hover, &.primary {
+      background-color: var(--theme-color);
+      color: var(--white);
+    }
   }
 }
 </style>

@@ -2,17 +2,34 @@
 home: true
 icon: home
 title: 项目主页
-heroImage: /logo.svg
+heroImage: /logo.png
 heroText: 项目名称
-tagline: 你可以在这里放置或是整个项目的描述。
+tagline: 一款简洁、小众而优雅的 vuepress 博客 &amp; 文档 主题。
 actions:
   - text: 使用指南 💡
-    link: /zh/guide/
+    link: /guide/
+    style: { color: \#fff }
+    type: primary
 
   - text: 博客主页 🏠
-    link: /zh/
-    type: secondary
-
+    link: /
+badges:
+  - text: GitHub license
+    link: https://github.com/vuepress-reco/vuepress-theme-reco
+    imgUrl: https://img.shields.io/github/license/vuepress-reco/vuepress-theme-reco?&amp;logo=github
+    black: false
+  - text: GitHub stars
+    link: https://github.com/vuepress-reco/vuepress-theme-reco
+    imgUrl: https://img.shields.io/github/stars/vuepress-reco/vuepress-theme-reco?style=flat&amp;logo=github
+  - text: GitHub forks
+    link: https://github.com/vuepress-reco/vuepress-theme-reco
+    imgUrl: https://img.shields.io/github/forks/vuepress-reco/vuepress-theme-reco?style=flat&amp;logo=github
+  - text: Npm downloads
+    link: https://www.npmjs.com/package/vuepress-theme-reco
+    imgUrl: https://img.shields.io/npm/dt/vuepress-theme-reco?style=flat&amp;logo=npm
+  - text: Npm version
+    link: https://www.npmjs.com/package/vuepress-theme-reco
+    imgUrl: https://img.shields.io/npm/v/vuepress-theme-reco.svg?style=flat&amp;logo=npm&amp;label=version
 features:
   - title: Markdown 增强
     icon: markdown
