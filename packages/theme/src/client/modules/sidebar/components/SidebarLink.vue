@@ -1,7 +1,7 @@
 <template>
   <ul class="sidebar-links">
     <li v-for="(conf, index) in config" :key="'sidebar-link' + index">
-      <SidebarGroup v-if="config.type === 'group'" :config="conf" :open="index === openGroupIndex" @toggle="toggleGroup(index)" />
+      <SidebarGroup v-if="conf.type === 'group'" :config="conf" :open="index === openGroupIndex" @toggle="toggleGroup(index)" />
       <SidebarChild v-else :config="conf" />
     </li>
   </ul>

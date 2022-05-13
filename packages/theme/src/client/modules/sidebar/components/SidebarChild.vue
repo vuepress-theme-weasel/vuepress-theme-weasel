@@ -1,10 +1,10 @@
 <template>
   <RenderItem :config="config" :props="{
     class: [
-      "sidebar-link",
-      `sidebar-${props.config.type}`,
+      'sidebar-link',
+      `sidebar-${config.type}`,
       {
-        active: isActiveSidebarItem(route, props.config, true),
+        active: isActive(config)
       },
     ],
     exact: true
@@ -14,10 +14,11 @@
 
 <script lang="ts" setup>
 import { ResolvedThemeSidebarHeaderItem, ResolvedThemeSidebarPageItem } from '../../../../typings';
-import { PropType } from 'vue';
+import { computed, PropType } from 'vue';
 import { useRoute } from "vue-router";
 import RenderItem from './RenderItem.vue';
 import RenderChildren from './RenderChildren.vue';
+import { isActiveSidebarItem } from '../utils';
 
 const props = defineProps({
   config: {
@@ -28,7 +29,7 @@ const props = defineProps({
   }
 })
 const route = useRoute();
-
+const isActive = (child: ResolvedThemeSidebarHeaderItem) => computed(() => isActiveSidebarItem(route, child, true))
 </script>
 
 <style lang="scss" scoped>

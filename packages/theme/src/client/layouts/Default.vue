@@ -164,5 +164,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-
+.theme-container.sidebar-open .sidebar {
+  box-shadow: 2px 0 8px var(--card-shadow);
+  transform: translate(0);
+}
 </style>
