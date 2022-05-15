@@ -64,6 +64,37 @@ All notable changes to this project will be documented in this file. See [Conven
 * (theme) fix base ([d96a9fd](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/d96a9fdd5c7bf491da41cac51fe34f3d516166d5))
 * (theme) fix upcase ([4160d3b](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/4160d3bdc89099f4957c25c5d73abf1233d16992))
 
+## [1.0.0-beta.2](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-05-15)
+
+
+### Features
+
+* (project) 发布版本 ([8813c05](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/8813c057867333a3db7353fd531dd7a62f7b7327))
+* (project) add project home ([9e2c245](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/9e2c245eb421b8425681a3f088c56ef0aca41298))
+* (project) add tslib ([1529846](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/15298465c7d069be98a0378aa9f61372d462cc7a))
+* (project) fix pnpm ([1a1d89a](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/1a1d89a1fd9d33ba612dbce4b53caea5bfcc6038))
+* (project) update dependencs ([fdda6ad](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/fdda6ad2d4f496739eb9f8bbba06e2c71e5b77fa))
+* (project)add packages ([e0c2976](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/e0c29768e2585ef2f1b82ec653f90775ba40550f))
+* (theme) 增加项目首页 ([5f433de](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/5f433de1ccc18ed6854d1034a71eeba75620cf97))
+* (theme) add page info module ([604bb5c](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/604bb5c3f8e33e4b3a9a8afd515d6576f0e22457))
+* (theme) add project normal page ([b6b6df9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/b6b6df9c49aba70ca62c50e71ff32bbb45a662f3))
+* (theme) add sidebar component ([6ced7e5](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/6ced7e51e506cd5dfac9dec642d10420067c3f0f))
+* (theme) fix info ([3936a75](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/3936a756d92906a991eea98163e4169cfe8b731f))
+* (theme) fix sidebar ([e5fc61f](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/e5fc61f32a01604bc0767d652b77988e71e87b5a))
+
+
+### Bug Fixes
+
+* (demo) fix hero image path ([eb176a4](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/eb176a4cf63874aeb9bc6f805cfaf28d85772765))
+* (project) add install scope ([dfe3cbd](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/dfe3cbd1716376f264b78150e8ddc3baa7ae557f))
+* (project) add script ([77966d6](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/77966d62ee9daea423a8b19d9e0134830550959a))
+* (project) fix action ([c06fe9c](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/c06fe9c705732e4fd1ec0daedfb2df4667ad2074))
+* (project) fix builld error ([c0bf878](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/c0bf8786e81d079c23231ee1c4a08a8bf34cbbcb))
+* (project) update package ([ceedf87](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/ceedf87a88dc5b9f97ad61e4721faddfb3c0be94))
+* (theme) fix article content page ([076d3b9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/076d3b9b98bccf97aa66870a9694ffe23150c2e5))
+* (theme) fix base ([d96a9fd](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/d96a9fdd5c7bf491da41cac51fe34f3d516166d5))
+* (theme) fix upcase ([4160d3b](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/4160d3bdc89099f4957c25c5d73abf1233d16992))
+
 ## 1.0.0-beta.1 (2022-05-11)
 
 
