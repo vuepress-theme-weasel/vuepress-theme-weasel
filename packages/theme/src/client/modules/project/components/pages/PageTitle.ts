@@ -3,7 +3,7 @@ import { defineComponent, h, unref } from "vue";
 
 import { useIconPrefix, useThemeLocaleData } from "@theme-weasel/composables";
 
-import PageInfo from "@theme-weasel/components/article/ArticleInfo.vue";
+import PageInfo from "@theme-weasel/modules/info/components/PageInfo";
 import { usePageInfo } from "@theme-weasel/composables";
 
 import type { VNode } from "vue";

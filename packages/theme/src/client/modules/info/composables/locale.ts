@@ -1,12 +1,12 @@
 import { computed } from "vue";
 
-import { useThemeLocaleData } from "@theme-hope/composables";
+import { useThemeLocaleData } from "@theme-weasel/composables";
 
 import type { ComputedRef } from "vue";
-import type { HopeThemeMetaLocateData } from "../../../../shared";
+import type { ThemeMetaLocateData } from "../../../../typings";
 
-export const useMetaLocale = (): ComputedRef<HopeThemeMetaLocateData> => {
+export const useMetaLocale = (): ComputedRef<ThemeMetaLocateData> => {
   const themeLocale = useThemeLocaleData();
 
-  return computed(() => themeLocale.value.metaLocales);
+  return computed(() => themeLocale.value.metaLocales!);
 };

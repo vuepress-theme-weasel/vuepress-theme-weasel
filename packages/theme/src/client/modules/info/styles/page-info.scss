@@ -1,4 +1,5 @@
-@use "@mr-hope/vuepress-shared/styles/wrapper";
+@use "@theme-weasel/styles/mixins/wrapper";
+@use "@theme-weasel/styles/config" as weasel-config;
 
 .page-info {
   display: flex;
@@ -20,11 +21,11 @@
 
     line-height: 2;
 
-    @media (min-width: hope-config.$pc) {
+    @media (min-width: weasel-config.$pc) {
       font-size: 1.1em;
     }
 
-    @media (max-width: hope-config.$mobile) {
+    @media (max-width: weasel-config.$mobile) {
       margin-right: 0.3em;
       font-size: 0.875em;
     }

@@ -26,6 +26,7 @@ export default defineComponent({
 
   setup(props) {
     const metaLocale = useMetaLocale();
+    // @ts-ignore
     const readingTimeLocale = useLocaleConfig(readingTimeLocales);
 
     const readingTime = computed(() => {
@@ -34,8 +35,10 @@ export default defineComponent({
       const { minutes } = props.readingTime;
 
       return minutes < 1
+        // @ts-ignore
         ? { text: readingTimeLocale.value.less1Minute, time: "PT1M" }
         : {
+            // @ts-ignore
             text: readingTimeLocale.value.time.replace(
               "$time",
               Math.round(minutes).toString()

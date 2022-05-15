@@ -4,21 +4,21 @@ import {
   usePageFrontmatter,
   useSiteLocaleData,
 } from "@vuepress/client";
-import { useThemeLocaleData } from "@theme-hope/composables";
-import { resolveEditLink } from "@theme-hope/module/info/utils";
+import { useThemeLocaleData } from "@theme-weasel/composables";
+import { resolveEditLink } from "@theme-weasel/modules/info/utils";
 
 import type { GitContributor } from "@vuepress/plugin-git";
 import type { ComputedRef } from "vue";
 import type {
   AutoLink,
-  HopeThemePageData,
-  HopeThemeNormalPageFrontmatter,
-} from "../../../../shared";
+  ThemePageData,
+  ThemeNormalPageFrontmatter,
+} from "../../../../typings";
 
 export const useEditLink = (): ComputedRef<null | AutoLink> => {
   const themeLocale = useThemeLocaleData();
-  const page = usePageData<HopeThemePageData>();
-  const frontmatter = usePageFrontmatter<HopeThemeNormalPageFrontmatter>();
+  const page = usePageData<ThemePageData>();
+  const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>();
 
   return computed(() => {
     const {
@@ -47,7 +47,7 @@ export const useEditLink = (): ComputedRef<null | AutoLink> => {
     if (!link) return null;
 
     return {
-      text: themeLocale.value.metaLocales.editLink,
+      text: themeLocale.value.metaLocales!.editLink,
       link,
     };
   });
@@ -56,8 +56,8 @@ export const useEditLink = (): ComputedRef<null | AutoLink> => {
 export const useUpdateTime = (): ComputedRef<null | string> => {
   const siteLocale = useSiteLocaleData();
   const themeLocale = useThemeLocaleData();
-  const page = usePageData<HopeThemePageData>();
-  const frontmatter = usePageFrontmatter<HopeThemeNormalPageFrontmatter>();
+  const page = usePageData<ThemePageData>();
+  const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>();
 
   return computed(() => {
     const showLastUpdated =
@@ -75,8 +75,8 @@ export const useUpdateTime = (): ComputedRef<null | string> => {
 
 export const useContributors = (): ComputedRef<null | GitContributor[]> => {
   const themeLocale = useThemeLocaleData();
-  const page = usePageData<HopeThemePageData>();
-  const frontmatter = usePageFrontmatter<HopeThemeNormalPageFrontmatter>();
+  const page = usePageData<ThemePageData>();
+  const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>();
 
   return computed(() => {
     const showContributors =

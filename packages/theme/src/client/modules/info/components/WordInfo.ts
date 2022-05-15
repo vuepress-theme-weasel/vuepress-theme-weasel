@@ -26,11 +26,13 @@ export default defineComponent({
 
   setup(props) {
     const metaLocale = useMetaLocale();
+    // @ts-ignore
     const readingTimeLocale = useLocaleConfig(readingTimeLocales);
 
     const words = computed(() => props.readingTime?.words.toString());
 
     const wordText = computed(() =>
+      // @ts-ignore
       readingTimeLocale.value.word.replace("$word", words.value || "")
     );
 

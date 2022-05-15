@@ -1,5 +1,5 @@
 $headings: (2, 3, 4, 5, 6);
-
+@use "@theme-weasel/styles/config" as weasel-config;
 .toc-place-holder {
   position: sticky;
   top: calc(var(--navbar-height) + 2rem);
@@ -8,12 +8,12 @@ $headings: (2, 3, 4, 5, 6);
   max-width: var(--content-width);
   margin: 0 auto;
 
-  @media (max-width: hope-config.$pad) {
+  @media (max-width: weasel-config.$pad) {
     top: calc(var(--navbar-mobile-height, --navbar-height) + 2rem);
     padding: 0 1.5rem;
   }
 
-  + #{hope-config.$content-class}:not(.custom) {
+  + #{weasel-config.$contentClass}:not(.custom) {
     padding-top: 0;
   }
 }
@@ -30,7 +30,7 @@ $headings: (2, 3, 4, 5, 6);
   max-width: 15rem;
   max-height: 80vh;
 
-  @media (min-width: hope-config.$pc) {
+  @media (min-width: weasel-config.$pc) {
     .has-toc & {
       display: block;
     }
@@ -47,7 +47,7 @@ $headings: (2, 3, 4, 5, 6);
   &::-webkit-scrollbar-thumb:vertical {
     background: #ddd;
 
-    #{hope-config.$dark-selector} & {
+    #{weasel-config.$darkSelector} & {
       background: #333;
     }
   }

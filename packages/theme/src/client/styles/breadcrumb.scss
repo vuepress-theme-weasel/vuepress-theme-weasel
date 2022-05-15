@@ -10,6 +10,7 @@
 
 .breadcrumb {
   @include wrapper.horizontal-wrapper;
+  max-width: unset;
 
   position: relative;
   z-index: 2;

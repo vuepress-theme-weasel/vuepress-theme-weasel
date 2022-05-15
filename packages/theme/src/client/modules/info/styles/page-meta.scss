@@ -1,5 +1,5 @@
-@use "@mr-hope/vuepress-shared/styles/wrapper";
-
+@use "@theme-weasel/styles/mixins/wrapper";
+@use "@theme-weasel/styles/config" as weasel-config;
 .page-meta {
   @include wrapper.horizontal-wrapper;
   overflow: auto;
@@ -28,7 +28,7 @@
     margin-right: 0.25rem;
     font-size: 14px;
 
-    @media (max-width: hope-config.$tablet) {
+    @media (max-width: weasel-config.$tablet) {
       margin-bottom: 8px;
     }
 
@@ -46,7 +46,7 @@
     float: right;
     font-size: 14px;
 
-    @media (max-width: hope-config.$tablet) {
+    @media (max-width: weasel-config.$tablet) {
       float: none;
       font-size: 13px;
       text-align: left;
@@ -61,7 +61,7 @@
     font-size: 14px;
     text-align: right;
 
-    @media (max-width: hope-config.$tablet) {
+    @media (max-width: weasel-config.$tablet) {
       font-size: 13px;
       text-align: left;
     }
