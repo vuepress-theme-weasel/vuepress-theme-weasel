@@ -24,7 +24,7 @@ export const release = async (): Promise<void> => {
   ]);
 
   // release
-  await execaCommand(`pnpm -r publish --tag ${npmTag}`, { stdio: "inherit" });
+  await execaCommand(`pnpm -r publish --tag ${npmTag} --no-git-checks`, { stdio: "inherit" });
 
   const npmmirrorSpinner = ora("Syncing npmmirror.com").start();
 
