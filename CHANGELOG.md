@@ -2,8 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
 ## [1.0.0-beta.4](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-05-15)
 
+=======
+>>>>>>> main
 ## [1.0.0-beta.3](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2022-05-15)
 
 ## [1.0.0-beta.2](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-05-15)
@@ -36,6 +39,7 @@ All notable changes to this project will be documented in this file. See [Conven
 * (theme) fix article content page ([076d3b9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/076d3b9b98bccf97aa66870a9694ffe23150c2e5))
 * (theme) fix base ([d96a9fd](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/d96a9fdd5c7bf491da41cac51fe34f3d516166d5))
 * (theme) fix upcase ([4160d3b](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/4160d3bdc89099f4957c25c5d73abf1233d16992))
+<<<<<<< HEAD
 
 ## [1.0.0-beta.2](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2022-05-15)
 
@@ -98,6 +102,8 @@ All notable changes to this project will be documented in this file. See [Conven
 * (theme) fix article content page ([076d3b9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/076d3b9b98bccf97aa66870a9694ffe23150c2e5))
 * (theme) fix base ([d96a9fd](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/d96a9fdd5c7bf491da41cac51fe34f3d516166d5))
 * (theme) fix upcase ([4160d3b](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/4160d3bdc89099f4957c25c5d73abf1233d16992))
+=======
+>>>>>>> main
 
 ## 1.0.0-beta.1 (2022-05-11)
 
