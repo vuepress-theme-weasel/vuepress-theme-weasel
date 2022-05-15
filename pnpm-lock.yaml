@@ -4,10 +4,10 @@ importers:
 
   .:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.1
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.4
       '@types/inquirer': 8.2.1
       '@types/node': 17.0.32
       '@types/semver': 7.3.9
@@ -51,9 +51,9 @@ importers:
 
   demo:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.1
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.4
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/plugin-docsearch': 2.0.0-beta.38
@@ -61,10 +61,10 @@ importers:
       '@vuepress/shared': 2.0.0-beta.38
       '@vuepress/utils': 2.0.0-beta.38
       chalk: 4.1.2
-      dayjs: ^1.11.2
+      dayjs: ^1.11.1
       esno: ^0.14.1
       ora: 5.4.1
-      vue: ^3.2.33
+      vue: ^3.2.31
       vuepress: 2.0.0-beta.38
       vuepress-vite: 2.0.0-beta.38
     dependencies:
@@ -88,11 +88,11 @@ importers:
 
   packages/blog:
     specifiers:
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.1
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
-      vue-router: ^4.0.15
+      vue-router: ^4.0.13
     dependencies:
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': 2.0.0-beta.38
@@ -104,7 +104,7 @@ importers:
   packages/comment:
     specifiers:
       '@giscus/vue': 1.1.1
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.1
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/utils': 2.0.0-beta.38
@@ -123,7 +123,7 @@ importers:
     specifiers:
       '@vuepress/core': 2.0.0-beta.38
       chalk: 4.1.2
-      dayjs: ^1.11.2
+      dayjs: ^1.11.1
       execa: 5.1.1
       ora: 5.4.1
     dependencies:
@@ -136,9 +136,9 @@ importers:
 
   packages/theme:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.1
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.1
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
       '@types/lodash.debounce': ^4.0.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
@@ -146,7 +146,7 @@ importers:
       '@vuepress/plugin-theme-data': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
       '@vuepress/utils': 2.0.0-beta.38
-      '@vueuse/core': ^8.4.2
+      '@vueuse/core': ^8.4.1
       balloon-css: ^1.2.0
       chalk: 4.1.2
       esno: ^0.14.1

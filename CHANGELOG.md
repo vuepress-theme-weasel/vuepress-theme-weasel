@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-<<<<<<< HEAD
+## [1.0.0-beta.5](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2022-05-15)
+
+
+### Features
+
+* (theme) update package ([7b22a2b](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/7b22a2bc98f8e8d45396812d6f53843a13977655))
+* (theme) update package ([1f466b5](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/1f466b5185782624bb1f4962e272af79f2932204))
+
 ## [1.0.0-beta.4](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2022-05-15)
 
 =======
