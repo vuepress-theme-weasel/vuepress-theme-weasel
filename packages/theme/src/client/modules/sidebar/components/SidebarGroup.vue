@@ -5,9 +5,9 @@
       :class="[
         'sidebar-heading',
         {
-          clickable: collapsable || link,
-          exact: exact.value,
-          active: active.value,
+          clickable: config.collapsable || link,
+          exact: exact,
+          active: active,
         }]"
       @click="emit('toggle')"
       @keydown="keydown()"
@@ -15,15 +15,16 @@
       <RenderIcon :icon="config.icon" />
       <RouterLink v-if="config.link" :to="config.link" class="title"> {{ config.text }} </RouterLink>
       <span v-else class="title">{{ config.text }}</span>
+      <span :class="['arrow', props.open ? 'down' : 'right']"></span>
     </button>
     <p
       v-else
       :class="[
         'sidebar-heading',
         {
-          clickable: collapsable || link,
-          exact: exact.value,
-          active: active.value,
+          clickable: config.collapsable || link,
+          exact: exact,
+          active: active,
         }
       ]"
     >
@@ -32,7 +33,7 @@
       <span v-else class="title">{{ config.text }}</span>
     </p>
     <DropTransition>
-      <SidebarLink v-if="config.open || !config.collapsable" :config="config.children" />
+      <SidebarLink v-if="open || !config.collapsable" :config="config.children" />
     </DropTransition>
   </section>
 </template>

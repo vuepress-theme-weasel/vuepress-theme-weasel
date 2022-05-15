@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ResolvedThemeSidebarHeaderItem, ResolvedThemeSidebarPageItem } from '../../../../typings';
-import { computed, PropType } from 'vue';
+import { PropType } from 'vue';
 import { useRoute } from "vue-router";
 import RenderItem from './RenderItem.vue';
 import RenderChildren from './RenderChildren.vue';
@@ -29,7 +29,7 @@ const props = defineProps({
   }
 })
 const route = useRoute();
-const isActive = (child: ResolvedThemeSidebarHeaderItem) => computed(() => isActiveSidebarItem(route, child, true))
+const isActive = (child: ResolvedThemeSidebarHeaderItem) => isActiveSidebarItem(route, child, true)
 </script>
 
 <style lang="scss" scoped>

@@ -27,6 +27,7 @@ const openGroupIndex = ref(-1);
 
 const toggleGroup = (index: number): void => {
   openGroupIndex.value = index === openGroupIndex.value ? -1 : index;
+  console.log('toggleGroup', openGroupIndex)
 };
 
 watch(

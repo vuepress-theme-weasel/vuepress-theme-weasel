@@ -4,7 +4,7 @@
       <RenderItem :config="child" :props="{
         class: ['sidebar-link', 'heading', { active: isActive(child)}]
       }"/>
-      <RenderChildren :children="child.children" />
+      <RenderChildren :config="child.children" />
     </li>
   </ul>
 </template>

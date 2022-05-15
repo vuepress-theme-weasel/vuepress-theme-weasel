@@ -8,7 +8,7 @@ import { UnwrapNestedRefs, computed, ComputedRef, inject, reactive } from 'vue'
 import { getAuthor, getCategory, getTag } from '../utils';
 import { usePure, useThemeLocaleData } from './themeData';
 
-import type { PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, ArticleTag } from './../../typings';
+import type { PageTitleProps, BasePageFrontMatter, ThemeNormalPageFrontmatter, ArticleCategory, ArticleTag, ArticleInfoComponent } from './../../typings';
 import type { CategoryMapRef } from './categoryMap'
 import type { AuthorInfo, DateInfo, DateOptions } from '@mr-huang/vuepress-shared'
 import { usePageMeate } from './articleInfo';
@@ -91,7 +91,10 @@ export const usePageDate = (): ComputedRef<DateInfo | null> => {
  * 获取页面数据
  * @returns
  */
-export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
+export const usePageInfo = ():{
+  config: PageTitleProps;
+  items: ComputedRef<ArticleInfoComponent[] | false | undefined>;
+} => {
   const themeLocale = useThemeLocaleData()
   const frontmatter = usePageFrontmatter<ThemeNormalPageFrontmatter>()
   const author = usePageAuthor()
@@ -103,7 +106,7 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
   const meta = usePageMeate()
   const cover = meta.value && meta.value.cover ? meta.value.cover as string : null
 
-  return reactive<PageTitleProps>({
+  const config = reactive<PageTitleProps>({
     config:
       frontmatter.value.pageInfo === false
         ? false
@@ -119,4 +122,12 @@ export const usePageInfo = ():UnwrapNestedRefs<PageTitleProps> => {
     // color: !pure.value,
     hint: !pure.value,
   });
+
+  const items = computed(() =>
+    frontmatter.value.pageInfo === false
+      ? false
+      : frontmatter.value.pageInfo || themeLocale.value.pageInfo
+  );
+
+  return { config, items };
 }
