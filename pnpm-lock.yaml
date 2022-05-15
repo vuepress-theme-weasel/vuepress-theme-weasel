@@ -51,9 +51,9 @@ importers:
 
   demo:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.6
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.6
-      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.6
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.7
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.7
+      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/plugin-docsearch': 2.0.0-beta.38
@@ -88,7 +88,7 @@ importers:
 
   packages/blog:
     specifiers:
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.6
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
@@ -104,7 +104,7 @@ importers:
   packages/comment:
     specifiers:
       '@giscus/vue': 1.1.1
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.6
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
       '@vuepress/utils': 2.0.0-beta.38
@@ -136,9 +136,9 @@ importers:
 
   packages/theme:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.6
-      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.6
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.6
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.7
+      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.7
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.7
       '@types/lodash.debounce': ^4.0.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
