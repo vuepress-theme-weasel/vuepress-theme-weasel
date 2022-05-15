@@ -37,6 +37,7 @@
         <slot name="sidebarBottom" slot="bottom"></slot>
       </Sidebar>
       <ProjectHome v-if="isHome" />
+      <ProjectPage v-else />
     </div>
   </div>
 </template>
@@ -44,7 +45,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref, useSlots, watch, Transition } from 'vue'
 import { useMobile, usePageFrontmatter, useThemeLocaleData } from '../composables'
-import { ProjectHome } from '@theme-weasel/modules/project/components'
+import { ProjectHome, ProjectPage } from '@theme-weasel/modules/project/components'
 import { usePageData } from '@vuepress/client'
 import { useSidebarItems } from '../modules/sidebar/composables';
 import { useEventListener } from '@vueuse/core';
