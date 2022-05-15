@@ -1,8 +1,8 @@
 <template>
   <article class="article-page-container">
     <div class="article-thumb">
-      <div class="article-thumb-wrapper" v-if="pageInfo.cover">
-        <img :src="pageInfo.cover" :alt="pageData.title" />
+      <div class="article-thumb-wrapper" v-if="config.cover">
+        <img :src="config.cover" :alt="pageData.title" />
         <CoverIcon class="thumb-icon" />
       </div>
     </div>
@@ -11,11 +11,11 @@
       <div class="article-info">
         <div class="article-author article-info__item">
           <AuthorIcon />
-          <span v-for="(author, index) in pageInfo.author" :key="'author' + index">{{ author.name }}</span>
+          <span v-for="(author, index) in config.author" :key="'author' + index">{{ author.name }}</span>
         </div>
-        <div class="article-date article-info__item" v-if="pageInfo.date">
+        <div class="article-date article-info__item" v-if="config.date">
           <CalendarIcon />
-          <span>{{ pageInfo.date.display}}</span>
+          <span>{{ config.date.display}}</span>
         </div>
       </div>
       <div class="article-content-wrapper">
@@ -53,9 +53,9 @@ import { PageTitleProps } from '../../../../../typings'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
 import { usePageData } from '@vuepress/client'
 
-const pageInfo = usePageInfo()
+const { config, items } = usePageInfo()
 const pageData = usePageData()
-const pageInfoProps: PageTitleProps = {...pageInfo, ...{ author: false, date: false }}
+const pageInfoProps: PageTitleProps = {...config, ...{ author: false, date: false }}
 
 </script>
 
