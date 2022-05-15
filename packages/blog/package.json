@@ -1,6 +1,6 @@
 {
   "name": "@mr-huang/vuepress-plugin-blog",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "weasel theme",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
@@ -40,7 +40,7 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.4",
+    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.5",
     "@vuepress/client": "2.0.0-beta.38",
     "@vuepress/shared": "2.0.0-beta.38",
     "vue-router": "^4.0.13"
