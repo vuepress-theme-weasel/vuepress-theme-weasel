@@ -1,10 +1,6 @@
 {
   "name": "vuepress-theme-weasel-root",
-<<<<<<< HEAD
   "version": "1.0.0-beta.4",
-=======
-  "version": "1.0.0-beta.3",
->>>>>>> main
   "description": "A vuepress theme and tools",
   "private": true,
   "type": "module",
