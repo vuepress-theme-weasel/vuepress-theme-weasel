@@ -1,9 +1,7 @@
-import type { ThemeConfig } from '@vuepress/core'
-
 /**
  * 基础的主题配置
  */
-export interface BaseThemeConfig extends ThemeConfig {
+export interface BaseThemeConfig {
   /**
    * Theme locales config
    *

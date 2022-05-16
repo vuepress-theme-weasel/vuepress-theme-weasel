@@ -25,21 +25,19 @@
   },
   "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
   "dependencies": {
-    "@mr-huang/vuepress-plugin-blog": "workspace:1.0.0-beta.8",
-    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.8",
     "@mr-huang/vuepress-theme-weasel": "workspace:1.0.0-beta.8",
-    "@vuepress/client": "^2.0.0-beta.38",
-    "@vuepress/plugin-docsearch": "^2.0.0-beta.38",
-    "@vuepress/plugin-git": "^2.0.0-beta.38",
-    "@vuepress/shared": "^2.0.0-beta.38",
-    "dayjs": "^1.11.1",
-    "vue": "^3.2.31",
-    "vuepress": "^2.0.0-beta.38",
-    "vuepress-vite": "^2.0.0-beta.38"
+    "@types/react": "16.8.0",
+    "@vuepress/client": "^2.0.0-beta.45",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.45",
+    "@vuepress/shared": "^2.0.0-beta.45",
+    "dayjs": "^1.11.2",
+    "vue": "^3.2.33",
+    "vuepress-vite": "2.0.0-beta.45",
+    "vuepress-webpack": "2.0.0-beta.45"
   },
   "devDependencies": {
-    "@vuepress/core": "^2.0.0-beta.38",
-    "@vuepress/utils": "^2.0.0-beta.38",
+    "@vuepress/core": "^2.0.0-beta.45",
+    "@vuepress/utils": "^2.0.0-beta.45",
     "chalk": "4.1.2",
     "esno": "^0.14.1",
     "ora": "5.4.1"

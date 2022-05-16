@@ -1,8 +1,8 @@
 import { WeaselLang } from './types';
-import { ConvertLocaleConfig, BaseThemeConfig } from "../../typings"
-import { App, AppOptions, LocaleConfig } from "@vuepress/core"
+import { ConvertLocaleConfig } from "../../typings"
+import { App, LocaleConfig } from "@vuepress/core"
 import { lang2PathConfig, path2langConfig, supportedLangs } from "./config"
-import { deepAssign } from '../utils'
+import { deepAssign, Logger } from '../utils'
 
 /**
  * 错误状态
@@ -67,16 +67,7 @@ export const getRootLang = (app: App): WeaselLang => {
   if (siteLocales?.['/'] && checkLang(siteLocales['/']?.lang))
     return siteLocales['/'].lang as WeaselLang
 
-  // infer from themeLocale
-  const options = app.options as AppOptions<BaseThemeConfig>
-  const themeLocales = options.themeConfig.locales
-
-  if (themeLocales?.['/'] && checkLang(themeLocales['/']?.lang))
-    return themeLocales['/'].lang as WeaselLang
-
-  showLangError('root')
-
-  return 'zh-CN'
+  return app.siteData.lang as WeaselLang
 }
 
 /**
@@ -91,13 +82,15 @@ export const getRootLangPath = (app: App): string =>
 
 export const getLocalePaths = (app: App): string[] =>
   Array.from(
-    new Set([
-      ...Object.keys(app.siteData.locales),
-      ...Object.keys(
-        (app.options as AppOptions<BaseThemeConfig>).themeConfig.locales || {}
-      ),
-    ])
+    new Set([...Object.keys(app.siteData.locales)])
   )
+
+export interface GetLocalesOptions<T> {
+  app: App;
+  default: ConvertLocaleConfig<T>;
+  config?: LocaleConfig<T> | undefined;
+  name?: string;
+}
 
 /**
  * Get final locale config to passed to client
@@ -107,29 +100,40 @@ export const getLocalePaths = (app: App): string[] =>
  * @param userLocalesConfig user locale config
  * @returns final locale config
  */
-export const getLocales = <T>(
-  app: App,
-  defaultLocalesConfig: ConvertLocaleConfig<T>,
-  userLocalesConfig: LocaleConfig<T> = {}
-): ConvertLocaleConfig<T> => {
-  const rootPath = getRootLangPath(app)
+export const getLocales = <T>({
+  app,
+  name,
+  default: defaultLocalesConfig,
+  config: userLocalesConfig = {},
+}: GetLocalesOptions<T>): ConvertLocaleConfig<T> => {
+  const rootPath = getRootLangPath(app);
+  const logger = new Logger(name);
 
   return Object.fromEntries([
-    ...getLocalePaths(app).map<[string, T]>((localePath) => [
-      localePath,
-      deepAssign(
-        {},
-        userLocalesConfig[localePath] || {},
-        defaultLocalesConfig[localePath]
-      ),
-    ]),
+    ...getLocalePaths(app)
+      .filter((localePath) => localePath !== "/")
+      .map<[string, T]>((localePath) => {
+        if (!defaultLocalesConfig[localePath])
+          logger.warn(`Locale ${localePath} is missing it's i18n config`);
+
+        return [
+          localePath,
+          deepAssign(
+            {},
+            defaultLocalesConfig[localePath] ||
+              defaultLocalesConfig[rootPath] ||
+              {},
+            userLocalesConfig[localePath] || {}
+          ),
+        ];
+      }),
     [
-      '/',
+      "/",
       deepAssign(
         {},
-        userLocalesConfig['/'] || userLocalesConfig[rootPath] || {},
-        defaultLocalesConfig[rootPath]
-      ),
-    ],
+        defaultLocalesConfig[rootPath],
+        userLocalesConfig["/"] || userLocalesConfig[rootPath] || {}
+      )
+    ]
   ])
 }

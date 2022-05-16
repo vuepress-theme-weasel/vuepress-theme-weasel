@@ -14,9 +14,7 @@
     "clean": "rimraf lib *.tsbuildinfo",
     "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
-    "dev:ts": "tsc --build -w tsconfig.build.json",
-    "dev:demo": "vuepress-vite dev __tests__/demo",
-    "build:demo": "vuepress-vite build __tests__/demo"
+    "dev:ts": "tsc --build -w tsconfig.build.json"
   },
   "homepage": "https://cavinHuang.github.io/vuepress-theme-weasel/packages/cpmment",
   "repository": {
@@ -41,10 +39,10 @@
   },
   "dependencies": {
     "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.8",
-    "@vuepress/client": "^2.0.0-beta.38",
-    "@vuepress/core": "^2.0.0-beta.38",
-    "@vuepress/utils": "^2.0.0-beta.38",
-    "@waline/client": "^2.4.2",
+    "@vuepress/client": "^2.0.0-beta.45",
+    "@vuepress/core": "^2.0.0-beta.45",
+    "@vuepress/utils": "^2.0.0-beta.45",
+    "@waline/client": "^2.5.0",
     "giscus": "^1.0.4",
     "twikoo": "^1.5.10",
     "vue": "^3.2.33"
