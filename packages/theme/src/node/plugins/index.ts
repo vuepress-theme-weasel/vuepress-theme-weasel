@@ -1,3 +1,4 @@
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links';
 /**
  * 创建主题默认的插件配置
  */
@@ -15,14 +16,18 @@ export const createPluginConfig = (
   themeData: Omit<WeaselThemeOptions, 'plugins'>
 ): PluginConfig<PluginOptions>[] => {
 
-  console.log('=======================', themeData)
-
   /**
    * 博客插件
    */
   const blogConfig = resolveBlogOptions(plugins.blog)
 
   const pluginConfig: PluginConfig<PluginOptions>[] = [
+    ['@vuepress/plugin-active-header-links', plugins.activeHeaderLinks ? {
+      headerLinkSelector: ".sidebar-link, .toc-link",
+      headerAnchorSelector: ".header-anchor",
+    } : false],
+    ['@vuepress/plugin-external-link-icon', plugins.externalLinkIcon !== false],
+    ['@vuepress/plugin-nprogress', plugins.nprogress !== false],
     ["@vuepress/prismjs", plugins.prismjs !== false],
     ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
     ['@vuepress/theme-data', { themeData }],

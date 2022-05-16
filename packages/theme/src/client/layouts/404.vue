@@ -7,7 +7,7 @@
       </div>
       <div id="Layer1">
         <nav class="codrops-demos">
-          <a href="javascript:void(0);" @click="window.history.go(-1)">{{ themeLocale.routeLocales.back }}</a>
+          <a href="javascript:void(0);" @click.native="() => { router.go(-1) }">{{ themeLocale.routeLocales.back }}</a>
           <a href="javascript:void(0);" @click="navigate">{{ themeLocale.routeLocales.home }}</a>
         </nav>
       </div>
@@ -20,7 +20,7 @@ import { onMounted, ref } from 'vue'
 import { TweenLite, Elastic } from 'gsap'
 import { useRouteLocale } from '@vuepress/client';
 import { useThemeLocaleData } from '../composables';
-import { useLink } from 'vue-router';
+import { useLink, useRouter } from 'vue-router';
 
 type PointItem = {
   x: number
@@ -45,6 +45,8 @@ const active = ref(0)
 const animateHeader = ref(true)
 const width = ref(0)
 const height = ref(0)
+
+const router = useRouter()
 
 /**
  * 计算距离
@@ -242,9 +244,6 @@ onMounted(() => {
   width.value = window.innerWidth
   height.value = window.innerHeight
 
-  console.log(TweenLite, Circ)
-
-
   if (canvas.value) {
     const context = canvas.value.getContext('2d')!
     const target: PointItem = {
@@ -267,7 +266,7 @@ const routeLocale = useRouteLocale();
 const themeLocale = useThemeLocaleData();
 
 const getMsg = (): string => {
-  const messages = themeLocale.value.routeLocales["404msg"] || 'sorry!网页不见了...';
+  const messages = themeLocale.value.routeLocales!["404msg"] || 'sorry!网页不见了...';
   return messages[Math.floor(Math.random() * messages.length)];
 };
 

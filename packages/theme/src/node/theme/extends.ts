@@ -97,8 +97,6 @@ export const extendsPage = (
 
   checkFrontmatter(page, isDev)
 
-  // console.log('=============================', app.dir.source())
-
   // save relative file path into page data to generate edit link
   page.data.filePathRelative = filePathRelative
 

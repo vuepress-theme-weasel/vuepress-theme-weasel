@@ -4,10 +4,10 @@ importers:
 
   .:
     specifiers:
-      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.4
-      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.4
-      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.4
-      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.4
+      '@mr-huang/vuepress-plugin-blog': workspace:1.0.0-beta.8
+      '@mr-huang/vuepress-plugin-comment': workspace:1.0.0-beta.8
+      '@mr-huang/vuepress-shared': workspace:1.0.0-beta.8
+      '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.8
       '@types/inquirer': 8.2.1
       '@types/node': 17.0.32
       '@types/semver': 7.3.9
@@ -19,12 +19,12 @@ importers:
       execa: 6.1.0
       inquirer: 8.2.4
       ora: 6.1.0
-      plop: ^3.1.0
+      plop: ^3.0.5
       semver: 7.3.7
       standard-version: ^9.3.2
       ts-node: 10.7.0
       tslib: 2.4.0
-      typescript: ^4.6.4
+      typescript: ^4.6.3
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:packages/blog
       '@mr-huang/vuepress-plugin-comment': link:packages/comment
@@ -142,7 +142,10 @@ importers:
       '@types/lodash.debounce': ^4.0.7
       '@vuepress/client': 2.0.0-beta.38
       '@vuepress/core': 2.0.0-beta.38
+      '@vuepress/plugin-active-header-links': 2.0.0-beta.38
+      '@vuepress/plugin-external-link-icon': 2.0.0-beta.38
       '@vuepress/plugin-git': 2.0.0-beta.38
+      '@vuepress/plugin-nprogress': 2.0.0-beta.38
       '@vuepress/plugin-theme-data': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
       '@vuepress/utils': 2.0.0-beta.38
@@ -158,7 +161,10 @@ importers:
       '@mr-huang/vuepress-plugin-comment': link:../comment
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': 2.0.0-beta.38
+      '@vuepress/plugin-active-header-links': 2.0.0-beta.38
+      '@vuepress/plugin-external-link-icon': 2.0.0-beta.38
       '@vuepress/plugin-git': 2.0.0-beta.38
+      '@vuepress/plugin-nprogress': 2.0.0-beta.38
       '@vuepress/plugin-theme-data': 2.0.0-beta.38
       '@vuepress/shared': 2.0.0-beta.38
       '@vueuse/core': 8.4.2
@@ -2863,7 +2869,7 @@ packages:
     dev: false
 
   /mdurl/1.0.1:
-    resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+    resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
 
   /medium-zoom/1.0.6:
     resolution: {integrity: sha512-UdiUWfvz9fZMg1pzf4dcuqA0W079o0mpqbTnOz5ip4VGYX96QjmbM+OgOU/0uOzAytxC0Ny4z+VcYQnhdifimg==}
@@ -3033,7 +3039,7 @@ packages:
     dev: true
 
   /nprogress/0.2.0:
-    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    resolution: {integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=}
     dev: false
 
   /null-check/1.0.0:

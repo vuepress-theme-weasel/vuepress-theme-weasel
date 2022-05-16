@@ -65,11 +65,13 @@ const pageType = computed<string>(() => {
         ? 'timeline'
         : key === 'article'
         ? 'ArticleType'
+        : key === 'star'
+        ? 'ArticleType'
         : 'articleContent'
 })
 
 watchEffect(() => {
-  console.log(pageType)
+  console.log(pageType, frontmatter.value.blog)
 })
 
 const items = computed(() => {
@@ -117,12 +119,14 @@ const updatePage = (page: number): void => {
 
 watch(currentPage, () => {
   // list top border distance
-  const distance =
-    (document.querySelector("#article-list") as Element).getBoundingClientRect().top + window.scrollY
+  const el = document.querySelector("#article-list") as Element
+  if (el) {
+    const distance = el.getBoundingClientRect().top + window.scrollY
 
-  setTimeout(() => {
-    window.scrollTo(0, distance);
-  }, 100);
+    setTimeout(() => {
+      window.scrollTo(0, distance);
+    }, 100);
+  }
 })
 
 onMounted(() => {

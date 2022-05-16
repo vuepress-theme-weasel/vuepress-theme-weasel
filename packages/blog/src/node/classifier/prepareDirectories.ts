@@ -79,9 +79,6 @@ const createDirectoriesClassifier = (app: App, directoryClassifiers: DirectoryCl
       })
     }
 
-    // console.log('===================', pages)
-
-
     // key 不对或者不存在
     if (typeof key !== 'string' || !key) {
       logger.error(`Invalid 'key' option ${key} in directory classifier.`)

@@ -4,10 +4,9 @@ $headings: (2, 3, 4, 5, 6);
 
 .toc-place-holder {
   position: sticky;
-  top: 1rem;
+  top: calc(var(--navbar-height) + 2rem);
   z-index: 99;
 
-  max-width: var(--content-width);
   margin: 0 auto;
 
   @media (max-width: weasel-config.$pad) {

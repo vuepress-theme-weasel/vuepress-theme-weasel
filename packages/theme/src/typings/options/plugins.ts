@@ -116,6 +116,27 @@ export interface ThemeBlogPluginOptions extends Pick<BlogOptions, 'filter'> {
 
 export interface ThemePluginsOptions {
   /**
+   * Enable @vuepress/active-header-links or not
+   *
+   * 是否启用 @vuepress/active-header-links 插件
+   */
+  activeHeaderLinks?: boolean;
+
+  /**
+   * Enable @vuepress/external-link-icon or not
+   *
+   * 是否启用 @vuepress/external-link-icon 插件
+   */
+  externalLinkIcon?: boolean;
+
+  /**
+   * Enable @vuepress/nprogress or not
+   *
+   * 是否启用 @vuepress/nprogress 插件
+   */
+  nprogress?: boolean;
+
+  /**
    * Enable @vuepress/plugin-git or not
    *
    * 是否开启git插件

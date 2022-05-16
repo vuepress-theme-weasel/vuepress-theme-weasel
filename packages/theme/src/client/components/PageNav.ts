@@ -163,7 +163,7 @@ export default defineComponent({
                     ])
                   ]
                 )
-              : null,
+              : h('a', { href: 'javascript:;', class: 'next' }),
           ])
         : null;
   },
