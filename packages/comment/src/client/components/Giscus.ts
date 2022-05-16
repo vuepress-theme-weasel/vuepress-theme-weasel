@@ -1,15 +1,15 @@
-import { Giscus } from "@giscus/vue";
-import { ClientOnly, usePageFrontmatter, usePageLang } from "@vuepress/client";
-import { computed, defineComponent, h } from "vue";
+import { usePageFrontmatter, usePageLang, withBase } from "@vuepress/client";
+import { computed, defineComponent, h, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 import { enableGiscus, giscusOption } from "../define";
 
-import type { GiscusProps, Mapping } from "@giscus/vue";
 import type { VNode } from "vue";
+import type { GiscusLang, GiscusMapping, GiscusProps } from "../utils";
 import type { CommentPluginFrontmatter } from "../../typings";
 
 import "../styles/giscus.scss";
 
-const SUPPORTED_LANGUAGES = [
+const SUPPORTED_LANGUAGES: GiscusLang[] = [
   "de",
   "gsw",
   "en",
@@ -39,13 +39,15 @@ export default defineComponent({
 
   setup(props) {
     const frontmatter = usePageFrontmatter<CommentPluginFrontmatter>();
+    const route = useRoute();
+    const loaded = ref(false);
 
     const giscusLang = computed(() => {
-      const lang = usePageLang().value;
+      const lang = usePageLang().value as GiscusLang;
 
       if (SUPPORTED_LANGUAGES.includes(lang)) return lang;
 
-      const shortCode = lang.split("-")[0];
+      const shortCode = lang.split("-")[0] as GiscusLang;
 
       if (SUPPORTED_LANGUAGES.includes(shortCode)) return shortCode;
 
@@ -65,19 +67,25 @@ export default defineComponent({
       );
     });
 
-    console.log('===============', giscusOption, giscusLang)
-    const config: GiscusProps = {
+    const config = computed<GiscusProps>(() => ({
       repo: giscusOption.repo as `${string}/${string}`,
       repoId: giscusOption.repoId,
       category: giscusOption.category,
       categoryId: giscusOption.categoryId,
       lang: giscusLang.value,
       theme: props.darkmode ? "dark" : "light",
-      mapping: (giscusOption.mapping || "pathname") as Mapping,
+      mapping: (giscusOption.mapping || "specific") as GiscusMapping,
+      term: withBase(route.path),
       inputPosition: giscusOption.inputPosition || "top",
       reactionsEnabled: giscusOption.reactionsEnabled !== false ? "1" : "0",
       emitMetadata: "0",
-    }
+    }));
+
+    onMounted(() => {
+      void import("giscus").then(() => {
+        loaded.value = true;
+      });
+    });
 
     return (): VNode =>
       h(
@@ -91,7 +99,7 @@ export default defineComponent({
             display: enableComment.value ? "block" : "none",
           },
         },
-        h(ClientOnly, () => h(Giscus, config))
+        loaded.value ? h("giscus-widget", config.value) : []
       );
   },
 });

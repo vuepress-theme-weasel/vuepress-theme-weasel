@@ -1,44 +1,76 @@
-import { CommentOptions } from '../typings'
-import type { Plugin, PluginConfig } from '@vuepress/core'
-import { getLocales, noopModule } from '@mr-huang/vuepress-shared'
-import { walineLocales } from './locales'
-import { path } from '@vuepress/utils'
+import {
+  addCustomElement,
+  getLocales,
+  noopModule,
+} from "@mr-huang/vuepress-shared";
+import { path } from "@vuepress/utils";
+// import { useSassPalettePlugin } from "vuepress-plugin-sass-palette";
+import { walineLocales } from "./locales";
+import { logger } from "./utils";
 
-export const commentPlugin: Plugin<CommentOptions> = (options, app) => {
-  const isGiscus = options.type === 'giscus'
-  const isTwikoo = options.type === 'twikoo'
-  const isWaline = options.type === 'waline'
+import type { CommentOptions } from "../typings";
+import type { PluginFunction } from "@vuepress/core";
 
-  const userWalineLocales = isWaline
-    ? getLocales(app, walineLocales, options.walineLocales)
-    : {}
+/** Comment Plugin */
+export const commentPlugin =
+  (options: CommentOptions): PluginFunction =>
+  (app) => {
+    if (app.env.isDebug) logger.info(`Options: ${options.toString()}`);
 
-  if ('walineLocales' in options) delete options.walineLocales
+    const isGiscus = options.type === "giscus";
+    const isTwikoo = options.type === "twikoo";
+    const isWaline = options.type === "waline";
 
-  return {
-    name: '@mr-huang/vuepress-plugin-comment',
+    const userWalineLocales = isWaline
+      ? getLocales({
+          app,
+          name: "waline",
+          default: walineLocales,
+          config: options.walineLocales,
+        })
+      : {};
 
-    alias: {
-      "@Giscus": isGiscus
-        ? path.resolve(__dirname, "../client/components/Giscus.js")
-        : noopModule,
-      "@Twikoo": isTwikoo
-        ? path.resolve(__dirname, "../client/components/Twikoo.js")
-        : noopModule,
-      "@Waline": isWaline
-        ? path.resolve(__dirname, "../client/components/Waline.js")
-        : noopModule,
-    },
+    // remove locales so that they won’t be injected in client twice
+    if ("walineLocales" in options) delete options.walineLocales;
 
-    define: () => ({
-      COMMENT_OPTIONS: options,
-      WALINE_LOCALES: userWalineLocales,
-    }),
+    // useSassPalettePlugin(app, { id: "hope" });
 
-    clientAppEnhanceFiles: path.resolve(__dirname, "../client/appEnhance.js")
-  }
-}
+    return {
+      name: "@mr-huang/vuepress-plugin-comment",
 
-export const comment = (
-  options: CommentOptions | false
-): PluginConfig<CommentOptions> => ["@mr-huang/vuepress-plugin-comment", options];
+      alias: {
+        "@CommentProvider": isGiscus
+          ? path.resolve(__dirname, "../client/components/Giscus.js")
+          : isTwikoo
+          ? path.resolve(__dirname, "../client/components/Twikoo.js")
+          : isWaline
+          ? path.resolve(__dirname, "../client/components/Waline.js")
+          : noopModule,
+      },
+
+      define: () => ({
+        COMMENT_OPTIONS: options,
+        WALINE_LOCALES: userWalineLocales,
+      }),
+
+      extendsBundlerOptions: (config: unknown, app): void => {
+        if (isGiscus) addCustomElement({ app, config }, "GiscusWidget");
+
+        // if (isGiscus) {
+        //   addViteSsrExternal({ app, config }, "giscus");
+        // }
+
+        // if (isTwikoo) {
+        //   addViteOptimizeDepsInclude({ app, config }, "twikoo");
+        //   addViteSsrExternal({ app, config }, "twikoo");
+        // }
+
+        // if (isWaline) {
+        //   addViteOptimizeDepsInclude({ app, config }, "autosize");
+        //   addViteOptimizeDepsExclude({ app, config }, "@waline/client");
+        // }
+      },
+
+      clientConfigFile: path.resolve(__dirname, "../client/config.js"),
+    };
+  };
