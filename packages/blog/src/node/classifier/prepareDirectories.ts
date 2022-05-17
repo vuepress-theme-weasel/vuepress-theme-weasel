@@ -1,12 +1,7 @@
-/**
- * 目录分类器 根据目录管理文章
- */
-
-import { App, createPage, Page } from "@vuepress/core"
-import { upperFirstChar } from '@mr-huang/vuepress-shared'
-import { BlogOptions, PageMap, DirectoryClassifierOption, ExtraPage, PageTypeMap } from "../../typings"
-import { logger, removeLeadingSlash } from "../utils"
-
+import { path } from '@vuepress/utils'
+import type { App, PageOptions } from '@vuepress/core';
+import type { BlogOptions, PageMap } from '../../typings';
+import { logger } from '../utils';
 /**
  * 开发时热更新
  */
@@ -14,88 +9,82 @@ const HMR_CODE = `
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()
   if (__VUE_HMR_RUNTIME__.updateBlogType) {
-    __VUE_HMR_RUNTIME__.updateBlogType(pageTypeMap)
+    __VUE_HMR_RUNTIME__.updateBlogType(directoryMap)
   }
 }
 
 if (import.meta.hot) {
-  import.meta.hot.accept(({ pageTypeMap }) => {
-    __VUE_HMR_RUNTIME__.updateBlogType(pageTypeMap)
+  import.meta.hot.accept(({ directoryMap }) => {
+    __VUE_HMR_RUNTIME__.updateBlogType(directoryMap)
   })
 }
 `
 
-/**
- * filter
- * @param param0 。
- * @param indexPath
- * @param dirname
- * @returns
- */
-const filter = ({ filePathRelative }: Page, indexPath: string, dirname: string) => {
-  const regex = new RegExp(`^${dirname}/page/`);
-  return (
-    filePathRelative &&
-    filePathRelative !== indexPath &&
-    filePathRelative.startsWith(`${dirname}/`)
-  )
-}
-
-/**
- * 创建分类器
- * @param app
- * @param options
- * @param pages
- */
-const createDirectoriesClassifier = (app: App, directoryClassifiers: DirectoryClassifierOption[], pages: PageMap) => {
-  return directoryClassifiers.map(async(classifier) => {
-
-    /**
-     * 1. Directory-based classification
-     */
-     const {
-      key,
-      dirname,
-      path: indexPath = `/${classifier.key}/`,
-      layout: indexLayout = 'Layout',
-      frontmatter,
-      itemLayout = 'Layout',
-      itemPermalink = '/:year/:month/:day/:slug',
-      title = upperFirstChar(classifier.key)
-    } = classifier
-
-    const finalExtraPages: ExtraPage[] = []
-
-    for(const routeLocale in pages) {
-      pages[routeLocale].filter(page => filter(page, indexPath, dirname)).map(page => {
-        if (page.path === `/${dirname}/`) {
-          // 首页
-          page.frontmatter = {
-            ...page.frontmatter,
-            layout: indexLayout,
-            ...frontmatter
-          }
-        }
-      })
+const filterDir = (options: BlogOptions, pages: PageMap) => {
+  const { directoryClassifier = [] } = options
+  return directoryClassifier.map(classfifier => {
+    const map: Record<string, string[]> = {}
+    map[classfifier.key] = []
+    for (const localPath in pages) {
+      const classifierKey = pages[localPath].filter(page => page.frontmatter && page.frontmatter.classifier === classfifier.key).map(({ key }) => key)
+      map[classfifier.key] = classifierKey
     }
-
-    // key 不对或者不存在
-    if (typeof key !== 'string' || !key) {
-      logger.error(`Invalid 'key' option ${key} in directory classifier.`)
-      return null
-    }
-
-    if (app.env.isDebug) logger.info('====')
-
-    return true
+    return map
   })
 }
 
-export const prepareDirectories = (app: App, options: Partial<BlogOptions>, pages: PageMap) => {
-  const {
-    directoryClassifier = []
-  } = options
-  return Promise.all(createDirectoriesClassifier(app, directoryClassifier, pages)).then(async() => {
-    // console.log(JSON.stringify(result, null, 2))
+export const prepareDirectories = (app: App, options: BlogOptions, pages: PageMap) => {
+  return Promise.all(filterDir(options, pages)).then(async (result) => {
+    if (app.env.isDebug) logger.info('目录分配器', result)
+      const finalMap: Record<string, string[]> = {}
+      result.forEach(res => {
+        Object.assign(finalMap, res)
+      })
+      await app.writeTemp(
+        `blog/pageClassfier.js`,
+        `export const directoryMap = ${JSON.stringify(finalMap)}\n${HMR_CODE}`
+      )
+  })
+}
+
+export const directoriesExtendsPageOptions = (app:App, pageOptions: PageOptions, options: BlogOptions) => {
+  const { directoryClassifier = [] } = options
+  directoryClassifier.forEach(classifier => {
+    const {
+      key,
+      path: indexPath = `/${classifier.key}/`,
+      dirname,
+      layout,
+      itemLayout,
+      itemPermalink = '',
+      frontmatter
+    } = classifier
+    const { filePath } = pageOptions
+    const sourceDir = app.dir.source(dirname)
+    if (filePath && filePath.startsWith(sourceDir)) {
+      const reg = /[readme|index].md$/gi
+      const isIndex = reg.test(filePath)
+      pageOptions.frontmatter = pageOptions.frontmatter ?? {}
+      // pageOptions.frontmatter.permalinkPattern = '/:year/:month/:day/:slug.html'
+      pageOptions.frontmatter = {
+        ...pageOptions.frontmatter,
+        layout: isIndex ? layout : itemLayout,
+        ...frontmatter,
+        classifier: key
+      }
+      const filePathRelative = filePath.replace(sourceDir + '/', '')
+      const pathDir = path.dirname(filePathRelative)
+
+      if (isIndex) {
+        pageOptions.path = indexPath + pathDir
+      } else {
+        // const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
+        pageOptions.frontmatter.permalinkPattern = itemPermalink ? itemPermalink : `${indexPath}${pathDir}/:slug.html`
+      }
+      pageOptions.frontmatter.indexPath = indexPath
+      pageOptions.frontmatter.dirname = dirname
+    }
+
+    // 筛选出对应的pages
   })
 }

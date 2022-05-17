@@ -40,14 +40,15 @@ const defaultSlugify = (name: string): string => name.replace(/[ _]/g, '-').toLo
  * @param slugify
  * @returns
  */
-const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, slugify: (name: string) => string) => {
+const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, slugify: (name: string) => string, init = false) => {
   return typePages.map( async (typePage) => {
     const {
       key,
       sorter = () => -1,
       filter = () => true,
-      path = '',
-      layout = 'Layout'
+      path = '/:key/',
+      layout = 'Layout',
+      frontmatter = (): Record<string, string> => ({})
     } = typePage
 
     // key 不对或者不存在
@@ -70,6 +71,7 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
         const page = await createPage(app, {
           path: pagePath,
           frontmatter: {
+            ...frontmatter(routeLocale),
             blog: {
               type: 'type',
               key
@@ -77,6 +79,14 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
             layout
           }
         })
+
+        const index = app.pages.findIndex(({ path }) => path === pagePath);
+        if (index === -1) {
+          app.pages.push(page)
+        } else if (app.pages[index].key !== page.key) {
+          app.pages.splice(index, 1, page);
+          if (init) logger.warn(`Overiding existed path ${pagePath}`);
+        }
 
         // 加入到app pages
         app.pages.push(page)
@@ -112,13 +122,13 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
  * @param options
  * @param pages
  */
-export const preparePageType = (app: App, options: Partial<BlogOptions>, pages: PageMap): Promise<string[]> => {
+export const preparePageType = (app: App, options: Partial<BlogOptions>, pages: PageMap, init = false): Promise<string[]> => {
   const {
     pageTypeClassifier = [],
     slugify = defaultSlugify
   } = options
 
-  return Promise.all(createTypePage(app, pageTypeClassifier, pages, slugify)).then(async (result) => {
+  return Promise.all(createTypePage(app, pageTypeClassifier, pages, slugify, init)).then(async (result) => {
     const finalMap: Record<string, PageTypeMap> = {}
     const paths: string[] = []
 

@@ -1,8 +1,8 @@
 {
-  "name": "comment-demo",
+  "name": "blog-demo",
   "version": "1.0.0-beta.8",
   "private": true,
-  "description": "Demo for @mr-huang/vuepress-plugin-comment",
+  "description": "Demo for @mr-huang/vuepress-plugin-blog",
   "license": "MIT",
   "author": "Mr.Hope",
   "scripts": {
@@ -21,7 +21,8 @@
     "@vuepress/utils": "2.0.0-beta.45",
     "sass-loader": "^12.6.0",
     "vue": "^3.2.33",
-    "@mr-huang/vuepress-plugin-comment": "workspace:*",
+    "vue-router": "^4.0.15",
+    "@mr-huang/vuepress-plugin-blog": "workspace:*",
     "vuepress-vite": "2.0.0-beta.45",
     "vuepress-webpack": "2.0.0-beta.45"
   }

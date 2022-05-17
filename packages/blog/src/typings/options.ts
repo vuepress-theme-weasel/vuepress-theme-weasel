@@ -21,14 +21,45 @@ export interface PageTypeOptions {
    *
    * 一个过滤函数来决定页面是否满足此类型
    */
-  filter: (page: Page) => boolean;
+  filter: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    page: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => boolean;
 
   /**
    * A custom function to sort the pages
    *
    * 页面排序器
    */
-  sorter?: (pageA: Page, pageB: Page) => number;
+  sorter?: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    pageA: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>,
+    pageB: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => number;
 
   /**
    * Path to register
@@ -47,6 +78,13 @@ export interface PageTypeOptions {
    * @default 'Layout'
    */
   layout?: string;
+
+  /**
+   * Frontmatter
+   *
+   * Front Matter 配置
+   */
+  frontmatter?: (localePath: string) => Record<string, unknown>;
 }
 
 /**
@@ -65,14 +103,45 @@ export interface FrontmatterClassifierOptions {
    *
    * 从页面中获取分类的函数
    */
-  getter: (page: Page) => string[];
+  getter: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    page: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => string[];
 
   /**
    * A custom function to sort the pages
    *
    * 页面排序器
    */
-  sorter?: (pageA: Page, pageB: Page) => number;
+  sorter?: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    pageA: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>,
+    pageB: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => number;
 
   /**
    * Path pattern
@@ -97,6 +166,13 @@ export interface FrontmatterClassifierOptions {
   layout?: string;
 
   /**
+   * Frontmatter
+   *
+   * Front Matter 配置
+   */
+  frontmatter?: (localePath: string) => Record<string, unknown>;
+
+  /**
    * Path pattern or custom function
    *
    * @description When filling in a string, `:key` and `:name` will be replaced by the "slugify" result of the orginal key and name
@@ -117,6 +193,16 @@ export interface FrontmatterClassifierOptions {
    * @default 'Layout'
    */
   itemLayout?: string;
+
+  /**
+   * Items Frontmatter
+   *
+   * 项目 Front Matter 配置
+   */
+  itemFrontmatter?: (
+    name: string,
+    localePath: string
+  ) => Record<string, unknown>;
 }
 
 /**
@@ -128,7 +214,22 @@ export interface BlogOptions {
    *
    * 获取文章信息的函数。
    */
-  getInfo?: (page: Page) => Record<string, unknown>;
+  getInfo?: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    page: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => Record<string, unknown>;
 
   /**
    * frontmatter 分类器配置
@@ -171,7 +272,22 @@ export interface BlogOptions {
    *
    * @default (page) => Boolean(page.filePathRelative) && !page.frontmatter.home
    */
-  filter?: (page: Page) => boolean;
+  filter?: <
+    ExtraPageData extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >,
+    ExtraPageFrontmatter extends Record<
+      string | number | symbol,
+      unknown
+    > = Record<string, unknown>,
+    ExtraPageFields extends Record<string | number | symbol, unknown> = Record<
+      never,
+      never
+    >
+  >(
+    page: Page<ExtraPageData, ExtraPageFrontmatter, ExtraPageFields>
+  ) => boolean;
 
   /**
    * Slugify function
@@ -181,4 +297,17 @@ export interface BlogOptions {
    * @default (name) => name.replace(/ _/g, '-').toLowerCase()
    */
   slugify?: (name: string) => string;
+
+  /**
+   * Whether enable hotReload
+   *
+   * @description This may have performance impact in large sites
+   *
+   * 是否启用热更新
+   *
+   * @description 在大型站点上，这可能会有性能影响
+   *
+   * @default false
+   */
+  hotReload?: boolean;
 }
