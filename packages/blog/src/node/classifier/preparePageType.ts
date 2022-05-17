@@ -59,6 +59,7 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
 
     const pageTypeMap: PageTypeMap = {}
     const pagePaths: string[] = []
+    const pageKeys: string[] = [];
 
     if (app.env.isDebug) logger.info(`Generating ${key} type.\n`)
 
@@ -89,7 +90,8 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
         }
 
         // 加入到app pages
-        app.pages.push(page)
+        // app.pages.push(page)
+        pageKeys.push(page.key)
         pagePaths.push(pagePath)
 
         pageTypeMap[routeLocale] = {
@@ -111,7 +113,8 @@ const createTypePage = (app: App, typePages: PageTypeOptions[], pages: PageMap, 
     return {
       key,
       map: pageTypeMap,
-      pagePaths
+      pagePaths,
+      pageKeys
     }
   })
 }
@@ -131,17 +134,19 @@ export const preparePageType = (app: App, options: Partial<BlogOptions>, pages: 
   return Promise.all(createTypePage(app, pageTypeClassifier, pages, slugify, init)).then(async (result) => {
     const finalMap: Record<string, PageTypeMap> = {}
     const paths: string[] = []
+    const keys: string[] = [];
 
     result.filter(item => item !== null).forEach(item => {
-      const { key, map, pagePaths } = item!
+      const { key, map, pagePaths, pageKeys } = item!
       finalMap[key] = map
       paths.push(...pagePaths)
+      keys.push(...pageKeys)
     })
 
     await app.writeTemp(
       `blog/pageType.js`,
       `export const pageTypeMap = ${JSON.stringify(finalMap)}\n${HMR_CODE}`
     )
-    return paths
+    return keys
   })
 }

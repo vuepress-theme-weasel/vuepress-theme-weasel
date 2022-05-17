@@ -14,6 +14,7 @@
     "demo:webpack-dev": "vuepress-webpack dev src"
   },
   "devDependencies": {
+    "@mr-huang/vuepress-plugin-blog": "workspace:*",
     "@vuepress/cli": "2.0.0-beta.45",
     "@vuepress/client": "2.0.0-beta.45",
     "@vuepress/core": "2.0.0-beta.45",
@@ -22,7 +23,6 @@
     "sass-loader": "^12.6.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.15",
-    "@mr-huang/vuepress-plugin-blog": "workspace:*",
     "vuepress-vite": "2.0.0-beta.45",
     "vuepress-webpack": "2.0.0-beta.45"
   }

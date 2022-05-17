@@ -106,7 +106,8 @@ export const blogTheme = (options: DefaultThemeOptions): Theme => ({
           layout: 'Timeline',
           frontmatter: () => ({ title: "Timeline", sidebar: false }),
         }
-      ]
+      ],
+      hotReload: true
     }),
   ],
 });

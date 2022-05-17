@@ -61,6 +61,8 @@ const createFrontmatterPromise = (
 
     const frontmatterMap: FrontmatterMap = {}
     const pagePaths: string[] = []
+    const pageKeys: string[] = []
+
     const getItemPath =
       typeof itemPath === 'function'
         ? itemPath
@@ -95,7 +97,8 @@ const createFrontmatterPromise = (
           if (init) logger.warn(`Overiding existed path ${pagePath}`);
         }
         // app.pages.push(mainPage)
-        pagePaths.push(mainPage.path)
+        // pagePaths.push(mainPage.path)
+        pageKeys.push(mainPage.key)
 
         frontmatterMap[routeLocale] = {
           path: mainPage.path,
@@ -142,6 +145,7 @@ const createFrontmatterPromise = (
               }
               // app.pages.push(page)
               pagePaths.push(page.path)
+              pageKeys.push(page.key)
 
               map[frontmatter] = {
                 path: page.path,
@@ -185,6 +189,7 @@ const createFrontmatterPromise = (
       key,
       map: frontmatterMap,
       pagePaths,
+      pageKeys
     }
   })
 }
@@ -198,7 +203,7 @@ export const prepareFrontmatter = (app: App, options: Partial<BlogOptions>, page
 
   return Promise.all(createFrontmatterPromise(app, frontmatterClassifier, slugify, pages, init)).then(async (result) => {
     const finalMap: Record<string, FrontmatterMap> = {}
-    const paths: string[] = []
+    const keys: string[] = []
 
     result
       .filter(
@@ -207,12 +212,13 @@ export const prepareFrontmatter = (app: App, options: Partial<BlogOptions>, page
         ): item is {
           key: string
           map: FrontmatterMap
-          pagePaths: string[]
+          pagePaths: string[],
+          pageKeys: string[]
         } => item !== null
       )
-      .forEach(({ key, map, pagePaths }) => {
+      .forEach(({ key, map, pageKeys }) => {
         finalMap[key] = map
-        paths.push(...pagePaths)
+        keys.push(...pageKeys)
       })
 
     await app.writeTemp(
@@ -222,6 +228,6 @@ export const prepareFrontmatter = (app: App, options: Partial<BlogOptions>, page
 
     if (app.env.isDebug) logger.info('All types generated.')
 
-    return paths
+    return keys
   })
 }

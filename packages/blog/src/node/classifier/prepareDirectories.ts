@@ -25,37 +25,57 @@ const filterDir = (options: BlogOptions, pages: PageMap) => {
   return directoryClassifier.map(classfifier => {
     const map: Record<string, string[]> = {}
     map[classfifier.key] = []
+    const keys:string[] = []
     for (const localPath in pages) {
       const classifierKey = pages[localPath].filter(page => page.frontmatter && page.frontmatter.classifier === classfifier.key).map(({ key }) => key)
       map[classfifier.key] = classifierKey
+      keys.push(...classifierKey)
     }
-    return map
+    return {
+      map,
+      keys
+    }
   })
 }
 
+/**
+ * 目录分配器
+ * @param app 
+ * @param options 
+ * @param pages 
+ * @returns 
+ */
 export const prepareDirectories = (app: App, options: BlogOptions, pages: PageMap) => {
   return Promise.all(filterDir(options, pages)).then(async (result) => {
     if (app.env.isDebug) logger.info('目录分配器', result)
       const finalMap: Record<string, string[]> = {}
-      result.forEach(res => {
-        Object.assign(finalMap, res)
+      const keys: string[] = []
+      result.forEach(({ map, keys }) => {
+        Object.assign(finalMap, map)
+        keys.push(...keys)
       })
       await app.writeTemp(
         `blog/pageClassfier.js`,
         `export const directoryMap = ${JSON.stringify(finalMap)}\n${HMR_CODE}`
       )
+      return keys
   })
 }
 
+/**
+ * 目录 extends page
+ */
 export const directoriesExtendsPageOptions = (app:App, pageOptions: PageOptions, options: BlogOptions) => {
   const { directoryClassifier = [] } = options
+  const appLayouts = Object.keys(app.layouts)
+  const defaultAppLayout = appLayouts.length ? appLayouts[0] : 'Layout'
   directoryClassifier.forEach(classifier => {
     const {
       key,
       path: indexPath = `/${classifier.key}/`,
       dirname,
-      layout,
-      itemLayout,
+      layout = defaultAppLayout,
+      itemLayout = defaultAppLayout,
       itemPermalink = '',
       frontmatter
     } = classifier
@@ -65,7 +85,6 @@ export const directoriesExtendsPageOptions = (app:App, pageOptions: PageOptions,
       const reg = /[readme|index].md$/gi
       const isIndex = reg.test(filePath)
       pageOptions.frontmatter = pageOptions.frontmatter ?? {}
-      // pageOptions.frontmatter.permalinkPattern = '/:year/:month/:day/:slug.html'
       pageOptions.frontmatter = {
         ...pageOptions.frontmatter,
         layout: isIndex ? layout : itemLayout,
@@ -78,13 +97,10 @@ export const directoriesExtendsPageOptions = (app:App, pageOptions: PageOptions,
       if (isIndex) {
         pageOptions.path = indexPath + pathDir
       } else {
-        // const _prefix = indexPath.endsWith('/') ? indexPath.substring(0, indexPath.length - 1) : indexPath
         pageOptions.frontmatter.permalinkPattern = itemPermalink ? itemPermalink : `${indexPath}${pathDir}/:slug.html`
       }
       pageOptions.frontmatter.indexPath = indexPath
       pageOptions.frontmatter.dirname = dirname
     }
-
-    // 筛选出对应的pages
   })
 }
