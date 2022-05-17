@@ -1,8 +1,8 @@
 /**
  * vitpress 配置文件
  */
-import { defineUserConfig } from 'vuepress'
-import themeConfig from './themeConfig';
+import { defineUserConfig } from '@vuepress/cli'
+import weaselTheme from './themeConfig';
 
 const base = (process.env.BASE as "/" | `/${string}/`) || "/";
 const path = require('path')
@@ -32,8 +32,7 @@ export default defineUserConfig({
   },
   public: path.resolve(__dirname, '../public'),
   debug: true,
-  theme: '@mr-huang/vuepress-theme-weasel',
-  themeConfig,
+  theme: weaselTheme,
   plugins: [
     // ['@vuepress/plugin-docsearch', {
     //   appId: "LDBQGQC8Q9",

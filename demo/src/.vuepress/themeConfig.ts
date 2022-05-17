@@ -1,7 +1,9 @@
 import * as navbar from "./configs/navbar"
 import * as sidebar from "./configs/sidebar"
+import weaselTheme from '@mr-huang/vuepress-theme-weasel'
 
-export default {
+console.log(weaselTheme)
+export default weaselTheme({
   author: {
     name: "Mr.Huang",
     url: "https://mrhope.site",
@@ -128,4 +130,4 @@ export default {
       },
     },
   },
-} as any
+})

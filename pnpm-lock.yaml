@@ -55,6 +55,7 @@ importers:
     specifiers:
       '@mr-huang/vuepress-theme-weasel': workspace:1.0.0-beta.8
       '@types/react': 16.8.0
+      '@vuepress/cli': ^2.0.0-beta.45
       '@vuepress/client': ^2.0.0-beta.45
       '@vuepress/core': ^2.0.0-beta.45
       '@vuepress/plugin-docsearch': ^2.0.0-beta.45
@@ -70,6 +71,7 @@ importers:
     dependencies:
       '@mr-huang/vuepress-theme-weasel': link:../packages/theme
       '@types/react': 16.8.0
+      '@vuepress/cli': 2.0.0-beta.45
       '@vuepress/client': 2.0.0-beta.45
       '@vuepress/plugin-docsearch': 2.0.0-beta.45_@types+react@16.8.0
       '@vuepress/shared': 2.0.0-beta.45
