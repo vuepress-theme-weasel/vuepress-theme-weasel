@@ -1,5 +1,5 @@
 import { defineUserConfig } from "@vuepress/cli";
-import { commentPlugin } from "vuepress-plugin-comment2";
+import { commentPlugin } from "@mr-huang/vuepress-plugin-comment";
 import { commentTheme } from "./theme";
 
 const BASE = process.env.BASE as "/" | `/${string}/`;
@@ -12,9 +12,9 @@ export default defineUserConfig({
 
   // we are using a custom theme adding this plugin
   theme: commentTheme({
-    logo: "/logo.svg",
+    logo: "/logo.png",
 
-    repo: "vuepress-theme-hope/vuepress-theme-hope/tree/main/demo/comment2/",
+    repo: "vuepress-theme-weasel/vuepress-theme-weasel/tree/main/demos/comment/",
 
     navbar: ["README.md", "test.md"],
   }),
@@ -25,10 +25,10 @@ export default defineUserConfig({
        * Using giscus
        */
       type: "giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
+      repo: "vuepress-theme-weasel/blog-comment",
+      repoId: "R_kgDOHEoaBA",
       category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69",
+      categoryId: "DIC_kwDOHEoaBM4COShW",
 
       /**
        * Using twikoo
