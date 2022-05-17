@@ -1,43 +1,34 @@
-import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links';
 /**
  * 创建主题默认的插件配置
  */
-import { App, PluginConfig, PluginOptions } from '@vuepress/core'
+import { App, PluginConfig } from '@vuepress/core'
 import { logger } from './../utils/logger'
 import { resolveGitPluginOptions } from './git'
-import { ThemePluginsOptions, WeaselThemeOptions } from '../../typings'
-import { blogPluginInit } from '@mr-huang/vuepress-plugin-blog'
-import { resolveBlogOptions } from './blog'
-import { resolveCommentPlugin } from './comment'
+import { ThemePluginsOptions, WeaselThemeConfig } from '../../typings'
+import { resolveBlog } from './blog'
+import { getCommentPlugin } from './comment'
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links';
+import { externalLinkIconPlugin } from "@vuepress/plugin-external-link-icon";
+import { nprogressPlugin } from "@vuepress/plugin-nprogress";
+import { prismjsPlugin } from "@vuepress/plugin-prismjs";
+import { themeDataPlugin } from "@vuepress/plugin-theme-data";
+import { gitPlugin } from '@vuepress/plugin-git'
 
 export const createPluginConfig = (
-  app: App,
   plugins: ThemePluginsOptions,
-  themeData: Omit<WeaselThemeOptions, 'plugins'>
-): PluginConfig<PluginOptions>[] => {
+  themeData: WeaselThemeConfig
+): PluginConfig => {
 
-  /**
-   * 博客插件
-   */
-  const blogConfig = resolveBlogOptions(plugins.blog)
-
-  const pluginConfig: PluginConfig<PluginOptions>[] = [
-    ['@vuepress/plugin-active-header-links', plugins.activeHeaderLinks ? {
-      headerLinkSelector: ".sidebar-link, .toc-link",
-      headerAnchorSelector: ".header-anchor",
-    } : false],
-    ['@vuepress/plugin-external-link-icon', plugins.externalLinkIcon !== false],
-    ['@vuepress/plugin-nprogress', plugins.nprogress !== false],
-    ["@vuepress/prismjs", plugins.prismjs !== false],
-    ['@vuepress/git', resolveGitPluginOptions(plugins, themeData)],
-    ['@vuepress/theme-data', { themeData }],
-    blogPluginInit(blogConfig),
-    resolveCommentPlugin(plugins.comment),
-  ]
-
-  if (app.env.isDebug) {
-    logger.info('主题默认的插件', pluginConfig.map(plugin => Array.isArray(plugin) ? plugin[0] : ''))
-  }
+  const pluginConfig = [
+    plugins.activeHeaderLinks === false ? null : activeHeaderLinksPlugin(),
+    plugins.externalLinkIcon === false ? null : externalLinkIconPlugin(),
+    plugins.nprogress === false ? null : nprogressPlugin(),
+    plugins.prismjs === false ? null : prismjsPlugin(),
+    gitPlugin(resolveGitPluginOptions(plugins, themeData)),
+    themeDataPlugin({ themeData }),
+    resolveBlog(themeData, plugins.blog),
+    getCommentPlugin(plugins.comment),
+  ].filter((item) => item !== null) as PluginConfig;
 
   return pluginConfig
 }

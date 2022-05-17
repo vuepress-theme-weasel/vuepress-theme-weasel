@@ -26,7 +26,7 @@ export const useTagMap = (): TagMapRef => {
  * Provide tagMap
  */
 export const setupTagMap = (): void => {
-  const tagMap = useBlogFrontmatter<ArticleInfo>('tag')
+  const tagMap = useBlogFrontmatter<ArticleInfo>('tag') as unknown as TagMapRef
 
   provide(tagMapSymbol, tagMap)
 }

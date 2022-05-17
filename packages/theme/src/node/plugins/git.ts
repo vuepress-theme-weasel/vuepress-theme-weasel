@@ -7,16 +7,16 @@ import { ThemeLocaleOptions, ThemePluginsOptions } from "../../typings"
 export const resolveGitPluginOptions = (
   themePlugins: ThemePluginsOptions,
   localeOptions: ThemeLocaleOptions
-): GitPluginOptions | boolean => {
+): GitPluginOptions | undefined => {
   if (themePlugins?.git === false) {
-    return false
+    return undefined
   }
 
   const enableUpdatedTime = localeOptions.lastUpdated !== false
   const enableContributors = localeOptions.contributors !== false
 
   if (!enableUpdatedTime && !enableContributors) {
-    return false
+    return undefined
   }
 
   return {

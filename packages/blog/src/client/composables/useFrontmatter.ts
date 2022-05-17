@@ -11,12 +11,15 @@ declare const __VUE_HMR_RUNTIME__: Record<string, any>
 declare const BLOG_META_SCOPE: string
 export const blogFrontmatterMap = ref(frontmatterMap)
 
-
 /**
  * blog frontmatter
  * @param key
  */
-export const useBlogFrontmatter = <T extends Record<string, unknown> = Record<string, unknown>>(key = ''): ComputedRef<BlogFrontmatterData> => {
+export const useBlogFrontmatter = <
+  T extends Record<string, unknown> = Record<string, unknown>
+>(
+  key = ''
+): ComputedRef<BlogFrontmatterData<T>> => {
   const router = useRouter()
   const route = useRoute()
   const routeLocale = useRouteLocale()

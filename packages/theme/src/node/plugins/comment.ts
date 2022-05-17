@@ -1,14 +1,14 @@
-import { comment } from "@mr-huang/vuepress-plugin-comment";
+import { commentPlugin } from "@mr-huang/vuepress-plugin-comment";
 
-import type { PluginConfig } from "@vuepress/core";
-import type { CommentOptions } from '@mr-huang/vuepress-plugin-comment';
+import type { PluginObject } from "@vuepress/core";
+import type { CommentOptions } from "@mr-huang/vuepress-plugin-comment";
 
-export const resolveCommentPlugin = (
+export const getCommentPlugin = (
   options?: Partial<CommentOptions> | false
-): PluginConfig => {
-  if (options === false) return ["", false];
+): PluginObject | null => {
+  if (options === false || !options?.type) return null;
 
-  return comment({
+  return commentPlugin({
     type: "disable",
     ...(options?.type === "waline" ? { dark: 'html[data-theme="dark"]' } : {}),
     ...(options || {}),

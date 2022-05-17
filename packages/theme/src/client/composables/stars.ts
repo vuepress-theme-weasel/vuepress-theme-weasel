@@ -23,7 +23,7 @@ export const useStars = (): StarsRef => {
 }
 
 export const setupStars = (): void => {
-  const stars = useBlogPageType<ArticleInfo>('star')
+  const stars = useBlogPageType<ArticleInfo>('star') as unknown as StarsRef
 
   provide(starsSymbol, stars)
 }

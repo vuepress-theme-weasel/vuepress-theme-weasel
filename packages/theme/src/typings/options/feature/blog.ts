@@ -26,6 +26,8 @@ export interface ThemeBlogLocaleData {
   slides: string
   /** 加密 */
   encrypt: string
+  /** 相册 */
+  picture: string
 }
 
 /**

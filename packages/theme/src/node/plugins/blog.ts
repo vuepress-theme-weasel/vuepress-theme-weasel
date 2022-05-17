@@ -1,9 +1,11 @@
 /**
  * blog resolve options
  */
-import { BlogOptions } from '@mr-huang/vuepress-plugin-blog';
-import { Page } from '@vuepress/core';
-import { ThemeBlogPluginOptions } from '../../typings'
+import { BlogOptions, blogPlugin } from "@mr-huang/vuepress-plugin-blog";
+import { ThemeBlogPluginOptions, WeaselThemeConfig } from '../../typings'
+
+import type { Page, Plugin } from '@vuepress/core';
+
 
 /**
  * 默认配置
@@ -68,14 +70,27 @@ const sorter = (pageA: Page, pageB: Page): number => {
   )
 }
 
-export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): BlogOptions | false => {
-  if (!options) return false
+/**
+ * 插件blog参数
+ * @param options 。
+ * @returns 
+ */
+export const getBlogOptions = (options?: ThemeBlogPluginOptions | false): BlogOptions | false => ({
+  ...defaultOptions,
+  ...(typeof options === 'object' ? options : {})
+})
+
+export const resolveBlog = (
+  themeData: WeaselThemeConfig,
+  options?: ThemeBlogPluginOptions | boolean
+): Plugin | null => {
+  if (!options) return null
   const blogOptions = {
     ...defaultOptions,
     ...(typeof options === 'object' ? options : {})
   }
 
-  return {
+  return blogPlugin({
     metaScope: '',
 
     filter: blogOptions.filter || defaultClassifierFilter,
@@ -87,8 +102,14 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         sorter,
         path: blogOptions.category,
         layout: 'Blog',
+        frontmatter: (localPath) => ({
+          title: themeData.locales![localPath].blogLocales?.category
+        }),
         itemPath: blogOptions.categoryItem,
-        itemLayout: 'Blog'
+        itemLayout: 'Blog',
+        itemFrontmatter: (name, localePath) => ({
+          title: `${name} ${themeData.locales![localePath].blogLocales?.category}`,
+        }),
       },
       {
         key: 'tag',
@@ -96,8 +117,14 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         sorter,
         path: blogOptions.tag,
         layout: 'Blog',
+        frontmatter: (localePath) => ({
+          title: themeData.locales![localePath].blogLocales?.tag,
+        }),
         itemPath: blogOptions.tagItem,
-        itemLayout: 'Blog'
+        itemLayout: 'Blog',
+        itemFrontmatter: (name, localePath) => ({
+          title: `${name} ${themeData.locales![localePath].blogLocales?.tag}`,
+        })
       }
     ],
 
@@ -107,7 +134,10 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         sorter,
         filter: () => true,
         path: blogOptions.article,
-        layout: 'Blog'
+        layout: 'Blog',
+        frontmatter: (localePath) => ({
+          title: themeData.locales![localePath].blogLocales?.article,
+        }),
       },
       {
         key: 'encrypted',
@@ -121,14 +151,20 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         sorter,
         filter: ({ routeMeta }) => routeMeta.type === 'slide',
         path: blogOptions.slides,
-        layout: 'Blog'
+        layout: 'Blog',
+        frontmatter: (localePath) => ({
+          title: themeData.locales![localePath].blogLocales?.slides,
+        }),
       },
       {
         key: 'picture',
         sorter,
         filter: ({ routeMeta }) => routeMeta.type === 'picture',
         path: blogOptions.pictures,
-        layout: 'Blog'
+        layout: 'Blog',
+        frontmatter: (localePath) => ({
+          title: themeData.locales![localePath].blogLocales?.picture,
+        }),
       },
       {
         key: 'star',
@@ -147,7 +183,10 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         filter: ({ frontmatter, routeMeta }) =>
           'date' in routeMeta && frontmatter.timeline !== false,
         path: blogOptions.timeline,
-        layout: 'Blog'
+        layout: 'Blog',
+        frontmatter: (localePath) => ({
+          title: themeData.locales![localePath].blogLocales?.timeline,
+        }),
       }
     ],
 
@@ -172,5 +211,5 @@ export const resolveBlogOptions = (options?: ThemeBlogPluginOptions | false): Bl
         itemLayout: 'Blog'
       }
     ]
-  }
+  })
 }

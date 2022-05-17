@@ -1,25 +1,23 @@
-import { handleThemeData } from './themeData';
 import { prepareSidebarData } from './../plugins/sidebar';
 import { createPluginConfig } from './../plugins/index';
-import { createClientAppSetupFiles } from './clientAppSetupFiles';
-import { createClientAppEnhanceFiles } from './clientAppEnhanceFiles';
 import { createLayout } from './layout';
 import { createAlias } from './alias';
-import type { Page, Theme } from '@vuepress/core'
+import type { Page, ThemeFunction } from '@vuepress/core'
 import { ThemePageData, WeaselThemeConfig, WeaselThemeOptions } from '../../typings'
-import { getThemeConfig, logger } from '../utils'
+import { logger } from '../utils'
 import { getDefine } from './define';
 import { extendsPage } from './extends';
 import { usePlugin } from './usePlugin';
-import { path } from '@vuepress/utils';
 import { prepareThemeColorScss } from './themeColor';
+import { path } from '@vuepress/utils';
+import { getThemeConfig } from './themeConfig';
 
-// @ts-ignore
-export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeOptions }, app) => {
+export const weaselTheme = (options: WeaselThemeOptions): ThemeFunction => (app) => {
+  const { plugins = {}, hostname = '', ...themeOptions } = options
   logger.info("========= 主题阶段开始 ===========")
   logger.info(app.options.source)
+  const enableBlog = Boolean(plugins.blog)
   // 主题数据注入
-  handleThemeData(app, themeOptions)
   const themeConfig = getThemeConfig(app, themeOptions);
   // 前置插件
   usePlugin(app, plugins, themeConfig)
@@ -34,17 +32,10 @@ export const weaselTheme: Theme<WeaselThemeOptions> = ({ plugins = {}, ...themeO
     },
     extendsPage: (page) => extendsPage(app, themeOptions as WeaselThemeConfig, plugins, page as Page<ThemePageData>, app.env.isDev),
     // 主题默认的插件
-    plugins: createPluginConfig(app, plugins, themeConfig),
+    plugins: createPluginConfig(plugins, themeConfig),
     // 主题布局
     layouts: createLayout(app),
-    // 主题客户端注入入口，主要用于插件和样式注入
-    clientAppEnhanceFiles: createClientAppEnhanceFiles(app),
-    // 主题客户端注入入口，主要用于注入hooks
-    clientAppSetupFiles: createClientAppSetupFiles(app),
-    // 注册到根节点的组件
-    clientAppRootComponentFiles: [
-      path.resolve(__dirname, '../../client/root-components/BackToTop.js')
-    ]
+    clientConfigFile: path.resolve(__dirname, '../../client/clientConfig.js')
   }
 }
 

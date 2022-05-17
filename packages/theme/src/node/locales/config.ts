@@ -39,6 +39,7 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       star: "Star",
       slides: "Slides",
       encrypt: "Encrypted",
+      picture: 'Picture'
     },
 
     outlookLocales: {
@@ -105,6 +106,7 @@ export const themeLocalesData: Record<string, ThemeLocaleData> = {
       star: "收藏",
       slides: "幻灯片",
       encrypt: "加密",
+      picture: '相册'
     },
 
     outlookLocales: {

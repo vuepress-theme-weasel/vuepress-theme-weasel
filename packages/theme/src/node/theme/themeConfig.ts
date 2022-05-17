@@ -73,10 +73,10 @@ export const getThemeConfig = (
     ),
     locales:
       // assign locale data to `themeConfig`
-      getLocales(
+      getLocales({
         app,
-        // name: "vuepress-theme-weasel",
-        Object.fromEntries(
+        name: "vuepress-theme-weasel",
+        default: Object.fromEntries(
           Object.entries(themeLocalesData).map(([locale, config]) => {
             if (!enableBlog) {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -91,7 +91,7 @@ export const getThemeConfig = (
           })
         ),
         // extract localeConfig
-        Object.fromEntries(
+        config: Object.fromEntries(
           [
             ["/", {}] as [string, ThemeLocaleOptions],
             ...Object.entries(themeOptions.locales || {}),
@@ -114,7 +114,7 @@ export const getThemeConfig = (
             ]
           )
         ),
-      ) as ThemeLocaleConfig,
+      }) as ThemeLocaleConfig,
   };
 
   // handle encrypt options

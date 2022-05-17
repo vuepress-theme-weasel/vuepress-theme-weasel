@@ -23,6 +23,6 @@ export const useArticles = (): ArticlesRef => {
 }
 
 export const setupArticles = (): void => {
-  const articles = useBlogPageType<ArticleInfo>('article')
+  const articles = useBlogPageType<ArticleInfo>('article') as unknown as ArticlesRef
   provide(articlesSymbol, articles)
 }

@@ -1,9 +1,10 @@
 import { ResolvedSidebarItem, ResolvedThemeSidebarGroupItem, ResolvedThemeSidebarHeaderItem, ResolvedThemeSidebarPageItem, ThemeNormalPageFrontmatter, ThemeSidebarArrayConfig, ThemeSidebarItem } from "../../../../typings";
 import { sidebarData } from "@temp/theme-weasel/sidebar";
-import { usePageData, usePageFrontmatter, useRoute, useRouteLocale, PageHeader } from "@vuepress/client";
+import { usePageData, usePageFrontmatter, useRouteLocale, PageHeader } from "@vuepress/client";
 import { useAutoLink, useThemeLocaleData } from "@theme-weasel/composables";
 import { isString, isPlainObject, isLinkExternal, isArray } from "@vuepress/shared";
 import { resolvePrefix } from "./utils"
+import { useRoute } from 'vue-router'
 
 /**
  * 转换page的header为sidebar data

@@ -1,9 +1,9 @@
-import { defineClientAppEnhance } from "@vuepress/client";
+import { App } from "vue";
 
 import Navbar from "./components/Navbar.vue";
 
 import './styles/index.scss';
 
-export default defineClientAppEnhance(({ app }) => {
+export const clientEnhance = (app: App) => {
   app.component("Navbar", Navbar);
-});
+}

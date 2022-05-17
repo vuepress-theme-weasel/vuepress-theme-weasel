@@ -1,13 +1,14 @@
 import { inject, provide } from 'vue'
 import { useBlogFrontmatter } from '@mr-huang/vuepress-plugin-blog/lib/client'
+
 import type { InjectionKey, ComputedRef } from 'vue'
 import type { ArticleInfo } from '../../typings'
-import { BlogFrontmatterData } from '@mr-huang/vuepress-plugin-blog'
+import type { BlogFrontmatterData } from '@mr-huang/vuepress-plugin-blog'
 
 /**
  * 分类集合
  */
-export type CategoryMapRef = ComputedRef<BlogFrontmatterData<ArticleInfo>>
+export type CategoryMapRef = ComputedRef<BlogFrontmatterData<ArticleInfo>>;
 
 export const categoryMapSymbol: InjectionKey<CategoryMapRef> =
   Symbol.for('categoryMap')
@@ -29,7 +30,7 @@ export const useCategoryMap = (): CategoryMapRef => {
  * Provide categoryMap
  */
 export const setupCategoryMap = (): void => {
-  const categoryMap = useBlogFrontmatter<ArticleInfo>('category')
+  const categoryMap = useBlogFrontmatter<ArticleInfo>('category') as unknown as CategoryMapRef
 
   provide(categoryMapSymbol, categoryMap)
 }

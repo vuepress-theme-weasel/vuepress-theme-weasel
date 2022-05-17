@@ -1,8 +1,6 @@
-import { defineClientAppSetup } from "@vuepress/client";
-
 import { setupDarkMode, setupPureMode } from "./composables";
 
-export default defineClientAppSetup(() => {
+export const clientAppSetup = () => {
   setupDarkMode()
   setupPureMode()
-});
+}

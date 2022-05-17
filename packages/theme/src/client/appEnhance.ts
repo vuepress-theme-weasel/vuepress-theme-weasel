@@ -1,12 +1,15 @@
 /**
  * client 组件注入
  */
-import { defineClientAppEnhance } from '@vuepress/client'
 import { h } from 'vue'
 import { AuthorInfo, DateInfo, ArticleInfo, TagInfo, CategoryInfo, OriginalInfo, ReadingTimeInfo, RecommendList, Pagination } from './components/article'
 import { Badge } from './components'
+
 import './styles/index.scss';
-export default defineClientAppEnhance(({ app }) => {
+
+import type { App } from 'vue';
+
+export const clientEnhance = (app: App) => {
   // 注入组件
   app.component('ArticleInfo', ArticleInfo)
   app.component('TagInfo', TagInfo)
@@ -26,4 +29,4 @@ export default defineClientAppEnhance(({ app }) => {
     //@ts-ignore
     return CommentService ? h(CommentService, { darkmode }) : null;
   });
-})
+}

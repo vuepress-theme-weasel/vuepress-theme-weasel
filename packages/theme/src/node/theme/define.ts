@@ -29,21 +29,24 @@ export const getDefine = (app: App, plugins: ThemePluginsOptions, themeConfig: W
 
   return {
     ENABLE_BLOG: enableBlog,
-    ARTICLE_INFO_LOCALES: getLocales(
+    ARTICLE_INFO_LOCALES: getLocales({
       app,
-      articleInfoLocales,
-      themeConfig.articleInfoLocales
-    ),
-    PAGINATION_LOCALES: getLocales(
+      name: 'vuepress-theme-weasel',
+      default: articleInfoLocales,
+      config: themeConfig.articleInfoLocales
+    }),
+    PAGINATION_LOCALES: getLocales({
       app,
-      paginationLocales,
-      themeConfig.paginationLocales
-    ),
+      name: 'vuepress-theme-weasel',
+      default: paginationLocales,
+      config: themeConfig.paginationLocales
+    }),
     BACK_TO_TOP_THRESHOLD: backToTopOptions.threshold || 300,
-      BACK_TO_TOP_LOCALES: getLocales(
+      BACK_TO_TOP_LOCALES: getLocales({
         app,
-        backToTopLocales,
-        backToTopOptions.backToTopLocales
-      ),
+        name: 'vuepress-theme-weasel',
+        default: backToTopLocales,
+        config: backToTopOptions.backToTopLocales
+      }),
   }
 }
