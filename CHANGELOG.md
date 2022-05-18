@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-beta.9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2022-05-18)
+
+
+### Features
+
+* (blog) 增加frontmatter 和 修复部分类型问题 ([a4ec50a](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/a4ec50adb0be17e2024e9fbf1041ecd70f62b7d6))
+* (blog) fix hot reload for blog ([e050747](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/e05074734e8dcc1ebb8797c53d9b654cf6f1f1b0))
+* (comment) 修复comment插件，增加comment demo ([16e5c25](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/16e5c25514397126c682eb9e93400f32287d0fee))
+* (comment) update comment package ([3d7d9e7](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/3d7d9e7722e1c2447a90d39330cb05453d0e4786))
+* (project) release packages ([72dcf15](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/72dcf15740284b12c5d489b629aa9e6acc126a7a))
+* (shared) update shared deps ([7cbe446](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/7cbe446cf9a28578aa83aab36145e3e71b6d29a0))
+* (theme) 更新主题deps 并适配最新api ([7c05fd8](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/7c05fd8629f3113bdc9cb3a51db1fd0abdfded83))
+* (theme) 修复主题错误 ([461d0cc](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/461d0cc7c44059c0bd79fd8c4c426bfc3c1a1bba))
+* (theme) 修复主题配置合并 ([c766d22](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/c766d222ce165adc2a15002c868abacdad9da43f))
+* (theme) fix packages ([6e8a87c](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/6e8a87c537e1590f5c4a73d0788fe35c343e5a64))
+* (theme) update client config file ([ac5571a](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/ac5571a17aef56cbd3d072093f9ce4183a272bd2))
+
+
+### Bug Fixes
+
+* (theme) fix style for theme ([7804280](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/7804280eea706eaa2c994b5e34a598f03b76ef8e))
+
 ## [1.0.0-beta.8](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2022-05-15)
 
 ## [1.0.0-beta.7](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2022-05-15)

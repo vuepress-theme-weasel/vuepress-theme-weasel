@@ -1,6 +1,6 @@
 {
   "name": "@mr-huang/vuepress-shared",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "description": "weasel theme",
   "main": "lib/node/index.js",
   "types": "lib/node/index.d.ts",
