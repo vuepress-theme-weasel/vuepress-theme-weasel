@@ -21,6 +21,6 @@ export interface WeaselThemeConfig extends ThemeData<ThemeLocaleConfig> {
   articleInfoLocales?: LocaleConfig<ArticleInfoLocaleData>;
 }
 
-export interface WeaselThemeOptions extends ThemeData {
+export interface WeaselThemeOptions extends ThemeData<ThemeLocaleConfig> {
   plugin?: ThemePluginsOptions
 }

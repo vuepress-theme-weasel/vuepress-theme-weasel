@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { useStars } from '@theme-weasel/composables';
-import { useRouter } from '@vuepress/client';
+import { useRouter } from 'vue-router';
 
 const starts = useStars()
 

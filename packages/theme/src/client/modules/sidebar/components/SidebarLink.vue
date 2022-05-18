@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { ResolvedSidebarItem } from '../../../../typings';
 import { PropType, ref, watch } from 'vue';
-import { useRoute } from '@vuepress/client';
+import { useRoute } from 'vue-router';
 import { resolveOpenGroupIndex } from '../utils';
 import SidebarGroup from './SidebarGroup.vue';
 import SidebarChild from './SidebarChild.vue';

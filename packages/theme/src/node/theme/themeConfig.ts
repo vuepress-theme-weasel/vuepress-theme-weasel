@@ -1,5 +1,4 @@
-import { getLocales } from "@mr-huang/vuepress-shared";
-// import { resolveEncrypt } from "./encrypt";
+import { deepAssign, getLocales } from "@mr-huang/vuepress-shared";
 import { themeLocalesData } from "../locales";
 
 import type { App } from "@vuepress/core";
@@ -25,9 +24,32 @@ const rootAllowConfig = [
 ];
 
 const defaultRootOptions: ThemeRootConfig = {
-  // features
-  blog: {},
-  encrypt: {},
+  blog: {
+    articleInfo: [
+      "Author",
+      "Original",
+      "Date",
+      "Category",
+      "Tag",
+      "ReadingTime",
+    ],
+    articlePerPage: 10,
+    sidebarDisplay: "mobile",
+  },
+
+  encrypt: {
+    global: false,
+  },
+
+  // layouts
+  repoDisplay: true,
+  navbarIcon: true,
+  navbarAutoHide: "mobile",
+  hideSiteNameonMobile: true,
+
+  sidebar: "structure",
+  sidebarIcon: true,
+  headingDepth: 2,
 
   // appearance
   pure: false,
@@ -39,8 +61,10 @@ const defaultRootOptions: ThemeRootConfig = {
     green: "#3eaf7c",
     orange: "#f39c12",
     purple: "#8e44ad",
+    default: '#000000'
   },
-  fullscreen: true
+  fullScreen: true,
+  plugins: {}
 };
 
 const defaultLocaleOptions: WeaselThemeOptions = {
@@ -53,7 +77,7 @@ const defaultLocaleOptions: WeaselThemeOptions = {
   hideSiteNameonMobile: true,
   sidebar: "structure",
   sidebarIcon: true,
-  headerDepth: 2,
+  headerDepth: 2
 };
 
 /**
@@ -64,16 +88,8 @@ export const getThemeConfig = (
   themeOptions: WeaselThemeOptions,
   enableBlog = false
 ): WeaselThemeConfig => {
-  const themeData: WeaselThemeConfig = {
-    ...defaultRootOptions,
-    ...Object.fromEntries(
-      Object.entries(themeOptions).filter(([key]) => {
-        return rootAllowConfig.includes(key)
-      })
-    ),
-    locales:
-      // assign locale data to `themeConfig`
-      getLocales({
+
+  const locales = getLocales({
         app,
         name: "vuepress-theme-weasel",
         default: Object.fromEntries(
@@ -114,8 +130,9 @@ export const getThemeConfig = (
             ]
           )
         ),
-      }) as ThemeLocaleConfig,
-  };
+      }) as ThemeLocaleConfig
+  const userThemeOptions = Object.fromEntries(Object.entries(themeOptions).filter(([key]) => rootAllowConfig.includes(key)))
+  const themeData: WeaselThemeConfig = deepAssign(defaultRootOptions, userThemeOptions, { locales })
 
   // handle encrypt options
   // themeData.encrypt = resolveEncrypt(themeData.encrypt);

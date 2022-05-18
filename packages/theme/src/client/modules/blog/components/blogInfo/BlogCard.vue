@@ -45,6 +45,7 @@ const tagMap = useTagMap();
 const timelines = useTimelines();
 const navigate = useNavigate();
 
+console.log(themeLocale)
 const locale = computed(() => themeLocale.value.blogLocales);
 const intro = computed(() => blogOptions.value.intro);
 const bloggerName = computed(

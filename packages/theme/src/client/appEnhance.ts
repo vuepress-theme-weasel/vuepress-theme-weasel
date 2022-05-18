@@ -2,8 +2,7 @@
  * client 组件注入
  */
 import { h } from 'vue'
-import { AuthorInfo, DateInfo, ArticleInfo, TagInfo, CategoryInfo, OriginalInfo, ReadingTimeInfo, RecommendList, Pagination } from './components/article'
-import { Badge } from './components'
+import { AuthorInfo, DateInfo, ArticleInfo, TagInfo, CategoryInfo, OriginalInfo, ReadingTimeInfo, RecommendList, Pagination, Badge } from './components'
 
 import './styles/index.scss';
 

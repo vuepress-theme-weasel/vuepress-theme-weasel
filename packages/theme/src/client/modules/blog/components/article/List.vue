@@ -29,6 +29,7 @@ const props = defineProps({
 const blogOptions = useBlogOptions()
 
 const articlePerPage = computed(() => blogOptions.value.articlePerPage)
+console.log(articlePerPage)
 const currentArticles = computed(() =>
   props.items.slice(
     (props.currentPage - 1) * articlePerPage.value!,

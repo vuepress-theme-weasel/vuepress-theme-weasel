@@ -37,12 +37,13 @@ import { BlogHeader, Navbar } from '../header'
 import { DropTransition } from '@theme-weasel/components'
 import { useArticles, useCategoryMap, useStars, useTagMap } from '@theme-weasel/composables'
 import { BlogPanel } from '../blogInfo'
-import { usePageFrontmatter, useRoute, useRouter } from '@vuepress/client';
+import { usePageFrontmatter } from '@vuepress/client';
 import { BlogFrontmatterOptions, BlogPluginFrontmatter } from '@mr-huang/vuepress-plugin-blog';
 import { computed, onMounted, ref, watch, watchEffect, Fragment } from 'vue'
 import ArticleContentPage from './ArticleContentPage.vue';
 import { ArticleType, TagList, ArticleList, CategoryList, TimelineItems } from '../../components'
 import { useBlogOptions } from '../../composables';
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter();

@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { useCategoryMap } from '@theme-weasel/composables'
-import { useRoute } from '@vuepress/client';
+import { useRoute } from 'vue-router';
 import { computed } from 'vue'
 import { generateIndexfromHash } from '../../../../utils'
 

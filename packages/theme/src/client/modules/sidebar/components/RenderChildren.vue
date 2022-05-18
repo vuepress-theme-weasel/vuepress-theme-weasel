@@ -20,7 +20,7 @@ export default defineComponent({
 <script lang="ts" setup>
 import { ResolvedThemeSidebarHeaderItem } from '../../../../typings';
 import { computed, PropType } from 'vue';
-import { useRoute } from '@vuepress/client';
+import { useRoute } from 'vue-router';
 import RenderItem from './RenderItem.vue'
 import { isActiveSidebarItem } from '../utils';
 
