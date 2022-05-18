@@ -177,6 +177,12 @@ importers:
       vue: 3.2.33
       vue-router: 4.0.15_vue@3.2.33
 
+  packages/md-extention:
+    specifiers:
+      '@vuepress/core': 2.0.0-beta.45
+    dependencies:
+      '@vuepress/core': 2.0.0-beta.45
+
   packages/shared:
     specifiers:
       '@vuepress/bundler-vite': 2.0.0-beta.45
@@ -216,7 +222,7 @@ importers:
     specifiers:
       '@mr-huang/vuepress-plugin-blog': workspace:*
       '@mr-huang/vuepress-plugin-comment': workspace:*
-      '@mr-huang/vuepress-plugin-sitemap': workspace:^0.0.1
+      '@mr-huang/vuepress-plugin-sitemap': workspace:*
       '@mr-huang/vuepress-shared': workspace:*
       '@types/lodash.debounce': ^4.0.7
       '@vuepress/client': ^2.0.0-beta.45
