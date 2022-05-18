@@ -1,6 +1,6 @@
 {
   "name": "@mr-huang/weasel-theme-demo",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "description": "A demo of weasel theme",
   "main": "index.js",
   "scripts": {
