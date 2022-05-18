@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0-beta.11](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2022-05-18)
+
+
+### Features
+
+* (project) 梳理依赖 ([58793e5](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/58793e5fd23a8ba1448c3ce53cd84e94e68ae42f))
+* (sitemap) 添加sitemap ([d725f1d](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/d725f1da2408a3c9e2e4daacaee33832e71c3147))
+
+
+### Bug Fixes
+
+* (project) fix action ([f761233](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/f761233e3c8491e195ebff01c6d383fa50517736))
+* (project) fix action ([8c9630a](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/8c9630a80bceb79cc64482e90ecc8a225bac1d6c))
+* (project) fix action ([db94c31](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/commit/db94c31b9b0292be1d6c5f2ef22959786be516df))
+
 ## [1.0.0-beta.10](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2022-05-18)
 
 ## [1.0.0-beta.9](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2022-05-18)
