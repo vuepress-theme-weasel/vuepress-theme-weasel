@@ -35,7 +35,7 @@ export const weaselTheme = (options: WeaselThemeOptions): ThemeFunction => (app)
     },
     extendsPage: (page) => extendsPage(app, themeOptions as WeaselThemeConfig, plugins, page as Page<ThemePageData>, app.env.isDev),
     // 主题默认的插件
-    plugins: createPluginConfig(plugins, themeConfig),
+    plugins: createPluginConfig(hostname, plugins, themeConfig),
     // 主题布局
     layouts: createLayout(app),
     clientConfigFile: (app) => prepareClientConfigFile(app, status)

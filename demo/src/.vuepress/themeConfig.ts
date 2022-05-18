@@ -8,6 +8,7 @@ export default weaselTheme({
     name: "Mr.Huang",
     url: "https://mrhope.site",
   },
+  hostname: 'https://vuepress-theme-weasel.github.io/vuepress-theme-weasel',
   articlePerPage: 2,
   repo: "vuepress-theme-hope/vuepress-theme-hope",
   lang: 'zh-CN',

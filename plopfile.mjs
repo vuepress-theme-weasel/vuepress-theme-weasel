@@ -1,4 +1,4 @@
-module.exports = plop => {
+export default (plop) => {
   plop.setHelper('weasel', function (text) {
       return text.replace(text[0], text[0].toUpperCase())
   })

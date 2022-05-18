@@ -1,5 +1,6 @@
-import { BlogOptions } from "@mr-huang/vuepress-plugin-blog"
+import type { BlogOptions } from "@mr-huang/vuepress-plugin-blog"
 import type { CommentOptions } from '@mr-huang/vuepress-plugin-comment'
+import type { SitemapOptions } from "@mr-huang/vuepress-plugin-sitemap";
 
 /**
  * blog plugin option
@@ -167,4 +168,11 @@ export interface ThemePluginsOptions {
    * 评论插件配置
    */
   comment?: CommentOptions | false;
+
+  /**
+   * Sitemap plugin options
+   *
+   * Sitemap 插件配置
+   */
+  sitemap?: Omit<SitemapOptions, "hostname"> | false;
 }

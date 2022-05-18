@@ -13,8 +13,10 @@ import { nprogressPlugin } from "@vuepress/plugin-nprogress";
 import { prismjsPlugin } from "@vuepress/plugin-prismjs";
 import { themeDataPlugin } from "@vuepress/plugin-theme-data";
 import { gitPlugin } from '@vuepress/plugin-git'
+import { sitemapPlugin } from "./sitemap";
 
 export const createPluginConfig = (
+  hostname: string,
   plugins: ThemePluginsOptions,
   themeData: WeaselThemeConfig
 ): PluginConfig => {
@@ -28,6 +30,7 @@ export const createPluginConfig = (
     themeDataPlugin({ themeData }),
     resolveBlog(themeData, plugins.blog),
     getCommentPlugin(plugins.comment),
+    sitemapPlugin(hostname, plugins.sitemap)
   ].filter((item) => item !== null) as PluginConfig;
 
   return pluginConfig
