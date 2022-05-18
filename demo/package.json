@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress-vite dev src",
     "dev-clean": "vuepress-vite dev src --clean-cache",
-    "build": "vuepress-vite build src"
+    "build": "vuepress-vite build src --clean-cache"
   },
   "repository": {
     "type": "git",
