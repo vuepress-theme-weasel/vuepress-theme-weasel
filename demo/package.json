@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/CavinHuang/vuepress-theme-weasel#readme",
   "dependencies": {
-    "@mr-huang/vuepress-theme-weasel": "workspace:1.0.0-beta.8",
+    "@mr-huang/vuepress-theme-weasel": "workspace:*",
     "@types/react": "16.8.0",
     "@vuepress/cli": "^2.0.0-beta.45",
     "@vuepress/client": "^2.0.0-beta.45",

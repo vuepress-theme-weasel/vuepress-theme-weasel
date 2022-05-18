@@ -26,7 +26,7 @@
     "packages:up": "pnpm --filter vuepress-theme-weasel-root --filter \"./packages/**\" --filter \"./demo\" up \"@mr-huang/*\" ",
     "release:bump": "bumpp package.json demo/package.json demos/**/package.json packages/*/package.json --execute=\"pnpm standard-version --skip.bump --skip.commit --skip.tag && git add CHANGELOG.md\" --commit \"chore(release): publish v%s\" --all --tag --push",
     "release:publish": "cross-env NODE_OPTIONS=\"--experimental-json-modules\" ts-node-esm  -O {\\\"module\\\":\\\"ESNext\\\"} scripts/release",
-    "release": "pnpm release:bump && pnpm packages:up && pnpm clean && pnpm build:libs && pnpm build:theme && pnpm release:publish"
+    "release": "pnpm release:bump && pnpm clean && pnpm build:libs && pnpm build:theme && pnpm release:publish"
   },
   "repository": {
     "type": "git",
@@ -44,10 +44,10 @@
   },
   "homepage": "https://github.com/vuepress-theme-weasel/vuepress-theme-weasel#readme",
   "dependencies": {
-    "@mr-huang/vuepress-plugin-blog": "workspace:1.0.0-beta.8",
-    "@mr-huang/vuepress-plugin-comment": "workspace:1.0.0-beta.8",
-    "@mr-huang/vuepress-shared": "workspace:1.0.0-beta.8",
-    "@mr-huang/vuepress-theme-weasel": "workspace:1.0.0-beta.8",
+    "@mr-huang/vuepress-plugin-blog": "workspace:*",
+    "@mr-huang/vuepress-plugin-comment": "workspace:*",
+    "@mr-huang/vuepress-shared": "workspace:*",
+    "@mr-huang/vuepress-theme-weasel": "workspace:*",
     "npm-check-updates": "^13.0.0",
     "typescript": "^4.6.4"
   },
