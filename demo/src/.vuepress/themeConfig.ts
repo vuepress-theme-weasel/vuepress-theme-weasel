@@ -6,7 +6,7 @@ console.log(weaselTheme)
 export default weaselTheme({
   author: {
     name: "Mr.Huang",
-    url: "https://mrhope.site",
+    url: "https://mr-huang.site",
   },
   hostname: 'https://vuepress-theme-weasel.github.io/vuepress-theme-weasel',
   articlePerPage: 2,
