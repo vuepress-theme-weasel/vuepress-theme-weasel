@@ -1,19 +1,19 @@
 /**
  * 创建主题默认的插件配置
  */
-import { App, PluginConfig } from '@vuepress/core'
-import { logger } from './../utils/logger'
+import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links'
+import { externalLinkIconPlugin } from "@vuepress/plugin-external-link-icon"
+import { nprogressPlugin } from "@vuepress/plugin-nprogress"
+import { prismjsPlugin } from "@vuepress/plugin-prismjs"
+import { themeDataPlugin } from "@vuepress/plugin-theme-data"
+import { gitPlugin } from '@vuepress/plugin-git'
 import { resolveGitPluginOptions } from './git'
-import { ThemePluginsOptions, WeaselThemeConfig } from '../../typings'
 import { resolveBlog } from './blog'
 import { getCommentPlugin } from './comment'
-import { activeHeaderLinksPlugin } from '@vuepress/plugin-active-header-links';
-import { externalLinkIconPlugin } from "@vuepress/plugin-external-link-icon";
-import { nprogressPlugin } from "@vuepress/plugin-nprogress";
-import { prismjsPlugin } from "@vuepress/plugin-prismjs";
-import { themeDataPlugin } from "@vuepress/plugin-theme-data";
-import { gitPlugin } from '@vuepress/plugin-git'
-import { sitemapPlugin } from "./sitemap";
+import { sitemapPlugin } from "./sitemap"
+
+import type { App, PluginConfig } from '@vuepress/core'
+import type { ThemePluginsOptions, WeaselThemeConfig } from '../../typings'
 
 export const createPluginConfig = (
   hostname: string,
@@ -22,7 +22,10 @@ export const createPluginConfig = (
 ): PluginConfig => {
 
   const pluginConfig = [
-    plugins.activeHeaderLinks === false ? null : activeHeaderLinksPlugin(),
+    plugins.activeHeaderLinks === false ? null : activeHeaderLinksPlugin({
+      headerLinkSelector: ".sidebar-link, .toc-link",
+      headerAnchorSelector: ".header-anchor",
+    }),
     plugins.externalLinkIcon === false ? null : externalLinkIconPlugin(),
     plugins.nprogress === false ? null : nprogressPlugin(),
     plugins.prismjs === false ? null : prismjsPlugin(),
