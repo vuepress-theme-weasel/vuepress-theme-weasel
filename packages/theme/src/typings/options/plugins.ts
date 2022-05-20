@@ -1,6 +1,7 @@
 import type { BlogOptions } from "@mr-huang/vuepress-plugin-blog"
 import type { CommentOptions } from '@mr-huang/vuepress-plugin-comment'
 import type { SitemapOptions } from "@mr-huang/vuepress-plugin-sitemap";
+import type { MdExtentionOptions } from '@mr-huang/vuepress-plugin-md-extention';
 
 /**
  * blog plugin option
@@ -175,4 +176,11 @@ export interface ThemePluginsOptions {
    * Sitemap 插件配置
    */
   sitemap?: Omit<SitemapOptions, "hostname"> | false;
+
+    /**
+   * md-enhance plugin options
+   *
+   * md-enhance 插件配置
+   */
+  mdExtention?: MdExtentionOptions | false;
 }

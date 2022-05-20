@@ -11,6 +11,7 @@ import { resolveGitPluginOptions } from './git'
 import { resolveBlog } from './blog'
 import { getCommentPlugin } from './comment'
 import { sitemapPlugin } from "./sitemap"
+import { mdExtentionPlugin } from './mdExtention'
 
 import type { PluginConfig } from '@vuepress/core'
 import type { ThemePluginsOptions, WeaselThemeConfig } from '../../typings'
@@ -33,7 +34,8 @@ export const createPluginConfig = (
     themeDataPlugin({ themeData }),
     resolveBlog(themeData, plugins.blog),
     getCommentPlugin(plugins.comment),
-    sitemapPlugin(hostname, plugins.sitemap)
+    sitemapPlugin(hostname, plugins.sitemap),
+    mdExtentionPlugin(plugins.mdExtention)
   ].filter((item) => item !== null) as PluginConfig;
 
   return pluginConfig

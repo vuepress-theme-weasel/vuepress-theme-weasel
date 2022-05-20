@@ -74,6 +74,12 @@ export default weaselTheme({
       category: "Announcements",
       categoryId: "DIC_kwDOHEoaBM4COShW",
     },
+    mdEnhance: {
+      enableAll: true,
+      // presentation: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
+    },
     // comment: {
     //   type: "giscus",
     //   repo: "vuepress-theme-hope/giscus-discussions",

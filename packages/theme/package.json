@@ -48,6 +48,7 @@
   "dependencies": {
     "@mr-huang/vuepress-plugin-blog": "workspace:*",
     "@mr-huang/vuepress-plugin-comment": "workspace:*",
+    "@mr-huang/vuepress-plugin-md-extention": "workspace:*",
     "@mr-huang/vuepress-plugin-sitemap": "workspace:*",
     "@mr-huang/vuepress-shared": "workspace:*",
     "@vuepress/client": "^2.0.0-beta.45",

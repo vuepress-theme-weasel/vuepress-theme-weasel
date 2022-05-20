@@ -222,6 +222,7 @@ importers:
     specifiers:
       '@mr-huang/vuepress-plugin-blog': workspace:*
       '@mr-huang/vuepress-plugin-comment': workspace:*
+      '@mr-huang/vuepress-plugin-md-extention': workspace:*
       '@mr-huang/vuepress-plugin-sitemap': workspace:*
       '@mr-huang/vuepress-shared': workspace:*
       '@types/lodash.debounce': ^4.0.7
@@ -246,6 +247,7 @@ importers:
     dependencies:
       '@mr-huang/vuepress-plugin-blog': link:../blog
       '@mr-huang/vuepress-plugin-comment': link:../comment
+      '@mr-huang/vuepress-plugin-md-extention': link:../md-extention
       '@mr-huang/vuepress-plugin-sitemap': link:../sitemap
       '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/client': 2.0.0-beta.45
