@@ -179,8 +179,10 @@ importers:
 
   packages/md-extention:
     specifiers:
+      '@mr-huang/vuepress-shared': workspace:*
       '@vuepress/core': 2.0.0-beta.45
     dependencies:
+      '@mr-huang/vuepress-shared': link:../shared
       '@vuepress/core': 2.0.0-beta.45
 
   packages/shared:

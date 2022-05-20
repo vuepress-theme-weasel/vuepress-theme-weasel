@@ -13,11 +13,11 @@ VuePress 的每个文档页面都是由 Markdown 渲染而成。所以你需要�
 
 ## Markdown 介绍
 
-如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](https://vuepress-theme-hope.github.io/v2/zh/basic/markdown/README.html) 和 [Markdown 演示](https://vuepress-theme-hope.github.io/v2/zh/basic/markdown/demo.html)。
+如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](https://vuepress-theme-weasel.github.io/vuepress-theme-weasel/cookbook/markdown/README.html) 和 [Markdown 演示](ttps://vuepress-theme-weasel.github.io/vuepress-theme-weasel/cookbook/markdown/demo.html)。
 
 ::: info Frontmatter
 
-Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 [Frontmatter 介绍](https://vuepress-theme-hope.github.io/v2/zh/basic/vuepress/page.html#front-matter)。
+Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 [Frontmatter 介绍](https://v2.vuepress.vuejs.org/zh/reference/frontmatter.html)。
 
 :::
 
@@ -25,19 +25,19 @@ Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，�
 
 为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。
 
-关于这些扩展，请阅读 [VuePress 中的 Markdown 扩展](https://vuepress-theme-hope.github.io/v2/zh/basic/vuepress/markdown.html)。
+关于这些扩展，请阅读 [VuePress 中的 Markdown 扩展](https://vuepress-theme-weasel.github.io/vuepress-theme-weasel/cookbook/markdown/README.html)。
 
 ## 主题扩展
 
 ### 一键启用
 
-你可以设置 `themeconfig.plugins.htmlEnhance.enableAll` 启用 [md-enhance](https://vuepress-theme-hope.github.io/v2/md-enhance) 插件的所有功能。
+你可以设置 `themeconfig.plugins.mdExtention.enableAll` 启用 [md-extention](https://vuepress-theme-weasel.github.io/vuepress-theme-weasel/cookbook/markdown/README.html) 插件的所有功能。
 
 ```js {3-5}
 module.exports = {
   themeConfig: {
     plugins: {
-      mdEnhance: {
+      mdExtention: {
         enableAll: true,
       },
     },
@@ -129,7 +129,7 @@ const a = 1;
 
 ::::
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html)
+- [查看详情](mdExtention)
 
 ### 代码块
 
@@ -153,7 +153,7 @@ npm i -D vuepress-theme-hope
 
 ::::
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-group.html)
+- [查看详情](mdExtention)
 
 ### 自定义对齐
 
@@ -169,77 +169,20 @@ npm i -D vuepress-theme-hope
 
 :::
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
-
-### 上下角标
-
-19^th^ H~2~O
-
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
-
-### 脚注
-
-此文字有脚注[^first].
-
-[^first]: 这是脚注内容
-
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html)
+- [查看详情](mdExtention)
 
 ### 标记
 
 你可以标记 ==重要的内容== 。
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html)
+- [查看详情](mdExtention)
 
 ### 任务列表
 
 - [x] 计划 1
 - [ ] 计划 2
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html)
-
-### 流程图
-
-```flow
-cond=>condition: 是否执行操作?
-process=>operation: 操作
-e=>end: 结束
-
-cond(yes)->process->e
-cond(no)->e
-```
-
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html)
-
-## Mermaid
-
-```mermaid
-flowchart TB
-    c1-->a2
-    subgraph one
-    a1-->a2
-    end
-    subgraph two
-    b1-->b2
-    end
-    subgraph three
-    c1-->c2
-    end
-    one --> two
-    three --> two
-    two --> c2
-```
-
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html)
-
-### Tex 语法
-
-$$
-\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
-= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
-$$
-
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html)
+- [查看详情](mdExtention)
 
 ### 代码演示
 
@@ -264,7 +207,7 @@ span {
 
 :::
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html)
+- [查看详情](mdExtention)
 
 ### 幻灯片
 
@@ -272,7 +215,7 @@ span {
 
 ## 幻灯片 1
 
-一个有文字和 [链接](https://mrhope.site) 的段落
+一个有文字和 [链接](https://mr-huang.site) 的段落
 
 ---
 
@@ -299,4 +242,4 @@ $$
 
 @slideend
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html)
+- [查看详情](mdExtention)
