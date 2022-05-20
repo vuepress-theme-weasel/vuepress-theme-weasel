@@ -17,7 +17,7 @@ import { articleInfoLocales } from "../../define"
 import type { PropType } from 'vue'
 import type { AuthorInfo } from '@mr-huang/vuepress-shared'
 
-const props = defineProps({
+defineProps({
   author: {
     type: [Array, Boolean] as PropType<AuthorInfo[] | false>,
     required: true,

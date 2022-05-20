@@ -7,7 +7,7 @@
       </div>
       <div id="Layer1">
         <nav class="codrops-demos">
-          <a href="javascript:void(0);" @click.native="() => { router.go(-1) }">{{ themeLocale.routeLocales.back }}</a>
+          <a href="javascript:void(0);" @click="() => { router.go(-1) }">{{ themeLocale.routeLocales.back }}</a>
           <a href="javascript:void(0);" @click="navigate">{{ themeLocale.routeLocales.home }}</a>
         </nav>
       </div>
@@ -106,7 +106,7 @@ const findClosestPoints = (points: PointItem[], context: CanvasRenderingContext2
     var p1 = points[i];
     for (var j = 0; j < points.length; j++) {
       var p2 = points[j]
-      if (!(p1 == p2)) {
+      if (!(p1 === p2)) {
         var placed = false;
         for (var k = 0; k < 5; k++) {
           if (!placed) {
@@ -176,7 +176,7 @@ function scrollCheck(height: number) {
 function resize() {
   width.value = window.innerWidth;
   height.value = window.innerHeight;
-  largeHeader.value!.style.height = height + 'px';
+  largeHeader.value!.style.height = height.value + 'px';
   canvas.value!.width = width.value;
   canvas.value!.height = height.value;
 }

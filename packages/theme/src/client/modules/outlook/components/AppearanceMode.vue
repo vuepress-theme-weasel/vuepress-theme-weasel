@@ -1,5 +1,5 @@
 <template>
-  <div class="appearance-wrapper">
+  <div class="appearance-wrapper" v-if="enable">
     <label for="appearance-switch" class="appearance-title">{{ locale }}</label>
     <AppearanceSwitchVue />
   </div>

@@ -11,16 +11,24 @@
     </NavbarBrand>
     <NavbarLinks :style="linksWrapperStyle" />
     <NavActions :showScreen="showScreen" @toggleScreen="() => { showScreen = !showScreen; }">
-      <slot name="before" slot="before"></slot>
-      <slot name="after" slot="after"></slot>
+      <template #before>
+        <slot name="before"></slot>
+      </template>
+      <template #after>
+        <slot name="after"></slot>
+      </template>
     </NavActions>
   </header>
   <NavScreen
     :active="showScreen"
     @close="() => { showScreen = false }"
   >
-    <slot name="screenTop" slot="before"></slot>
-    <slot name="screenBottom" slot="after"></slot>
+    <template #before>
+      <slot name="screenTop"></slot>
+    </template>
+    <template #after>
+      <slot name="screenBottom"></slot>
+    </template>
   </NavScreen>
 </template>
 

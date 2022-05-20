@@ -10,7 +10,6 @@ import { getDefine } from './define';
 import { extendsPage } from './extends';
 import { usePlugin } from './usePlugin';
 import { prepareThemeColorScss } from './themeColor';
-import { path } from '@vuepress/utils';
 import { getThemeConfig } from './themeConfig';
 import { getStatus } from './state';
 

@@ -1,4 +1,4 @@
-import { usePreferredDark, useStorage } from "@vueuse/core";
+import { useStorage } from "@vueuse/core";
 import { computed, inject, onMounted, onUnmounted, provide, watch } from "vue";
 import { useThemeData } from "@theme-weasel/composables";
 

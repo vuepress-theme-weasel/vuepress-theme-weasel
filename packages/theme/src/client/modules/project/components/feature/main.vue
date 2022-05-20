@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useIconPrefix, usePageFrontmatter } from '@theme-weasel/composables'
+import { usePageFrontmatter } from '@theme-weasel/composables'
 import { isArray } from '@vuepress/shared';
 import { computed } from 'vue';
 import Item from './item.vue';

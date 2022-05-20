@@ -17,7 +17,7 @@
         </div>
         <hr />
         <ul class="sticky-article-list">
-          <DropTransition v-for="({ info, path }, index) in stars.items" :delay="0.08 * (index + 1)">
+          <DropTransition v-for="({ info, path }, index) in stars.items" :delay="0.08 * (index + 1)" :key="'article-item' + index">
             <li class="sticky-article" @click="navigate(path)">{{ info.title }}</li>
           </DropTransition>
         </ul>

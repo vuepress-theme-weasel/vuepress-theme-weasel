@@ -1,7 +1,7 @@
 <template>
   <div class="blog-info-list">
     <div class="switch-wrapper">
-      <button class="switch-button" v-for="(item, index) in buttons" :key="item.key" @click="active = item.key">
+      <button class="switch-button" v-for="item in buttons" :key="item.key" @click="active = item.key">
         <div
           :class="[
             'icon-wapper',
@@ -23,7 +23,7 @@
         </div>
         <hr />
         <ul class="sticky-article-list">
-          <DropTransition v-for="({ info, path }, index) in stars.items" :delay="0.08 * (index + 1)">
+          <DropTransition v-for="({ info, path }, index) in stars.items" :delay="0.08 * (index + 1)" :key="'article' + index">
             <li class="sticky-article" @click="navigate(path)">{{ info.title }}</li>
           </DropTransition>
         </ul>

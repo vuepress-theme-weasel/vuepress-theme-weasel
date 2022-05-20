@@ -44,9 +44,9 @@ const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 const route = useRoute()
 const router = useRouter()
 
-const navigate = (path = ""): void => {
-  if (path && route.path !== path) void router.push(path)
-}
+// const navigate = (path = ""): void => {
+//   if (path && route.path !== path) void router.push(path)
+// }
 
 const colorMap = ref(Array(9).fill(null).map((_, index) => index))
 

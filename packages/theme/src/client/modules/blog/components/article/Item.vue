@@ -20,7 +20,6 @@
 
 <script lang="ts" setup>
 import {
-  LockIcon,
   SlideIcon,
   StickyIcon,
 } from '../icons'

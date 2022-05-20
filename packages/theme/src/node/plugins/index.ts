@@ -12,7 +12,7 @@ import { resolveBlog } from './blog'
 import { getCommentPlugin } from './comment'
 import { sitemapPlugin } from "./sitemap"
 
-import type { App, PluginConfig } from '@vuepress/core'
+import type { PluginConfig } from '@vuepress/core'
 import type { ThemePluginsOptions, WeaselThemeConfig } from '../../typings'
 
 export const createPluginConfig = (

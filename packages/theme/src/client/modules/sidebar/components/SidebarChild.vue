@@ -20,7 +20,7 @@ import RenderItem from './RenderItem.vue';
 import RenderChildren from './RenderChildren.vue';
 import { isActiveSidebarItem } from '../utils';
 
-const props = defineProps({
+defineProps({
   config: {
     type: Object as PropType<
       ResolvedThemeSidebarPageItem | ResolvedThemeSidebarHeaderItem

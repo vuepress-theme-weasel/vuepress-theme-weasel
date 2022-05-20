@@ -1,6 +1,8 @@
 <template>
   <DropdownLink v-if="dropdown" class="i18n-dropdown" :config="dropdown">
-    <I18nIcon slot="title" :aria-label="dropdown.ariaLabel" :style="{width: '1rem', height: '1rem', verticalAlign: 'middle',}"></I18nIcon>
+    <template #title>
+      <I18nIcon :aria-label="dropdown.ariaLabel" :style="{width: '1rem', height: '1rem', verticalAlign: 'middle',}"></I18nIcon>
+    </template>
   </DropdownLink>
 </template>
 

@@ -6,7 +6,7 @@ async function run() {
   // fix cjs exports theme file path
   const themePluginPath = resolve(__dirname, '../lib/node/index.js')
   logger.info('[postbuild]', basename(themePluginPath))
-  const name = basename(themePluginPath, '.js')
+  // const name = basename(themePluginPath, '.js')
   let code = await fs.readFile(themePluginPath, 'utf8')
   code = code.replace('exports.default =', 'module.exports =')
   code += 'exports.default = module.exports;'

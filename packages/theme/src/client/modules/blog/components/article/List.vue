@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, PropType, ref } from 'vue'
+import { computed, PropType } from 'vue'
 import type { ArticleInfo } from '../../../../../typings'
 import { useBlogOptions } from '../../composables'
 import { DropTransition } from '@theme-weasel/components'

@@ -15,11 +15,21 @@
       @touchEnd="onTouchEnd"
     >
       <Navbar v-if="enableNavbar" @toggleSidebar="toggleMobileSidebar()">
-        <slot name="navbarLeft" slot="left"></slot>
-        <slot name="navbarCenter" slot="center"></slot>
-        <slot name="navbarRight" slot="right"></slot>
-        <slot name="navScreenTop" slot="screenTop"></slot>
-        <slot name="navScreenBottom" slot="screenBottom"></slot>
+        <template #left>
+          <slot name="navbarLeft"></slot>
+        </template>
+        <template #center>
+          <slot name="navbarCenter"></slot>
+        </template>
+        <template #right>
+          <slot name="navbarRight"></slot>
+        </template>
+        <template #screenTop>
+          <slot name="navScreenTop"></slot>
+        </template>
+        <template #screenBottom>
+          <slot name="navScreenBottom"></slot>
+        </template>
       </Navbar>
       <!-- sidebar mask -->
       <Transition name="fade">
@@ -33,8 +43,12 @@
       </Transition>
       <Sidebar>
         <slot name="sidebar"></slot>
-        <slot name="sidebarTop" slot="top"></slot>
-        <slot name="sidebarBottom" slot="bottom"></slot>
+        <template #top>
+          <slot name="sidebarTop"></slot>
+        </template>
+        <template #bottom>
+          <slot name="sidebarBottom"></slot>
+        </template>
       </Sidebar>
       <ProjectHome v-if="isHome" />
       <ProjectPage v-else />
