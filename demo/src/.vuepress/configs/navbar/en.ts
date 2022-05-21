@@ -43,20 +43,16 @@ export const en = [
     ],
   },
   {
-    text: "2.0",
+    text: "bate",
     icon: "note",
     children: [
       {
-        text: "V2 Docs",
-        link: "https://vuepress-theme-hope.github.io/v2/",
+        text: "Docs",
+        link: "https://vuepress-theme-weasel.github.io/vuepress-theme-weasel",
       },
       {
-        text: "V1 Docs",
-        link: "https://vuepress-theme-hope.github.io/v1/",
-      },
-      {
-        text: "V1 Demo",
-        link: "https://vuepress-theme-hope.github.io/v1-demo/",
+        text: "Demo",
+        link: "https://vuepress-theme-weasel.github.io/vuepress-theme-weasel",
       },
     ],
   },

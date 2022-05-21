@@ -22,7 +22,7 @@
         property="image"
         alt="Blogger Avatar"
       />
-      <div class="name" property="name">Mr.Hope</div>
+      <div class="name" property="name">Mr.Huang</div>
       <div class="description">一个前端开发者</div>
       <meta property="url" content="/v2-demo/zh/intro.html" />
     </div>

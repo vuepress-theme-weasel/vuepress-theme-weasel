@@ -4,7 +4,7 @@ icon: page
 # 这是文章的标题
 title: 页面配置
 # 设置作者
-author: Ms.Hope
+author: Ms.Huang
 # 设置写作时间
 date: 2020-01-01
 # 一个页面可以有多个分类
@@ -26,7 +26,7 @@ footer: 这是测试显示的页脚
 
 你可以在 Markdown 的 Frontmatter 中设置页面信息。
 
-- 作者设置为 Ms.Hope。
+- 作者设置为 Ms.Huang.
 
 - 写作时间应为 2020 年 1 月 1 日
 

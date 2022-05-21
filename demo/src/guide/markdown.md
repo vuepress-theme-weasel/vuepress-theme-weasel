@@ -138,7 +138,7 @@ const a = 1;
 ::: code-group-item yarn
 
 ```bash
-yarn add -D vuepress-theme-hope
+yarn add -D @mr-huang/vuepress-theme-weasel
 ```
 
 :::
@@ -146,7 +146,7 @@ yarn add -D vuepress-theme-hope
 ::: code-group-item npm:active
 
 ```bash
-npm i -D vuepress-theme-hope
+npm i -D @mr-huang/vuepress-theme-weasel
 ```
 
 :::
@@ -189,7 +189,7 @@ npm i -D vuepress-theme-hope
 ::: demo 一个普通 Demo
 
 ```html
-<h1>Mr.Hope</h1>
+<h1>Mr.Huang</h1>
 <p><span id="very">十分</span> 帅</p>
 ```
 

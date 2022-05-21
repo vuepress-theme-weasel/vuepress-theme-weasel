@@ -79,20 +79,16 @@ export const zh = [
     ],
   },
   {
-    text: 2.0,
+    text: 'bate',
     icon: "note",
     children: [
       {
-        text: "V2 文档",
-        link: "https://vuepress-theme-hope.github.io/v2/zh/",
+        text: "文档",
+        link: "https://vuepress-theme-weasel.github.io/vuepress-theme-weasel",
       },
       {
-        text: "V1 文档",
-        link: "https://vuepress-theme-hope.github.io/v1/zh/",
-      },
-      {
-        text: "V1 演示",
-        link: "https://vuepress-theme-hope.github.io/v1-demo/zh/",
+        text: "演示",
+        link: "https://vuepress-theme-weasel.github.io/vuepress-theme-weasel",
       },
     ],
   },

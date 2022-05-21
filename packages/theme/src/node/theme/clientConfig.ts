@@ -26,8 +26,8 @@ app.component('BlogPage', BlogPage)
 
 //   if (enableEncrypt) {
 //     configImport += `
-// import GloablEncrypt from "@theme-hope/module/encrypt/components/GloablEncrypt";
-// import LocalEncrypt from "@theme-hope/module/encrypt/components/LocalEncrypt";
+// import GloablEncrypt from "@theme-weasel/module/encrypt/components/GloablEncrypt";
+// import LocalEncrypt from "@theme-weasel/module/encrypt/components/LocalEncrypt";
 // `;
 //     enhance += `
 // app.component("GloablEncrypt", GloablEncrypt);

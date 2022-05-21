@@ -1,36 +1,94 @@
 ---
-title: Custom container
+title: 自定义容器
+icon: customize
+index: 2
+category:
+  - Markdown
+tag:
+  - Markdown
+  - 容器
 ---
 
-## Demo
+主题可以为你添加提示、注释、信息、注意、警告和详情自定义容器的支持。
+
+<!-- more -->
+
+## 配置
+
+:::: code-group
+
+::: code-group-item TS
+
+```ts {8-11}
+// .vuepress/config.ts
+import { defineUserConfig } from "vuepress";
+import { weaselTheme } from "@mr-huang/vuepress-theme-weasel";
+
+export default defineUserConfig({
+  theme: weaselTheme({
+    plugins: {
+      mdEnhance: {
+        // this is the default option, so you can use it directly
+        container: true,
+      },
+    },
+  }),
+});
+```
+
+:::
+
+::: code-group-item JS
+
+```js {7-10}
+// .vuepress/config.js
+const { weaselTheme } = require("@mr-huang/vuepress-theme-weasel");
+
+module.exports = {
+  theme: weaselTheme({
+    plugins: {
+      mdEnhance: {
+        // this is the default option, so you can use it directly
+        container: true,
+      },
+    },
+  }),
+};
+```
+
+:::
+
+::::
+
+## 演示
 
 ::: info
-Information container
+信息容器。
 :::
 
 ::: note
-Note container
+注释容器。
 :::
 
 ::: tip
-Tip container
+提示容器
 :::
 
 ::: warning
-Warning container
+警告容器
 :::
 
 ::: danger
-Dangerous container
+危险容器
 :::
 
 ::: details
-Details container
+详情容器
 :::
 
-::: info Custom Title
+::: info 自定义标题
 
-A custom information container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的信息容器。
 
 ```js
 const a = 1;
@@ -38,19 +96,9 @@ const a = 1;
 
 :::
 
-::: note Custom Title
+::: note 自定义标题
 
-A custom note container with `code`, [link](#markdown).
-
-```js
-const a = 1;
-```
-
-:::
-
-::: tip Custom Title
-
-A custom tip container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的注释容器。
 
 ```js
 const a = 1;
@@ -58,19 +106,9 @@ const a = 1;
 
 :::
 
-::: warning Custom Title
+::: tip 自定义标题
 
-A custom warning container with `code`, [link](#markdown).
-
-```js
-const a = 1;
-```
-
-:::
-
-::: danger Custom Title
-
-A custom danger container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的提示容器。
 
 ```js
 const a = 1;
@@ -78,9 +116,9 @@ const a = 1;
 
 :::
 
-::: details Custom Title
+::: warning 自定义标题
 
-A custom details container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的警告容器。
 
 ```js
 const a = 1;
@@ -88,49 +126,69 @@ const a = 1;
 
 :::
 
-::: info Custom info
+::: danger 自定义标题
+
+一个有 `代码` 和 [链接](#markdown) 的危险容器。
+
+```js
+const a = 1;
+```
+
 :::
 
-::: note Custom note
+::: details 自定义标题
+
+一个有 `代码` 和 [链接](#markdown) 的详情容器。
+
+```js
+const a = 1;
+```
+
 :::
 
-::: tip Custom tip
+::: info 自定义信息
 :::
 
-::: warning Custom warning
+::: note 自定义注释
 :::
 
-::: danger Custom danger
+::: tip 自定义提示
+:::
+
+::: warning 自定义警告
+:::
+
+::: danger 自定义危险
 :::
 
 ````md
 ::: info
-Information container
+信息容器。
 :::
 
 ::: note
-Note container
+注释容器。
 :::
 
 ::: tip
-Tip container
+提示容器
 :::
 
 ::: warning
-Warning container
+警告容器
 :::
 
 ::: danger
-Dangerous container
+危险容器
 :::
 
 ::: details
-Details container
+详情容器
 :::
 
-::: info Custom Title
+::: info 自定义标题
 
-A custom information container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的信息容器。
 
 ```js
 const a = 1;
@@ -138,8 +196,9 @@ const a = 1;
 
 :::
 
-::: note Custom Title
-A custom note container with `code`, [link](#markdown).
+::: note 自定义标题
+
+一个有 `代码` 和 [链接](#markdown) 的注释容器。
 
 ```js
 const a = 1;
@@ -147,19 +206,9 @@ const a = 1;
 
 :::
 
-::: tip Custom Title
+::: tip 自定义标题
 
-A custom tip container with `code`, [link](#markdown).
-
-```js
-const a = 1;
-```
-
-:::
-
-::: warning Custom Title
-
-A custom warning container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的提示容器。
 
 ```js
 const a = 1;
@@ -167,19 +216,9 @@ const a = 1;
 
 :::
 
-::: danger Custom Title
+::: warning 自定义标题
 
-A custom danger container with `code`, [link](#markdown).
-
-```js
-const a = 1;
-```
-
-:::
-
-::: details Custom Title
-
-A custom details container with `code`, [link](#markdown).
+一个有 `代码` 和 [链接](#markdown) 的警告容器。
 
 ```js
 const a = 1;
@@ -187,18 +226,38 @@ const a = 1;
 
 :::
 
-::: info Custom info
+::: danger 自定义标题
+
+一个有 `代码` 和 [链接](#markdown) 的危险容器。
+
+```js
+const a = 1;
+```
+
 :::
 
-::: note Custom note
+::: details 自定义标题
+
+一个有 `代码` 和 [链接](#markdown) 的详情容器。
+
+```js
+const a = 1;
+```
+
 :::
 
-::: tip Custom tip
+::: info 自定义信息
 :::
 
-::: warning Custom warning
+::: note 自定义注释
 :::
 
-::: danger Custom danger
+::: tip 自定义提示
+:::
+
+::: warning 自定义警告
+:::
+
+::: danger 自定义危险
 :::
 ````

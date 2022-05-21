@@ -10,7 +10,7 @@ export default weaselTheme({
   },
   hostname: 'https://vuepress-theme-weasel.github.io/vuepress-theme-weasel',
   articlePerPage: 2,
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "vuepress-theme-weasel/vuepress-theme-weasel",
   lang: 'zh-CN',
   // 开启blog
   blog: {
@@ -60,13 +60,6 @@ export default weaselTheme({
     permalink: {
       format: ':year-:month-:day/:id'
     },
-    // comment: {
-    //   type: "twikoo",
-    //   // repo: "vuepress-theme-hope/giscus-discussions",
-    //   envId: "https://blog-comment-qihd.vercel.app/",
-    //   // category: "Announcements",
-    //   // categoryId: "DIC_kwDOG_Pt2M4COD69",
-    // },export http_proxy="http://127.0.0.1:1087" export https_proxy="http://127.0.0.1:1087"
     comment: {
       type: "giscus",
       repo: "vuepress-theme-weasel/blog-comment",
@@ -79,14 +72,7 @@ export default weaselTheme({
       // presentation: {
       //   plugins: ["highlight", "math", "search", "notes", "zoom"],
       // },
-    },
-    // comment: {
-    //   type: "giscus",
-    //   repo: "vuepress-theme-hope/giscus-discussions",
-    //   repoId: "R_kgDOG_Pt2A",
-    //   category: "Announcements",
-    //   categoryId: "DIC_kwDOG_Pt2M4COD69",
-    // },
+    }
   },
   // navbar: nav,
   // sidebar,

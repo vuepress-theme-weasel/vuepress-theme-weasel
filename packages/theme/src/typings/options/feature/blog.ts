@@ -79,10 +79,10 @@ export interface ThemeBlogOptions {
    * {
    *   QQ: 'http://wpa.qq.com/msgrd?v=3&uin=1178522294&site=qq&menu=yes',
    *   Qzone: 'https://1178522294.qzone.qq.com/',
-   *   Gmail: 'mailto:mister-hope@outlook.com',
-   *   Zhihu: 'https://www.zhihu.com/people/mister-hope',
-   *   Steam: 'https://steamcommunity.com/id/Mr-Hope/',
-   *   Weibo: 'https://weibo.com/misterhope',
+   *   Gmail: 'mailto:mister-huang@outlook.com',
+   *   Zhihu: 'https://www.zhihu.com/people/mister-huang',
+   *   Steam: 'https://steamcommunity.com/id/Mr-huang/',
+   *   Weibo: 'https://weibo.com/huang',
    * }
    * ```
    */

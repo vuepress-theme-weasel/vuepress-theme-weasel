@@ -40,7 +40,7 @@ export default defineUserConfig({
        * Using Waline
        */
       // type: "waline",
-      // serverURL: "https://vuepress-theme-hope-comment.vercel.app",
+      // serverURL: "https://vuepress-theme-weasel-comment.vercel.app",
     }),
   ],
 });

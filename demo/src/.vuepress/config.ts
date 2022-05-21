@@ -37,7 +37,7 @@ export default defineUserConfig({
     // ['@vuepress/plugin-docsearch', {
     //   appId: "LDBQGQC8Q9",
     //   apiKey: "5c3a7145aeba231c3b85b742d24fc24f",
-    //   indexName: "mrhope",
+    //   indexName: "huang",
     //   locales: {
     //     "/": {
     //       placeholder: "搜索",

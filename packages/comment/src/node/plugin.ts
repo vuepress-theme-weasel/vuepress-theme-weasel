@@ -33,7 +33,7 @@ export const commentPlugin =
     // remove locales so that they won’t be injected in client twice
     if ("walineLocales" in options) delete options.walineLocales;
 
-    // useSassPalettePlugin(app, { id: "hope" });
+    // useSassPalettePlugin(app, { id: "huang" });
 
     return {
       name: "@mr-huang/vuepress-plugin-comment",

@@ -5,8 +5,7 @@
 <h1 align="center">vuepress-theme-weasel</h1>
 <h4 align="center">A vuepress theme with niche of features✨ / 一个小众化的 vuepress 主题✨</h4>
 
-[![Author: Mr.Hope](https://img.shields.io/badge/作者-Mr.Huang-blue.svg?style=for-the-badge)](https://zukmb.cn)
-[![License](https://img.shields.io/npm/l/vuepress-theme-hope.svg?style=for-the-badge)](https://github.com/vuepress-theme-weasel/vuepress-theme-weasel/blob/main/LICENSE)
+[![Author: Mr.Huang](https://img.shields.io/badge/作者-Mr.Huang-blue.svg?style=for-the-badge)](https://zukmb.cn)
 [![Open in Visual Studio Code](https://img.shields.io/badge/-open%20in%20vscode-blue?style=for-the-badge&logo=visualstudiocode)](https://github.dev/vuepress-theme-weasel/vuepress-theme-weasel)
 
 <!-- markdownlint-restore -->

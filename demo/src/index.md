@@ -33,6 +33,6 @@ footer: MIT Licensed | Copyright © 2021-present CavinHuang
 
 想要使用此布局，你需要在页面 front matter 中设置 `home: true`。
 
-配置项的相关说明详见 [项目主页配置](https://vuepress-theme-hope.github.io/zh/guide/layout/home/)。
+配置项的相关说明详见 [项目主页配置](https://vuepress-theme-weasel.github.io/vuepress-theme-weasel/guide/layout/home/)。
 
 
