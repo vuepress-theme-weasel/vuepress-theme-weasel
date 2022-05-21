@@ -29,7 +29,9 @@ export const createPluginConfig = (
     }),
     plugins.externalLinkIcon === false ? null : externalLinkIconPlugin(),
     plugins.nprogress === false ? null : nprogressPlugin(),
-    plugins.prismjs === false ? null : prismjsPlugin(),
+    plugins.prismjs === false ? null : prismjsPlugin({
+      preloadLanguages: ['markdown', 'jsdoc', 'yaml', 'vue', 'javascript', 'typescript']
+    }),
     gitPlugin(resolveGitPluginOptions(plugins, themeData)),
     themeDataPlugin({ themeData }),
     resolveBlog(themeData, plugins.blog),

@@ -11,7 +11,7 @@ pre[class*='language-'] {
   font-family: var(--code-font-family);
 }
 
-span[class~='language-css']:before {
+span[class*=language-]:before {
   content: '';
 }
 
@@ -33,6 +33,10 @@ div[class~='language-javascript']{
   &::before {
     content: 'js';
   }
+}
+
+span[class*=language-] {
+  margin: 1rem 1.25rem;
 }
 
 :root {
@@ -184,23 +188,37 @@ div[class*='language-'] code {
 
 div[class*='language-'].line-numbers-mode {
   padding-left: 3.5rem;
-}
-
-.line-numbers {
-  position: absolute;
-  top: calc(var(--prism-block-padding-y) + 12px);
-  bottom: calc(var(--prism-block-padding-y) + 12px);
-  left: 0;
-  z-index: 3;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  // padding: calc(var(--prism-block-padding-y) + 1em) 0;
-  width: 3.5rem;
-  text-align: center;
-  line-height: var(--code-line-height);
-  font-family: var(--code-font-family);
-  // font-size: var(--code-font-size);
-  color: #888;
-  z-index: 4;
-  -webkit-user-select: none;
-  user-select: none;
+  .line-numbers {
+    position: absolute;
+    top: calc(var(--prism-block-padding-y) + 12px);
+    bottom: calc(var(--prism-block-padding-y) + 12px);
+    left: 0;
+    z-index: 3;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    // padding: calc(var(--prism-block-padding-y) + 1em) 0;
+    width: 3.5rem;
+    text-align: center;
+    line-height: var(--code-line-height);
+    font-family: var(--code-font-family);
+    // font-size: var(--code-font-size);
+    color: #888;
+    z-index: 4;
+    -webkit-user-select: none;
+    user-select: none;
+    counter-reset: line-number;
+  }
+  .line-number {
+    position: relative;
+    z-index: 4;
+    line-height: var(--code-line-height);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &::before {
+      content: counter(line-number);
+      font-size: .85em;
+      counter-increment: line-number;
+    }
+  }
 }
