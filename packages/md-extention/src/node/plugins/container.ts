@@ -5,6 +5,7 @@ import { containerPlugin } from "@vuepress/plugin-container";
 import type { App, LocaleConfig } from "@vuepress/core"
 import type { MarkdownContainerName, MdExtentionLocaleConfig, MdExtentionOptions } from '../../typings';
 import { detailsRender } from './details';
+import { codeDemoRender } from './codeDemo';
 
 const getContainterLocale = (
   key: MarkdownContainerName,
@@ -47,4 +48,7 @@ export const containerExtention = (app: App, pluginOptions: MdExtentionOptions) 
       })
     );
   }
+
+  if (pluginOptions.demo || pluginOptions.enableAll)
+    app.use(containerPlugin({ type: "demo", render: codeDemoRender }));
 }

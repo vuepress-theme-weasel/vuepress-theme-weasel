@@ -1,4 +1,5 @@
 import { LocaleConfig } from "@vuepress/core";
+import { CodeDemoOptions } from "./codeDemo";
 import { MdExtentionLocaleData } from "./locales";
 
 export interface MdExtentionOptions {
@@ -44,4 +45,13 @@ export interface MdExtentionOptions {
    * 国际化配置选项
    */
   locales?: LocaleConfig<MdExtentionLocaleData>;
+
+  /**
+   * Whether to enable code-demo support
+   *
+   * 是否启用代码示例功能
+   *
+   * @default false
+   */
+  demo?: Partial<CodeDemoOptions> | boolean;
 }
