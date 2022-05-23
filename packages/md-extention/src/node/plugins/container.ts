@@ -49,6 +49,7 @@ export const containerExtention = (app: App, pluginOptions: MdExtentionOptions) 
     );
   }
 
-  if (pluginOptions.demo || pluginOptions.enableAll)
+  if (pluginOptions.demo || pluginOptions.enableAll) {
     app.use(containerPlugin({ type: "demo", render: codeDemoRender }));
+  }
 }

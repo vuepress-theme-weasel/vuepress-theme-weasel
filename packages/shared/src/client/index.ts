@@ -15,3 +15,4 @@ export {
 export { default as noopModule } from './noopModule'
 export * from './composables'
 export * from './utils'
+export * from './components'

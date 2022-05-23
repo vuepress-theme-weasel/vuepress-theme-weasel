@@ -38,7 +38,12 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@vuepress/core": "2.0.0-beta.45",
-    "@mr-huang/vuepress-shared": "workspace:*"
+    "@babel/core": "*",
+    "@mr-huang/vuepress-shared": "workspace:*",
+    "@vuepress/core": "2.0.0-beta.45"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@types/babel__core": "^7.1.19"
   }
 }

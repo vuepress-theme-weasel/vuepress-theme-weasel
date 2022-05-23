@@ -31,7 +31,7 @@ export default defineUserConfig({
     }
   },
   public: path.resolve(__dirname, '../public'),
-  debug: true,
+  debug: false,
   theme: weaselTheme,
   plugins: [
     // ['@vuepress/plugin-docsearch', {

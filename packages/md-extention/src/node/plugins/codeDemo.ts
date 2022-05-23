@@ -40,7 +40,5 @@ export const codeDemoDefaultSetting: CodeDemoOptions = {
   codepenLayout: "left",
   codepenEditors: "101",
   babel: "https://unpkg.com/@babel/standalone/babel.min.js",
-  vue: "https://unpkg.com/vue/dist/vue.global.prod.js",
-  react: "https://unpkg.com/react/umd/react.production.min.js",
-  reactDOM: "https://unpkg.com/react-dom/umd/react-dom.production.min.js",
+  vue: "https://unpkg.com/vue/dist/vue.global.prod.js"
 };

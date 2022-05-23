@@ -78,22 +78,4 @@ export interface CodeDemoOptions {
    * @default "https://unpkg.com/vue/dist/vue.global.prod.js"
    */
   vue: string;
-
-  /**
-   * React lib address
-   *
-   * React 库的地址
-   *
-   * @default "https://unpkg.com/react/umd/react.production.min.js"
-   */
-  react: string;
-
-  /**
-   * ReactDOM lib address
-   *
-   * ReactDOM 库的地址
-   *
-   * @default "https://unpkg.com/react-dom/umd/react-dom.production.min.js"
-   */
-  reactDOM: string;
 }

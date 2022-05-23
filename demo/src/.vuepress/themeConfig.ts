@@ -67,7 +67,7 @@ export default weaselTheme({
       category: "Announcements",
       categoryId: "DIC_kwDOHEoaBM4COShW",
     },
-    mdEnhance: {
+    mdExtention: {
       enableAll: true,
       // presentation: {
       //   plugins: ["highlight", "math", "search", "notes", "zoom"],

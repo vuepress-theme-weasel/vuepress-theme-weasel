@@ -18,10 +18,10 @@ export const clientConfigFile = async (
       ? Boolean(options[key])
       : options.enableAll || false;
 
-  // if (getStatus("demo")) {
-  //   configImport += `import CodeDemo from "${CLIENT_FOLDER}components/CodeDemo";\n`;
-  //   enhance += `app.component("CodeDemo", CodeDemo);\n`;
-  // }
+  if (getStatus("demo")) {
+    configImport += `import { CodeDemo } from "${CLIENT_FOLDER}components/code-demo";\n import "${CLIENT_FOLDER}styles/code-demo.scss";\n`;
+    enhance += `app.component("CodeDemo", CodeDemo);\n`;
+  }
 
   // if (getStatus("codegroup")) {
   //   configImport += `import CodeGroup from "${CLIENT_FOLDER}components/CodeGroup";\n`;
