@@ -30,6 +30,8 @@ A vuepress theme with niche of features✨ / 一个小众化的 vuepress 主题 
 
 当前分支基于 VuePress@v2，仍处于 Beta。
 
+
+
 这意味着功能和 API 尚未固定，在未来的更新中仍有概率出现破坏性更改。
 
 ---
