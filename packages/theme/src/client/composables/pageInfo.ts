@@ -4,7 +4,7 @@
 import { getDate } from '@mr-huang/vuepress-shared/lib/client'
 import { usePageData, usePageFrontmatter, usePageLang } from '@vuepress/client';
 import { GitData } from '@vuepress/plugin-git';
-import { UnwrapNestedRefs, computed, ComputedRef, inject, reactive } from 'vue'
+import { computed, ComputedRef, inject, reactive } from 'vue'
 import { getAuthor, getCategory, getTag } from '../utils';
 import { usePure, useThemeLocaleData } from './themeData';
 
@@ -102,7 +102,7 @@ export const usePageInfo = ():{
   const tag = usePageTag();
   const date = usePageDate();
   const pure = usePure();
-  const page = usePageData();
+  // const page = usePageData();
   const meta = usePageMeate()
   const cover = meta.value && meta.value.cover ? meta.value.cover as string : null
 

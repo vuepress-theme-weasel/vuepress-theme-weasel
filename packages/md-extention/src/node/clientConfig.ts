@@ -2,7 +2,7 @@ import { ensureEndingSlash } from "@vuepress/shared";
 import { path } from "@vuepress/utils";
 
 import type { App } from "@vuepress/core";
-import type { MdExtentionOptions, RevealPlugin } from "../typings";
+import type { MdExtentionOptions } from "../typings";
 
 const CLIENT_FOLDER = ensureEndingSlash(path.resolve(__dirname, "../client"));
 

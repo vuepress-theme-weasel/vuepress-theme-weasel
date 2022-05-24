@@ -53,7 +53,7 @@ import { PageTitleProps } from '../../../../../typings'
 import { DropTransition, PageMeta, PageNav } from '@theme-weasel/components'
 import { usePageData } from '@vuepress/client'
 
-const { config, items } = usePageInfo()
+const { config } = usePageInfo()
 const pageData = usePageData()
 const pageInfoProps: PageTitleProps = {...config, ...{ author: false, date: false }}
 

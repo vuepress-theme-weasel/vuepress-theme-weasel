@@ -3,7 +3,7 @@
     <ThemeColorVue v-if="enableThemeColor" />
     <AppearanceModeVue v-if="enableDarkmode" />
     <ToggleFullScreenButtonVue v-if="enableFullScreen" />
-    <PureButtonVue />
+    <PureButtonVue v-if="enablePure" />
   </ClientOnly>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="blog-info-list">
     <div class="switch-wrapper">
-      <button class="switch-button" v-for="(item, index) in buttons" :key="item.key" @click="active = item.key">
+      <button class="switch-button" v-for="item in buttons" :key="item.key" @click="active = item.key">
         <div :class="['icon-wapper', { active: active === item.key }]" :aria-label="locale[item.key]">
           <component :is="item.icon" color="rgba(255, 255, 255, 0.6)"/>
         </div>

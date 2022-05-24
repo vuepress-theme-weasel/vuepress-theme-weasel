@@ -8,8 +8,9 @@
           [`category${colorMap[index % 9]}`]: color,
           clickable: item.path,
         }
-      ]
-      ">
+      ]"
+      @click="navigate(item.path)"
+    >
       <span :role="item.path ? 'navigation' : ''">{{item.name}}</span></li>
       <meta property="articleSection" :content="category.map((item: any) => item.name).join(' ,')" />
     </ul>
@@ -23,7 +24,7 @@ import { CategoryIcon } from './Icons'
 import { useRoute, useRouter } from 'vue-router'
 import { useLocaleConfig } from '@mr-huang/vuepress-shared/lib/client'
 
-import type { ArticleCategory } from '@mr-huang/vuepress-shared'
+import type { ArticleCategory } from '../../../typings'
 
 defineProps({
   category: {
@@ -44,9 +45,9 @@ const pageInfoLocale = useLocaleConfig(articleInfoLocales)
 const route = useRoute()
 const router = useRouter()
 
-// const navigate = (path = ""): void => {
-//   if (path && route.path !== path) void router.push(path)
-// }
+const navigate = (path = ""): void => {
+  if (path && route.path !== path) void router.push(path)
+}
 
 const colorMap = ref(Array(9).fill(null).map((_, index) => index))
 

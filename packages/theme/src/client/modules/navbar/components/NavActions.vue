@@ -22,7 +22,7 @@ import { isComponentRegistered } from '@mr-huang/vuepress-shared/lib/client'
 
 const emit = defineEmits(["toggleScreen"])
 
-const props = defineProps({
+defineProps({
   showScreen: { type: Boolean, default: false },
 })
 

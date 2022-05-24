@@ -76,15 +76,4 @@ const indexs = computed(() => {
 
 const navigate = (page: number): void => emit('updateCurrentPage', page)
 
-/** Check and navigate to certain page */
-const jumpPage = (index: string): void => {
-  const pageNum = parseInt(index);
-
-  if (pageNum <= totalPages.value && pageNum > 0) {
-    navigate(pageNum);
-  } else {
-    alert(locale.value.errorText.replace(/\$page/g, totalPages.value.toString()));
-  }
-}
-
 </script>

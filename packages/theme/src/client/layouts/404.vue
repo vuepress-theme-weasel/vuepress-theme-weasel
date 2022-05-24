@@ -106,7 +106,7 @@ const findClosestPoints = (points: PointItem[], context: CanvasRenderingContext2
     var p1 = points[i];
     for (var j = 0; j < points.length; j++) {
       var p2 = points[j]
-      if (!(p1 === p2)) {
+      if (p1 !== p2) {
         var placed = false;
         for (var k = 0; k < 5; k++) {
           if (!placed) {

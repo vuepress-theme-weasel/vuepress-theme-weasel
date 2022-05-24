@@ -9,7 +9,7 @@
         </a>
       </div>
       <p class="actions">
-        <a v-for="(action, index) in frontmatter.actions" :href="action.link" class="nav-link action-button" :class="{ primary: action.type === 'primary' }" :style="action.style || {}">{{ action.text }}</a>
+        <a v-for="(action, index) in frontmatter.actions" :key="'action' + index" :href="action.link" class="nav-link action-button" :class="{ primary: action.type === 'primary' }" :style="action.style || {}">{{ action.text }}</a>
       </p>
     </div>
   </section>

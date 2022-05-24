@@ -6,7 +6,7 @@ import weaselTheme from './themeConfig';
 
 const base = (process.env.BASE as "/" | `/${string}/`) || "/";
 const path = require('path')
-const isProd = process.env.NODE_ENV === "production"
+// const isProd = process.env.NODE_ENV === "production"
 
 /**
  * vuepress 配置文件
