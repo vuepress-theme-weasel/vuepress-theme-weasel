@@ -42,7 +42,7 @@ const canvas = ref<HTMLCanvasElement | null>(null)
 
 const points = ref<PointItem[]>([]);
 const active = ref(0)
-const animateHeader = ref(true)
+const animateHeader = ref<boolean>(true)
 const width = ref(0)
 const height = ref(0)
 
@@ -190,7 +190,7 @@ function initAnimation(ctx: CanvasRenderingContext2D, target: PointItem) {
 }
 
 function animate(ctx: CanvasRenderingContext2D, target: PointItem) {
-  if (animateHeader) {
+  if (animateHeader.value) {
     ctx.clearRect(0, 0, width.value, height.value);
     for (var i in points.value) {
       // detect points in range

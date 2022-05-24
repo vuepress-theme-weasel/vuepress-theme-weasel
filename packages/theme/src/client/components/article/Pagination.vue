@@ -37,7 +37,7 @@ const props = defineProps({
 
 const emit = defineEmits(['updateCurrentPage'])
 
-const locale = useLocaleConfig<PaginationLocaleData>(PAGINATION_LOCALES);
+// const locale = useLocaleConfig<PaginationLocaleData>(PAGINATION_LOCALES);
 
 const totalPages = computed(() => Math.ceil(props.total / props.perPage));
 const enable = computed(() => Boolean(totalPages.value) && totalPages.value !== 1)

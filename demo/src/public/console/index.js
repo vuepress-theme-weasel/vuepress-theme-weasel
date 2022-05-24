@@ -1,4 +1,4 @@
-/** 
+/**
     此文件修改完后打包时会被编译成es5语法，并输出到./compile.js，所以你不应该直接修改./compile.js文件，你也可以手动运行`npm run buildConsole`来编译
  */
 
@@ -43,7 +43,7 @@
    * @Desc: 格式化数据
    * data:数据、hasKey：是否是作为一个key的属性值、isLast：是否在对象或数组中是最后一项、visited：已经遍历过的对象/数组，用来检测循环引用、root：是否是根节点
    */
-  const stringify = (data, hasKey, isLast, visited) => {
+  const stringify = (data, hasKey, isLast, visited, root) => {
     let contentType = type(data);
     let str = "";
     let len = 0;
