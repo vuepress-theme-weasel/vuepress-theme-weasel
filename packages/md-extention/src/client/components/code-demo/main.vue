@@ -5,9 +5,7 @@
       <span class="title" v-if="title">{{ decodeURIComponent(title) }}</span>
     </div>
 
-    <div :class="['code-demo-container']" ref="demoWrapper">
-
-    </div>
+    <div :class="['code-demo-container']" ref="demoWrapper" :style="{ display: isLegal.value && loaded.value ? 'block' : 'none',}"></div>
 
     <div class="code-demo-code-wrapper">
       <div class="code-demo-codes-content" :style="{ height }">
@@ -15,8 +13,8 @@
           <slot></slot>
         </div>
       </div>
-      <div class="code-toggle" @click="toggleExpand">查看源码</div>
     </div>
+    <div class="code-toggle" @click="toggleExpand">{{ isExpanded ? '收起源码' : '查看源码'}}</div>
   </div>
 </template>
 
@@ -98,15 +96,16 @@ const initDom = (innerHTML = false): void => {
   appElement.classList.add("code-demo-app");
   shadowRoot.appendChild(appElement);
 
-  console.log(shadowRoot)
-
   if (isLegal.value) {
     if (innerHTML) appElement.innerHTML = code.value.html;
     injectCSS(shadowRoot, code.value);
     injectScript(props.id, shadowRoot, code.value);
 
     height.value = "0";
-  } else height.value = "auto";
+  } else {
+    height.value = "auto"
+    isExpanded.value = true
+  }
 
   loaded.value = true;
 };
