@@ -37,7 +37,7 @@ export default defineUserConfig({
   plugins: [
     docsearchPlugin({
       appId: "IQLMXQ9IEV",
-      apiKey: "cdd6e9451104abfc234cd36e94437bc6",
+      apiKey: "c9c9bf4b8fd0a10a98e2108989b694bf",
       indexName: "vuepress-theme-weasel",
       locales: {
         "/zh/": {
