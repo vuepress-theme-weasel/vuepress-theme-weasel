@@ -21,8 +21,16 @@ export default defineUserConfig({
       {
         rel: "stylesheet",
         href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css",
-      },
+      }
     ],
+    [
+      "script",
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5594713079666864',
+        async: 'true',
+        crossorigin: 'anonymous'
+      }
+    ]
   ],
   locales: {
     '/': {
