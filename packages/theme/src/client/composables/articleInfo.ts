@@ -40,7 +40,7 @@ export const useArticleCategory = (info: Ref<ArticleInfo>): CategoryRef => {
   return computed(() =>
     getCategory(info.value.category).map((name) => ({
       name,
-      path: categoryMap.value.map[name].path,
+      path: categoryMap.value.map[name] ? categoryMap.value.map[name].path : '',
     }))
   )
 }
@@ -53,7 +53,7 @@ export const useArticleTag = (info: Ref<ArticleInfo>): TagRef => {
   return computed(() =>
     getTag(info.value.tag).map((name) => ({
       name,
-      path: tagMap.value.map[name].path,
+      path: tagMap.value.map[name] ? tagMap.value.map[name].path : '',
     }))
   )
 }

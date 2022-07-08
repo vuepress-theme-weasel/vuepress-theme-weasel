@@ -4,11 +4,6 @@
 :root {
   --code-demo-header-bg-color: #eee;
 }
-
-// #{weasel-config.$dark-selector} {
-//   --code-demo-header-bg-color: #333;
-// }
-
 .code-demo-wrapper {
   margin: 10px 0;
   border: 1px solid var(--c-border, #eaecef);

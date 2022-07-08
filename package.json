@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev:libs": "pnpm --filter \"./packages/**\" --filter=!./packages/theme dev",
+    "dev:libs": "pnpm run --filter \"./packages/**\" --filter=!./packages/theme  --stream -r dev",
     "dev:theme": "pnpm run --filter \"./packages/theme\" dev",
     "dev:demo": "pnpm run --filter \"./demo\" dev",
     "clean": "pnpm run --stream -r clean",

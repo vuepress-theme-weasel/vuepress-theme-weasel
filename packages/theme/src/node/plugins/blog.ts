@@ -59,8 +59,9 @@ const sorter = (pageA: Page, pageB: Page): number => {
   const prevKey = pageA.frontmatter.sticky
   const nextKey = pageB.frontmatter.sticky
 
-  if (prevKey && nextKey && prevKey !== nextKey)
+  if (prevKey && nextKey && prevKey !== nextKey) {
     return Number(nextKey) - Number(prevKey)
+  }
   if (prevKey && !nextKey) return -1
   if (!prevKey && nextKey) return 1
 
@@ -73,7 +74,7 @@ const sorter = (pageA: Page, pageB: Page): number => {
 /**
  * 插件blog参数
  * @param options 。
- * @returns 
+ * @returns
  */
 export const getBlogOptions = (options?: ThemeBlogPluginOptions | false): BlogOptions | false => ({
   ...defaultOptions,
@@ -92,6 +93,29 @@ export const resolveBlog = (
 
   return blogPlugin({
     metaScope: '',
+
+    directoryClassifier: [
+      {
+        key: 'blog',
+        dirname: 'blog',
+        path: '/post/',
+        layout: 'Blog',
+        itemLayout: 'Blog',
+        frontmatter: {
+          blogArticle: 'blog',
+          blog: {
+            key: 'articleContent'
+          }
+        }
+      },
+      {
+        key: 'project',
+        dirname: '_project',
+        path: '/project/',
+        layout: 'Blog',
+        itemLayout: 'Blog'
+      }
+    ],
 
     filter: blogOptions.filter || defaultClassifierFilter,
 
@@ -132,7 +156,10 @@ export const resolveBlog = (
       {
         key: 'article',
         sorter,
-        filter: () => true,
+        filter: ({ frontmatter }) => {
+          console.log(frontmatter)
+          return frontmatter.blogArticle === 'blog'
+        },
         path: blogOptions.article,
         layout: 'Blog',
         frontmatter: (localePath) => ({
@@ -187,28 +214,6 @@ export const resolveBlog = (
         frontmatter: (localePath) => ({
           title: themeData.locales![localePath].blogLocales?.timeline,
         }),
-      }
-    ],
-
-    directoryClassifier: [
-      {
-        key: 'blog',
-        dirname: 'blog',
-        path: '/post/',
-        layout: 'Blog',
-        itemLayout: 'Blog',
-        frontmatter: {
-          blog: {
-            key: 'articleContent'
-          }
-        }
-      },
-      {
-        key: 'project',
-        dirname: '_project',
-        path: '/project/',
-        layout: 'Blog',
-        itemLayout: 'Blog'
       }
     ]
   })
