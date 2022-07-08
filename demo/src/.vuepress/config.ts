@@ -27,7 +27,7 @@ export default defineUserConfig({
       "script",
       {
         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5594713079666864',
-        async: 'true',
+        async: true,
         crossorigin: 'anonymous'
       }
     ]
