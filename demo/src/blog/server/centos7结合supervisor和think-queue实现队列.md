@@ -786,11 +786,7 @@ public function failed($jobData){
 
   其中，在`queues:helloJobQueue` 列表中，每个元素的形式如下：
 
-  ![redis中的队列-queue](redis中的队列-queue.png)
-
   在 `queues:helloJobQueue:delayed` 和 `queues:helloJobQueue:delayed` 有序集合中，每个元素的形式如下：
-
-  ![redis中的队列-queue-reserved](redis中的队列-queue-reserved.png)
 
   可以看到，在有序集合中，每个元素代表一个任务，该元素的 Score 为该任务的入队时间戳，任务的 value 为json 格式，保存了任务的执行情况和业务数据。将value decode 为数组后形式如下：
 
@@ -814,8 +810,6 @@ public function failed($jobData){
 
   表的字段结构如下:
 
-  ![数据库字段说明](数据库字段说明.png)
-
   其中，payLoad 字段保存了消息的执行者和业务数据，payLoad 字段采用 json 格式的字符串来保存消息，将其 decode 为数组后形式如下：
 
   ```php
@@ -826,8 +820,6 @@ public function failed($jobData){
   ```
 
 ### 3.2 thinkphp-queue 的目录结构和类关系图
-
-![thinkphp-queue的文件目录](thinkphp-queue的文件目录.png)
 
 这些类构成了消息队列中的几个角色：
 
