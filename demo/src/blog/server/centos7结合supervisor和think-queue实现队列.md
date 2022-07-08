@@ -93,7 +93,7 @@ category:
 
 ## 11.查看supervisord进程
 
-![进程](/assets/blogimg/supervisorctl_sh.png"进程")
+![进程](./images/supervisorctl_sh.png)
 
 --------------------------------------------------------------------------------
 
@@ -316,13 +316,9 @@ namespace application\index\controller;
 
 至此，所有的代码都已准备完毕，在运行消息队列之前，我们先看一下现在的目录结构：
 
-![目录结构-代码示例](目录结构-代码示例.png)
-
 ### 发布任务
 
 在浏览器中访问 <http://your.project.domain/index/job_test/actionWithHelloJob> ,可以看到消息推送成功。
-
-![浏览器提示消息推送结果](浏览器提示消息推送结果.png)
 
 ### 处理任务
 
@@ -333,8 +329,6 @@ php think queue:work --queue helloJobQueue
 ```
 
 可以看到执行的结果类似如下:
-
-![命令行执行结果](命令行执行结果.png)
 
 至此，我们成功地经历了一个消息的 创建 -> 推送 -> 消费 -> 删除 的基本流程
 
