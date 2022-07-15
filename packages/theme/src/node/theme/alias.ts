@@ -57,7 +57,7 @@ const getEntryAlias = (entry: string): [string, string] | null =>
  * @param app
  * @returns
  */
-const getRootAlias = (app: App): [string, string][] => {
+const getRootAlias = (): [string, string][] => {
   const alias: [string, string][] = [
     ['@', themeRootDir]
   ]
@@ -119,7 +119,7 @@ export const createAlias = (app: App) => {
 
   const alias = {
     ...Object.fromEntries([
-      ...getRootAlias(app)
+      ...getRootAlias()
     ]),
     ...getAlias(),
     // styles

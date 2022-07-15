@@ -84,7 +84,7 @@ const matchImageSource = (content: string) => {
 
 export const extendsPage = (
   app: App,
-  themeConfig: WeaselThemeConfig,
+  _themeConfig: WeaselThemeConfig,
   plugins: ThemePluginsOptions,
   page: Page<ThemePageData>,
   isDev = false
