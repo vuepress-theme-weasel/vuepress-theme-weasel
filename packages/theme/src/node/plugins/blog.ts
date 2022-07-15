@@ -157,7 +157,6 @@ export const resolveBlog = (
         key: 'article',
         sorter,
         filter: ({ frontmatter }) => {
-          console.log(frontmatter)
           return frontmatter.blogArticle === 'blog'
         },
         path: blogOptions.article,

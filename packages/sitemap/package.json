@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
     "clean": "rimraf lib *.tsbuildinfo",
-    "dev": "concurrently \"pnpm dev:copy\" \"pnpm dev:ts\"",
+    "dev": "pnpm dev:ts",
     "dev:copy": "cpx \"src/**/*.{d.ts,vue,scss}\" lib -w",
     "dev:ts": "tsc --build -w tsconfig.build.json"
   },

@@ -89,7 +89,6 @@ export const extendsPage = (
   page: Page<ThemePageData>,
   isDev = false
 ): void => {
-  if (app.env.isDebug) console.log('Theme themeConfig config:', themeConfig.author)
   // const { config = {} } = themeConfig.encrypt
   const frontmatter = page.frontmatter as ThemeNormalPageFrontmatter
   const { filePathRelative } = page

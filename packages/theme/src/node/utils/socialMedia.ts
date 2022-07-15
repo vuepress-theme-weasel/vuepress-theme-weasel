@@ -18,8 +18,6 @@ export const checkSocialMediaIcons = (
         `../../../templates/socialMediaIcons/${key.toLocaleLowerCase()}.svg`
       );
 
-      console.log(templatePath)
-
       if (fs.existsSync(templatePath)) {
         icons[key] = fs.readFileSync(templatePath, { encoding: "utf-8" });
 

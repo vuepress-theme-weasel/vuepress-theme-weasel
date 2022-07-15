@@ -58,9 +58,6 @@ const getEntryAlias = (entry: string): [string, string] | null =>
  * @returns
  */
 const getRootAlias = (app: App): [string, string][] => {
-  if (app.env.isDebug) {
-    console.log('-------------')
-  }
   const alias: [string, string][] = [
     ['@', themeRootDir]
   ]
