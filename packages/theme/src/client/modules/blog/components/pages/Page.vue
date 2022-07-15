@@ -55,7 +55,6 @@ const articles = useArticles();
 
 const pageType = computed<string>(() => {
   const { key } = frontmatter.value.blog || {}
-  console.log('================', key)
   return key === 'category'
         ? 'CategoryList'
         : key === 'tag'
@@ -69,10 +68,6 @@ const pageType = computed<string>(() => {
         : key === 'star'
         ? 'ArticleType'
         : 'articleContent'
-})
-
-watchEffect(() => {
-  console.log(pageType, frontmatter.value.blog)
 })
 
 const items = computed(() => {
@@ -135,7 +130,4 @@ onMounted(() => {
   updatePage(page ? Number(page) : 1);
 })
 
-watchEffect(() => {
-  console.log(route.path)
-})
 </script>

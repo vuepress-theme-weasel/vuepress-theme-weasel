@@ -111,7 +111,6 @@ const initDom = (innerHTML = false): void => {
 };
 
 const loadDemo = (): Promise<void> => {
-  console.log(code.value)
   switch (props.type) {
     case "vue": {
       return loadVue(code.value).then(() => initDom());

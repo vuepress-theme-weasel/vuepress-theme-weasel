@@ -73,8 +73,6 @@ const route = useRoute();
 const iconPrefix = useIconPrefix();
 const config = toRef(props, "config");
 
-console.log('cion', iconPrefix)
-
 const dropdownAriaLabel = computed(
   () => config.value.ariaLabel || config.value.text
 );

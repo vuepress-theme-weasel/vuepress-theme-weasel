@@ -31,8 +31,6 @@ import { RouterLink } from 'vue-router'
 
 const timelines = useTimelines();
 
-console.log('+++++++++++++++++++', timelines)
-
 </script>
 
 <style lang="scss" scoped>

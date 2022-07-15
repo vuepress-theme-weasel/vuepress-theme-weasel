@@ -19,7 +19,6 @@ const features = computed(() => {
   return []
 })
 
-console.log(features)
 </script>
 
 <style lang="scss" scoped>

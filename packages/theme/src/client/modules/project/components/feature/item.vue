@@ -36,7 +36,6 @@ const props = defineProps({
     type: Object as PropType<ThemeProjectHomePageFrontmatter>
   }
 })
-console.log('++++++++++', props)
 const iconPrefix = useIconPrefix()
 
 </script>

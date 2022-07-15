@@ -13,8 +13,6 @@ import ThemeColorPickerVue from './ThemeColorPicker.vue';
 const themeData = useThemeData();
 const themeLocale = useThemeLocaleData();
 
-console.log(themeLocale)
-
 const locale = computed(() => themeLocale.value.outlookLocales.themeColor);
 
 const themeColor = computed(() => {

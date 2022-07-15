@@ -257,8 +257,6 @@ onMounted(() => {
     initPoints(width.value, height.value, context);
     initAnimation(context!, target);
     addListeners(target, height.value);
-
-    console.log(points.value)
   }
 })
 
