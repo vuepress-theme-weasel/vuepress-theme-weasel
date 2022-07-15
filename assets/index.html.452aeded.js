@@ -1,0 +1,1 @@
+const e={key:"v-7fb1cefe",path:"/tag/composer/",title:"composer \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"composer \u6807\u7B7E",blog:{type:"frontmatter",name:"composer",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{e as data};

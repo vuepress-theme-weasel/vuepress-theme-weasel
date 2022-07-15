@@ -1,0 +1,1 @@
+const t={key:"v-1bee38ca",path:"/tag/mysql/",title:"mysql \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"mysql \u6807\u7B7E",blog:{type:"frontmatter",name:"mysql",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

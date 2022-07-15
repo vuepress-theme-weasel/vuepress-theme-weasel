@@ -1,0 +1,1 @@
+const t={key:"v-65f3e9cf",path:"/category/php/",title:"Php \u5206\u7C7B",lang:"zh-CN",frontmatter:{title:"Php \u5206\u7C7B",blog:{type:"frontmatter",name:"Php",key:"category"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

@@ -1,0 +1,1 @@
+const t={key:"v-95b29426",path:"/category/nginx/",title:"Nginx \u5206\u7C7B",lang:"zh-CN",frontmatter:{title:"Nginx \u5206\u7C7B",blog:{type:"frontmatter",name:"Nginx",key:"category"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

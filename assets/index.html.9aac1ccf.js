@@ -1,0 +1,1 @@
+const t={key:"v-14c2511a",path:"/tag/php-splstack/",title:"php SplStack \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"php SplStack \u6807\u7B7E",blog:{type:"frontmatter",name:"php SplStack",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

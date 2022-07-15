@@ -1,0 +1,1 @@
+const t={key:"v-1b1c1a1e",path:"/tag/php7.1-redis/",title:"php7.1 redis \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"php7.1 redis \u6807\u7B7E",blog:{type:"frontmatter",name:"php7.1 redis",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};
