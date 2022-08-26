@@ -12,7 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          clear: false
+          clean: false
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
