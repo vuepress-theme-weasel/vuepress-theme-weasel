@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="article-content-container">
-      <h1 class="article-title">{{ pageData.title }}</h1>
+      <div class="article-title">{{ pageData.title }}</div>
       <div class="article-info">
         <div class="article-author article-info__item">
           <AuthorIcon />

@@ -10,6 +10,8 @@ category:
 
 request 是nodejs最常用的库之一，大多时候我们是需要将其promise化的方便我们的项目使用，具体的封装如下：
 
+<!-- more -->
+
 ```javascript
 const request = require( 'request' )
 const query = require( 'qs' )
@@ -64,7 +66,6 @@ export const httpRequest = ( url, data = {}, type = 'GET', header = {}, debug = 
 	} )
 }
 ```
-<!-- more -->
 typescript版本：
 
 ```typescript
