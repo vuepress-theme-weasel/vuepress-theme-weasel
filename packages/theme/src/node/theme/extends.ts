@@ -94,10 +94,6 @@ export const extendsPage = (
   const { filePathRelative } = page
   const { createdTime } = page.data.git || {}
 
-  console.log('======= GIT DATE ===========')
-  console.log(page.data.git);
-  console.log('======= GIT DATE ===========')
-
   checkFrontmatter(page, isDev)
 
   // save relative file path into page data to generate edit link
@@ -145,10 +141,6 @@ export const extendsPage = (
     if ('date' in frontmatter) page.routeMeta.date = frontmatter.date
     else if (createdTime) page.routeMeta.date = new Date(createdTime)
 
-    console.log('======= page DATE ===========')
-    console.log(page.routeMeta.date);
-    console.log('======= page DATE ===========')
-
     if ('category' in frontmatter)
       // resolve category
       page.routeMeta.category = frontmatter.category
@@ -165,6 +157,7 @@ export const extendsPage = (
     // resolve image
     if ('cover' in frontmatter) page.routeMeta.cover = frontmatter.cover
     const images = matchImageSource(page.contentRendered)
+
     if (images.length) page.routeMeta.cover = (app.env.isDev ? images[0].replace('@source', `/@fs/${app.dir.source().replace('\\', '/')}`) : images[0])
 
     // resolve isOriginal

@@ -43,3 +43,6 @@ declare module "@temp/blog/frontmatter" {
 
   export const frontmatterMap: Record<string, FrontmatterMap>;
 }
+
+
+declare module 'cpx2';

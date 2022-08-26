@@ -1,9 +1,12 @@
 /**
  * blog plugin
  */
+import { watch } from 'chokidar'
+import path from 'path'
+import cpx from 'cpx2'
+
 import { filterPages, logger } from './utils'
 import { preparePageType, prepareFrontmatter, prepareDirectories, directoriesExtendsPageOptions } from './classifier'
-import { watch } from 'chokidar'
 import { preparePageComponent, preparePageData, preparePagesComponents, preparePagesData, preparePagesRoutes } from '@vuepress/core'
 
 import type { PluginFunction } from '@vuepress/core'
@@ -147,6 +150,25 @@ export const blogPlugin = (options: BlogOptions):PluginFunction => (app) => {
       })
 
       watchers.push(pageDataWatcher);
+    },
+
+    onGenerated(app) {
+      if (app.env.isBuild) {
+        const { directoryClassifier = []} = options
+
+        const dirMap = directoryClassifier.map(item => {
+          return {
+            source: app.dir.source(item.dirname),
+            target: path.posix.join(app.dir.dest(), item.path)
+          }
+        })
+
+        dirMap.forEach(item => {
+          const { source, target } = item
+          cpx.copy(`${source}/**/*.{jpg,jpeg,png,gif,bmp,xml}`, target)
+        })
+        logger.success('copy static file success!')
+      }
     }
   }
 }

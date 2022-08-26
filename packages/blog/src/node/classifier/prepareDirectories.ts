@@ -40,10 +40,10 @@ const filterDir = (options: BlogOptions, pages: PageMap) => {
 
 /**
  * 目录分配器
- * @param app 
- * @param options 
- * @param pages 
- * @returns 
+ * @param app
+ * @param options
+ * @param pages
+ * @returns
  */
 export const prepareDirectories = (app: App, options: BlogOptions, pages: PageMap) => {
   return Promise.all(filterDir(options, pages)).then(async (result) => {
