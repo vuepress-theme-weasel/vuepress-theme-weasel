@@ -89,7 +89,9 @@ export const directoriesExtendsPageOptions = (app:App, pageOptions: PageOptions,
         ...pageOptions.frontmatter,
         layout: isIndex ? layout : itemLayout,
         ...frontmatter,
-        classifier: key
+        classifier: key,
+        pageSourceDir: dirname,
+        pageNewPath: indexPath
       }
       const filePathRelative = filePath.replace(sourceDir + '/', '')
       const pathDir = path.dirname(filePathRelative)

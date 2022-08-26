@@ -89,6 +89,7 @@ export const extendsPage = (
   page: Page<ThemePageData>,
   isDev = false
 ): void => {
+  if (app.env.isDev) {}
   // const { config = {} } = themeConfig.encrypt
   const frontmatter = page.frontmatter as ThemeNormalPageFrontmatter
   const { filePathRelative } = page
@@ -156,9 +157,6 @@ export const extendsPage = (
 
     // resolve image
     if ('cover' in frontmatter) page.routeMeta.cover = frontmatter.cover
-    const images = matchImageSource(page.contentRendered)
-
-    if (images.length) page.routeMeta.cover = (app.env.isDev ? images[0].replace('@source', `/@fs/${app.dir.source().replace('\\', '/')}`) : images[0])
 
     // resolve isOriginal
     if ('isOriginal' in frontmatter)

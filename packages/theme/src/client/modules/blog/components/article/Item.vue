@@ -6,10 +6,10 @@
         <!-- <LockIcon v-if="false" /> -->
         <SlideIcon v-if="info.type === 'slide'"/>
         <span property="headline">{{ info.title }}</span>
-        <meta v-if="info.cover" property="image" :content="withBase(info.cover)"/>
+        <meta v-if="info.cover" property="image" :content="info.cover"/>
       </RouterLink>
     </header>
-    <ItemImage v-if="info.cover" :url="withBase(info.cover)" :title="info.title"/>
+    <ItemImage v-if="info.cover" :url="info.cover" :title="info.title"/>
     <div class="excerpt" v-html="info.excerpt" />
     <RouterLink :to="path" class="article-read-more">阅读全文</RouterLink>
     <hr class="hr" />

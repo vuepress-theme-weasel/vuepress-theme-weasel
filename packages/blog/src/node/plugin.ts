@@ -12,6 +12,19 @@ import { preparePageComponent, preparePageData, preparePagesComponents, prepareP
 import type { PluginFunction } from '@vuepress/core'
 import type { BlogOptions } from '../typings'
 
+/**
+ * 匹配出所有的Image Url
+ */
+const matchImageSource = (content: string) => {
+  var patt = /<img[^>]+src=['"]([^'"]+)['"]+/g;
+  var result = [],
+    temp;
+  while ((temp = patt.exec(content)) != null) {
+    result.push(temp[1])
+  }
+  return result
+}
+
 export const blogPlugin = (options: BlogOptions):PluginFunction => (app) => {
   const {
     getInfo = (): Record<string, never> => ({}),
@@ -32,6 +45,26 @@ export const blogPlugin = (options: BlogOptions):PluginFunction => (app) => {
         ...(metaScope === '' ? getInfo(page) : { [metaScope]: getInfo(page) }),
         ...page.routeMeta,
       }
+
+      // 此处处理图片问题
+      if (app.env.isDev) {
+        page.contentRendered = page.contentRendered.replace(/@source/g, `/@fs/${app.dir.source().replace('\\', '/')}`)
+      }
+      const images = matchImageSource(page.contentRendered)
+      let cover = images[0] || ''
+      if (app.env.isBuild) {
+        const { pageSourceDir, pageNewPath } = page.frontmatter
+
+        if (pageSourceDir && pageNewPath) {
+          const source = pageSourceDir as string
+          const targetPath =  pageNewPath as string
+          const reg = new RegExp(`@source/${source}/`, 'g')
+          cover = cover.replace(reg, targetPath)
+        }
+      }
+      cover = cover || ''
+      if (images.length) page.routeMeta.cover = cover
+
     },
 
     // 为页面增强
@@ -42,19 +75,35 @@ export const blogPlugin = (options: BlogOptions):PluginFunction => (app) => {
     // 初始化时创建页面
     onInitialized(app) {
       const pages = filterPages(options, app)
-      return Promise.all([
-          preparePageType(app, options, pages, true).then(keys => {
-            generatePageKeys.push(...keys)
-          }),
-          prepareDirectories(app, options, pages).then(keys => {
-            generatePageKeys.push(...keys)
-          }),
-          prepareFrontmatter(app, options, pages, true).then(keys => {
-            generatePageKeys.push(...keys)
-          })
-        ]).then(() => {
-          // console.log(app.pages)
+      if (app.env.isBuild) {
+        const { directoryClassifier = []} = options
+
+        const dirMap = directoryClassifier.map(item => {
+          return {
+            source: app.dir.source(item.dirname),
+            target: path.posix.join(app.dir.dest(), item.path)
+          }
         })
+
+        dirMap.forEach(item => {
+          const { source, target } = item
+          cpx.copy(`${source}/**/*.{jpg,jpeg,png,gif,bmp,xml}`, target)
+        })
+        logger.success('copy static file success!')
+      }
+      return Promise.all([
+        preparePageType(app, options, pages, true).then(keys => {
+          generatePageKeys.push(...keys)
+        }),
+        prepareDirectories(app, options, pages).then(keys => {
+          generatePageKeys.push(...keys)
+        }),
+        prepareFrontmatter(app, options, pages, true).then(keys => {
+          generatePageKeys.push(...keys)
+        })
+      ]).then(() => {
+        // console.log(app.pages)
+      })
     },
 
     onWatched: (app, watchers): void => {
@@ -150,25 +199,6 @@ export const blogPlugin = (options: BlogOptions):PluginFunction => (app) => {
       })
 
       watchers.push(pageDataWatcher);
-    },
-
-    onGenerated(app) {
-      if (app.env.isBuild) {
-        const { directoryClassifier = []} = options
-
-        const dirMap = directoryClassifier.map(item => {
-          return {
-            source: app.dir.source(item.dirname),
-            target: path.posix.join(app.dir.dest(), item.path)
-          }
-        })
-
-        dirMap.forEach(item => {
-          const { source, target } = item
-          cpx.copy(`${source}/**/*.{jpg,jpeg,png,gif,bmp,xml}`, target)
-        })
-        logger.success('copy static file success!')
-      }
     }
   }
 }
