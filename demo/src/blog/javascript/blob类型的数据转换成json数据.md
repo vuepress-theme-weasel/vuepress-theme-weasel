@@ -3,7 +3,6 @@ title: Blob类型数据转换Json数据类型
 layout: Blog
 category:
   - JavaScript
-  - Blob
 tag:
   - JavaScript
   - Blob

@@ -1,7 +1,6 @@
 ---
 title: canvas文字粒子特效(含运动)
 category:
-  - frontend
   - canvas
 tag:
   - canvas

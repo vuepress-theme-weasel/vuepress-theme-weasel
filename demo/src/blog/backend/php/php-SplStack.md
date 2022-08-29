@@ -2,8 +2,6 @@
 title: php SplStack的认识和使用
 tag:
   - php
-  - spl
-  - php SplStack
 category:
   - php
   - spl

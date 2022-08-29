@@ -4,11 +4,12 @@ tag:
   - linux
 category:
   - 服务器操作
-  - 命令
 ---
 
 ## 重启php-fpm
+
 ### 查看php-fpm的master进程号
+
 ```bash
 # ps aux|grep php-fpm
 root     21891  0.0  0.0 112660   960 pts/3    R+   16:18   0:00 grep --color=auto php-fpm
@@ -18,6 +19,7 @@ nobody   42893  0.0  0.6 183000  6508 ?        S    4月18   0:17 php-fpm: pool 
 ```
 
 ### 重启php-fpm:
+
 ```bash
 kill -USR2 42891
 ```
@@ -36,14 +38,19 @@ redis-server: /usr/bin/redis-server
 ```
 
 ### 检测后台进程是否存在
+
 ```bash
 ps -ef |grep redis
 ```
+
 ### 检测redis端口
+
 ```bash
 netstat -lntp | grep 6379
 ```
+
 ### 使用redis-cli客户端检测连接是否正常
+
 ```bash
 redis-cli
 127.0.0.1:6379> keys *
@@ -53,29 +60,43 @@ OK
 127.0.0.1:6379> get key
 "hello world"
 ```
+
 ### 停止redis
+
 #### 使用客户端
+
 ```bash
 redis-cli shutdown
 ```
+
 #### 因为Redis可以妥善处理SIGTERM信号，所以直接kill -9也是可以的
+
 ```bash
 kill -9 PID
 ```
+
 ## iptables简单配置方法
+
 ### 修改方式一: 直接修改配置文件
+
 ```bash
 vim /etc/sysconfig/iptables
 ```
+
 ### 修改方式二：通过iptables命令添加
+
 ```bash
 iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 ```
+
 ### 重启iptables
+
 ```bash
 service iptables restart
 ```
+
 ### 配置文件解释
+
 ```bash
 *filter
 #默认INPUT 的策略是DROP 即拒绝所有的外来请求
@@ -97,6 +118,7 @@ COMMIT
 ```
 
 ### chmod: 更改'authorized_keys' 的权限: 不允许的操作
+
 原因
 在linux系统下
 
