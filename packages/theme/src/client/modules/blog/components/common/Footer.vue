@@ -9,7 +9,10 @@
         </div>
       </div>
     </div>
-    <div class="footer">{{ footer }}</div>
+    <div class="footer">
+      <p>{{ footer }}</p>
+      <a href="https://beian.miit.gov.cn">粤ICP备2022100010号-1</a>
+    </div>
   </footer>
 </template>
 

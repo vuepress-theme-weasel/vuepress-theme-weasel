@@ -27,8 +27,6 @@ projects:
     name: 文章名称
     desc: 文章详细描述
     link: https://你的文章链接
-
-footer: 自定义你的页脚文字
 ---
 
 这是一个博客主页。
