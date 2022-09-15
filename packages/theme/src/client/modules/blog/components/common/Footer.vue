@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="footer">
-      <p>{{ footer }}</p>
+      <p v-if="footer">{{ footer }}</p>
       <a href="https://beian.miit.gov.cn">粤ICP备2022100010号-1</a>
     </div>
   </footer>
