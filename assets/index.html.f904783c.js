@@ -1,0 +1,1 @@
+const t={key:"v-b302da92",path:"/tag/vue/",title:"vue \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"vue \u6807\u7B7E",blog:{type:"frontmatter",name:"vue",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

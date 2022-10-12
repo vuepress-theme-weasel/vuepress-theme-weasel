@@ -1,0 +1,16 @@
+const n={key:"v-4de8c17b",path:"/post/vue/vue%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/vue%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4%E7%9A%84jsx%E8%AF%AD%E6%B3%95.html",title:"vue\u81EA\u5B9A\u4E49\u6307\u4EE4jsx\u8BED\u6CD5",lang:"zh-CN",frontmatter:{layout:"Blog",blogArticle:"blog",blog:{key:"articleContent"},classifier:"blog",pageSourceDir:"blog",pageNewPath:"/post/",permalinkPattern:"/post/vue/vue\u4F7F\u7528\u6280\u5DE7/:slug.html",indexPath:"/post/",dirname:"blog",title:"vue\u81EA\u5B9A\u4E49\u6307\u4EE4jsx\u8BED\u6CD5"},excerpt:`<p>vue\u4E2D\u81EA\u5B9A\u4E49\u6307\u4EE4\u4F7F\u7528jsx\u8BED\u6CD5\u5B9E\u73B0</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token function">hide</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>visible <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">render</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> directives <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'clickoutside'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>hide
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token punctuation">{</span> <span class="token operator">...</span><span class="token punctuation">{</span> directives <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,headers:[],git:{createdTime:1647216361e3,updatedTime:1651592458e3,contributors:[{name:"CavinHuang",email:"sujinw@qq.com",commits:3},{name:"cavinHuang",email:"943866180@qq.com",commits:2}]},filePathRelative:"blog/vue/vue\u4F7F\u7528\u6280\u5DE7/vue\u81EA\u5B9A\u4E49\u6307\u4EE4\u7684jsx\u8BED\u6CD5.md"};export{n as data};

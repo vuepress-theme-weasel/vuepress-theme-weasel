@@ -1,0 +1,1 @@
+const t={key:"v-801db588",path:"/tag/typescript/",title:"typescript \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"typescript \u6807\u7B7E",blog:{type:"frontmatter",name:"typescript",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};

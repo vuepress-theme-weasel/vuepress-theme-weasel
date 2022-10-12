@@ -1,0 +1,1 @@
+const t={key:"v-3891cf12",path:"/tag/emoji/",title:"Emoji \u6807\u7B7E",lang:"zh-CN",frontmatter:{title:"Emoji \u6807\u7B7E",blog:{type:"frontmatter",name:"Emoji",key:"tag"},layout:"Blog"},excerpt:"",headers:[],git:{},filePathRelative:null};export{t as data};
